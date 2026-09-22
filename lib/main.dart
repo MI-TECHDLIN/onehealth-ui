@@ -69,9 +69,9 @@ class _FoundationHomeScreen extends StatelessWidget {
                   if (kDebugMode) ...<Widget>[
                     const SizedBox(height: AppSpacing.lg),
                     FilledButton.icon(
-                      onPressed: () =>
-                          Navigator.of(context)
-                              .pushNamed(MascotGalleryScreen.routeName),
+                      onPressed: () => Navigator.of(
+                        context,
+                      ).pushNamed(MascotGalleryScreen.routeName),
                       icon: const Icon(Icons.water_drop_outlined),
                       label: const Text('Review all moods'),
                     ),

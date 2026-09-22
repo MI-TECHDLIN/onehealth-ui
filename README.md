@@ -11,9 +11,9 @@ Flutter application for the OneAquaHealth citizen-science experience.
 - `lib/core/mascot/aqua_mascot.dart` contains the lightweight, code-drawn water
   companion and its smoothly interpolated mood states.
 
-In a debug build, use the palette button on the foundation screen or navigate to
-`/debug/mascot` to review and interact with every mascot mood. The debug route is
-not registered in release builds.
+In a debug build, use the "Review all moods" button on the foundation screen or
+navigate to `/debug/mascot` to review and interact with every mascot mood. The
+debug route is not registered in release builds.
 
 ## Validation
 
