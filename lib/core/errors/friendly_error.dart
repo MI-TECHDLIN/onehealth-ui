@@ -10,6 +10,7 @@ library;
 /// corresponding branch in [FriendlyError.fromFailure]) when a new failure
 /// case needs its own copy.
 enum FriendlyErrorKind {
+  invalidCredentials,
   unauthorized,
   noConnection,
   payloadTooLarge,
@@ -19,14 +20,17 @@ enum FriendlyErrorKind {
 
 /// Pure-Dart translation of failure information into user-facing copy.
 abstract final class FriendlyError {
+  static const String invalidCredentials =
+      "That email or password didn't match. Check them and try again.";
+
   static const String sessionExpired =
-      "Your session timed out — log back in to keep going, your answers are saved.";
+      "Your session timed out — log back in to keep going.";
 
   static const String noConnection =
       "No connection right now. We'll try again once you're back online.";
 
   static const String payloadTooLarge =
-      "That photo's a bit large. Try a smaller photo, or crop it down before uploading.";
+      "That file is too large. Try a smaller file, or crop it down before uploading.";
 
   static const String serverError =
       "Something went wrong on our end — not yours. Try again in a moment.";
@@ -35,13 +39,16 @@ abstract final class FriendlyError {
 
   /// Returns the plain-language message for a failure.
   ///
-  /// Pass whatever is available: an HTTP [statusCode], the raw [error]
-  /// (an [Exception], an error object, or a message [String]), and/or an
-  /// already-known [kind]. When [kind] is omitted it is inferred via
-  /// [classify]. Unmapped/unrecognized failures fall back to [generic]
-  /// rather than leaking the original message or status code.
-  static String fromFailure({int? statusCode, Object? error, FriendlyErrorKind? kind}) {
-    switch (kind ?? classify(statusCode: statusCode, error: error)) {
+  /// Pass whatever is available: an HTTP [statusCode] and/or the raw
+  /// [error] (an [Exception], an error object, or a message [String]). Set
+  /// [isSignIn] when the failure came from a sign-in attempt so a 401 is
+  /// reported as bad credentials rather than an expired session. The kind is
+  /// inferred via [classify]. Unmapped/unrecognized failures fall back to
+  /// [generic] rather than leaking the original message or status code.
+  static String fromFailure({int? statusCode, Object? error, bool isSignIn = false}) {
+    switch (classify(statusCode: statusCode, error: error, isSignIn: isSignIn)) {
+      case FriendlyErrorKind.invalidCredentials:
+        return invalidCredentials;
       case FriendlyErrorKind.unauthorized:
         return sessionExpired;
       case FriendlyErrorKind.noConnection:
@@ -61,8 +68,10 @@ abstract final class FriendlyError {
   /// for connectivity failures (works across `dart:io` `SocketException`,
   /// `http`'s `ClientException`, `dio`'s `DioException`, and web's
   /// "Failed to fetch", without depending on those packages directly).
-  static FriendlyErrorKind classify({int? statusCode, Object? error}) {
-    if (statusCode == 401) return FriendlyErrorKind.unauthorized;
+  static FriendlyErrorKind classify({int? statusCode, Object? error, bool isSignIn = false}) {
+    if (statusCode == 401) {
+      return isSignIn ? FriendlyErrorKind.invalidCredentials : FriendlyErrorKind.unauthorized;
+    }
     if (statusCode == 413) return FriendlyErrorKind.payloadTooLarge;
     if (statusCode != null && statusCode >= 500 && statusCode < 600) {
       return FriendlyErrorKind.serverError;
@@ -90,6 +99,10 @@ abstract final class FriendlyError {
       'socketexception',
       'connection refused',
       'connection failed',
+      'connection error',
+      'connection timeout',
+      'connection timed out',
+      'xmlhttprequest error',
       'connection closed',
       'network is unreachable',
       'failed host lookup',

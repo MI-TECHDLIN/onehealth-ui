@@ -57,14 +57,20 @@ void main() {
       expect(message.toLowerCase().contains('secret'), isFalse);
     });
 
-    test('an explicit kind overrides inference from statusCode/error', () {
-      expect(
-        FriendlyError.fromFailure(
-          statusCode: 200,
-          kind: FriendlyErrorKind.serverError,
-        ),
-        FriendlyError.serverError,
-      );
+    test('maps a sign-in 401 to invalid-credentials copy', () {
+      final message = FriendlyError.fromFailure(statusCode: 401, isSignIn: true);
+      expect(message, FriendlyError.invalidCredentials);
+      expect(message, isNot(FriendlyError.sessionExpired));
+    });
+
+    test('maps dio and web client connectivity messages to no-connection copy', () {
+      for (final error in [
+        'DioException [connection error]: The connection errored: Connection failed',
+        'DioException [connection timeout]: The request connection took longer than 0:00:10.000000',
+        'ClientException: XMLHttpRequest error., uri=https://example.com',
+      ]) {
+        expect(FriendlyError.fromFailure(error: error), FriendlyError.noConnection);
+      }
     });
   });
 }
