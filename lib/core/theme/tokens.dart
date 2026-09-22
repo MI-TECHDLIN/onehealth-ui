@@ -19,6 +19,9 @@ abstract final class AppColors {
   static const Color sage = Color(0xFF78A98A);
   static const Color sageLight = Color(0xFFDDEBDD);
 
+  // Celebration accents, kept separate from the stream-quality semantics.
+  static const Color sparkle = Color(0xFFFFE6AB);
+
   // Stream-quality semantics: good, moderate, and poor.
   static const Color success = Color(0xFF2E8B62);
   static const Color successContainer = Color(0xFFD8F2E2);

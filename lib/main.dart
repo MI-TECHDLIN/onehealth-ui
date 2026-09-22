@@ -42,19 +42,7 @@ class _FoundationHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OneAquaHealth'),
-        actions: <Widget>[
-          if (kDebugMode)
-            IconButton(
-              tooltip: 'Open mascot gallery',
-              onPressed: () => Navigator.of(
-                context,
-              ).pushNamed(MascotGalleryScreen.routeName),
-              icon: const Icon(Icons.palette_outlined),
-            ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('OneAquaHealth')),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(AppSpacing.page),
@@ -81,9 +69,9 @@ class _FoundationHomeScreen extends StatelessWidget {
                   if (kDebugMode) ...<Widget>[
                     const SizedBox(height: AppSpacing.lg),
                     FilledButton.icon(
-                      onPressed: () => Navigator.of(
-                        context,
-                      ).pushNamed(MascotGalleryScreen.routeName),
+                      onPressed: () =>
+                          Navigator.of(context)
+                              .pushNamed(MascotGalleryScreen.routeName),
                       icon: const Icon(Icons.water_drop_outlined),
                       label: const Text('Review all moods'),
                     ),

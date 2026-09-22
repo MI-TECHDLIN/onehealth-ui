@@ -31,6 +31,21 @@ void main() {
     expect(midpoint.eyeOpenness, closeTo(0.54, 0.001));
   });
 
+  test('overshooting progress moves the pose but keeps alpha in range', () {
+    final overshoot = MascotMoodSpec.lerp(
+      MascotMoodSpec.idle,
+      MascotMoodSpec.celebrating,
+      1.1,
+    );
+
+    expect(
+      overshoot.widthScale,
+      greaterThan(MascotMoodSpec.celebrating.widthScale),
+    );
+    expect(overshoot.sparkles, 1);
+    expect(overshoot.bodyColor, MascotMoodSpec.celebrating.bodyColor);
+  });
+
   testWidgets('app shell uses the new theme and opens the debug gallery', (
     tester,
   ) async {
@@ -97,5 +112,45 @@ void main() {
     final painter = paint.painter! as AquaMascotPainter;
     expect(painter.spec.sparkles, greaterThan(0));
     expect(painter.spec.sparkles, lessThan(1));
+  });
+
+  testWidgets('celebration entrance overshoots before settling', (
+    tester,
+  ) async {
+    final mood = ValueNotifier<MascotMood>(MascotMood.idle);
+    addTearDown(mood.dispose);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ValueListenableBuilder<MascotMood>(
+          valueListenable: mood,
+          builder: (context, value, child) => AquaMascot(mood: value),
+        ),
+      ),
+    );
+
+    MascotMoodSpec paintedSpec() {
+      final paint = tester.widget<CustomPaint>(
+        find.descendant(
+          of: find.byType(AquaMascot),
+          matching: find.byType(CustomPaint),
+        ),
+      );
+      return (paint.painter! as AquaMascotPainter).spec;
+    }
+
+    mood.value = MascotMood.celebrating;
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 420));
+    expect(
+      paintedSpec().widthScale,
+      greaterThan(MascotMoodSpec.celebrating.widthScale),
+    );
+
+    await tester.pump(AppMotion.celebrationEntrance);
+    expect(
+      paintedSpec().widthScale,
+      closeTo(MascotMoodSpec.celebrating.widthScale, 0.0001),
+    );
   });
 }

@@ -171,11 +171,17 @@ class MascotMoodSpec {
     MascotMoodSpec end,
     double t,
   ) {
+    final unitT = t.clamp(0.0, 1.0);
     double value(double a, double b) => a + (b - a) * t;
+    double unit(double a, double b) => a + (b - a) * unitT;
 
     return MascotMoodSpec(
-      bodyColor: Color.lerp(begin.bodyColor, end.bodyColor, t)!,
-      highlightColor: Color.lerp(begin.highlightColor, end.highlightColor, t)!,
+      bodyColor: Color.lerp(begin.bodyColor, end.bodyColor, unitT)!,
+      highlightColor: Color.lerp(
+        begin.highlightColor,
+        end.highlightColor,
+        unitT,
+      )!,
       tilt: value(begin.tilt, end.tilt),
       widthScale: value(begin.widthScale, end.widthScale),
       heightScale: value(begin.heightScale, end.heightScale),
@@ -185,10 +191,10 @@ class MascotMoodSpec {
       pupilOffset: value(begin.pupilOffset, end.pupilOffset),
       smile: value(begin.smile, end.smile),
       mouthOpenness: value(begin.mouthOpenness, end.mouthOpenness),
-      browConcern: value(begin.browConcern, end.browConcern),
-      thinkingAccent: value(begin.thinkingAccent, end.thinkingAccent),
-      sparkles: value(begin.sparkles, end.sparkles),
-      sweatDrop: value(begin.sweatDrop, end.sweatDrop),
+      browConcern: unit(begin.browConcern, end.browConcern),
+      thinkingAccent: unit(begin.thinkingAccent, end.thinkingAccent),
+      sparkles: unit(begin.sparkles, end.sparkles),
+      sweatDrop: unit(begin.sweatDrop, end.sweatDrop),
       bobAmount: value(begin.bobAmount, end.bobAmount),
       pulseAmount: value(begin.pulseAmount, end.pulseAmount),
     );
@@ -270,9 +276,7 @@ class _AquaMascotState extends State<AquaMascot> with TickerProviderStateMixin {
   }
 
   MascotMoodSpec get _displayedSpec {
-    final progress = _morphCurve
-        .transform(_morphController.value)
-        .clamp(0.0, 1.0);
+    final progress = _morphCurve.transform(_morphController.value);
     return MascotMoodSpec.lerp(_fromSpec, _toSpec, progress);
   }
 
@@ -464,40 +468,47 @@ class AquaMascotPainter extends CustomPainter {
         ..drawLine(const Offset(114, 104), const Offset(131, 108), browPaint);
     }
 
-    if (spec.mouthOpenness > 0.28) {
-      final height = 8 + 23 * spec.mouthOpenness;
-      final mouth = RRect.fromRectAndRadius(
-        Rect.fromCenter(
-          center: const Offset(100, 158),
-          width: 39,
-          height: height,
-        ),
-        const Radius.circular(AppRadii.md),
-      );
-      canvas.drawRRect(mouth, facePaint);
-      canvas.drawArc(
-        Rect.fromCenter(
-          center: Offset(100, 162 + height * 0.18),
-          width: 26,
-          height: 10,
-        ),
-        0,
-        math.pi,
-        true,
-        Paint()..color = AppColors.peach,
-      );
-      return;
+    final open = ((spec.mouthOpenness - 0.28) / 0.3).clamp(0.0, 1.0);
+    if (open < 1) {
+      final mouthPaint = Paint()
+        ..color = AppColors.navy.withValues(alpha: 1 - open)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 4
+        ..strokeCap = StrokeCap.round;
+      final mouth = Path()
+        ..moveTo(85, 153)
+        ..quadraticBezierTo(100, 153 + spec.smile * 14, 115, 153);
+      canvas.drawPath(mouth, mouthPaint);
     }
+    if (open <= 0) return;
 
-    final mouthPaint = Paint()
-      ..color = AppColors.navy
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 4
-      ..strokeCap = StrokeCap.round;
-    final mouth = Path()
-      ..moveTo(85, 153)
-      ..quadraticBezierTo(100, 153 + spec.smile * 14, 115, 153);
-    canvas.drawPath(mouth, mouthPaint);
+    final height = (8 + 23 * spec.mouthOpenness) * open;
+    final mouth = RRect.fromRectAndRadius(
+      Rect.fromCenter(
+        center: const Offset(100, 158),
+        width: 39,
+        height: height,
+      ),
+      const Radius.circular(AppRadii.md),
+    );
+    canvas.drawRRect(
+      mouth,
+      Paint()..color = AppColors.navy.withValues(alpha: open),
+    );
+    canvas.save();
+    canvas.clipRRect(mouth);
+    canvas.drawArc(
+      Rect.fromCenter(
+        center: Offset(100, 162 + height * 0.18),
+        width: 26,
+        height: 10,
+      ),
+      0,
+      math.pi,
+      true,
+      Paint()..color = AppColors.peach.withValues(alpha: open),
+    );
+    canvas.restore();
   }
 
   void _drawSweatDrop(Canvas canvas) {
@@ -532,7 +543,7 @@ class AquaMascotPainter extends CustomPainter {
     if (spec.sparkles <= 0) return;
     final scale = spec.sparkles * (1 + wave * 0.12);
     final paint = Paint()
-      ..color = AppColors.warningContainer.withValues(alpha: spec.sparkles)
+      ..color = AppColors.sparkle.withValues(alpha: spec.sparkles)
       ..style = PaintingStyle.fill;
     for (final center in const <Offset>[
       Offset(25, 60),
