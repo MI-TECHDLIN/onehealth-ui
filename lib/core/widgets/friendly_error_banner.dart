@@ -85,7 +85,11 @@ void showFriendlyErrorSnackBar(
       ),
       action: onRetry == null
           ? null
-          : SnackBarAction(label: 'Retry', onPressed: onRetry),
+          : SnackBarAction(
+              label: 'Retry',
+              textColor: colorScheme.onErrorContainer,
+              onPressed: onRetry,
+            ),
     ),
   );
 }
