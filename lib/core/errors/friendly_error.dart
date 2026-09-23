@@ -86,20 +86,15 @@ abstract final class FriendlyError {
   static bool _looksLikeConnectivityFailure(Object? error) {
     if (error == null) return false;
 
-    final typeName = error.runtimeType.toString();
-    const connectivityTypeNames = [
-      'SocketException',
-      'ClientException',
-      'TimeoutException',
-      'HandshakeException',
-      'ConnectionException',
-    ];
-    if (connectivityTypeNames.any(typeName.contains)) return true;
-
+    // Match on toString() rather than runtimeType: release web builds minify
+    // type names, but exception messages keep their original type prefix.
     final text = error.toString().toLowerCase();
     const connectivityPhrases = [
       'failed to fetch',
       'socketexception',
+      'clientexception',
+      'timeoutexception',
+      'handshakeexception',
       'connection refused',
       'connection failed',
       'connection error',

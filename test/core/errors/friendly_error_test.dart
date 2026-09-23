@@ -75,6 +75,16 @@ void main() {
       }
     });
 
+    test('maps connectivity exceptions by message when type names are minified', () {
+      for (final error in const [
+        _MinifiedException('TimeoutException: Future not completed'),
+        _MinifiedException('HandshakeException: Connection terminated during handshake'),
+        _MinifiedException('ClientException: Connection reset by peer'),
+      ]) {
+        expect(FriendlyError.fromFailure(error: error), FriendlyError.noConnection);
+      }
+    });
+
     test('does not report no-connection when the server returned a status', () {
       expect(
         FriendlyError.fromFailure(
@@ -96,4 +106,15 @@ class _FakeSocketException implements Exception {
 
   @override
   String toString() => 'SocketException: Failed host lookup';
+}
+
+/// Mimics a release web build, where `runtimeType` is renamed (e.g.
+/// 'minified:a7') but `toString()` still carries the original type name.
+class _MinifiedException implements Exception {
+  const _MinifiedException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
 }
