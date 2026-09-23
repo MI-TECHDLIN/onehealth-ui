@@ -6,9 +6,9 @@
 /// failure through [FriendlyError.fromFailure] (or extend it) instead.
 library;
 
-/// The kinds of failure this mapping understands. Extend this enum (and the
-/// corresponding branch in [FriendlyError.fromFailure]) when a new failure
-/// case needs its own copy.
+/// The kinds of failure this mapping understands. Extend this enum (plus the
+/// detection in [FriendlyError.classify] and the message branch in
+/// [FriendlyError.fromFailure]) when a new failure case needs its own copy.
 enum FriendlyErrorKind {
   invalidCredentials,
   unauthorized,
