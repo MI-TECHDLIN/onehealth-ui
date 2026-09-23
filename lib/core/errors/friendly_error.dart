@@ -64,8 +64,9 @@ abstract final class FriendlyError {
 
   /// Classifies a failure from whatever information is available.
   ///
-  /// Checked in order: HTTP status code first, then heuristics on [error]
-  /// for connectivity failures (works across `dart:io` `SocketException`,
+  /// Checked in order: HTTP status code first, then — only when there is no
+  /// status code, since one proves the server was reached — heuristics on
+  /// [error] for connectivity failures (works across `dart:io` `SocketException`,
   /// `http`'s `ClientException`, `dio`'s `DioException`, and web's
   /// "Failed to fetch", without depending on those packages directly).
   static FriendlyErrorKind classify({int? statusCode, Object? error, bool isSignIn = false}) {
