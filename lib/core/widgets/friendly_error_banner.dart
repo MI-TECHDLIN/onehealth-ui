@@ -19,9 +19,9 @@ class FriendlyErrorBanner extends StatelessWidget {
   /// Optional retry action surfaced next to the message.
   final VoidCallback? onRetry;
 
-  /// Integration point for a mood-aware mascot character (built by a
-  /// parallel task). Pass a widget here — e.g. a "concerned" mascot — to
-  /// have it rendered alongside the message. Left null today; this banner
+  /// Integration point for a mood-aware mascot character (see `AquaMascot`
+  /// in `lib/core/mascot/aqua_mascot.dart`). Pass a widget here — e.g. a
+  /// "concerned" mascot — to have it rendered alongside the message. Left null today; this banner
   /// works standalone without it.
   final Widget? mood;
 
