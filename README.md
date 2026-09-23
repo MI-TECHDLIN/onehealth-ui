@@ -1,18 +1,23 @@
-# onehealth_ui
+# OneAquaHealth UI
 
-A new Flutter project.
+Flutter application for the OneAquaHealth citizen-science experience.
 
-## Getting Started
+## Design-system foundation
 
-This project is a starting point for a Flutter application.
+- `lib/core/theme/tokens.dart` is the single source of truth for color,
+  typography, spacing, radii, and motion.
+- `lib/core/theme/app_theme.dart` maps those tokens into light and dark Material
+  themes.
+- `lib/core/mascot/aqua_mascot.dart` contains the lightweight, code-drawn water
+  companion and its smoothly interpolated mood states.
 
-A few resources to get you started if this is your first Flutter project:
+In a debug build, use the "Review all moods" button on the foundation screen or
+navigate to `/debug/mascot` to review and interact with every mascot mood. The
+debug route is not registered in release builds.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Validation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# onehealth-ui" 
+```sh
+flutter analyze
+flutter test
+```
