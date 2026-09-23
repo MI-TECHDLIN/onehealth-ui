@@ -9,6 +9,7 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Treat `lib/core/theme/tokens.dart` as the single source of truth for visual
   primitives; consume its colors, spacing, typography, and motion tokens rather
   than adding widget-local literals.
+- Use and extend `docs/manual-qa.md` when verifying or changing UI behaviour.
 
 ## Maintaining this file
 
