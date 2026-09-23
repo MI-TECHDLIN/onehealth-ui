@@ -27,7 +27,7 @@ abstract final class FriendlyError {
       "Your session timed out — log back in to keep going.";
 
   static const String noConnection =
-      "No connection right now. We'll try again once you're back online.";
+      "No connection right now. Check your internet and try again.";
 
   static const String payloadTooLarge =
       "That file is too large. Try a smaller file, or crop it down before uploading.";
@@ -76,7 +76,9 @@ abstract final class FriendlyError {
     if (statusCode != null && statusCode >= 500 && statusCode < 600) {
       return FriendlyErrorKind.serverError;
     }
-    if (_looksLikeConnectivityFailure(error)) return FriendlyErrorKind.noConnection;
+    if (statusCode == null && _looksLikeConnectivityFailure(error)) {
+      return FriendlyErrorKind.noConnection;
+    }
     return FriendlyErrorKind.unknown;
   }
 
@@ -101,6 +103,8 @@ abstract final class FriendlyError {
       'connection failed',
       'connection error',
       'connection timeout',
+      'receive timeout',
+      'send timeout',
       'connection timed out',
       'xmlhttprequest error',
       'connection closed',

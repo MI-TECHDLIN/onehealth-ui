@@ -67,10 +67,26 @@ void main() {
       for (final error in [
         'DioException [connection error]: The connection errored: Connection failed',
         'DioException [connection timeout]: The request connection took longer than 0:00:10.000000',
+        'DioException [receive timeout]: The request took longer than 0:00:30.000000',
+        'DioException [send timeout]: The request took longer than 0:00:30.000000',
         'ClientException: XMLHttpRequest error., uri=https://example.com',
       ]) {
         expect(FriendlyError.fromFailure(error: error), FriendlyError.noConnection);
       }
+    });
+
+    test('does not report no-connection when the server returned a status', () {
+      expect(
+        FriendlyError.fromFailure(
+          statusCode: 400,
+          error: 'upstream SMTP connection timeout',
+        ),
+        FriendlyError.generic,
+      );
+      expect(
+        FriendlyError.fromFailure(statusCode: 404, error: 'connection closed'),
+        FriendlyError.generic,
+      );
     });
   });
 }
