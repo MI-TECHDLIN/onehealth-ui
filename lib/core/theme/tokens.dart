@@ -44,7 +44,12 @@ abstract final class AppColors {
 }
 
 abstract final class AppTypography {
-  static const String? fontFamily = null;
+  static const String fontFamily = 'Noto Sans';
+  static const String arabicFontFamily = 'Noto Sans Arabic';
+
+  static String familyFor(Locale locale) => locale.languageCode == 'ar'
+      ? arabicFontFamily
+      : fontFamily;
 
   static const double displaySize = 40;
   static const double headlineSize = 28;
@@ -125,6 +130,7 @@ abstract final class AppMotion {
   static const Duration reduced = Duration(milliseconds: 120);
   static const Duration visemeSmoothing = Duration(milliseconds: 160);
 
+  static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve quickCurve = Curves.easeOutCubic;
   static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve moodCurve = Curves.easeInOutCubic;

@@ -9,6 +9,12 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Treat `lib/core/theme/tokens.dart` as the single source of truth for visual
   primitives; consume its colors, spacing, typography, and motion tokens rather
   than adding widget-local literals.
+- Add routes through `lib/app/app_router.dart`, and keep feature screens inside
+  its persistent shell rather than creating a second navigation stack.
+- Register locales in `lib/core/localization/app_locale.dart` and add copy to
+  `lib/l10n/*.arb`; unreviewed strings must retain the English per-string fallback.
+- Read app language and Demo/Live mode through `AppSettingsScope`. Keep all
+  drafts, history, auth, and repositories isolated by `AppMode.storageNamespace`.
 - Use and extend `docs/manual-qa.md` when verifying or changing UI behaviour.
 - Ripple's mood/render API lives in `lib/core/mascot/aqua_mascot.dart`; drive
   reusable gestures and narration visemes through `ripple_controller.dart`.

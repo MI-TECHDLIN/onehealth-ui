@@ -14,3 +14,13 @@ Do not open PRs directly against `main`; target `staging`.
 
 This project uses [Conventional Commits](https://www.conventionalcommits.org/) for every commit
 (e.g. `fix: ...`, `feat: ...`, `chore: ...`, `docs: ...`).
+
+## Flutter foundation
+
+- Run `flutter pub get`, `flutter gen-l10n`, `flutter analyze`, and
+  `flutter test` before opening a UI PR.
+- Add visual primitives to `lib/core/theme/tokens.dart`, routes to
+  `lib/app/app_router.dart`, and localized copy to ARB files under `lib/l10n/`.
+- Keep Demo and Live data behind the repository interfaces under
+  `lib/data/repositories/`; never share persisted drafts, history, or auth
+  between modes.

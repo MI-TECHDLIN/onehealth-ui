@@ -1,0 +1,121 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../core/motion/app_page_transitions.dart';
+import '../core/motion/motion_preferences.dart';
+import '../debug/mascot_gallery_screen.dart';
+import '../features/settings/settings_screen.dart';
+import '../features/shell/app_shell.dart';
+import '../features/shell/placeholder_screen.dart';
+import '../l10n/generated/app_localizations.dart';
+
+abstract final class AppRoutes {
+  static const String home = '/home';
+  static const String streams = '/streams';
+  static const String check = '/check';
+  static const String impact = '/impact';
+  static const String profile = '/profile';
+  static const String settings = '/settings';
+}
+
+GoRouter createAppRouter({String initialLocation = AppRoutes.home}) => GoRouter(
+  initialLocation: initialLocation,
+  errorPageBuilder: (context, state) => _page(
+    context: context,
+    state: state,
+    child: Scaffold(
+      body: PlaceholderScreen(
+        title: AppLocalizations.of(context).pageUnavailableTitle,
+        body: AppLocalizations.of(context).pageUnavailableBody,
+        icon: Icons.route_outlined,
+      ),
+    ),
+  ),
+  routes: <RouteBase>[
+    GoRoute(path: '/', redirect: (_, _) => AppRoutes.home),
+    ShellRoute(
+      builder: (context, state, child) => AppShell(
+        currentPath: state.uri.path,
+        child: child,
+      ),
+      routes: <RouteBase>[
+        _placeholderRoute(
+          path: AppRoutes.home,
+          icon: Icons.map_outlined,
+          title: (strings) => strings.homeTitle,
+        ),
+        _placeholderRoute(
+          path: AppRoutes.streams,
+          icon: Icons.water_outlined,
+          title: (strings) => strings.streamsTitle,
+        ),
+        _placeholderRoute(
+          path: AppRoutes.check,
+          icon: Icons.add_a_photo_outlined,
+          title: (strings) => strings.checkTitle,
+        ),
+        _placeholderRoute(
+          path: AppRoutes.impact,
+          icon: Icons.insights_outlined,
+          title: (strings) => strings.impactTitle,
+        ),
+        _placeholderRoute(
+          path: AppRoutes.profile,
+          icon: Icons.person_outline_rounded,
+          title: (strings) => strings.profileTitle,
+        ),
+      ],
+    ),
+    GoRoute(
+      path: AppRoutes.settings,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: const SettingsScreen(),
+      ),
+    ),
+    if (kDebugMode)
+      GoRoute(
+        path: MascotGalleryScreen.routeName,
+        pageBuilder: (context, state) => _page(
+          context: context,
+          state: state,
+          child: const MascotGalleryScreen(),
+        ),
+      ),
+  ],
+);
+
+GoRoute _placeholderRoute({
+  required String path,
+  required IconData icon,
+  required String Function(AppLocalizations strings) title,
+}) => GoRoute(
+  path: path,
+  pageBuilder: (context, state) => _page(
+    context: context,
+    state: state,
+    child: PlaceholderScreen(
+      title: title(AppLocalizations.of(context)),
+      icon: icon,
+    ),
+  ),
+);
+
+CustomTransitionPage<void> _page({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) => CustomTransitionPage<void>(
+  key: state.pageKey,
+  transitionDuration: MotionPreferences.pageDurationOf(context),
+  reverseTransitionDuration: MotionPreferences.pageDurationOf(context),
+  transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+      AppRouteTransition(
+        animation: animation,
+        secondaryAnimation: secondaryAnimation,
+        child: child,
+      ),
+  child: child,
+);
