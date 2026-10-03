@@ -118,6 +118,22 @@ abstract final class AppElevation {
       blurRadius: 32,
     ),
   ];
+
+  static const List<BoxShadow> raisedAction = <BoxShadow>[
+    BoxShadow(
+      color: AppColors.navy,
+      offset: Offset(0, 5),
+    ),
+  ];
+}
+
+/// Component dimensions approved by the Ripple Field Guide.
+abstract final class AppSizes {
+  static const double primaryButtonHeight = 52;
+  static const double bottomNavigationHeight = 74;
+  static const double raisedNavigationAction = 58;
+  static const double navigationIcon = 24;
+  static const double placeholderIllustration = 112;
 }
 
 abstract final class AppMotion {
@@ -132,7 +148,6 @@ abstract final class AppMotion {
 
   static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve quickCurve = Curves.easeOutCubic;
-  static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve moodCurve = Curves.easeInOutCubic;
   static const Curve celebrationCurve = Curves.easeOutBack;
 }

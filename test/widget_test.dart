@@ -40,7 +40,9 @@ void main() {
     expect(AppRadii.xl, 32);
     expect(AppOpacity.disabled, 0.46);
     expect(AppStrokes.focus, 3);
-    expect(AppElevation.high.blurRadius, 32);
+    expect(AppElevation.high.single.blurRadius, 32);
+    expect(AppElevation.raisedAction.single.offset, const Offset(0, 5));
+    expect(AppSizes.bottomNavigationHeight, 74);
     expect(AppMotion.page, const Duration(milliseconds: 300));
     expect(AppMotion.reduced, const Duration(milliseconds: 120));
   });

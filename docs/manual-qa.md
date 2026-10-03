@@ -29,3 +29,22 @@ Friendly error messages:
 20. The error banner and snackbar show concerned Ripple; Retry is easy to read on the pink background and tapping it actually retries.
 
 Items 10-20 have not yet been verified live.
+
+Foundation shell, localization, and modes:
+21. Launch after clearing app data - the app starts in Demo mode and the yellow
+    Demo badge remains visible across all five main destinations.
+22. Use Home, Streams, Check, Impact, and You - each route opens, the selected
+    destination uses a filled icon, and Check stays raised at the center.
+23. Tap the mode badge, toggle Live, and confirm - the badge turns green and
+    shows Live; canceling the confirmation leaves the current mode unchanged.
+24. Restart after selecting Live and a different language - both choices are
+    restored. Switching back to Demo must not expose Live drafts or history.
+25. Select Arabic - layout direction, reading order, and directional icons use
+    RTL; Noto Sans Arabic is used and untranslated strings fall back to English.
+26. Review all 18 languages at 200% text scale - no clipped navigation labels,
+    dialogs, settings rows, or bottom-sheet actions.
+27. Turn on Android Remove animations - route changes use a short dissolve with
+    no horizontal travel; normal mode uses the horizontal shared-axis motion.
+28. In a release build, the Ripple gallery route and Settings row are absent.
+
+Items 21-28 require on-device verification.
