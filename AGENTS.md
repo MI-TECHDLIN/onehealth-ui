@@ -10,6 +10,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   primitives; consume its colors, spacing, typography, and motion tokens rather
   than adding widget-local literals.
 - Use and extend `docs/manual-qa.md` when verifying or changing UI behaviour.
+- Ripple's mood/render API lives in `lib/core/mascot/aqua_mascot.dart`; drive
+  reusable gestures and narration visemes through `ripple_controller.dart`.
+- Import `lib/core/widgets/component_kit.dart` for the reusable field UI
+  primitives and evidence badges; their reduced-motion and semantic states are
+  represented in the debug mascot gallery.
 
 ## Maintaining this file
 

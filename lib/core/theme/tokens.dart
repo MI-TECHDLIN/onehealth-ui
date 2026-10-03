@@ -66,22 +66,67 @@ abstract final class AppSpacing {
   static const double xl = 32;
   static const double xxl = 48;
   static const double page = 24;
+  static const double minTouchTarget = 48;
 }
 
 abstract final class AppRadii {
   static const double sm = 10;
   static const double md = 16;
   static const double lg = 24;
+  static const double xl = 32;
   static const double pill = 999;
 }
 
+abstract final class AppOpacity {
+  static const double disabled = 0.46;
+  static const double pressedOverlay = 0.12;
+  static const double scrim = 0.48;
+}
+
+abstract final class AppStrokes {
+  static const double icon = 2;
+  static const double selected = 2;
+  static const double focus = 3;
+}
+
+abstract final class AppElevation {
+  static const List<BoxShadow> low = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x1F123047),
+      offset: Offset(0, 2),
+      blurRadius: 4,
+    ),
+  ];
+
+  static const List<BoxShadow> high = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x24123047),
+      offset: Offset(0, 12),
+      blurRadius: 32,
+    ),
+  ];
+
+  static const List<BoxShadow> darkHigh = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x52000000),
+      offset: Offset(0, 12),
+      blurRadius: 32,
+    ),
+  ];
+}
+
 abstract final class AppMotion {
+  static const Duration press = Duration(milliseconds: 120);
   static const Duration quick = Duration(milliseconds: 200);
+  static const Duration page = Duration(milliseconds: 300);
   static const Duration moodMorph = Duration(milliseconds: 360);
   static const Duration celebrationEntrance = Duration(milliseconds: 560);
   static const Duration ambientLoop = Duration(milliseconds: 2400);
+  static const Duration reduced = Duration(milliseconds: 120);
+  static const Duration visemeSmoothing = Duration(milliseconds: 160);
 
   static const Curve quickCurve = Curves.easeOutCubic;
+  static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve moodCurve = Curves.easeInOutCubic;
   static const Curve celebrationCurve = Curves.easeOutBack;
 }
