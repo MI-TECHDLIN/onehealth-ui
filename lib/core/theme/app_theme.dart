@@ -1,11 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../motion/app_page_transitions.dart';
 import 'tokens.dart';
 
 abstract final class AppTheme {
-  static ThemeData get light => _build(_lightScheme);
-  static ThemeData get dark => _build(_darkScheme);
+  static ThemeData get light => lightFor(const Locale('en'));
+  static ThemeData get dark => darkFor(const Locale('en'));
+
+  static ThemeData lightFor(
+    Locale locale, {
+    bool applyGoogleFonts = true,
+  }) => _build(_lightScheme, locale, applyGoogleFonts);
+
+  static ThemeData darkFor(
+    Locale locale, {
+    bool applyGoogleFonts = true,
+  }) => _build(_darkScheme, locale, applyGoogleFonts);
 
   static const ColorScheme _lightScheme = ColorScheme(
     brightness: Brightness.light,
@@ -69,54 +81,63 @@ abstract final class AppTheme {
     surfaceTint: AppColors.water,
   );
 
-  static ThemeData _build(ColorScheme colors) {
-    final textTheme = TextTheme(
-      displaySmall: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+  static ThemeData _build(
+    ColorScheme colors,
+    Locale locale,
+    bool applyGoogleFonts,
+  ) {
+    final defaults = ThemeData(
+      useMaterial3: true,
+      brightness: colors.brightness,
+    ).textTheme.apply(
+      bodyColor: colors.onSurface,
+      displayColor: colors.onSurface,
+    );
+    final baseTextTheme = defaults.copyWith(
+      displaySmall: defaults.displaySmall?.copyWith(
         fontSize: AppTypography.displaySize,
         height: AppTypography.tightHeight,
         fontWeight: FontWeight.w700,
         color: colors.onSurface,
       ),
-      headlineMedium: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      headlineMedium: defaults.headlineMedium?.copyWith(
         fontSize: AppTypography.headlineSize,
         height: AppTypography.tightHeight,
         fontWeight: FontWeight.w700,
         color: colors.onSurface,
       ),
-      titleLarge: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      titleLarge: defaults.titleLarge?.copyWith(
         fontSize: AppTypography.titleSize,
         height: AppTypography.tightHeight,
         fontWeight: FontWeight.w700,
         color: colors.onSurface,
       ),
-      bodyLarge: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      bodyLarge: defaults.bodyLarge?.copyWith(
         fontSize: AppTypography.bodySize,
         height: AppTypography.bodyHeight,
         color: colors.onSurface,
       ),
-      bodyMedium: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      bodyMedium: defaults.bodyMedium?.copyWith(
         fontSize: AppTypography.labelSize,
         height: AppTypography.bodyHeight,
         color: colors.onSurfaceVariant,
       ),
-      labelLarge: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      labelLarge: defaults.labelLarge?.copyWith(
         fontSize: AppTypography.labelSize,
         fontWeight: FontWeight.w700,
         color: colors.onSurface,
       ),
-      labelSmall: TextStyle(
-        fontFamily: AppTypography.fontFamily,
+      labelSmall: defaults.labelSmall?.copyWith(
         fontSize: AppTypography.captionSize,
         fontWeight: FontWeight.w600,
         color: colors.onSurfaceVariant,
       ),
     );
+    final textTheme = applyGoogleFonts
+        ? locale.languageCode == 'ar'
+              ? GoogleFonts.notoSansArabicTextTheme(baseTextTheme)
+              : GoogleFonts.notoSansTextTheme(baseTextTheme)
+        : baseTextTheme.apply(fontFamily: AppTypography.familyFor(locale));
 
     return ThemeData(
       useMaterial3: true,
@@ -162,12 +183,12 @@ abstract final class AppTheme {
       ),
       pageTransitionsTheme: const PageTransitionsTheme(
         builders: <TargetPlatform, PageTransitionsBuilder>{
-          TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
-          TargetPlatform.fuchsia: FadeForwardsPageTransitionsBuilder(),
+          TargetPlatform.android: AppPageTransitionsBuilder(),
+          TargetPlatform.fuchsia: AppPageTransitionsBuilder(),
           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.linux: FadeForwardsPageTransitionsBuilder(),
+          TargetPlatform.linux: AppPageTransitionsBuilder(),
           TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.windows: FadeForwardsPageTransitionsBuilder(),
+          TargetPlatform.windows: AppPageTransitionsBuilder(),
         },
       ),
     );

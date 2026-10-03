@@ -1,84 +1,77 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'core/mascot/aqua_mascot.dart';
-import 'core/mascot/mascot_identity.dart';
+import 'app/app_router.dart';
+import 'core/localization/app_locale.dart';
+import 'core/settings/app_preferences.dart';
+import 'core/settings/app_settings_controller.dart';
 import 'core/theme/app_theme.dart';
-import 'core/theme/tokens.dart';
-import 'debug/mascot_gallery_screen.dart';
+import 'data/repositories/repository_bundle.dart';
+import 'data/repositories/repository_scope.dart';
+import 'l10n/generated/app_localizations.dart';
 
-void main() {
-  runApp(const OneHealthApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final settings = AppSettingsController(
+    preferences: SharedPreferencesAppPreferences(),
+  );
+  await settings.load();
+  runApp(OneHealthApp(settings: settings));
 }
 
-class OneHealthApp extends StatelessWidget {
-  const OneHealthApp({super.key});
+class OneHealthApp extends StatefulWidget {
+  const OneHealthApp({
+    super.key,
+    this.settings,
+    this.applyGoogleFonts = true,
+  });
+
+  final AppSettingsController? settings;
+  final bool applyGoogleFonts;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'OneAquaHealth',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
-      home: const _FoundationHomeScreen(),
-      onGenerateRoute: (settings) {
-        if (kDebugMode && settings.name == MascotGalleryScreen.routeName) {
-          return MaterialPageRoute<void>(
-            settings: settings,
-            builder: (_) => const MascotGalleryScreen(),
-          );
-        }
-        return null;
-      },
-    );
+  State<OneHealthApp> createState() => _OneHealthAppState();
+}
+
+class _OneHealthAppState extends State<OneHealthApp> {
+  late final AppSettingsController _settings =
+      widget.settings ?? AppSettingsController.memory();
+  late final _router = createAppRouter();
+  late final RepositoryBundle _demoRepositories = RepositoryBundle.demo();
+
+  bool get _ownsSettings => widget.settings == null;
+
+  @override
+  void dispose() {
+    _router.dispose();
+    if (_ownsSettings) _settings.dispose();
+    super.dispose();
   }
-}
-
-class _FoundationHomeScreen extends StatelessWidget {
-  const _FoundationHomeScreen();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('OneAquaHealth')),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.page),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 520),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const AquaMascot(mood: MascotMood.idle, size: 184),
-                  const SizedBox(height: AppSpacing.lg),
-                  Text(
-                    'Meet ${MascotIdentity.displayName}',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  const SizedBox(height: AppSpacing.sm),
-                  Text(
-                    'The design-system foundation is ready for the onboarding '
-                    'journey.',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  if (kDebugMode) ...<Widget>[
-                    const SizedBox(height: AppSpacing.lg),
-                    FilledButton.icon(
-                      onPressed: () => Navigator.of(
-                        context,
-                      ).pushNamed(MascotGalleryScreen.routeName),
-                      icon: const Icon(Icons.water_drop_outlined),
-                      label: const Text('Review all moods'),
-                    ),
-                  ],
-                ],
-              ),
+    return AppSettingsScope(
+      controller: _settings,
+      child: AnimatedBuilder(
+        animation: _settings,
+        builder: (context, _) => RepositoryScope(
+          mode: _settings.mode,
+          repositories: _settings.mode.isLive ? null : _demoRepositories,
+          child: MaterialApp.router(
+            onGenerateTitle: (context) => AppLocalizations.of(context).appName,
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.lightFor(
+              _settings.locale,
+              applyGoogleFonts: widget.applyGoogleFonts,
             ),
+            darkTheme: AppTheme.darkFor(
+              _settings.locale,
+              applyGoogleFonts: widget.applyGoogleFonts,
+            ),
+            themeMode: ThemeMode.system,
+            locale: _settings.locale,
+            supportedLocales: AppLocaleRegistry.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            routerConfig: _router,
           ),
         ),
       ),
