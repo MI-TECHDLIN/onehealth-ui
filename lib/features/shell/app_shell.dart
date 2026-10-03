@@ -212,7 +212,7 @@ class _CheckAction extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              boxShadow: const <BoxShadow>[AppElevation.raisedAction],
+              boxShadow: AppElevation.raisedAction,
               border: Border.all(
                 color: colors.surfaceContainerLow,
                 width: AppSpacing.xxs,
