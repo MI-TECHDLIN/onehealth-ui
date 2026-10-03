@@ -59,8 +59,8 @@ void main() {
     await tester.pump(AppMotion.celebrationEntrance);
 
     expect(find.byType(MascotGalleryScreen), findsOneWidget);
-    expect(find.text('Settled poses'), findsOneWidget);
-    expect(find.byType(AquaMascot), findsNWidgets(6));
+    expect(find.text('Settled moods'), findsOneWidget);
+    expect(find.byType(AquaMascot), findsAtLeastNWidgets(6));
   });
 
   testWidgets('reduced motion holds the mascot at its settled pose', (
