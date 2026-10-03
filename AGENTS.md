@@ -26,6 +26,24 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   constraint on pub.dev and do not pick a version that needs a newer Flutter or
   Dart than that. Keep `environment.sdk: ^3.11.5` unless a future captain
   machine ships an older Dart that can't satisfy it.
+- There is no Flutter/Dart SDK in this worktree; `flutter analyze` / `flutter test`
+  can only be run by the captain. Review type correctness by reading, and ask
+  the captain to paste the actual analyzer/test output rather than assuming a fix worked.
+- Dart 3 sharp edge seen in `aqua_mascot.dart`: `math.max`/`math.min` on two
+  `double` operands can still infer `num` (not `double`) when the call sits in
+  a position with no downward double context (e.g. a bare `final x = ...`
+  local, as opposed to a named arg typed `double`). If the result later feeds
+  a `double`-typed parameter directly (not through `.clamp(...)`/`.toDouble()`),
+  add an explicit `.toDouble()` at the declaration rather than threading the
+  fix through every call site.
+- A static member and an instance member can't share a name in the same Dart
+  class (`conflicting_static_and_instance`); `RippleVisemeFrame` in
+  `ripple_controller.dart` keeps the instance field `open` (mouth openness)
+  and names the viseme preset `openMouth` to avoid this.
+- `Radio`/`RadioListTile`'s `groupValue`/`onChanged` are deprecated since
+  Flutter 3.32; wrap the group in a `RadioGroup<T>` ancestor that owns
+  `groupValue`/`onChanged` instead (see the language picker in
+  `lib/features/settings/settings_screen.dart`).
 
 ## Maintaining this file
 
