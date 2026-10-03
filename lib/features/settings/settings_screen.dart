@@ -123,27 +123,33 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
               Flexible(
-                child: ListView(
-                  children: AppLocaleRegistry.all
-                      .map(
-                        (definition) => RadioListTile<String>(
-                          value: definition.locale.languageCode,
-                          groupValue: settings.locale.languageCode,
-                          title: Text(definition.endonym),
-                          subtitle: definition.translationStatus ==
-                                  TranslationStatus.needsTranslation
-                              ? Text(
-                                  '${definition.englishName} · '
-                                  '${strings.translationReviewPending}',
-                                )
-                              : null,
-                          onChanged: (_) => Navigator.pop(
-                            sheetContext,
-                            definition,
+                child: RadioGroup<String>(
+                  groupValue: settings.locale.languageCode,
+                  onChanged: (value) {
+                    if (value == null) return;
+                    final definition = AppLocaleRegistry.all.firstWhere(
+                      (definition) =>
+                          definition.locale.languageCode == value,
+                    );
+                    Navigator.pop(sheetContext, definition);
+                  },
+                  child: ListView(
+                    children: AppLocaleRegistry.all
+                        .map(
+                          (definition) => RadioListTile<String>(
+                            value: definition.locale.languageCode,
+                            title: Text(definition.endonym),
+                            subtitle: definition.translationStatus ==
+                                    TranslationStatus.needsTranslation
+                                ? Text(
+                                    '${definition.englishName} · '
+                                    '${strings.translationReviewPending}',
+                                  )
+                                : null,
                           ),
-                        ),
-                      )
-                      .toList(growable: false),
+                        )
+                        .toList(growable: false),
+                  ),
                 ),
               ),
             ],

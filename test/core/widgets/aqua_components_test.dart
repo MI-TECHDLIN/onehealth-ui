@@ -148,9 +148,9 @@ void main() {
                   onSelected: (value) => selected = value,
                 ),
               ),
-              const Expanded(
+              Expanded(
                 child: PictureChoiceCard(
-                  image: Placeholder(),
+                  image: const Placeholder(),
                   label: 'Selected many',
                   selected: true,
                   multiSelect: true,
