@@ -21,6 +21,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Import `lib/core/widgets/component_kit.dart` for the reusable field UI
   primitives and evidence badges; their reduced-motion and semantic states are
   represented in the debug mascot gallery.
+- The captain builds locally on Flutter 3.41.7 stable (Dart 3.11.5). Before
+  adding or upgrading any dependency in `pubspec.yaml`, check its `environment:`
+  constraint on pub.dev and do not pick a version that needs a newer Flutter or
+  Dart than that. Keep `environment.sdk: ^3.11.5` unless a future captain
+  machine ships an older Dart that can't satisfy it.
 
 ## Maintaining this file
 
