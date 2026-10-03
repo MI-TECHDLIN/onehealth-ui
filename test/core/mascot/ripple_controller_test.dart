@@ -21,7 +21,7 @@ void main() {
   test('viseme smoothing low-passes a timing-source mouth change', () {
     final midpoint = RippleVisemeSmoother.sample(
       begin: RippleVisemeFrame.rest,
-      end: RippleVisemeFrame.open,
+      end: RippleVisemeFrame.openMouth,
       elapsed: const Duration(milliseconds: 80),
     );
 
@@ -30,7 +30,7 @@ void main() {
     expect(
       RippleVisemeSmoother.sample(
         begin: RippleVisemeFrame.rest,
-        end: RippleVisemeFrame.open,
+        end: RippleVisemeFrame.openMouth,
         elapsed: const Duration(milliseconds: 160),
       ).open,
       1,

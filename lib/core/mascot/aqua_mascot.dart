@@ -594,17 +594,17 @@ class AquaMascotPainter extends CustomPainter {
       case RippleGesture.nod:
         final pulse = math.sin(phase * math.pi * 2);
         return _RipplePose(
-          translate: Offset(0, math.max(0, pulse) * 4),
+          translate: Offset(0, math.max(0.0, pulse) * 4),
           rotation: pulse * 0.08,
-          scaleX: 1 + math.max(0, pulse) * 0.025,
-          scaleY: 1 - math.max(0, pulse) * 0.035,
+          scaleX: 1 + math.max(0.0, pulse) * 0.025,
+          scaleY: 1 - math.max(0.0, pulse) * 0.035,
         );
       case RippleGesture.jump:
         final lift = math.sin(phase * math.pi);
         final landing = math.exp(-math.pow((phase - 0.84) * 13, 2)) * 0.08;
         final launch = math.exp(-math.pow((phase - 0.12) * 11, 2)) * 0.08;
         return _RipplePose(
-          translate: Offset(0, -28 * math.max(0, lift)),
+          translate: Offset(0, -28 * math.max(0.0, lift)),
           scaleX: 1 + launch + landing - lift * 0.035,
           scaleY: 1 - launch - landing + lift * 0.06,
         );
@@ -651,7 +651,7 @@ class AquaMascotPainter extends CustomPainter {
     canvas.drawOval(
       Rect.fromCenter(
         center: Offset(100, 218 - bob * 0.12),
-        width: math.max(56, 96 - bob.abs() * 1.5),
+        width: math.max(56.0, 96 - bob.abs() * 1.5),
         height: 14,
       ),
       Paint()
@@ -855,7 +855,7 @@ class AquaMascotPainter extends CustomPainter {
     }
     final cheekOpacity = math.max(
       spec.cheekOpacity,
-      spec.smile > 0.2 ? 0.34 + spec.smile * 0.11 : 0,
+      spec.smile > 0.2 ? 0.34 + spec.smile * 0.11 : 0.0,
     );
     if (cheekOpacity > 0) {
       final cheekPaint = Paint()
@@ -912,7 +912,7 @@ class AquaMascotPainter extends CustomPainter {
         width: 42 * widthScale,
         height: height,
       ),
-      Radius.circular(math.min(17, height / 2)),
+      Radius.circular(math.min(17.0, height / 2)),
     );
     canvas.drawRRect(
       mouth,
