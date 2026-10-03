@@ -843,7 +843,7 @@ class AquaMascotPainter extends CustomPainter {
           .max(spec.browConcern, spec.browTilt.abs())
           .clamp(0.0, 1.0)
           .toDouble();
-      final drop = 5 * math.max(spec.browConcern, spec.browTilt);
+      final drop = (5 * math.max(spec.browConcern, spec.browTilt)).toDouble();
       final browPaint = Paint()
         ..color = AppColors.navy.withValues(alpha: opacity)
         ..style = PaintingStyle.stroke
