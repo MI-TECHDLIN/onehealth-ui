@@ -1,0 +1,40 @@
+{
+  "@@locale": "en",
+  "appName": "OneAquaHealth",
+  "navHome": "Home",
+  "navStreams": "Streams",
+  "navCheck": "Check",
+  "navImpact": "Impact",
+  "navProfile": "You",
+  "homeTitle": "Explore streams",
+  "streamsTitle": "My streams",
+  "checkTitle": "Check a stream",
+  "impactTitle": "Your impact",
+  "profileTitle": "You",
+  "settingsTitle": "Settings",
+  "placeholderBody": "This area is ready for the next part of your field journey.",
+  "pageUnavailableTitle": "This page isn't available",
+  "pageUnavailableBody": "Return to Home and try another path.",
+  "modeDemo": "Demo",
+  "modeLive": "Live",
+  "modeIndicatorLabel": "{mode} data mode",
+  "@modeIndicatorLabel": {
+    "description": "Accessible label for the persistent data-mode badge.",
+    "placeholders": {"mode": {"type": "String"}}
+  },
+  "settingsDataMode": "Data mode",
+  "settingsLanguage": "Language",
+  "demoModeDescription": "Mock streams and example results. Nothing is sent.",
+  "liveModeDescription": "Real OneAquaHealth data. Live connections arrive in a later build.",
+  "switchModeTitle": "Switch to {mode}?",
+  "@switchModeTitle": {
+    "description": "Confirmation title before changing the data mode.",
+    "placeholders": {"mode": {"type": "String"}}
+  },
+  "switchModeBody": "Demo and Live drafts and history always stay separate.",
+  "cancelAction": "Cancel",
+  "switchAction": "Switch mode",
+  "chooseLanguage": "Choose language",
+  "translationReviewPending": "English copy — translation review pending",
+  "debugMascotGallery": "Review Ripple moods"
+}

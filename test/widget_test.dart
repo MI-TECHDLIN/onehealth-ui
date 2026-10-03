@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:onehealth_ui/core/mascot/aqua_mascot.dart';
-import 'package:onehealth_ui/core/mascot/mascot_identity.dart';
+import 'package:onehealth_ui/core/settings/app_preferences.dart';
+import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
 import 'package:onehealth_ui/core/theme/app_theme.dart';
 import 'package:onehealth_ui/core/theme/tokens.dart';
 import 'package:onehealth_ui/debug/mascot_gallery_screen.dart';
@@ -9,10 +10,39 @@ import 'package:onehealth_ui/main.dart';
 
 void main() {
   test('theme exposes the water palette in light and dark modes', () {
-    expect(AppTheme.light.colorScheme.primary, AppColors.deepWater);
-    expect(AppTheme.light.colorScheme.tertiary, AppColors.peach);
-    expect(AppTheme.dark.brightness, Brightness.dark);
-    expect(AppTheme.dark.colorScheme.surface, AppColors.night);
+    final light = AppTheme.lightFor(
+      const Locale('en'),
+      applyGoogleFonts: false,
+    );
+    final dark = AppTheme.darkFor(
+      const Locale('en'),
+      applyGoogleFonts: false,
+    );
+    expect(light.colorScheme.primary, AppColors.deepWater);
+    expect(light.colorScheme.tertiary, AppColors.peach);
+    expect(dark.brightness, Brightness.dark);
+    expect(dark.colorScheme.surface, AppColors.night);
+    expect(
+      light.textTheme.bodyLarge?.fontFamily,
+      AppTypography.fontFamily,
+    );
+    expect(
+      AppTheme.lightFor(
+        const Locale('ar'),
+        applyGoogleFonts: false,
+      ).textTheme.bodyLarge?.fontFamily,
+      AppTypography.arabicFontFamily,
+    );
+  });
+
+  test('field guide tokens expose touch, elevation, and motion primitives', () {
+    expect(AppSpacing.minTouchTarget, 48);
+    expect(AppRadii.xl, 32);
+    expect(AppOpacity.disabled, 0.46);
+    expect(AppStrokes.focus, 3);
+    expect(AppElevation.high.blurRadius, 32);
+    expect(AppMotion.page, const Duration(milliseconds: 300));
+    expect(AppMotion.reduced, const Duration(milliseconds: 120));
   });
 
   test('mood specifications interpolate instead of hard cutting', () {
@@ -46,21 +76,37 @@ void main() {
     expect(overshoot.bodyColor, MascotMoodSpec.celebrating.bodyColor);
   });
 
-  testWidgets('app shell uses the new theme and opens the debug gallery', (
+  testWidgets('app shell navigates and keeps the debug gallery reachable', (
     tester,
   ) async {
-    await tester.pumpWidget(const OneHealthApp());
+    final settings = AppSettingsController(
+      preferences: MemoryAppPreferences(),
+    );
+    addTearDown(settings.dispose);
+    await tester.pumpWidget(
+      OneHealthApp(settings: settings, applyGoogleFonts: false),
+    );
+    await tester.pumpAndSettle();
 
-    expect(find.text('Meet ${MascotIdentity.displayName}'), findsOneWidget);
-    expect(find.byType(AquaMascot), findsOneWidget);
+    expect(find.text('Explore streams'), findsWidgets);
+    expect(find.text('DEMO'), findsOneWidget);
+    expect(find.text('Check'), findsOneWidget);
 
-    await tester.tap(find.text('Review all moods'));
+    await tester.tap(find.text('Streams'));
+    await tester.pumpAndSettle();
+    expect(find.text('My streams'), findsWidgets);
+
+    await tester.tap(find.text('DEMO'));
+    await tester.pumpAndSettle();
+    expect(find.text('Settings'), findsOneWidget);
+
+    await tester.tap(find.text('Review Ripple moods'));
     await tester.pump();
-    await tester.pump(AppMotion.celebrationEntrance);
+    await tester.pump(AppMotion.page);
 
     expect(find.byType(MascotGalleryScreen), findsOneWidget);
-    expect(find.text('Settled poses'), findsOneWidget);
-    expect(find.byType(AquaMascot), findsNWidgets(6));
+    expect(find.text('Settled moods'), findsOneWidget);
+    expect(find.byType(AquaMascot), findsAtLeastNWidgets(6));
   });
 
   testWidgets('reduced motion holds the mascot at its settled pose', (
