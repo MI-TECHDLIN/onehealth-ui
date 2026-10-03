@@ -16,6 +16,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Read app language and Demo/Live mode through `AppSettingsScope`. Keep all
   drafts, history, auth, and repositories isolated by `AppMode.storageNamespace`.
 - Use and extend `docs/manual-qa.md` when verifying or changing UI behaviour.
+- Ripple's mood/render API lives in `lib/core/mascot/aqua_mascot.dart`; drive
+  reusable gestures and narration visemes through `ripple_controller.dart`.
+- Import `lib/core/widgets/component_kit.dart` for the reusable field UI
+  primitives and evidence badges; their reduced-motion and semantic states are
+  represented in the debug mascot gallery.
 
 ## Maintaining this file
 

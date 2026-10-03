@@ -14,32 +14,18 @@ Design system and water mascot:
 7. Turn on reduce motion (Android "Remove animations" / iOS "Reduce Motion") - the mascot holds still or nearly still and mood changes snap.
 8. Run a release build (`flutter run --release`) - no "Review all moods" button and `/debug/mascot` does not open.
 9. Small phone, large phone, and large accessibility text size - nothing overflows or gets cut off.
+10. In the gallery, play Wave, Point, Nod, Jump + splash, Swim in, and Talk - each action is distinct; Point aims up-right and Talk changes smoothly through all four mouth cues.
+11. Turn on reduced motion and replay every gesture - Ripple holds a meaningful final pose and the celebration/badge animations show their completed frame without moving.
+12. Press and hold primary and secondary buttons - they move down 4 dp and their tactile base compresses; loading and disabled examples cannot be tapped.
+13. Review progress, pager, chips, picture choices, “I'm not sure,” loading, celebration, and badge examples at 200% text and in RTL - labels remain readable and selected state is never color-only.
+14. Review locked, unlocked, new, and unlock-reveal badges - locked criteria remain readable, New is labeled, and the reveal paints real particles at mid-animation.
 
 Friendly error messages:
-10. Sign in with a wrong password - "That email or password didn't match…", not a session-timeout message.
-11. Let the session expire, then act - "Your session timed out — log back in to keep going." with no claim that answers are saved.
-12. Airplane mode, then load or save something - "No connection right now. Check your internet and try again."
-13. Very slow or stalled network - the same no-connection message, not a generic error.
-14. Trigger any other server error - a plain friendly message, never raw status codes, "DioException", JSON, or stack traces.
-15. The error snackbar - Retry is easy to read on the pink background and tapping it actually retries.
+15. Sign in with a wrong password - "That email or password didn't match…", not a session-timeout message.
+16. Let the session expire, then act - "Your session timed out — log back in to keep going." with no claim that answers are saved.
+17. Airplane mode, then load or save something - "No connection right now. Check your internet and try again."
+18. Very slow or stalled network - the same no-connection message, not a generic error.
+19. Trigger any other server error - a plain friendly message, never raw status codes, "DioException", JSON, or stack traces.
+20. The error banner and snackbar show concerned Ripple; Retry is easy to read on the pink background and tapping it actually retries.
 
-Items 10-15 have not yet been verified live.
-
-Foundation shell, localization, and modes:
-16. Launch after clearing app data - the app starts in Demo mode and the yellow
-    Demo badge remains visible across all five main destinations.
-17. Use Home, Streams, Check, Impact, and You - each route opens, the selected
-    destination uses a filled icon, and Check stays raised at the center.
-18. Tap the mode badge, toggle Live, and confirm - the badge turns green and
-    shows Live; canceling the confirmation leaves the current mode unchanged.
-19. Restart after selecting Live and a different language - both choices are
-    restored. Switching back to Demo must not expose Live drafts or history.
-20. Select Arabic - layout direction, reading order, and directional icons use
-    RTL; Noto Sans Arabic is used and untranslated strings fall back to English.
-21. Review all 18 languages at 200% text scale - no clipped navigation labels,
-    dialogs, settings rows, or bottom-sheet actions.
-22. Turn on Android Remove animations - route changes use a short dissolve with
-    no horizontal travel; normal mode uses the horizontal shared-axis motion.
-23. In a release build, the Ripple gallery route and Settings row are absent.
-
-Items 16-23 require on-device verification.
+Items 10-20 have not yet been verified live.

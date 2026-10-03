@@ -95,37 +95,29 @@ abstract final class AppStrokes {
 }
 
 abstract final class AppElevation {
-  static const BoxShadow low = BoxShadow(
-    color: Color(0x1F123047),
-    offset: Offset(0, 2),
-    blurRadius: 4,
-  );
+  static const List<BoxShadow> low = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x1F123047),
+      offset: Offset(0, 2),
+      blurRadius: 4,
+    ),
+  ];
 
-  static const BoxShadow high = BoxShadow(
-    color: Color(0x24123047),
-    offset: Offset(0, 12),
-    blurRadius: 32,
-  );
+  static const List<BoxShadow> high = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x24123047),
+      offset: Offset(0, 12),
+      blurRadius: 32,
+    ),
+  ];
 
-  static const BoxShadow darkHigh = BoxShadow(
-    color: Color(0x52000000),
-    offset: Offset(0, 12),
-    blurRadius: 32,
-  );
-
-  static const BoxShadow raisedAction = BoxShadow(
-    color: AppColors.navy,
-    offset: Offset(0, 5),
-  );
-}
-
-/// Component dimensions approved by the Ripple Field Guide.
-abstract final class AppSizes {
-  static const double primaryButtonHeight = 52;
-  static const double bottomNavigationHeight = 74;
-  static const double raisedNavigationAction = 58;
-  static const double navigationIcon = 24;
-  static const double placeholderIllustration = 112;
+  static const List<BoxShadow> darkHigh = <BoxShadow>[
+    BoxShadow(
+      color: Color(0x52000000),
+      offset: Offset(0, 12),
+      blurRadius: 32,
+    ),
+  ];
 }
 
 abstract final class AppMotion {
@@ -136,9 +128,11 @@ abstract final class AppMotion {
   static const Duration celebrationEntrance = Duration(milliseconds: 560);
   static const Duration ambientLoop = Duration(milliseconds: 2400);
   static const Duration reduced = Duration(milliseconds: 120);
+  static const Duration visemeSmoothing = Duration(milliseconds: 160);
 
   static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve quickCurve = Curves.easeOutCubic;
+  static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve moodCurve = Curves.easeInOutCubic;
   static const Curve celebrationCurve = Curves.easeOutBack;
 }
