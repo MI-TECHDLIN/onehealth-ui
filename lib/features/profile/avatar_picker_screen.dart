@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
+import '../../core/motion/motion_preferences.dart';
 import '../../core/profile/avatar_catalog.dart';
 import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
@@ -168,6 +169,9 @@ class _AvatarChoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
+    final selectionDuration = MotionPreferences.reduceMotionOf(context)
+        ? AppMotion.reduced
+        : AppMotion.quick;
     final label = selected
         ? strings.authAvatarSelectedLabel(index + 1)
         : strings.authAvatarLabel(index + 1);
@@ -182,10 +186,12 @@ class _AvatarChoice extends StatelessWidget {
           fit: StackFit.expand,
           children: <Widget>[
             AnimatedContainer(
-              duration: AppMotion.quick,
+              duration: selectionDuration,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: background,
+                color: selected
+                    ? background
+                    : Theme.of(context).colorScheme.surfaceContainerHighest,
                 border: Border.all(
                   color: selected ? AppColors.deepWater : AppColors.outline,
                   width: selected ? AppStrokes.focus : AppStrokes.icon,
