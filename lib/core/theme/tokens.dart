@@ -47,9 +47,21 @@ abstract final class AppTypography {
   static const String fontFamily = 'Noto Sans';
   static const String arabicFontFamily = 'Noto Sans Arabic';
 
+  /// Rounded display face for headings, titles and buttons (round 3 design
+  /// pick). Bundled as a font asset -- see `pubspec.yaml` and
+  /// `assets/fonts/baloo2/OFL.txt` -- rather than fetched via `google_fonts`,
+  /// since this is a field app that can't assume network access. Never used
+  /// for Arabic: [displayFamilyFor] always falls back to
+  /// [arabicFontFamily] there, matching [familyFor].
+  static const String displayFontFamily = 'Baloo 2';
+
   static String familyFor(Locale locale) => locale.languageCode == 'ar'
       ? arabicFontFamily
       : fontFamily;
+
+  static String displayFamilyFor(Locale locale) => locale.languageCode == 'ar'
+      ? arabicFontFamily
+      : displayFontFamily;
 
   static const double displaySize = 40;
   static const double headlineSize = 28;

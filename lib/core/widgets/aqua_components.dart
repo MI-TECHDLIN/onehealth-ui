@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../mascot/aqua_mascot.dart';
 import '../theme/tokens.dart';
@@ -135,8 +136,12 @@ class _AquaButtonState extends State<AquaButton> {
                               child: Text(
                                 widget.label,
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelLarge
-                                    ?.copyWith(color: foreground),
+                                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                  color: foreground,
+                                  fontFamily: AppTypography.displayFamilyFor(
+                                    Localizations.localeOf(context),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -403,7 +408,7 @@ class PictureChoiceCard extends StatelessWidget {
                             ),
                             child: selected
                                 ? const Icon(
-                                    Icons.check_rounded,
+                                    PhosphorIconsFill.check,
                                     size: 18,
                                     color: AppColors.white,
                                   )
@@ -432,7 +437,7 @@ class NotSureButton extends StatelessWidget {
     label: "I'm not sure",
     variant: AquaButtonVariant.ghost,
     onPressed: onPressed,
-    leading: const Icon(Icons.help_outline_rounded),
+    leading: const Icon(PhosphorIconsRegular.question),
   );
 }
 

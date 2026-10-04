@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../mascot/aqua_mascot.dart';
 import '../theme/tokens.dart';
@@ -81,7 +82,7 @@ class FriendlyErrorBanner extends StatelessWidget {
               IconButton(
                 tooltip: 'Dismiss',
                 onPressed: onDismiss,
-                icon: const Icon(Icons.close_rounded),
+                icon: const Icon(PhosphorIconsRegular.x),
               ),
           ],
         ),

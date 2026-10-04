@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+import '../../core/icons/water_icons.dart';
 import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/mode_badge.dart';
@@ -69,30 +71,30 @@ class _FieldNavigationBar extends StatelessWidget {
               children: <Widget>[
                 _NavItem(
                   label: strings.navHome,
-                  icon: Icons.home_outlined,
-                  selectedIcon: Icons.home_rounded,
+                  icon: PhosphorIconsRegular.house,
+                  selectedIcon: PhosphorIconsFill.house,
                   selected: currentPath == '/home',
                   onTap: () => context.go('/home'),
                 ),
                 _NavItem(
                   label: strings.navStreams,
-                  icon: Icons.water_outlined,
-                  selectedIcon: Icons.water,
+                  icon: PhosphorIconsRegular.drop,
+                  selectedIcon: PhosphorIconsFill.drop,
                   selected: currentPath.startsWith('/streams'),
                   onTap: () => context.go('/streams'),
                 ),
                 const Expanded(child: SizedBox()),
                 _NavItem(
                   label: strings.navImpact,
-                  icon: Icons.insights_outlined,
-                  selectedIcon: Icons.insights_rounded,
+                  icon: PhosphorIconsRegular.chartLineUp,
+                  selectedIcon: PhosphorIconsFill.chartLineUp,
                   selected: currentPath.startsWith('/impact'),
                   onTap: () => context.go('/impact'),
                 ),
                 _NavItem(
                   label: strings.navProfile,
-                  icon: Icons.person_outline_rounded,
-                  selectedIcon: Icons.person_rounded,
+                  icon: PhosphorIconsRegular.user,
+                  selectedIcon: PhosphorIconsFill.user,
                   selected: currentPath.startsWith('/profile'),
                   onTap: () => context.go('/profile'),
                 ),
@@ -227,8 +229,8 @@ class _CheckAction extends StatelessWidget {
                 radius: AppSizes.raisedNavigationAction / 2,
                 child: const SizedBox.square(
                   dimension: AppSizes.raisedNavigationAction,
-                  child: Icon(
-                    Icons.add_rounded,
+                  child: WaterIconWidget(
+                    WaterIcon.streamCheck,
                     color: AppColors.white,
                     size: AppSpacing.xl,
                   ),

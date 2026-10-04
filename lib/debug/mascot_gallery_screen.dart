@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+import '../core/icons/water_icons.dart';
 import '../core/mascot/aqua_mascot.dart';
 import '../core/mascot/mascot_identity.dart';
 import '../core/mascot/ripple_controller.dart';
@@ -155,14 +157,14 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
                               onPressed: _pagerPage == 0
                                   ? null
                                   : () => setState(() => _pagerPage -= 1),
-                              icon: const Icon(Icons.chevron_left_rounded),
+                              icon: const Icon(PhosphorIconsRegular.caretLeft),
                             ),
                             IconButton(
                               tooltip: 'Next page',
                               onPressed: _pagerPage == 4
                                   ? null
                                   : () => setState(() => _pagerPage += 1),
-                              icon: const Icon(Icons.chevron_right_rounded),
+                              icon: const Icon(PhosphorIconsRegular.caretRight),
                             ),
                           ],
                         ),
@@ -193,6 +195,7 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
                     ),
                   ),
                   _Section(title: 'Badge family', child: _badgeGallery()),
+                  _Section(title: 'Water icon set', child: _waterIconGallery()),
                 ],
               ),
             ),
@@ -261,7 +264,7 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
           SizedBox(
             width: 220,
             child: PictureChoiceCard(
-              image: const Icon(Icons.waves_rounded, size: 62, color: AppColors.deepWater),
+              image: const Icon(PhosphorIconsRegular.waves, size: 62, color: AppColors.deepWater),
               label: 'Flat channel',
               selected: _pictureSelected,
               onSelected: (value) => setState(() => _pictureSelected = value),
@@ -270,7 +273,11 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
           SizedBox(
             width: 220,
             child: PictureChoiceCard(
-              image: const Icon(Icons.landscape_rounded, size: 62, color: AppColors.sage),
+              image: const WaterIconWidget(
+                WaterIcon.riparianBank,
+                size: 62,
+                color: AppColors.sage,
+              ),
               label: 'Steep banks',
               selected: false,
               onSelected: (_) {},
@@ -280,7 +287,7 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
           const SizedBox(
             width: 220,
             child: PictureChoiceCard(
-              image: Icon(Icons.image_not_supported_outlined, size: 62),
+              image: Icon(PhosphorIconsRegular.imageBroken, size: 62),
               label: 'Disabled choice',
               selected: false,
               enabled: false,
@@ -328,6 +335,48 @@ class _MascotGalleryScreenState extends State<MascotGalleryScreen> {
         ),
       ),
     ],
+  );
+
+  Widget _waterIconGallery() => Wrap(
+    spacing: AppSpacing.lg,
+    runSpacing: AppSpacing.lg,
+    children: WaterIcon.values
+        .map(
+          (icon) => Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(AppSpacing.sm),
+                    decoration: BoxDecoration(
+                      color: AppColors.waterMist,
+                      borderRadius: BorderRadius.circular(AppRadii.md),
+                    ),
+                    child: WaterIconWidget(icon, color: AppColors.deepWater),
+                  ),
+                  const SizedBox(width: AppSpacing.xs),
+                  Container(
+                    padding: const EdgeInsets.all(AppSpacing.sm),
+                    decoration: BoxDecoration(
+                      color: AppColors.deepWater,
+                      borderRadius: BorderRadius.circular(AppRadii.md),
+                    ),
+                    child: WaterIconWidget(
+                      icon,
+                      color: AppColors.white,
+                      filled: true,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: AppSpacing.xxs),
+              Text(icon.name, style: const TextStyle(fontSize: 11)),
+            ],
+          ),
+        )
+        .toList(),
   );
 
   static String _moodLabel(MascotMood mood) => switch (mood) {

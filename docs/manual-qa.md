@@ -110,3 +110,30 @@ Authentication, Live data, and avatars:
 
 Items 39-47 require on-device verification. Repository tests use fake HTTP only;
 they must never be pointed at the production OneAquaHealth base URL.
+
+Type and icon pack (round 3 pick: Baloo 2 + Phosphor):
+48. Compare any screen's headline, app-bar title, dialog/bottom-sheet title,
+    and button labels against its body text - headings/titles/buttons use the
+    rounded Baloo 2 face, body and chip/picture-choice labels stay on Noto
+    Sans.
+49. Switch to Arabic - every heading still renders in Noto Sans Arabic, never
+    Baloo 2 (Baloo 2 has no Arabic glyphs, so this also confirms the fallback
+    config is correct rather than silently falling back).
+50. Enable airplane mode, clear the app, and relaunch straight into
+    onboarding - headings still render in Baloo 2 immediately, with no
+    flash-of-fallback-font, since it is bundled rather than fetched.
+51. Walk Home, Streams, Check, Impact, and You - no icon renders as a blank
+    box or "?" (a missing-glyph symptom); the selected destination's icon is
+    visibly bolder/filled, not just a color change.
+52. Open the raised Check action, the onboarding data-journey screen's field
+    safety notice, and the read-aloud Listen button (before narration starts)
+    - each shows its custom water icon (stream-check, field-safety shield
+    with a drop, narration speaker with a ripple wave) rather than a generic
+    Phosphor glyph.
+53. Open `/debug/mascot` -> "Water icon set" - all six custom icons render
+    distinctly at both regular and filled weight with no clipped or
+    overlapping strokes.
+54. Open Settings -> Credits (once built) - Phosphor Icons (MIT) and Baloo 2
+    (SIL Open Font License 1.1) are both listed.
+
+Items 48-54 require on-device verification.

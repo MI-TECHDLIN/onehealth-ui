@@ -21,6 +21,27 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Import `lib/core/widgets/component_kit.dart` for the reusable field UI
   primitives and evidence badges; their reduced-motion and semantic states are
   represented in the debug mascot gallery.
+- Headings, titles and buttons use the bundled Baloo 2 face via
+  `AppTypography.displayFontFamily`/`displayFamilyFor(locale)` (set on
+  `app_theme.dart`'s `displaySmall`/`headlineMedium`/`titleLarge` and applied
+  directly in `AquaButton`'s label style, since that shares `labelLarge` with
+  non-heading chip/picture-choice text). It is a font asset
+  (`assets/fonts/baloo2/`, OFL-licensed), not `google_fonts`, so it renders
+  offline; never applies to Arabic, which always keeps Noto Sans Arabic.
+  Everything else (body, labels, chips) stays on Noto Sans/`familyFor`.
+  Bundled as static per-weight `.ttf` instances, not the upstream variable
+  font: Flutter only drives a variable font's `wght` axis through
+  `TextStyle.fontVariations`, not `fontWeight`, so registering one variable
+  file under several pubspec `weight:` entries silently renders every
+  weight at the file's default instance. Regenerate instances with
+  `fonttools varLib.instancer` (`pip install fonttools` in a throwaway venv)
+  from Google Fonts' upstream variable file if a new weight is ever needed.
+- Icons are Phosphor (`phosphor_flutter`, MIT) everywhere: `PhosphorIconsRegular.*`
+  for idle states, `PhosphorIconsFill.*` for selected/active ones -- do not
+  reintroduce Material `Icons.*`. For concepts Phosphor doesn't cover (stream
+  check, ripple drop, water quality, riparian bank, field safety, narration
+  wave), use `WaterIconWidget`/`WaterIcon` from `lib/core/icons/water_icons.dart`
+  instead of drawing a one-off `CustomPainter`.
 - The captain builds locally on Flutter 3.41.7 stable (Dart 3.11.5). Before
   adding or upgrading any dependency in `pubspec.yaml`, check its `environment:`
   constraint on pub.dev and do not pick a version that needs a newer Flutter or

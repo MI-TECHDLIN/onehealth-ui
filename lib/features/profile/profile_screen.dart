@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/profile/avatar_catalog.dart';
@@ -46,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
             Center(
               child: OutlinedButton.icon(
                 onPressed: () => context.go('${AppRoutes.avatar}?change=true'),
-                icon: const Icon(Icons.face_retouching_natural_rounded),
+                icon: const Icon(PhosphorIconsRegular.userCircle),
                 label: Text(strings.authAvatarChangeAction),
               ),
             ),
@@ -56,7 +57,7 @@ class ProfileScreen extends StatelessWidget {
               builder: (context, snapshot) => snapshot.data == null
                   ? const SizedBox.shrink()
                   : ListTile(
-                      leading: const Icon(Icons.verified_user_outlined),
+                      leading: const Icon(PhosphorIconsRegular.shieldCheck),
                       title: Text(snapshot.data!.displayName),
                       subtitle: Text(
                         <String>[
@@ -76,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
                   settings.mode.isLive ? AppRoutes.signIn : AppRoutes.home,
                 );
               },
-              icon: const Icon(Icons.logout_rounded),
+              icon: const Icon(PhosphorIconsRegular.signOut),
               label: Text(strings.authSignOutAction),
             ),
           ],

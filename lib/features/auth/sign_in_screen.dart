@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/errors/friendly_error.dart';
@@ -115,7 +116,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         ],
                         decoration: InputDecoration(
                           labelText: strings.authUsernameLabel,
-                          prefixIcon: const Icon(Icons.person_outline_rounded),
+                          prefixIcon: const Icon(PhosphorIconsRegular.user),
                         ),
                         validator: (value) => value == null || value.trim().isEmpty
                             ? strings.authRequiredField
@@ -132,7 +133,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         onFieldSubmitted: (_) => _signIn(),
                         decoration: InputDecoration(
                           labelText: strings.authPasswordLabel,
-                          prefixIcon: const Icon(Icons.lock_outline_rounded),
+                          prefixIcon: const Icon(PhosphorIconsRegular.lockSimple),
                           suffixIcon: IconButton(
                             key: const Key('authPasswordVisibility'),
                             tooltip: _obscurePassword
@@ -145,8 +146,8 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                             icon: Icon(
                               _obscurePassword
-                                  ? Icons.visibility_rounded
-                                  : Icons.visibility_off_rounded,
+                                  ? PhosphorIconsRegular.eye
+                                  : PhosphorIconsRegular.eyeSlash,
                             ),
                           ),
                         ),
