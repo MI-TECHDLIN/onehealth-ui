@@ -9,8 +9,10 @@ Each preset in `generate_avatars.mjs` pins its skin tone, hair or headwear,
 eyes, eyebrows, clothing, optional facial hair and glasses, and a brand-token
 background. The generator applies the `smile` mouth to every preset. Keep eyes
 limited to `happy` or `default` and eyebrows to neutral or excited variants so
-every choice remains friendly. Preset filenames and their order are stable
-because the app persists `avatar-01` through `avatar-12`.
+every choice remains friendly. Use natural human skin colours and clear glasses;
+avoid novelty skin tones and sunglasses that hide the eyes. Preset filenames
+and their order are stable because the app persists `avatar-01` through
+`avatar-12`.
 
 Regenerate the committed SVG assets with Node.js:
 

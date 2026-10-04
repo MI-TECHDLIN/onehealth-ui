@@ -64,7 +64,7 @@ const presets = [
   },
   {
     seed: 'estuary',
-    skinColor: '#f8d25c',
+    skinColor: '#ae5d29',
     topVariant: 'dreads02',
     hairColor: '#2c1b18',
     eyesVariant: 'default',
@@ -132,12 +132,12 @@ const presets = [
   },
   {
     seed: 'juniper',
-    skinColor: '#fd9841',
+    skinColor: '#edb98a',
     topVariant: 'winterHat02',
     hatColor: '#25557c',
     eyesVariant: 'default',
     eyebrowsVariant: 'defaultNatural',
-    accessoriesVariant: 'wayfarers',
+    accessoriesVariant: 'prescription02',
     accessoriesColor: '#262e33',
     accessoriesProbability: 100,
     clothesVariant: 'hoodie',
