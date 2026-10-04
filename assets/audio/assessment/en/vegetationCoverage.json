@@ -1,0 +1,162 @@
+{
+  "id": "vegetationCoverage",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 15565,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 2
+    },
+    {
+      "id": "options",
+      "words": 26
+    }
+  ],
+  "words": [
+    "Vegetation",
+    "(Left)",
+    "Is",
+    "the",
+    "left",
+    "margin",
+    "covered",
+    "by",
+    "vegetation?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure.",
+    "Vegetation",
+    "(Right).",
+    "Is",
+    "the",
+    "right",
+    "margin",
+    "covered",
+    "by",
+    "vegetation?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 697
+    },
+    {
+      "start": 697,
+      "end": 1103
+    },
+    {
+      "start": 1934,
+      "end": 2027
+    },
+    {
+      "start": 2027,
+      "end": 2085
+    },
+    {
+      "start": 2085,
+      "end": 2340
+    },
+    {
+      "start": 2340,
+      "end": 2665
+    },
+    {
+      "start": 2665,
+      "end": 2921
+    },
+    {
+      "start": 2921,
+      "end": 3037
+    },
+    {
+      "start": 3037,
+      "end": 3861
+    },
+    {
+      "start": 4773,
+      "end": 5342
+    },
+    {
+      "start": 5801,
+      "end": 6243
+    },
+    {
+      "start": 6667,
+      "end": 6818
+    },
+    {
+      "start": 6818,
+      "end": 6980
+    },
+    {
+      "start": 6980,
+      "end": 7398
+    },
+    {
+      "start": 7997,
+      "end": 8705
+    },
+    {
+      "start": 8705,
+      "end": 9309
+    },
+    {
+      "start": 9734,
+      "end": 9826
+    },
+    {
+      "start": 9826,
+      "end": 9896
+    },
+    {
+      "start": 9896,
+      "end": 10140
+    },
+    {
+      "start": 10140,
+      "end": 10488
+    },
+    {
+      "start": 10488,
+      "end": 10755
+    },
+    {
+      "start": 10755,
+      "end": 10860
+    },
+    {
+      "start": 10860,
+      "end": 11638
+    },
+    {
+      "start": 12434,
+      "end": 12979
+    },
+    {
+      "start": 13415,
+      "end": 13798
+    },
+    {
+      "start": 14269,
+      "end": 14409
+    },
+    {
+      "start": 14409,
+      "end": 14606
+    },
+    {
+      "start": 14606,
+      "end": 15001
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

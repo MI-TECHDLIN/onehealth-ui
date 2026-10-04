@@ -87,6 +87,33 @@ include_alignments=True)` returns per-phoneme sample counts alongside the
 audio. This script sums those into per-word spans by treating each
 phonemized space as a word boundary.
 
+## Assessment question narration
+
+`generate_assessment_narration.py` covers the round-4 question flow and its
+tap-to-explain glossary, producing `assets/audio/assessment/<locale>/<id>.
+{ogg,json}`. It imports and reuses this script's `synthesize_screen` rather
+than duplicating the Piper pipeline -- only its `SCREENS` list (and output
+path) differs. Each entry's `prompt` segment must stay byte-for-byte
+identical to the matching question's `questiontext`/`question` in
+`assets/data/assessment-content.json`, since that is the only segment any
+widget currently highlights (`QuestionFrame` in
+`lib/features/check/widgets/question_frame.dart`); the `options` segment
+gives full audio coverage of the answer choices without a highlight
+consumer yet -- a known round-4 scope cut, not an oversight, left for a
+later round that wires per-chip highlighting into `PictureChoiceCard`/
+`AquaFilterChip`. Regenerate it the same way:
+
+```bash
+source /tmp/piper-venv/bin/activate
+python scripts/narration/generate_assessment_narration.py \
+  --voice-model /tmp/piper-voices/en_GB-alba-medium/en_GB-alba-medium.onnx \
+  --out-dir assets/audio/assessment/en
+```
+
+Non-English assessment locales fall back to the on-device `flutter_tts`
+voice (see `lib/core/audio/assessment_narration_controller.dart`) rather
+than shipping machine-translated Piper audio.
+
 **Known limitation, worth knowing before you regenerate:** espeak-ng's
 English front end sometimes merges a short function-word pair into one
 phonemized unit with no space between them -- for example "on the" inside

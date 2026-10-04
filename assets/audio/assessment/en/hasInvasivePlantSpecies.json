@@ -1,0 +1,92 @@
+{
+  "id": "hasInvasivePlantSpecies",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 6493,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 9
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Do",
+    "you",
+    "see",
+    "any",
+    "non-native",
+    "or",
+    "invasive",
+    "plant",
+    "species?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 93
+    },
+    {
+      "start": 93,
+      "end": 186
+    },
+    {
+      "start": 186,
+      "end": 360
+    },
+    {
+      "start": 360,
+      "end": 522
+    },
+    {
+      "start": 522,
+      "end": 1080
+    },
+    {
+      "start": 1080,
+      "end": 1173
+    },
+    {
+      "start": 1173,
+      "end": 1556
+    },
+    {
+      "start": 1556,
+      "end": 1788
+    },
+    {
+      "start": 1788,
+      "end": 2543
+    },
+    {
+      "start": 3269,
+      "end": 3826
+    },
+    {
+      "start": 4309,
+      "end": 4715
+    },
+    {
+      "start": 5221,
+      "end": 5383
+    },
+    {
+      "start": 5383,
+      "end": 5546
+    },
+    {
+      "start": 5546,
+      "end": 5952
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

@@ -1,0 +1,97 @@
+{
+  "id": "channelForm",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 7022,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 4
+    },
+    {
+      "id": "options",
+      "words": 11
+    }
+  ],
+  "words": [
+    "The",
+    "channel",
+    "form",
+    "is...",
+    "Flat",
+    "(A).",
+    "U",
+    "Shape",
+    "(B).",
+    "V",
+    "Shape",
+    "(C).",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 81
+    },
+    {
+      "start": 81,
+      "end": 430
+    },
+    {
+      "start": 430,
+      "end": 755
+    },
+    {
+      "start": 755,
+      "end": 1010
+    },
+    {
+      "start": 1771,
+      "end": 2120
+    },
+    {
+      "start": 2120,
+      "end": 2387
+    },
+    {
+      "start": 3194,
+      "end": 3403
+    },
+    {
+      "start": 3403,
+      "end": 3601
+    },
+    {
+      "start": 3601,
+      "end": 4019
+    },
+    {
+      "start": 4489,
+      "end": 4652
+    },
+    {
+      "start": 4652,
+      "end": 4849
+    },
+    {
+      "start": 4849,
+      "end": 5209
+    },
+    {
+      "start": 5750,
+      "end": 5831
+    },
+    {
+      "start": 5831,
+      "end": 6005
+    },
+    {
+      "start": 6005,
+      "end": 6435
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

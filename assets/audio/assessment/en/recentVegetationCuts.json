@@ -1,0 +1,157 @@
+{
+  "id": "recentVegetationCuts",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8850,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 22
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Have",
+    "there",
+    "been",
+    "recent",
+    "cuts",
+    "if",
+    "vegetation",
+    "(partial",
+    "or",
+    "total)",
+    "on",
+    "the",
+    "banks",
+    "(or",
+    "just",
+    "one",
+    "of",
+    "the",
+    "banks)",
+    "of",
+    "the",
+    "stream?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 226
+    },
+    {
+      "start": 226,
+      "end": 508
+    },
+    {
+      "start": 508,
+      "end": 734
+    },
+    {
+      "start": 734,
+      "end": 1072
+    },
+    {
+      "start": 1072,
+      "end": 1298
+    },
+    {
+      "start": 1298,
+      "end": 1411
+    },
+    {
+      "start": 1411,
+      "end": 1976
+    },
+    {
+      "start": 1976,
+      "end": 2427
+    },
+    {
+      "start": 2427,
+      "end": 2540
+    },
+    {
+      "start": 2540,
+      "end": 2879
+    },
+    {
+      "start": 2879,
+      "end": 2992
+    },
+    {
+      "start": 2992,
+      "end": 3161
+    },
+    {
+      "start": 3161,
+      "end": 3443
+    },
+    {
+      "start": 3443,
+      "end": 3612
+    },
+    {
+      "start": 3612,
+      "end": 3838
+    },
+    {
+      "start": 3838,
+      "end": 4008
+    },
+    {
+      "start": 4008,
+      "end": 4120
+    },
+    {
+      "start": 4120,
+      "end": 4290
+    },
+    {
+      "start": 4290,
+      "end": 4628
+    },
+    {
+      "start": 4628,
+      "end": 4741
+    },
+    {
+      "start": 4741,
+      "end": 4911
+    },
+    {
+      "start": 4911,
+      "end": 5306
+    },
+    {
+      "start": 5626,
+      "end": 6183
+    },
+    {
+      "start": 6689,
+      "end": 7153
+    },
+    {
+      "start": 7578,
+      "end": 7705
+    },
+    {
+      "start": 7705,
+      "end": 7891
+    },
+    {
+      "start": 7891,
+      "end": 8344
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

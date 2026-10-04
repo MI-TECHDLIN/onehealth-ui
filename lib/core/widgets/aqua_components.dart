@@ -429,12 +429,13 @@ class PictureChoiceCard extends StatelessWidget {
 }
 
 class NotSureButton extends StatelessWidget {
-  const NotSureButton({super.key, required this.onPressed});
+  const NotSureButton({super.key, required this.onPressed, this.label = "I'm not sure"});
   final VoidCallback? onPressed;
+  final String label;
 
   @override
   Widget build(BuildContext context) => AquaButton(
-    label: "I'm not sure",
+    label: label,
     variant: AquaButtonVariant.ghost,
     onPressed: onPressed,
     leading: const Icon(PhosphorIconsRegular.question),

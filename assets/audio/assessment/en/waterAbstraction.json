@@ -1,0 +1,112 @@
+{
+  "id": "waterAbstraction",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 7898,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 13
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Is",
+    "there",
+    "any",
+    "kind",
+    "of",
+    "obvious",
+    "water",
+    "collection,",
+    "use,",
+    "removal",
+    "from",
+    "the",
+    "stream?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 139
+    },
+    {
+      "start": 139,
+      "end": 486
+    },
+    {
+      "start": 486,
+      "end": 695
+    },
+    {
+      "start": 695,
+      "end": 973
+    },
+    {
+      "start": 973,
+      "end": 1112
+    },
+    {
+      "start": 1112,
+      "end": 1598
+    },
+    {
+      "start": 1598,
+      "end": 1945
+    },
+    {
+      "start": 1945,
+      "end": 2710
+    },
+    {
+      "start": 2710,
+      "end": 2988
+    },
+    {
+      "start": 2988,
+      "end": 3474
+    },
+    {
+      "start": 3474,
+      "end": 3752
+    },
+    {
+      "start": 3752,
+      "end": 3960
+    },
+    {
+      "start": 3960,
+      "end": 4447
+    },
+    {
+      "start": 4767,
+      "end": 5289
+    },
+    {
+      "start": 5725,
+      "end": 6097
+    },
+    {
+      "start": 6579,
+      "end": 6672
+    },
+    {
+      "start": 6672,
+      "end": 6869
+    },
+    {
+      "start": 6869,
+      "end": 7334
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

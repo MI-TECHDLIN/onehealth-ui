@@ -1,0 +1,98 @@
+{
+  "id": "glossary_bank",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 5103,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 16
+    }
+  ],
+  "words": [
+    "The",
+    "bank",
+    "is",
+    "the",
+    "sloped",
+    "edge",
+    "of",
+    "the",
+    "channel,",
+    "between",
+    "the",
+    "water",
+    "and",
+    "the",
+    "surrounding",
+    "land."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 199
+    },
+    {
+      "start": 199,
+      "end": 465
+    },
+    {
+      "start": 465,
+      "end": 598
+    },
+    {
+      "start": 598,
+      "end": 797
+    },
+    {
+      "start": 797,
+      "end": 1196
+    },
+    {
+      "start": 1196,
+      "end": 1462
+    },
+    {
+      "start": 1462,
+      "end": 1595
+    },
+    {
+      "start": 1595,
+      "end": 1794
+    },
+    {
+      "start": 1794,
+      "end": 2325
+    },
+    {
+      "start": 2325,
+      "end": 2790
+    },
+    {
+      "start": 2790,
+      "end": 2990
+    },
+    {
+      "start": 2990,
+      "end": 3322
+    },
+    {
+      "start": 3322,
+      "end": 3521
+    },
+    {
+      "start": 3521,
+      "end": 3720
+    },
+    {
+      "start": 3720,
+      "end": 4451
+    },
+    {
+      "start": 4451,
+      "end": 4783
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

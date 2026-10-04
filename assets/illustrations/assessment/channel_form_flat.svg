@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="Flat channel cross-section">
+  <rect width="160" height="120" fill="#E9F7F7"/>
+  <path d="M0 70 L30 70 L30 94 L130 94 L130 70 L160 70 L160 120 L0 120 Z" fill="#DDEBDD"/>
+  <path d="M30 94 L130 94 L130 112 L30 112 Z" fill="#2E9EB0"/>
+  <path d="M30 94 L130 94" stroke="#126B78" stroke-width="2" fill="none"/>
+</svg>

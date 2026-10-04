@@ -1,0 +1,107 @@
+{
+  "id": "fallenBiomassTypes",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 7758,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 6
+    },
+    {
+      "id": "options",
+      "words": 11
+    }
+  ],
+  "words": [
+    "Are",
+    "there",
+    "any",
+    "natural",
+    "debris",
+    "present?",
+    "Fallen",
+    "trees",
+    "(A).",
+    "Fallen",
+    "branches",
+    "(B).",
+    "Deposits",
+    "of",
+    "fallen",
+    "leaves",
+    "(C)."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 93
+    },
+    {
+      "start": 93,
+      "end": 197
+    },
+    {
+      "start": 197,
+      "end": 372
+    },
+    {
+      "start": 372,
+      "end": 755
+    },
+    {
+      "start": 755,
+      "end": 1068
+    },
+    {
+      "start": 1068,
+      "end": 1649
+    },
+    {
+      "start": 2329,
+      "end": 2630
+    },
+    {
+      "start": 2630,
+      "end": 2979
+    },
+    {
+      "start": 2979,
+      "end": 3246
+    },
+    {
+      "start": 3775,
+      "end": 4181
+    },
+    {
+      "start": 4181,
+      "end": 4645
+    },
+    {
+      "start": 4645,
+      "end": 4982
+    },
+    {
+      "start": 5534,
+      "end": 6092
+    },
+    {
+      "start": 6092,
+      "end": 6208
+    },
+    {
+      "start": 6208,
+      "end": 6556
+    },
+    {
+      "start": 6556,
+      "end": 6823
+    },
+    {
+      "start": 6823,
+      "end": 7137
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

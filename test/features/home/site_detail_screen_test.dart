@@ -82,7 +82,7 @@ void main() {
     expect(find.text('You last checked this stream 3 days ago'), findsOneWidget);
   });
 
-  testWidgets('Check this stream pushes to the check route with the site name', (
+  testWidgets('Check this stream pushes to the assess route with the full site', (
     tester,
   ) async {
     await _pumpSiteDetail(tester, site: _site);
@@ -144,10 +144,10 @@ Future<void> _pumpSiteDetail(
         ),
       ),
       GoRoute(
-        path: '/check',
+        path: '/check/assess',
         builder: (context, state) => Scaffold(
           body: Text(
-            'check-placeholder:${state.uri.queryParameters['name'] ?? ''}',
+            'check-placeholder:${(state.extra as StreamSite?)?.name ?? ''}',
           ),
         ),
       ),

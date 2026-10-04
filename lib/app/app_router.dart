@@ -10,6 +10,9 @@ import '../data/repositories/auth_repository.dart';
 import '../data/repositories/repository_models.dart';
 import '../debug/mascot_gallery_screen.dart';
 import '../features/auth/sign_in_screen.dart';
+import '../features/check/assessment_review_screen.dart';
+import '../features/check/assessment_shell.dart';
+import '../features/check/check_site_picker_screen.dart';
 import '../features/home/home_map_screen.dart';
 import '../features/home/site_detail_screen.dart';
 import '../features/home/stream_map_view.dart';
@@ -28,6 +31,8 @@ abstract final class AppRoutes {
   static const String home = '/home';
   static const String streams = '/streams';
   static const String check = '/check';
+  static const String checkAssess = '/check/assess';
+  static const String checkReview = '/check/review';
   static const String impact = '/impact';
   static const String profile = '/profile';
   static const String settings = '/settings';
@@ -131,23 +136,11 @@ GoRouter createAppRouter({
         ),
         GoRoute(
           path: AppRoutes.check,
-          pageBuilder: (context, state) {
-            final siteCode = state.uri.queryParameters['site'];
-            final siteName = state.uri.queryParameters['name'];
-            return _page(
-              context: context,
-              state: state,
-              child: PlaceholderScreen(
-                title: AppLocalizations.of(context).checkTitle,
-                icon: PhosphorIconsRegular.cameraPlus,
-                body: siteCode == null || siteName == null
-                    ? null
-                    : AppLocalizations.of(
-                        context,
-                      ).siteCheckPlaceholderBody(siteName),
-              ),
-            );
-          },
+          pageBuilder: (context, state) => _page(
+            context: context,
+            state: state,
+            child: const CheckSitePickerScreen(),
+          ),
         ),
         _placeholderRoute(
           path: AppRoutes.impact,
@@ -181,6 +174,26 @@ GoRouter createAppRouter({
           code: state.pathParameters['code']!,
           site: state.extra is StreamSite ? state.extra! as StreamSite : null,
         ),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.checkAssess,
+      redirect: (context, state) =>
+          state.extra is StreamSite ? null : AppRoutes.check,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: AssessmentShell(site: state.extra! as StreamSite),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.checkReview,
+      redirect: (context, state) =>
+          state.extra is AssessmentDraft ? null : AppRoutes.home,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: AssessmentReviewScreen(draft: state.extra! as AssessmentDraft),
       ),
     ),
     if (kDebugMode)

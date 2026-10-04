@@ -1,0 +1,92 @@
+{
+  "id": "pipes",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 6400,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 9
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Are",
+    "there",
+    "pipes",
+    "draining",
+    "polluted",
+    "water",
+    "into",
+    "the",
+    "stream?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 93
+    },
+    {
+      "start": 93,
+      "end": 209
+    },
+    {
+      "start": 209,
+      "end": 534
+    },
+    {
+      "start": 534,
+      "end": 824
+    },
+    {
+      "start": 824,
+      "end": 1173
+    },
+    {
+      "start": 1173,
+      "end": 1486
+    },
+    {
+      "start": 1486,
+      "end": 1660
+    },
+    {
+      "start": 1660,
+      "end": 1718
+    },
+    {
+      "start": 1718,
+      "end": 2194
+    },
+    {
+      "start": 2979,
+      "end": 3501
+    },
+    {
+      "start": 4204,
+      "end": 4564
+    },
+    {
+      "start": 5070,
+      "end": 5209
+    },
+    {
+      "start": 5209,
+      "end": 5395
+    },
+    {
+      "start": 5395,
+      "end": 5859
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

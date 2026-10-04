@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="V-shaped channel cross-section">
+  <rect width="160" height="120" fill="#E9F7F7"/>
+  <path d="M0 70 L20 70 L80 112 L140 70 L160 70 L160 120 L0 120 Z" fill="#DDEBDD"/>
+  <path d="M55 94 L80 112 L105 94 L94 87 L80 96 L66 87 Z" fill="#2E9EB0"/>
+</svg>

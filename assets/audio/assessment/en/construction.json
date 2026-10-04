@@ -1,0 +1,77 @@
+{
+  "id": "construction",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 6203,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 6
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Is",
+    "there",
+    "any",
+    "construction/works",
+    "in",
+    "stream?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 132
+    },
+    {
+      "start": 132,
+      "end": 463
+    },
+    {
+      "start": 463,
+      "end": 662
+    },
+    {
+      "start": 662,
+      "end": 1854
+    },
+    {
+      "start": 1854,
+      "end": 1986
+    },
+    {
+      "start": 1986,
+      "end": 2450
+    },
+    {
+      "start": 2770,
+      "end": 3327
+    },
+    {
+      "start": 4053,
+      "end": 4495
+    },
+    {
+      "start": 4931,
+      "end": 5058
+    },
+    {
+      "start": 5058,
+      "end": 5221
+    },
+    {
+      "start": 5221,
+      "end": 5674
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

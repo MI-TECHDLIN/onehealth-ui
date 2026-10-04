@@ -1,0 +1,127 @@
+{
+  "id": "hasDams",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 9535,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 16
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Do",
+    "you",
+    "see",
+    "any",
+    "dams",
+    "or",
+    "other",
+    "transversal",
+    "artificial",
+    "barriers",
+    "(see",
+    "some",
+    "examples",
+    "in",
+    "images",
+    "provided)?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 128
+    },
+    {
+      "start": 128,
+      "end": 197
+    },
+    {
+      "start": 197,
+      "end": 395
+    },
+    {
+      "start": 395,
+      "end": 604
+    },
+    {
+      "start": 604,
+      "end": 987
+    },
+    {
+      "start": 987,
+      "end": 1091
+    },
+    {
+      "start": 1091,
+      "end": 1265
+    },
+    {
+      "start": 1265,
+      "end": 1881
+    },
+    {
+      "start": 1881,
+      "end": 2473
+    },
+    {
+      "start": 2473,
+      "end": 2844
+    },
+    {
+      "start": 2844,
+      "end": 2995
+    },
+    {
+      "start": 2995,
+      "end": 3123
+    },
+    {
+      "start": 3123,
+      "end": 3634
+    },
+    {
+      "start": 3634,
+      "end": 3715
+    },
+    {
+      "start": 3715,
+      "end": 3982
+    },
+    {
+      "start": 3982,
+      "end": 4690
+    },
+    {
+      "start": 5846,
+      "end": 6380
+    },
+    {
+      "start": 7072,
+      "end": 7536
+    },
+    {
+      "start": 7972,
+      "end": 8100
+    },
+    {
+      "start": 8100,
+      "end": 8298
+    },
+    {
+      "start": 8298,
+      "end": 8692
+    }
+  ],
+  "alignment": "piper-phoneme"
+}
