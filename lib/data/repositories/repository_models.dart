@@ -589,21 +589,39 @@ class AssessmentRecord {
     if (longitude != null) 'longitude': longitude,
     if (username != null) 'username': username,
     if (overallAssessment != null) 'overallAssessment': overallAssessment,
+    // Local-only persistence (Demo history); Live history is always rebuilt
+    // fresh from the server via `fromApiJson` and never round-trips through
+    // this method, so these stay additive and optional here.
+    if (fileIds.isNotEmpty)
+      'fileIds': <String, String>{
+        for (final entry in fileIds.entries) entry.key.name: entry.value,
+      },
+    if (habitats.isNotEmpty) 'habitats': habitats,
   };
 
-  factory AssessmentRecord.fromJson(Map<String, dynamic> json) =>
-      AssessmentRecord(
-        id: json['id'] as String,
-        siteCode: json['siteCode'] as String,
-        siteKind: SiteKind.values.byName(
-          json['siteKind'] as String? ?? SiteKind.research.name,
-        ),
-        submittedAt: DateTime.parse(json['submittedAt'] as String).toUtc(),
-        latitude: _nullableDouble(json['latitude']),
-        longitude: _nullableDouble(json['longitude']),
-        username: json['username'] as String?,
-        overallAssessment: json['overallAssessment'] as String?,
-      );
+  factory AssessmentRecord.fromJson(Map<String, dynamic> json) {
+    final fileIdsJson = json['fileIds'];
+    return AssessmentRecord(
+      id: json['id'] as String,
+      siteCode: json['siteCode'] as String,
+      siteKind: SiteKind.values.byName(
+        json['siteKind'] as String? ?? SiteKind.research.name,
+      ),
+      submittedAt: DateTime.parse(json['submittedAt'] as String).toUtc(),
+      latitude: _nullableDouble(json['latitude']),
+      longitude: _nullableDouble(json['longitude']),
+      username: json['username'] as String?,
+      overallAssessment: json['overallAssessment'] as String?,
+      habitats: _strings(json['habitats']),
+      fileIds: fileIdsJson is Map
+          ? <AssessmentMediaRole, String>{
+              for (final entry in fileIdsJson.entries)
+                AssessmentMediaRole.values.byName(entry.key as String):
+                    entry.value.toString(),
+            }
+          : const <AssessmentMediaRole, String>{},
+    );
+  }
 }
 
 bool _isNotSure(String value) {

@@ -144,12 +144,47 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   extra: streamSiteOrDraft)`; the Check tab's own `/check` route shows
   `CheckSitePickerScreen` instead. A missing/wrong-typed `extra` redirects
   home rather than crashing (see the `redirect:` on those `GoRoute`s).
-- The post-question field flow is `/check/photos` → `/check/review` →
-  `/check/celebration`. Photo compression/quality heuristics and GPS proximity
-  rules live under `lib/features/check/`; Live pending uploads, idempotency
-  receipts and retry backoff live in `assessment_repository.dart`. The camera
-  stack is deliberately pinned in `pubspec.yaml` to its API-23-compatible line;
-  do not loosen those pins without rechecking Android minimum-SDK constraints.
+- Round-5 gamification logic (`lib/core/gamification/`) is pure Dart with no
+  Flutter/plugin dependency, so it is fully unit-tested without a device:
+  `contribution_rhythm.dart` (weekly rhythm, one grace week, never broken by
+  a single missed week), `badge_rules.dart` (the five release-1
+  `EvidenceBadgeId`s, computed from `AssessmentRecord` history only --
+  never persisted separately), and `reminder_rules.dart` (stale-site vs.
+  seasonal-revisit decision, with its own 7-day throttle). `season.dart`'s
+  `seasonOf` is the one shared meteorological-season helper both
+  `badge_rules.dart` and `reminder_rules.dart` use -- don't reintroduce a
+  private copy. Which badges are "new" (unlock-reveal shown once) vs. plain
+  "unlocked" is tracked separately in `BadgeAcknowledgementStore`
+  (mode-namespaced `AppPreferences`), not derived from the rules.
+- `AssessmentRecord.fileIds`/`habitats` round-trip through local (Demo)
+  JSON storage (`repository_models.dart`'s `toJson`/`fromJson`) as of round
+  5, additively -- older persisted records without those keys still decode
+  fine. `DemoAssessmentRepository.submit()` populates `fileIds` with a
+  placeholder id per captured `AssessmentMediaRole` (no real upload exists
+  in Demo) purely so the evidence-badge rules have the same signal Live
+  already gets for free from `AssessmentRecord.fromApiJson`.
+- The site-detail "Past checks" timeline blends the citizen's real history
+  with `demo_stream_health_seed.dart`'s synthetic entries in Demo mode only
+  (by site code, for the four bundled `DemoSiteRepository` sites) so the
+  screen looks alive before any real submission exists. This seed is
+  read-only decoration for that one widget -- it is never written into
+  `AssessmentRepository.history()` itself, which several existing tests
+  (e.g. `demo_repositories_test.dart`) assert starts and stays empty until
+  a real submission happens.
+- Gentle reminders (`lib/core/notifications/`) show immediately via
+  `FlutterLocalNotificationsPlugin.show()` rather than `zonedSchedule`,
+  because the right reminder depends on history that changes between app
+  opens; `ReminderCoordinator.maybeNotify` (called once per `HomeMapScreen`
+  mount) re-evaluates `reminder_rules.dart` fresh each time and persists
+  its own weekly throttle. This is why there is no `timezone` package
+  dependency and no exact-alarm/boot-receiver `AndroidManifest.xml` entries
+  -- only `POST_NOTIFICATIONS`/`VIBRATE`. If a future round moves to
+  `zonedSchedule`, add `timezone` + the receiver entries then, not before.
+  The Android 13+ permission prompt fires only from an explicit user
+  action (the Settings toggle) or once real history exists -- never on
+  first launch; `HomeMapScreen`'s reminder check also degrades to a no-op
+  if it ever runs with no `AppSettingsScope` ancestor (some older widget
+  tests predate this feature and don't provide one).
 
 ## Maintaining this file
 

@@ -24,6 +24,7 @@ import '../features/profile/profile_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/shell/app_shell.dart';
 import '../features/shell/placeholder_screen.dart';
+import '../features/streams/my_streams_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
 abstract final class AppRoutes {
@@ -133,10 +134,13 @@ GoRouter createAppRouter({
             ),
           ),
         ),
-        _placeholderRoute(
+        GoRoute(
           path: AppRoutes.streams,
-          icon: PhosphorIconsRegular.drop,
-          title: (strings) => strings.streamsTitle,
+          pageBuilder: (context, state) => _page(
+            context: context,
+            state: state,
+            child: const MyStreamsScreen(),
+          ),
         ),
         GoRoute(
           path: AppRoutes.check,

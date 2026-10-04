@@ -106,4 +106,25 @@ void main() {
     await reloaded.load();
     expect(reloaded.readAloudEnabled, isFalse);
   });
+
+  test('gentle reminders default to on and setRemindersEnabled persists', () async {
+    final preferences = MemoryAppPreferences();
+    final controller = AppSettingsController(preferences: preferences);
+    addTearDown(controller.dispose);
+    await controller.load();
+
+    expect(controller.remindersEnabled, isTrue);
+
+    await controller.setRemindersEnabled(false);
+    expect(controller.remindersEnabled, isFalse);
+    expect(
+      await preferences.readString(AppSettingsController.remindersEnabledKey),
+      'false',
+    );
+
+    final reloaded = AppSettingsController(preferences: preferences);
+    addTearDown(reloaded.dispose);
+    await reloaded.load();
+    expect(reloaded.remindersEnabled, isFalse);
+  });
 }

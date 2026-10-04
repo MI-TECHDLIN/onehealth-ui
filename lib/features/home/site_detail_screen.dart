@@ -4,11 +4,14 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_router.dart';
+import '../../core/gamification/demo_stream_health_seed.dart';
 import '../../core/icons/water_icons.dart';
 import '../../core/mascot/aqua_mascot.dart';
+import '../../core/mode/app_mode.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/aqua_components.dart';
 import '../../core/widgets/friendly_error_banner.dart';
+import '../../core/widgets/stream_health_timeline.dart';
 import '../../data/repositories/repository_models.dart';
 import '../../data/repositories/repository_scope.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -131,6 +134,10 @@ class _SiteDetailBody extends StatelessWidget {
         ],
         _LastCheckedRow(site: site, strings: strings),
         const SizedBox(height: AppSpacing.lg),
+        Text(strings.siteDetailTimelineTitle, style: Theme.of(context).textTheme.titleLarge),
+        const SizedBox(height: AppSpacing.sm),
+        _HealthTimelineSection(site: site, strings: strings),
+        const SizedBox(height: AppSpacing.lg),
         Container(
           padding: const EdgeInsets.all(AppSpacing.md),
           decoration: BoxDecoration(
@@ -233,6 +240,77 @@ class _InfoRow extends StatelessWidget {
         Text(label, style: Theme.of(context).textTheme.bodyMedium),
       ],
     );
+  }
+}
+
+/// Past good/moderate/poor checks for this one site. Live only ever shows
+/// the citizen's own checks; Demo blends in a small seeded series (see
+/// `demo_stream_health_seed.dart`) so the screen "looks alive" even before
+/// the citizen has checked anything themselves.
+class _HealthTimelineSection extends StatelessWidget {
+  const _HealthTimelineSection({required this.site, required this.strings});
+
+  final StreamSite site;
+  final AppLocalizations strings;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<StreamHealthEntry>>(
+      future: _entries(context),
+      builder: (context, snapshot) {
+        final entries = snapshot.data;
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const SizedBox(height: 24);
+        }
+        if (entries == null || entries.isEmpty) {
+          return Text(
+            strings.siteDetailTimelineEmpty,
+            style: Theme.of(context).textTheme.bodyMedium,
+          );
+        }
+        return StreamHealthTimeline(
+          entries: entries,
+          levelLabel: (level) => switch (level) {
+            StreamHealthLevel.good => strings.healthLevelGood,
+            StreamHealthLevel.moderate => strings.healthLevelModerate,
+            StreamHealthLevel.poor => strings.healthLevelPoor,
+            StreamHealthLevel.unknown => strings.healthLevelUnknown,
+          },
+          rowSemanticLabel: (dateLabel, levelLabel) => '$dateLabel, $levelLabel',
+        );
+      },
+    );
+  }
+
+  Future<List<StreamHealthEntry>> _entries(BuildContext context) async {
+    final scope = RepositoryScope.of(context);
+    List<AssessmentRecord> history;
+    try {
+      history = await scope.repositories.assessments.history();
+    } catch (_) {
+      history = const <AssessmentRecord>[];
+    }
+    final own = history
+        .where((record) => record.siteCode == site.code)
+        .map(
+          (record) => StreamHealthEntry(
+            date: record.submittedAt,
+            level: streamHealthLevelFromOverallAssessment(record.overallAssessment),
+          ),
+        );
+
+    final seeded = scope.mode == AppMode.demo
+        ? (demoStreamHealthSeed[site.code] ?? const <SeedHealthCheck>[]).map(
+            (seed) => StreamHealthEntry(
+              date: DateTime.now().toUtc().subtract(Duration(days: seed.daysAgo)),
+              level: streamHealthLevelFromOverallAssessment(seed.overallAssessment),
+            ),
+          )
+        : const Iterable<StreamHealthEntry>.empty();
+
+    final combined = <StreamHealthEntry>[...own, ...seeded]
+      ..sort((a, b) => b.date.compareTo(a.date));
+    return combined;
   }
 }
 

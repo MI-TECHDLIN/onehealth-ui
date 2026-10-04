@@ -138,7 +138,7 @@ Type and icon pack (round 3 pick: Baloo 2 + Phosphor):
 53. Open `/debug/mascot` -> "Water icon set" - all six custom icons render
     distinctly at both regular and filled weight with no clipped or
     overlapping strokes.
-54. Open Settings -> Credits (once built) - Phosphor Icons (MIT) and Baloo 2
+54. Open Settings -> Credits - Phosphor Icons (MIT) and Baloo 2
     (SIL Open Font License 1.1) are both listed.
 
 Items 48-54 require on-device verification.
@@ -238,38 +238,57 @@ Items 65-78 require on-device verification; the shell's navigation,
 gating, resume/start-over, and conditional-visibility logic are covered by
 `test/features/check/`.
 
-Round 4: capture, review, offline submit, and celebration:
-79. Open each photo role's camera - the current-role framing guide overlays a
-    live edge-to-edge preview in a rounded lower panel; Close, shutter, and
-    options controls float over the preview. Options can choose from gallery,
-    toggle flash, and switch cameras.
-80. Capture a photo - the same panel shows Retake and Use photo. Try a dark,
-    overexposed, blurry, and covered-lens shot: Ripple gives one plain reason
-    to retake, but Use photo remains available. Confirm accepted photos are
-    JPEG-compressed and survive saving/reopening the draft.
-81. Deny camera permission - a friendly in-panel message offers Open settings
-    and gallery fallback. Grant permission in settings and retry without
-    restarting the app. Turn on Reduce motion and confirm the camera panel
-    fades rather than slides.
-82. Continue from photos with a good location fix near the selected site - the
-    review opens without an extra warning. Test more than 300 m away and with
-    accuracy worse than 100 m - a dialog shows both distance and accuracy and
-    asks for explicit right-stream confirmation; canceling returns to photos.
-83. Review shows grouped Photos, Channel, Water, Margins, Stream health and
-    Your experience receipts, working Edit actions, consent copy, and a
-    completeness meter naming the highest-value missing optional detail.
-    Submit stays disabled if the required overall-health answer is absent.
-84. In Demo mode, submit in airplane mode - no network request occurs and the
-    celebration shows Ripple plus a real painted Lottie burst and a factual
-    receipt naming the site, photo count, research destination, and use.
-85. With an owner-approved test account only, submit in Live mode - raw photo
-    PUTs finish before the assessment PUT and a repeated tap/retry never
-    creates a second submission. Never point automated tests at production.
-86. Disconnect before Live submit - the review says the check is safely queued
-    with its photos. The Check tab shows each pending site with Retry now and
-    Discard. Reconnect and confirm automatic backoff retry removes the pending
-    indicator after success; restart while offline and confirm it remains.
+Round 5: My Streams, stream health timeline, evidence badges, and gentle
+reminders (`lib/features/streams/`, `lib/features/profile/`,
+`lib/core/gamification/`, `lib/core/notifications/`):
+79. Open the Streams tab with no drafts or history (fresh Demo data, or a
+    Live account with no submissions) - a guiding Ripple empty state offers
+    "Check a stream", which opens the map.
+80. Submit a check (or save a draft, once the parallel photo-capture/submit
+    work lands) - it appears under Streams: drafts/queued items under
+    "Continue where you left off" with a working Continue action that
+    resumes that exact site's question flow, and submitted checks under
+    "History" with the stream name, date, and overall health.
+81. Tap a submitted History card - a read-only receipt opens (stream,
+    date, overall health, how many of the four photo roles were captured);
+    it never duplicates the full question-by-question review.
+82. On a site detail screen, confirm "Past checks" shows a simple vertical
+    timeline of good/moderate/poor dots with word labels (never color
+    alone); in Demo mode, Willow Bend Stream/Old Mill Brook/Meadow Gate
+    Creek show seeded past checks even with no real history yet; in Live
+    mode only your own checks for that exact site appear.
+83. On Profile ("You"), confirm "Checks this season" and "Streams covered"
+    match your own history, and the weekly rhythm card shows "This week:
+    done"/"not yet" plus the current run of weeks - check in during two
+    consecutive weeks, skip one week, then check in again: the run keeps
+    counting (one grace week) rather than resetting to zero; skip a second
+    week and confirm the run does reset.
+84. On Profile, earn a badge (First signal fires on your very first
+    submitted check) - a "NEW" chip and a short bob animation appear, and
+    tapping it plays the badge-unlock Lottie (ring, hex medal landing,
+    three evidence sparks) before settling to "Unlocked"; reopening Profile
+    afterward shows it as plain "Unlocked", not "New" again. Confirm a
+    still-locked badge (e.g. Three streams, Clear view, Biodiversity
+    observation) shows its criterion text even locked, never opacity alone.
+85. Turn on reduce motion and unlock a badge - the crest's bob animation
+    and the unlock Lottie both hold a settled final frame instead of
+    animating.
+86. Open Settings -> Credits - "Icons adapted from Lucide" (ISC License) is
+    listed alongside the existing entries.
+87. In Settings, turn on "Gentle reminders" for the first time - the
+    Android 13+ notification permission prompt appears right then (never
+    on first app launch); turning it off needs no permission prompt.
+88. With gentle reminders on and at least one real check in history, let a
+    site you've checked before go 30+ days without a check (or adjust the
+    device clock for testing) - a notification appears naming that stream,
+    asking you to recheck it; confirm no second gentle-reminder
+    notification appears within the next 7 days even if another site also
+    goes stale.
+89. With gentle reminders off, confirm no notification ever appears
+    regardless of how stale a site gets.
 
-Items 79-86 require a physical Android device for camera/permission/location
-verification. Automated tests cover synthetic photo heuristics, proximity,
-completeness ranking, review gating, idempotent fake HTTP, and queue retry.
+Items 79-89 require on-device verification for the Lottie/animation and
+notification-permission specifics; the rhythm, badge, and reminder
+decision logic are covered by `test/core/gamification/` and
+`test/core/notifications/`, and the screens by `test/features/streams/`,
+`test/features/profile/`, and `test/features/home/site_detail_screen_test.dart`.
