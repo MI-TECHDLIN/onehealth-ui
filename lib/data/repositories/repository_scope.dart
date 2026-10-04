@@ -5,9 +5,6 @@ import 'repository_bundle.dart';
 
 /// Exposes only repositories belonging to the active data mode.
 ///
-/// The foundation intentionally has no Live bundle, so [repositories] is null
-/// in Live mode until the later API-integration task supplies one. This makes
-/// accidental production calls impossible while preserving app-wide mode UI.
 class RepositoryScope extends InheritedWidget {
   const RepositoryScope({
     required this.mode,
@@ -17,7 +14,7 @@ class RepositoryScope extends InheritedWidget {
   });
 
   final AppMode mode;
-  final RepositoryBundle? repositories;
+  final RepositoryBundle repositories;
 
   static RepositoryScope of(BuildContext context) {
     final scope = context.dependOnInheritedWidgetOfExactType<RepositoryScope>();

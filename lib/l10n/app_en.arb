@@ -25,7 +25,7 @@
   "settingsDataMode": "Data mode",
   "settingsLanguage": "Language",
   "demoModeDescription": "Mock streams and example results. Nothing is sent.",
-  "liveModeDescription": "Real OneAquaHealth data. Live connections arrive in a later build.",
+  "liveModeDescription": "Real OneAquaHealth sites, reference data and submissions. Sign-in required.",
   "switchModeTitle": "Switch to {mode}?",
   "@switchModeTitle": {
     "description": "Confirmation title before changing the data mode.",
@@ -36,5 +36,37 @@
   "switchAction": "Switch mode",
   "chooseLanguage": "Choose language",
   "translationReviewPending": "English copy — translation review pending",
-  "debugMascotGallery": "Review Ripple moods"
+  "debugMascotGallery": "Review Ripple moods",
+  "authWelcomeBack": "Welcome back",
+  "authSignInBody": "Sign in with your OneAquaHealth Community account.",
+  "authUsernameLabel": "Username or email",
+  "authPasswordLabel": "Password",
+  "authShowPassword": "Show password",
+  "authHidePassword": "Hide password",
+  "authSignInAction": "Sign in",
+  "authSigningIn": "Signing you in…",
+  "authErrorTitle": "Try those details again",
+  "authRequiredField": "Please fill in this field.",
+  "authUseDemoAction": "Use Demo instead",
+  "authAvatarTitle": "Choose your avatar",
+  "authAvatarReassurance": "It represents you in the app while helping protect your identity.",
+  "authAvatarCompleteAction": "Complete set-up",
+  "authAvatarLaterAction": "Do this later",
+  "authAvatarChangeAction": "Change avatar",
+  "authAvatarSelectedLabel": "Avatar {number}, selected",
+  "@authAvatarSelectedLabel": {
+    "description": "Accessible label for the selected avatar portrait.",
+    "placeholders": {"number": {"type": "int"}}
+  },
+  "authAvatarLabel": "Avatar {number}",
+  "@authAvatarLabel": {
+    "description": "Accessible label for an unselected avatar portrait.",
+    "placeholders": {"number": {"type": "int"}}
+  },
+  "authSignedInAs": "Signed in as {username}",
+  "@authSignedInAs": {
+    "description": "Profile account label.",
+    "placeholders": {"username": {"type": "String"}}
+  },
+  "authSignOutAction": "Sign out"
 }

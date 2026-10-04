@@ -48,3 +48,32 @@ Foundation shell, localization, and modes:
 28. In a release build, the Ripple gallery route and Settings row are absent.
 
 Items 21-28 require on-device verification.
+
+Authentication, Live data, and avatars:
+29. Switch to Live while signed out - `/sign-in` opens and no Live site,
+    reference, history, file, or submission request occurs before sign-in.
+30. Enter a wrong username/password - the inline concerned-Ripple banner says
+    the details did not match; it never says the session expired or shows a
+    status code/server response.
+31. During a slow sign-in - controls are disabled, thinking Ripple appears, and
+    “Signing you in…” is announced. Toggle password visibility before retrying.
+32. Complete a first successful sign-in - Choose your avatar appears once with
+    a three-column grid; only the selected portrait is in colour and has a check.
+33. Choose “Do this later” after clearing app data - an avatar is assigned and
+    persists after restart. Change it later from You/Profile and confirm the new
+    choice persists.
+34. In Live mode, load sites with location available - curated and
+    user-generated sites are combined and ordered nearest-first. Create a test
+    site only with an owner-approved test account.
+35. Submit only with an owner-approved test account - each selected file uploads
+    before the assessment, the confirmation names Live mode, and a 401 returns
+    to sign-in. Never run this check against production without explicit owner
+    approval.
+36. Open Live history - only records whose established-site `user` matches the
+    JWT username and account-scoped user-site records appear; no other username,
+    coordinate, media ID, or answer is retained or rendered.
+37. Switch between Demo and Live - drafts and history remain isolated; Demo
+    submission succeeds in airplane mode and sends no request.
+
+Items 29-37 require on-device verification. Repository tests use fake HTTP only;
+they must never be pointed at the production OneAquaHealth base URL.

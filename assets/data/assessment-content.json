@@ -1,0 +1,3354 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-03",
+  "source": {
+    "app": "https://apps.oneaquahealth.eu",
+    "bundle": "/_nuxt/i18n.config.bcYbKmN2.js",
+    "formBundle": "/_nuxt/submission.B_IlRYYY.js",
+    "apiBase": "https://api.enora-oah.eu/",
+    "notes": "Question wording is bundled in the Nuxt app; canonical English option codes come from authenticated reference-data GET endpoints. No live write was performed."
+  },
+  "localeOrder": [
+    "en",
+    "el",
+    "pt",
+    "nl",
+    "no",
+    "fr",
+    "it"
+  ],
+  "localeStatus": {
+    "en": {
+      "name": "English",
+      "coverage": "complete"
+    },
+    "el": {
+      "name": "Ελληνικά",
+      "coverage": "partial",
+      "fallbackLocale": "en",
+      "note": "The shipped bundle contains education/instruction text and channel-form labels only; assessment questions are absent and fall back to English."
+    },
+    "pt": {
+      "name": "Portuguese",
+      "coverage": "complete"
+    },
+    "nl": {
+      "name": "Dutch",
+      "coverage": "complete"
+    },
+    "no": {
+      "name": "Norwegian",
+      "coverage": "complete"
+    },
+    "fr": {
+      "name": "French",
+      "coverage": "complete"
+    },
+    "it": {
+      "name": "Italian",
+      "coverage": "complete"
+    }
+  },
+  "workflow": [
+    {
+      "step": 1,
+      "titleKey": "basic_information",
+      "kind": "introduction",
+      "required": false
+    },
+    {
+      "step": 2,
+      "titleKey": "additional_details",
+      "kind": "siteSelection",
+      "required": true,
+      "note": "Select an existing site, or supply name, latitude and longitude for a new site."
+    },
+    {
+      "step": 3,
+      "titleKey": "media_upload",
+      "kind": "media",
+      "required": false
+    },
+    {
+      "step": 4,
+      "titleKey": "questions_1_3_",
+      "kind": "assessment",
+      "required": false
+    },
+    {
+      "step": 5,
+      "titleKey": "questions_2_3_",
+      "kind": "assessment",
+      "required": false
+    },
+    {
+      "step": 6,
+      "titleKey": "questions_3_3_",
+      "kind": "assessment",
+      "required": false
+    },
+    {
+      "step": 7,
+      "titleKey": "feedback_1_2",
+      "kind": "overallAssessment",
+      "required": true
+    },
+    {
+      "step": 8,
+      "titleKey": "feedback_2_2",
+      "kind": "feelings",
+      "required": false
+    },
+    {
+      "step": 9,
+      "titleKey": "review_submit",
+      "kind": "review",
+      "required": false
+    }
+  ],
+  "siteFields": [
+    {
+      "payloadField": "researchSite",
+      "type": "siteCode",
+      "required": "oneOf researchSite/userGeneratedSite",
+      "nullable": true
+    },
+    {
+      "payloadField": "userGeneratedSite",
+      "type": "userSiteCode",
+      "required": "oneOf researchSite/userGeneratedSite",
+      "nullable": true
+    },
+    {
+      "payloadField": "longitude",
+      "type": "number",
+      "required": true
+    },
+    {
+      "payloadField": "latitude",
+      "type": "number",
+      "required": true
+    },
+    {
+      "uiField": "siteName",
+      "createSitePayloadField": "name",
+      "type": "string",
+      "required": "new sites only"
+    }
+  ],
+  "mediaFields": [
+    {
+      "payloadField": "upstreamPhoto",
+      "labelKey": "media.upstream_photo_label",
+      "type": "fileId",
+      "required": false
+    },
+    {
+      "payloadField": "downstreamPhoto",
+      "labelKey": "media.downstream_photo_label",
+      "type": "fileId",
+      "required": false
+    },
+    {
+      "payloadField": "surroundingPhoto",
+      "labelKey": "media.context_photo_label",
+      "type": "fileId",
+      "required": false
+    },
+    {
+      "payloadField": "interestingPhoto",
+      "labelKey": "media.biodiversity_photo_label",
+      "type": "fileId",
+      "required": false
+    },
+    {
+      "payloadField": "video",
+      "labelKey": "media.video_label",
+      "type": "fileId",
+      "required": false,
+      "guidance": "5 or 10 seconds"
+    }
+  ],
+  "fields": [
+    {
+      "step": 4,
+      "id": "channelForm",
+      "payloadField": "channelForm",
+      "translationPath": "questions_1_3.channel_form",
+      "type": "singleChoice",
+      "optionSource": "channelForms",
+      "required": false,
+      "notSure": "omit field"
+    },
+    {
+      "step": 4,
+      "id": "bottomChannelType",
+      "payloadField": "bottomChannelType",
+      "translationPath": "questions_1_3.bottom_type",
+      "type": "singleChoice",
+      "optionSource": "channelTypes",
+      "required": false,
+      "notSure": "omit field"
+    },
+    {
+      "step": 4,
+      "id": "banksChannelType",
+      "payloadField": "banksChannelType",
+      "translationPath": "questions_1_3.bank_type",
+      "type": "singleChoice",
+      "optionSource": "bankTypes",
+      "required": false,
+      "notSure": "omit field"
+    },
+    {
+      "step": 4,
+      "id": "habitats",
+      "payloadField": "habitats",
+      "translationPath": "questions_1_3.habitats",
+      "type": "optionalMultiChoice",
+      "optionSource": "habitats",
+      "required": false
+    },
+    {
+      "step": 4,
+      "id": "fallenBiomassTypes",
+      "payloadField": "fallenBiomassTypes",
+      "translationPath": "questions_1_3.natural_debris",
+      "type": "optionalMultiChoice",
+      "optionSource": "fallenBiomass",
+      "required": false
+    },
+    {
+      "step": 4,
+      "id": "waterFlow",
+      "payloadField": "waterFlow",
+      "translationPath": "questions_1_3.water_flow",
+      "type": "singleChoice",
+      "optionSource": "waterFlows",
+      "required": false,
+      "notSure": "omit field"
+    },
+    {
+      "step": 5,
+      "id": "waterColor",
+      "payloadField": "waterColor",
+      "translationPath": "questions_2_3.water_aspect_labels",
+      "type": "singleChoice",
+      "optionSource": "waterColors",
+      "required": false,
+      "notSure": "omit field"
+    },
+    {
+      "step": 5,
+      "id": "waterAbstraction",
+      "payloadField": "waterAbstraction",
+      "translationPath": "questions_2_3.water_withdrawal",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 5,
+      "id": "hasDams",
+      "payloadField": "hasDams",
+      "translationPath": "questions_2_3.barriers",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 5,
+      "id": "numberOfDams",
+      "payloadField": "numberOfDams",
+      "type": "unwired",
+      "required": false,
+      "note": "Present in the payload model but the current UI exposes no input, so it is omitted."
+    },
+    {
+      "step": 5,
+      "id": "pipes",
+      "payloadField": "pipes",
+      "translationPath": "questions_2_3.draining_pipes",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 5,
+      "id": "waterDischarge",
+      "payloadField": "waterDischarge",
+      "translationPath": "questions_2_3.sewage_discharge",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 5,
+      "id": "construction",
+      "payloadField": "construction",
+      "translationPath": "questions_2_3.construction",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 5,
+      "id": "waterHeight",
+      "payloadField": "waterHeight",
+      "translationPath": "questions_2_3.water_height",
+      "type": "freeText",
+      "required": false,
+      "note": "Guidance asks for metres, but the UI does not enforce numeric input."
+    },
+    {
+      "step": 6,
+      "id": "imperviousAreasLeft",
+      "payloadField": "imperviousAreasLeft",
+      "translationPath": "questions_3_3.impervious_left",
+      "type": "yesNoNotSure",
+      "variant": "left",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 6,
+      "id": "imperviousAreasRight",
+      "payloadField": "imperviousAreasRight",
+      "translationPath": "questions_3_3.impervious_right",
+      "type": "yesNoNotSure",
+      "variant": "right",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 6,
+      "id": "isVegetationCoveredLeft",
+      "payloadField": "isVegetationCoveredLeft",
+      "translationPath": "questions_3_3.vegetation_left",
+      "type": "yesNoNotSure",
+      "variant": "left",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 6,
+      "id": "vegetationTypeLeft",
+      "payloadField": "vegetationTypeLeft",
+      "translationPath": "questions_3_3.vegetation_type_left",
+      "type": "singleChoice",
+      "optionSource": "vegetationTypes",
+      "variant": "left",
+      "enabledWhen": "isVegetationCoveredLeft == true",
+      "required": false,
+      "notSure": "literal UI value may be sent; current code does not normalize this field"
+    },
+    {
+      "step": 6,
+      "id": "isVegetationCoveredRight",
+      "payloadField": "isVegetationCoveredRight",
+      "translationPath": "questions_3_3.vegetation_right",
+      "type": "yesNoNotSure",
+      "variant": "right",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 6,
+      "id": "vegetationTypeRight",
+      "payloadField": "vegetationTypeRight",
+      "translationPath": "questions_3_3.vegetation_type_right",
+      "type": "singleChoice",
+      "optionSource": "vegetationTypes",
+      "variant": "right",
+      "enabledWhen": "isVegetationCoveredRight == true",
+      "required": false,
+      "notSure": "literal UI value may be sent; current code does not normalize this field"
+    },
+    {
+      "step": 6,
+      "id": "hasInvasivePlantSpecies",
+      "payloadField": "hasInvasivePlantSpecies",
+      "translationPath": "questions_3_3.invasive_species",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 6,
+      "id": "invasivePlantSpecies",
+      "payloadField": "invasivePlantSpecies",
+      "translationPath": "questions_3_3.invasive_species.placeholder",
+      "type": "freeText",
+      "enabledWhen": "hasInvasivePlantSpecies == true",
+      "required": false
+    },
+    {
+      "step": 6,
+      "id": "recentVegetationCuts",
+      "payloadField": "recentVegetationCuts",
+      "translationPath": "questions_3_3.vegetation_cut",
+      "type": "yesNoNotSure",
+      "required": false,
+      "wireValues": {
+        "Yes": true,
+        "No": false,
+        "I am not sure": null
+      }
+    },
+    {
+      "step": 7,
+      "id": "overallAssessment",
+      "payloadField": "overallAssessment",
+      "translationPath": "stream_health",
+      "type": "singleChoice",
+      "optionSource": "streamAssessments",
+      "required": true
+    },
+    {
+      "step": 8,
+      "id": "joy",
+      "payloadField": "joy",
+      "translationPath": "feelings.Joy",
+      "type": "slider",
+      "min": 0,
+      "max": 5,
+      "default": 3,
+      "notApplicableValue": 0,
+      "required": false
+    },
+    {
+      "step": 8,
+      "id": "serenity",
+      "payloadField": "serenity",
+      "translationPath": "feelings.Serenity",
+      "type": "slider",
+      "min": 0,
+      "max": 5,
+      "default": 3,
+      "notApplicableValue": 0,
+      "required": false
+    },
+    {
+      "step": 8,
+      "id": "anger",
+      "payloadField": "anger",
+      "translationPath": "feelings.Anger",
+      "type": "slider",
+      "min": 0,
+      "max": 5,
+      "default": 3,
+      "notApplicableValue": 0,
+      "required": false
+    },
+    {
+      "step": 8,
+      "id": "fear",
+      "payloadField": "fear",
+      "translationPath": "feelings.Fear",
+      "type": "slider",
+      "min": 0,
+      "max": 5,
+      "default": 3,
+      "notApplicableValue": 0,
+      "required": false
+    }
+  ],
+  "leftRightVariants": [
+    [
+      "imperviousAreasLeft",
+      "imperviousAreasRight"
+    ],
+    [
+      "isVegetationCoveredLeft",
+      "isVegetationCoveredRight"
+    ],
+    [
+      "vegetationTypeLeft",
+      "vegetationTypeRight"
+    ]
+  ],
+  "referenceData": {
+    "channelForms": [
+      {
+        "code": "FLAT",
+        "name": "Flat (Α)"
+      },
+      {
+        "code": "U",
+        "name": "U Shape (Β)"
+      },
+      {
+        "code": "V",
+        "name": "V Shape (C)"
+      }
+    ],
+    "channelTypes": [
+      {
+        "code": "NAT",
+        "name": "Natural (Α)"
+      },
+      {
+        "code": "ART",
+        "name": "Artificial (concrete or stones with concrete) (Β)"
+      }
+    ],
+    "bankTypes": [
+      {
+        "code": "NAT",
+        "name": "Natural (Α)"
+      },
+      {
+        "code": "ART",
+        "name": "Artificial (concrete or stones with concrete) (Β)"
+      },
+      {
+        "code": "LAS",
+        "name": "Layed stones with no concrete (C)"
+      }
+    ],
+    "habitats": [
+      {
+        "code": "SB",
+        "name": "Sand banks (A)"
+      },
+      {
+        "code": "SI",
+        "name": "Sand islands (B)"
+      },
+      {
+        "code": "RF",
+        "name": "Riffles, rapids, falls (D)"
+      },
+      {
+        "code": "AV",
+        "name": "Aquatic vegetation (E)"
+      },
+      {
+        "code": "SD",
+        "name": "Stone deposits (C)"
+      }
+    ],
+    "fallenBiomass": [
+      {
+        "code": "FT",
+        "name": "Fallen trees (A)"
+      },
+      {
+        "code": "FB",
+        "name": "Fallen branches (B)"
+      },
+      {
+        "code": "FL",
+        "name": "Deposits of fallen leaves (C)"
+      }
+    ],
+    "waterFlows": [
+      {
+        "code": "FAS",
+        "name": "Fast (with waves or high velocity) (A)"
+      },
+      {
+        "code": "NOR",
+        "name": "Slow (B)"
+      },
+      {
+        "code": "STA",
+        "name": "Stagnant/intermittent (C)"
+      },
+      {
+        "code": "DRY",
+        "name": "Dry (D)"
+      }
+    ],
+    "waterColors": [
+      {
+        "code": "CL",
+        "name": "Clear/transparent (A)"
+      },
+      {
+        "code": "MU",
+        "name": "Muddy/turbid (B)"
+      },
+      {
+        "code": "FO",
+        "name": "Has foam (C)"
+      },
+      {
+        "code": "CO",
+        "name": "Has colors/altered color (D)"
+      }
+    ],
+    "vegetationTypes": [
+      {
+        "code": "H",
+        "name": "Herbs (A)"
+      },
+      {
+        "code": "B",
+        "name": "Shrubs (B)"
+      },
+      {
+        "code": "T",
+        "name": "Trees (C)"
+      }
+    ],
+    "streamAssessments": [
+      {
+        "code": "GOOD",
+        "name": "Good quality",
+        "description": "The ecosystem components are there: riparian vegetation, natural channel, good water quality, biodiversity"
+      },
+      {
+        "code": "MODERATE",
+        "name": "Moderate quality",
+        "description": "Some alterations, still biodiverse, with vegetation in the margins, water looks good…"
+      },
+      {
+        "code": "POOR",
+        "name": "Poor quality",
+        "description": "Highly modified / artificialized, loss of riparian vegetation, loss of habitats, polluted"
+      }
+    ],
+    "yesNoNotSure": [
+      "Yes",
+      "No",
+      "I am not sure"
+    ]
+  },
+  "contentByLocale": {
+    "en": {
+      "citizens_menu": {
+        "instructions": "Instructions",
+        "instructions_title": "Citizen Science Instructions",
+        "new_observation": "Make new Observation",
+        "new_observation_title": "New Citizen Science Submission",
+        "my_submissions": "My Submissions",
+        "my_submissions_title": "My Submissions"
+      },
+      "title": "OneAquaHealth Citizen Science App - Installation Instructions",
+      "viewInstructions": "View Instructions",
+      "version": "OneAquaHealth Citizen Science App - Version 1.0",
+      "installation_modal": {
+        "title": "Installation of the OAH Citizen Science App",
+        "intro": "Before installing the OAH Citizen Science App, you must first join the <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth Community</a>.<br />Once registered, follow the steps below using your assigned email and password to log in to the application.",
+        "step1_label": "Step 1.",
+        "step1_desc": "Open your phone's browser and visit:",
+        "step2_label": "Step 2. Look for the app installation prompt:",
+        "step2_list_item1": "If a pop-up window appears suggesting app installation, follow the onscreen instructions to proceed.",
+        "step2_list_item2": "If no prompt appears, continue to the next step.",
+        "step3_label": "Step 3. Add to Home Screen:",
+        "step3_ios": "<b>For IOS (a):</b> Tap the share icon (box with arrow) at the bottom of the screen, then select <span class=\"font-semibold\">\"Add to Home Screen\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"IOS Example\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>For Android (b):</b> Tap the menu icon (three dots) and choose <span class=\"font-semibold\">\"Add to Home Screen\"</span> or <span class=\"font-semibold\">\"Install App\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android Example\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Step 4.",
+        "step4_desc": "Confirm the installation by tapping <span class=\"font-semibold\">\"Add\"</span> or <span class=\"font-semibold\">\"Install\"</span>",
+        "step5_label": "Step 5.",
+        "step5_desc": "Find the newly installed app icon on your home screen and tap to launch",
+        "close": "Close"
+      },
+      "app_intro_title": "What is this App for?",
+      "app_intro_text": "This App is for citizens and aims to gather data on the health of urban streams",
+      "before_submit": "Before you submit",
+      "education": {
+        "title": "What is an Urban Stream?",
+        "intro": "Urban streams are running waters that coexist with urban development, which are often part of larger catchments. Hence, they are typically influenced by human activities which result in alterations in their channels (including total and partial cover, artificial materials in the banks and channel), water pollution, alterations in the natural vegetation of the margins, among other.",
+        "healthy_streams": {
+          "title": "Healthy Stream Ecosystems",
+          "content": "Healthy streams must be surrounded by specific vegetation – riparian vegetation – capable of living with their roots in saturated or high humidity soil without rotting. Streams and their riparian vegetation provide habitat for aquatic and terrestrial animals (e.g., invertebrates, fungi, fish, amphibians, reptiles, mammals, birds) and microorganisms. These organisms are also involved in important ecosystem processes, such as the primary and secondary production, nutrient cycling, and the decomposition of organic matter."
+        },
+        "ecosystem_services": {
+          "title": "Ecosystem Services",
+          "content": "If well preserved, streams provide important ecosystem services to the human population, such as better air quality, regulation of temperature and humidity, flood mitigation, while offering nature leisure and social areas, or outdoor laboratories for environmental education."
+        },
+        "key_concepts": {
+          "title": "Essential concepts for stream assessment",
+          "downstream_direction": "The left and right banks and margins of streams are defined when facing downstream (to where the stream runs) (Figure1)."
+        },
+        "figure1": {
+          "caption": "Figure 1. The left (L) and right (R) banks of the streams. The arrow shows the direction of flow."
+        },
+        "cross_section": {
+          "description": "The width (Figure 2) and the depth (Figure 3) of the stream are measured in transept perpendicular to the stream channel. These measures can vary over a stream stretch, but they should be measured in a transect representative of the average conditions."
+        },
+        "figure2": {
+          "caption": "Figure 2. Stream cross-section illustration where: A) bank top; B) bank; C) main wet channel; D) flow direction (downstream view); E) width; and F) depth."
+        },
+        "figure3": {
+          "caption": "Figure 3. Depth measurement in using a ruler/meter."
+        },
+        "riparian_and_floodplain": {
+          "content": "The riparian zone is the area located in the margins and covered by riparian vegetation. A healthy riparian vegetation includes a variety of native plants of different heights (layers), from herbs to bushes and trees), typical from the region and adapted to the proximity of water (Figure 4)."
+        },
+        "figure4": {
+          "caption": "Figure 4. Well-preserved riparian zone: A) lowest layer with herbaceous plants, ferns, mosses, and lichens, playing a crucial role in nutrient cycling and soil stabilization); B) a shrub layer with woody plants that are smaller than trees (typically growing up to 6 meters tall); C) an uppermost layer, dominated by mature trees that form the forest canopy of the riparian zone."
+        },
+        "figure_description": "Floodplains are areas of natural inundation, which are covered by water (floods) during periods of high precipitation. The floods enrich these fertile soils with sediments rich in nutrients (Figure 5). The shape and nature of the floodplain may change over time because a stream's main channel naturally shifts due to accretion and erosion.",
+        "figure5": {
+          "caption": "Figure 5. A) Wet channel; B) Active floodplain; C) Regulatory floodplain; D) Geologic floodplain (less regular flood events); E) Terrace."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Main Differences Between Forest and Urban Streams",
+          "content": "The urban development around urban streams increase the impervious surfaces in the banks, margins and floodplains, due to construction of roads, buildings or sidewalks with concrete, asphalt or other (Figure 6). These surfaces do not allow the infiltration of water as in forest ground or open fields. This is particularly relevant during high precipitation events as it results in flash floods which rapidly raise the water level leading to risks of material damages and even human losses. The impervious areas also prevent the recharge of aquifers and the continuation of the water cycle, which may result in more intense water scarcity during dry seasons – often exacerbated by dam retention or water abstraction. Furthermore, urban streams are frequently polluted by urban runoff and combined sewer outflows, compounding these challenges."
+        },
+        "figure6": {
+          "caption": "Figure 6. Permeable surfaces on the left, intermediately impervious surfaces in the middle and impervious surfaces on the right."
+        },
+        "oneaquahealth_project": {
+          "title": "The OneAquaHealth project and the OAH app",
+          "content": "OneAquaHealth aims to promote the ecological condition of urban freshwater ecosystems as a way to enhance the One Health in cities and on identifying early warning indicators of degradation of freshwater ecosystems that could represent a risk for One Health. To achieve better management of urban streams, we developed an Environmental Surveillance System that includes the OAH app. This app aims to promote the monitoring of urban streams by citizens to enhance their knowledge and restoration."
+        },
+        "onehealth": {
+          "title": "What is OneHealth?",
+          "content": "OneHealth is an approach that aims to promote sustainable health for people, organisms, and the environment (Figure 7). Well-preserved natural areas in cities provide essential benefits, such as cleaner air and water, while also offering peaceful areas that enhance both physical and mental well-being. Having blue and green areas close to home encourages people to step outside, connect with others, relax, and experience a variety of sensory delights. Urban streams, often hidden within city landscapes, are virtually everywhere and hold untapped potential. When restored with the OneHealth concept in mind, these streams can become vital spaces for collaboration, bringing together diverse groups to create healthier, more sustainable communities."
+        },
+        "figure7": {
+          "caption": "Figure 7. Illustration of the One Health concept, showing the interconnected relationship between Human Health, Organisms’ Health, and Environmental Health. The overlapping areas highlight the integrated approach needed to address global health challenges effectively."
+        },
+        "what_you_can_do": {
+          "title": "What can you do with us?",
+          "content": "If you have an urban stream nearby, sometimes in hidden valleys between the hills of your city, even if heavily modified (with concrete walls looking like a duct), you can help us taking care of it by looking into its channel, bank, and margins/riparian zone and providing us relevant information and photos through this app. And ultimately, let us know your overall assessment of the stream in the following categories:"
+        },
+        "quality": {
+          "good": "<strong>Good quality</strong> (the ecosystem components are present and look good: riparian vegetation, natural channel, good water quality, biodiversity)",
+          "moderate": "<strong>Moderate quality</strong> (there are some alterations, some biodiversity, with some vegetation in the margins, and water looks good ...)",
+          "poor": "<strong>Poor quality</strong> (it is highly modified/artificial, with major losses of riparian vegetation or only invasive species, loss of habitats, the water is polluted)"
+        },
+        "submission_hint": "To collaborate, simply provide the requested information by clicking <strong>'Next'</strong> (see above these submission guidelines)"
+      },
+      "step": "Step",
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Submit",
+      "basic_information": "Basic Information",
+      "additional_details": "Additional Details",
+      "media_upload": "Media Upload",
+      "questions_1_3_": "Questions (1/3)",
+      "questions_2_3_": "Questions (2/3)",
+      "questions_3_3_": "Questions (3/3)",
+      "feedback_1_2": "Feedback (1/2)",
+      "feedback_2_2": "Feedback (2/2)",
+      "review_submit": "Review & Submit",
+      "select_from_my_sites": "Select from my Sites",
+      "enter_longitude": "Enter Longitude",
+      "enter_latitude": "Enter Latitude",
+      "enter_site_name": "Enter Site Name",
+      "longitude": "Logitude",
+      "latitude": "Latitude",
+      "site_name": "Site Name",
+      "site_selection": {
+        "title": "Select OneAquaHealth urban stream sites to assess (Distance from you to the site is indicated)",
+        "description": "Add New Site"
+      },
+      "media": {
+        "title": "Select your images",
+        "upstream_photo_label": "Upstream photo",
+        "upstream_photo_description": "Upstream photo",
+        "downstream_photo_label": "Downstream photo",
+        "downstream_photo_description": "Downstream photo",
+        "context_photo_label": "Photo with the surrounding context",
+        "context_photo_description": "Photo with the surrounding context (houses, roads...)",
+        "biodiversity_photo_label": "Photo with an interesting element of biodiversity",
+        "biodiversity_photo_description": "Photo with an interesting element of biodiversity (plant, animal, funga, other)",
+        "video_label": "Make a short video (5 or 10 seconds)",
+        "video_description": "Make a short video (5 or 10 seconds)",
+        "select_file_button": "Select File"
+      },
+      "questions_1_3": {
+        "title": "What do you see from where you stand (in ca. 100m)?",
+        "channel_form": {
+          "question": "Channel Form",
+          "questiontext": "The channel form is...",
+          "labels": {
+            "Flat (Α)": "Flat (A)",
+            "Flat (A)": "Flat (A)",
+            "U Shape (Β)": "U Shape (B)",
+            "U Shape (B)": "U Shape (B)",
+            "V Shape (C)": "V Shape (C)",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "bottom_type": {
+          "question": "Bottom Type",
+          "questiontext": "The bottom of the wet channel is…",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (concrete or stones with concrete) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (concrete or stones with concrete) (B)",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "bank_type": {
+          "question": "Bank Type",
+          "questiontext": "The banks of the channel are…",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (concrete or stones with concrete) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (concrete or stones with concrete) (B)",
+            "Layed stones with no concrete (C)": "Layed stones with no concrete (C)",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "habitats": {
+          "question": "Habitats",
+          "questiontext": "The habitats present are…",
+          "questiontextshow": "Are there any habitats present?",
+          "options": {
+            "Sand banks (A)": "Sand banks (A)",
+            "Sand banks (Α)": "Sand banks (A)",
+            "Sand islands (B)": "Sand islands (B)",
+            "Sand islands (Β)": "Sand islands (B)",
+            "Stone deposits (C)": "Stone deposits (C)",
+            "Riffles, rapids, falls (D)": "Riffles, rapids, falls (D)",
+            "Aquatic vegetation (E)": "Aquatic vegetation (E)"
+          },
+          "info": "You may select several types of habitats. First tick the checkbox, then select all habitats you identify."
+        },
+        "natural_debris": {
+          "question": "Natural Debris",
+          "questiontext": "There are…",
+          "questiontextshow": "Are there any natural debris present?",
+          "labels": {
+            "Fallen trees (A)": "Fallen trees (A)",
+            "Fallen trees (Α)": "Fallen trees (A)",
+            "Fallen branches (B)": "Fallen branches (B)",
+            "Fallen branches (Β)": "Fallen branches (B)",
+            "Deposits of fallen leaves (C)": "Deposits of fallen leaves (C)"
+          },
+          "info": "You may select several types of natural debris. To do so first tick the circle behind the alternatives given, and afterwards select all you identify."
+        },
+        "water_flow": {
+          "question": "Water Flow",
+          "questiontext": "How is the water flowing",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Fast (with waves or high velocity) (A)",
+            "Fast (with waves or high velocity) (Α)": "Fast (with waves or high velocity) (A)",
+            "Slow (B)": "Slow (B)",
+            "Slow (Β)": "Slow (B)",
+            "Stagnant/intermittent (C)": "Stagnant/intermittent (C)",
+            "Dry (D)": "Dry (D)",
+            "I am not sure": "I’m not sure"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Water Aspect",
+          "questiontext": "How is the water?",
+          "labels": {
+            "Clear/transparent (A)": "Clear/transparent (A)",
+            "Clear/transparent (Α)": "Clear/transparent (A)",
+            "Muddy/turbid (B)": "Muddy/turbid (B)",
+            "Muddy/turbid (Β)": "Muddy/turbid (B)",
+            "Has foam (C)": "Has foam (C)",
+            "Has colors/altered color (D)": "Has colors/altered color (D)",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Water Withdrawal",
+          "questiontext": "Is there any kind of obvious water collection, use, removal from the stream?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "barriers": {
+          "question": "Barriers",
+          "questiontext": "Do you see any dams or other transversal artificial barriers (see some examples in images provided)?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "draining_pipes": {
+          "question": "Draining Pipes",
+          "questiontext": "Are there pipes draining polluted water into the stream?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Sewage discharge",
+          "questiontext": "Is there any kind of water entry or discharge of sewage?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "construction": {
+          "question": "Construction",
+          "questiontext": "Is there any construction/works in stream?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "water_height": {
+          "question": "Water height",
+          "questiontext": "What is the water height?",
+          "placeholder": "Enter the water height",
+          "info": "Please give your estimate in meters (m), use a dot (.) as decimal point (e.g. 1.5m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "In the margins/riparian zone (5-10m from the channel banktop)",
+        "impervious_left": {
+          "question": "Impervious Areas (Left)",
+          "questiontext": "Is more than one third of the left margin covered by impervious areas (such as roads, sidewalks or buildings)?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "impervious_right": {
+          "question": "Impervious Areas (Right)",
+          "questiontext": "Is more than one third of the right margin covered by impervious areas (such as roads, sidewalks or buildings)?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetation (Left)",
+          "questiontext": "Is the left margin covered by vegetation?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vegetation Type (Left)",
+          "questiontext": "Which vegetation is dominant (meaning that it covers more than 50%, or half) in the left margin (first 5 meters from the channel banktop)?",
+          "labels": {
+            "Herbs (A)": "Herbs (A)",
+            "Herbs (Α)": "Herbs (A)",
+            "Shrubs (B)": "Shrubs (B)",
+            "Shrubs (Β)": "Shrubs (B)",
+            "Trees (C)": "Trees (C)",
+            "I am not sure": "I’m not sure"
+          },
+          "info": "Don't forget to look to the left vegetation when in the downstream direction"
+        },
+        "vegetation_right": {
+          "question": "Vegetation (Right)",
+          "questiontext": "Is the right margin covered by vegetation?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vegetation Type (Right)",
+          "questiontext": "Which vegetation is dominant (meaning that it covers more than 50%, or half) in the right margin (first 5 meters from the channel bank/top)?",
+          "labels": {
+            "Herbs (A)": "Herbs (A)",
+            "Herbs (Α)": "Herbs (A)",
+            "Shrubs (B)": "Shrubs (B)",
+            "Shrubs (Β)": "Shrubs (B)",
+            "Trees (C)": "Trees (C)",
+            "I am not sure": "I’m not sure"
+          },
+          "info": "Don't forget to look to the right vegetation when in the downstream direction"
+        },
+        "invasive_species": {
+          "question": "Invasive Species",
+          "questiontext": "Do you see any non-native or invasive plant species?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          },
+          "placeholder": "Which ones?"
+        },
+        "vegetation_cut": {
+          "question": "Vegetation Cuts",
+          "questiontext": "Have there been recent cuts if vegetation (partial or total) on the banks (or just one of the banks) of the stream?",
+          "labels": {
+            "Yes": "Yes",
+            "No": "No",
+            "I am not sure": "I’m not sure"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Provide an overall assessment of the stream ecosystem health (choose one of the below possibilities)",
+        "good_quality": "Good quality",
+        "good_quality_description": "The ecosystem components are there: riparian vegetation, natural channel, good water quality, biodiversity",
+        "moderate_quality": "Moderate quality",
+        "moderate_quality_description": "Some alterations, still biodiverse, with vegetation in the margins, water looks good...",
+        "poor_quality": "Poor quality",
+        "poor_quality_description": "Highly modified / artificialized, loss of riparian vegetation, loss of habitats, polluted"
+      },
+      "feelings": {
+        "question": "Which feeling(s) best describe your experience?",
+        "info": "Research indicates that streams may influence human emotions.",
+        "instructions": "Drag your fingers on the slider to rate the intensity of what you are feeling. A higher rating means more intense feeling.",
+        "Joy": "Joy",
+        "Serenity": "Serenity",
+        "Anger": "Anger",
+        "Fear": "Fear",
+        "NotApplicable": "Not Applicable"
+      },
+      "summary": {
+        "title": "Summary of the submission",
+        "research_site_label": "Research Site",
+        "coordinates_label": "Coordinates",
+        "photos_label": "Photos",
+        "video_label": "Video",
+        "channel_form_label": "Channel Form",
+        "bottom_type_label": "Bottom Type",
+        "bank_type_label": "Bank Type",
+        "habitats_label": "Habitats",
+        "natural_debris_label": "Natural Debris",
+        "water_flow_label": "Water flow",
+        "water_quality_label": "Water Quality",
+        "water_abstraction_label": "Water Abstraction",
+        "water_extraction_label": "Water Extraction",
+        "draining_pipes_label": "Draining Pipes",
+        "barriers_label": "Barriers",
+        "construction_label": "Construction",
+        "impervious_areas_left_label": "Impervious Areas (Left)",
+        "impervious_areas_right_label": "Impervious Areas (Right)",
+        "vegetation_left_label": "Vegetation (Left)",
+        "vegetation_right_label": "Vegetation (Right)",
+        "vegetation_cuts_label": "Vegetation Cuts",
+        "invasive_species_label": "Invasive Species",
+        "feelings_label": "Feelings",
+        "feelings": {
+          "joy": "Joy",
+          "serenity": "Serenity",
+          "anger": "Anger",
+          "fear": "Fear"
+        },
+        "water_height_label": "Water Height",
+        "overall_assessment_label": "Overall Assessment"
+      },
+      "my_submissions_list": {
+        "title": "Submissions for Existing Research Sites",
+        "longitude_label": "Longitude",
+        "latitude_label": "Latitude",
+        "research_site_label": "Research Site",
+        "created_label": "Created At",
+        "overall_label": "Overall Assessment",
+        "actions_label": "Actions",
+        "title2": "Submissions for Generated Sites",
+        "longitude_label_2": "Longitude",
+        "latitude_label_2": "Latitude",
+        "research_site_label_2": "Research Site",
+        "created_label_2": "Created At",
+        "overall_label_2": "Overall Assessment",
+        "actions_label_2": "Actions"
+      }
+    },
+    "el": {
+      "title": "Εφαρμογή Citizen Science του OneAquaHealth - Οδηγίες Εγκατάστασης",
+      "viewInstructions": "Προβολή Οδηγιών",
+      "version": "Εφαρμογή Citizen Science του OneAquaHealth - Έκδοση 1.0",
+      "before_submit": "Πριν την υποβολή",
+      "education": {
+        "title": "Τι είναι ένα Αστικό Ρέμα;",
+        "intro": "Τα αστικά ρέματα είναι τρεχούμενα νερά που συνυπάρχουν με την αστική ανάπτυξη, η οποία συχνά αποτελεί μέρος ευρύτερων λεκανών απορροής. Ως εκ τούτου, συνήθως επηρεάζονται από ανθρώπινες δραστηριότητες που έχουν ως αποτέλεσμα αλλοιώσεις στα κανάλια τους (συμπεριλαμβανομένης της ολικής και μερικής κάλυψης, των τεχνητών υλικών στις όχθες και το κανάλι), της ρύπανσης των υδάτων, αλλοιώσεις στη φυσική βλάστηση των παρυφών, μεταξύ άλλων.",
+        "healthy_streams": {
+          "title": "Υγιή Οικοσυστήματα Ρεμάτων",
+          "content": "Τα υγιή ρέματα πρέπει να περιβάλλονται από συγκεκριμένη βλάστηση – παρόχθια βλάστηση – ικανή να ζει με τις ρίζες της σε κορεσμένο ή με υψηλή υγρασία έδαφος χωρίς να σαπίζει. Τα ρέματα και η παρόχθια βλάστηση τους προσφέρουν βιότοπο για υδρόβια και χερσαία ζώα (π.χ. ασπόνδυλα, μύκητες, ψάρια, αμφίβια, ερπετά, θηλαστικά, πουλιά) και μικροοργανισμούς. Οι οργανισμοί αυτοί συμμετέχουν επίσης σε σημαντικές διεργασίες του οικοσυστήματος, όπως η πρωτογενής και δευτερογενής παραγωγή, ο κύκλος θρεπτικών στοιχείων και η αποδόμηση οργανικής ύλης."
+        },
+        "ecosystem_services": {
+          "title": "Υπηρεσίες Οικοσυστήματος",
+          "content": "Όταν διατηρούνται καλά, τα ρέματα προσφέρουν σημαντικές υπηρεσίες οικοσυστήματος στον ανθρώπινο πληθυσμό, όπως καλύτερη ποιότητα αέρα, ρύθμιση της θερμοκρασίας και της υγρασίας, μετριασμό πλημμυρών, παρέχοντας ταυτόχρονα περιοχές αναψυχής και κοινωνικοποίησης, ή υπαίθρια εργαστήρια για περιβαλλοντική εκπαίδευση."
+        },
+        "key_concepts": {
+          "title": "Βασικές έννοιες για την αξιολόγηση ρεμάτων",
+          "downstream_direction": "Οι αριστερές και δεξιές όχθες και παρυφές των ρεμάτων ορίζονται όταν κοιτάζουμε κατάντη (προς την κατεύθυνση που ρέει το ρέμα) (Εικόνα 1)."
+        },
+        "figure1": {
+          "caption": "Εικόνα 1. Η αριστερή (Α) και δεξιά (Δ) όχθη του ρέματος. Το βέλος δείχνει την κατεύθυνση της ροής."
+        },
+        "cross_section": {
+          "description": "Το πλάτος (Εικόνα 2) και το βάθος (Εικόνα 3) του ρέματος μετριούνται σε εγκάρσια τομή κάθετα στο κανάλι του ρέματος. Αυτές οι μετρήσεις μπορεί να διαφέρουν κατά μήκος του ρέματος, αλλά θα πρέπει να λαμβάνονται σε μια αντιπροσωπευτική τομή των μέσων συνθηκών."
+        },
+        "figure2": {
+          "caption": "Εικόνα 2. Εικονογράφηση εγκάρσιας τομής ρέματος: Α) κορυφή όχθης, Β) όχθη, Γ) κύριο υγρό κανάλι, Δ) κατεύθυνση ροής (προς κατάντη), Ε) πλάτος, ΣΤ) βάθος."
+        },
+        "figure3": {
+          "caption": "Εικόνα 3. Μέτρηση βάθους με χάρακα/μέτρο."
+        },
+        "riparian_and_floodplain": {
+          "content": "Η παρόχθια ζώνη είναι η περιοχή που βρίσκεται στις παρυφές και καλύπτεται από παρόχθια βλάστηση. Μια υγιής παρόχθια βλάστηση περιλαμβάνει ποικιλία από αυτόχθονα φυτά διαφορετικών υψών (στρώματα), από βότανα έως θάμνους και δέντρα, τυπικά της περιοχής και προσαρμοσμένα στην εγγύτητα του νερού (Εικόνα 4)."
+        },
+        "figure4": {
+          "caption": "Εικόνα 4. Καλά διατηρημένη παρόχθια ζώνη: Α) κατώτερο στρώμα με ποώδη φυτά, φτέρες, βρύα και λειχήνες, που παίζουν σημαντικό ρόλο στην κυκλοφορία των θρεπτικών στοιχείων και τη σταθεροποίηση του εδάφους· Β) στρώμα με θάμνους· Γ) ανώτερο στρώμα με ώριμα δέντρα που σχηματίζουν το θόλο της παρόχθιας ζώνης."
+        },
+        "figure_description": "Οι πλημμυρικές περιοχές είναι φυσικές ζώνες κατακλυσμού, που καλύπτονται από νερό (πλημμύρες) κατά τη διάρκεια περιόδων υψηλών βροχοπτώσεων. Οι πλημμύρες εμπλουτίζουν αυτά τα γόνιμα εδάφη με ιζήματα πλούσια σε θρεπτικά συστατικά (Εικόνα 5). Το σχήμα και η φύση της πλημμυρικής περιοχής μπορεί να αλλάξουν με το χρόνο λόγω της φυσικής μετατόπισης του κύριου καναλιού ενός ρέματος από αποθέσεις ή διαβρώσεις.",
+        "figure5": {
+          "caption": "Εικόνα 5. Α) Υγρό κανάλι, Β) Ενεργή πλημμυρική έκταση, Γ) Ρυθμιστική πλημμυρική έκταση, Δ) Γεωλογική πλημμυρική έκταση (λιγότερο συχνές πλημμύρες), Ε) Αναβαθμίδα."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Κύριες διαφορές μεταξύ δασικών και αστικών ρεμάτων",
+          "content": "Η αστική ανάπτυξη γύρω από τα ρέματα αυξάνει τις αδιαπέραστες επιφάνειες στις όχθες, τις παρυφές και τις πλημμυρικές εκτάσεις λόγω της κατασκευής δρόμων, κτιρίων ή πεζοδρομίων με σκυρόδεμα, άσφαλτο ή άλλα (Εικόνα 6). Αυτές οι επιφάνειες δεν επιτρέπουν τη διήθηση του νερού, όπως συμβαίνει σε δασικά εδάφη ή ανοιχτές εκτάσεις. Αυτό έχει ιδιαίτερη σημασία κατά τη διάρκεια έντονων βροχοπτώσεων, προκαλώντας πλημμύρες που αυξάνουν γρήγορα τη στάθμη του νερού και προκαλούν κινδύνους για ζημιές υλικών ή και ανθρώπινες απώλειες. Οι αδιαπέραστες περιοχές εμποδίζουν και την ανατροφοδότηση των υπόγειων υδάτων, με αποτέλεσμα εντονότερη λειψυδρία κατά τις ξηρές περιόδους - συχνά επιδεινώνεται από φράγματα ή άντληση νερού. Επιπλέον, τα αστικά ρέματα ρυπαίνονται συχνά από απορροή και συνδυασμένες αποχετεύσεις."
+        },
+        "figure6": {
+          "caption": "Εικόνα 6. Διαπερατές επιφάνειες αριστερά, ενδιάμεσες στο κέντρο και αδιαπέραστες δεξιά."
+        },
+        "oneaquahealth_project": {
+          "title": "Το έργο OneAquaHealth και η εφαρμογή OAH",
+          "content": "Το OneAquaHealth στοχεύει στην προαγωγή της οικολογικής κατάστασης των αστικών γλυκών υδάτων ως μέσο ενίσχυσης της One Health στις πόλεις και στον εντοπισμό πρώιμων δεικτών υποβάθμισης των υδάτινων οικοσυστημάτων που θα μπορούσαν να αποτελέσουν κίνδυνο για τη One Health. Για καλύτερη διαχείριση των αστικών ρεμάτων, αναπτύξαμε ένα Σύστημα Περιβαλλοντικής Επιτήρησης που περιλαμβάνει την εφαρμογή OAH. Η εφαρμογή αυτή προωθεί την παρακολούθηση των αστικών ρεμάτων από τους πολίτες για ενίσχυση της γνώσης και της αποκατάστασής τους."
+        },
+        "onehealth": {
+          "title": "Τι είναι το OneHealth;",
+          "content": "Το OneHealth είναι μια προσέγγιση που προάγει με βιώσιμο τρόπο την υγεία ανθρώπων, οργανισμών και περιβάλλοντος (Εικόνα 7). Οι καλά διατηρημένες φυσικές περιοχές στις πόλεις προσφέρουν ουσιαστικά οφέλη, όπως καθαρότερο αέρα και νερό, ενώ προσφέρουν και ήσυχους χώρους που ενισχύουν τη σωματική και ψυχική υγεία. Οι μπλε και πράσινες περιοχές κοντά στο σπίτι ενθαρρύνουν την έξοδο, τη σύνδεση με άλλους, τη χαλάρωση και τις αισθητηριακές εμπειρίες. Τα αστικά ρέματα, συχνά κρυμμένα στις πόλεις, είναι σχεδόν παντού και έχουν ανεκμετάλλευτο δυναμικό. Όταν αποκαθίστανται με γνώμονα το OneHealth, μπορούν να γίνουν χώροι συνεργασίας και δημιουργίας πιο υγιών, βιώσιμων κοινοτήτων."
+        },
+        "figure7": {
+          "caption": "Εικόνα 7. Εικονογράφηση της έννοιας One Health, που δείχνει τη διασύνδεση μεταξύ της υγείας του ανθρώπου, των οργανισμών και του περιβάλλοντος. Οι αλληλεπικαλυπτόμενες περιοχές τονίζουν την ολοκληρωμένη προσέγγιση που απαιτείται για την αντιμετώπιση των παγκόσμιων προκλήσεων υγείας."
+        },
+        "what_you_can_do": {
+          "title": "Τι μπορείτε να κάνετε μαζί μας;",
+          "content": "Αν υπάρχει κοντά σας αστικό ρέμα, ακόμη κι αν είναι πολύ τροποποιημένο (με τσιμεντένιους τοίχους, κλπ), μπορείτε να βοηθήσετε φροντίζοντας το: παρατηρήστε την κοίτη, τις όχθες και την παρόχθια ζώνη και δώστε μας σχετικές πληροφορίες και φωτογραφίες μέσω της εφαρμογής. Τέλος, πείτε μας τη συνολική σας εκτίμηση για το ρέμα στις παρακάτω κατηγορίες:"
+        },
+        "quality": {
+          "good": "<strong>Καλή ποιότητα</strong> (τα στοιχεία του οικοσυστήματος είναι παρόντα και σε καλή κατάσταση: παρόχθια βλάστηση, φυσική κοίτη, καλή ποιότητα νερού, βιοποικιλότητα)",
+          "moderate": "<strong>Μέτρια ποιότητα</strong> (υπάρχουν κάποιες αλλοιώσεις, κάποια βιοποικιλότητα, λίγη βλάστηση στις παρυφές και το νερό φαίνεται καλό...)",
+          "poor": "<strong>Κακή ποιότητα</strong> (είναι πολύ τροποποιημένο/τεχνητό, σημαντική απώλεια παρόχθιας βλάστησης ή μόνο εισβολικά είδη, απώλεια ενδιαιτημάτων, ρυπασμένο νερό)"
+        },
+        "submission_hint": "Για να συνεργαστείτε, απλώς δώστε τις ζητούμενες πληροφορίες επιλέγοντας <strong>\"Επόμενο\"</strong> (δείτε παραπάνω αυτές τις οδηγίες υποβολής)."
+      },
+      "channel_form_labels": {
+        "Flat (Α)": "Επίπεδο (Α)",
+        "Flat (A)": "Επίπεδο (Α)",
+        "U Shape (Β)": "Σχήμα U (Β)",
+        "U Shape (B)": "Σχήμα U (Β)",
+        "V Shape (C)": "Σχήμα V (Γ)",
+        "I am not sure": "Δεν γνωρίζω"
+      }
+    },
+    "pt": {
+      "citizens_menu": {
+        "instructions": "Instruções",
+        "instructions_title": "Instruções para a Ciência Cidadã",
+        "new_observation": "Fazer nova Observação",
+        "new_observation_title": "Nova Submissão de Ciência Cidadã",
+        "my_submissions": "As Minhas Submissões",
+        "my_submissions_title": "As Minhas Submissões"
+      },
+      "title": "App de Ciência Cidadã OneAquaHealth - Instruções de Instalação",
+      "viewInstructions": "Ver instruções",
+      "version": "App de Ciência Cidadã OneAquaHealth - Versão 1.0",
+      "installation_modal": {
+        "title": "Instalação da App OAH Citizen Science",
+        "intro": "Antes de instalar a App OAH Citizen Science, deverá primeiro aderir à <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">Comunidade OneAquaHealth</a>.<br />Após o registo, siga os passos abaixo utilizando o e-mail e palavra-passe atribuídos para iniciar sessão na aplicação.",
+        "step1_label": "Passo 1.",
+        "step1_desc": "Abra o navegador do seu telemóvel e visite:",
+        "step2_label": "Passo 2. Procure o aviso de instalação da aplicação:",
+        "step2_list_item1": "Se aparecer uma janela a sugerir a instalação da aplicação, siga as instruções apresentadas.",
+        "step2_list_item2": "Se não surgir qualquer aviso, avance para o passo seguinte.",
+        "step3_label": "Passo 3. Adicionar ao ecrã inicial:",
+        "step3_ios": "<b>Para iOS (a):</b> Toque no ícone de partilha (caixa com seta) na parte inferior do ecrã e selecione <span class=\"font-semibold\">\"Adicionar ao ecrã principal\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"IOS Example\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Para Android (b):</b> Toque no ícone do menu (três pontos) e escolha <span class=\"font-semibold\">\"Adicionar ao ecrã principal\"</span> ou <span class=\"font-semibold\">\"Instalar aplicação\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android Example\" class=\"max-h-96\" /></div>",
+        "step4_label": "Passo 4.",
+        "step4_desc": "Confirme a instalação tocando em <span class=\"font-semibold\">\"Adicionar\"</span> ou <span class=\"font-semibold\">\"Instalar\"</span>",
+        "step5_label": "Passo 5.",
+        "step5_desc": "Procure o ícone da aplicação instalado no seu ecrã inicial e toque para abrir",
+        "close": "Fechar"
+      },
+      "app_intro_title": "Para que serve esta App?",
+      "app_intro_text": "Esta App destina-se aos cidadãos e visa recolher dados sobre a saúde das ribeiras urbanas",
+      "before_submit": "Antes de submeter",
+      "education": {
+        "title": "O que é uma ribeira urbana?",
+        "intro": "As ribeiras urbanas são cursos de água que coexistem com áreas urbanas, muitas vezes integrando bacias hidrográficas maiores. Assim, estão frequentemente sujeitos a impactos de atividades humanas que causam alterações nos seus canais (incluindo coberturas totais ou parciais, materiais artificiais nas margens e no leito), poluição da água e alterações na vegetação natural das margens, entre outros.",
+        "healthy_streams": {
+          "title": "Ecossistemas ribeirinhos saudáveis",
+          "content": "Ribeiras saudáveis devem estar rodeadas por vegetação específica – vegetação ripária – capaz de sobreviver com as raízes em solo saturado ou com elevada humidade. As ribeiras e a vegetação ripária proporcionam habitat para animais aquáticos e terrestres (como invertebrados, fungos, peixes, anfíbios, répteis, mamíferos, aves) e microrganismos. Estes organismos participam também em processos ecológicos importantes, como a produção primária e secundária, o ciclo de nutrientes e a decomposição da matéria orgânica."
+        },
+        "ecosystem_services": {
+          "title": "Serviços do Ecossistema",
+          "content": "Quando bem preservadas, as ribeiras fornecem importantes serviços do ecossistema à população humana, tais como melhor qualidade do ar, regulação da temperatura e da humidade, mitigação de cheias, além de oferecerem espaços de lazer e convívio com a natureza, podendo ainda funcionar como laboratórios ao ar livre de suporte à educação ambiental."
+        },
+        "key_concepts": {
+          "title": "Conceitos essenciais para a avaliação das ribeiras",
+          "downstream_direction": "As margens esquerda e direita das ribeiras (ou rio) são definidas quando se está virado para jusante (para onde corre a água, isto é, para a foz) (Figura 1)."
+        },
+        "figure1": {
+          "caption": "Figura 1. Margens esquerda (L) e direita (R) das ribeiras (ou rios). A seta indica a direção da corrente."
+        },
+        "cross_section": {
+          "description": "A largura (Figura 2) e a profundidade (Figura 3) de uma ribeira são medidas num transecto perpendicular ao canal da ribeira. Estas medidas podem variar ao longo do curso de água, mas devem ser feitas num local representativo das condições médias da ribeira."
+        },
+        "figure2": {
+          "caption": "Figura 2. Ilustração de um corte transversal de um ribeiro. A) topo da margem; B) margem; C) o canal molhado principal; D) direção da corrente; E) largura; F) profundidade."
+        },
+        "figure3": {
+          "caption": "Figura 3. Medição da profundidade com uma régua ou metro."
+        },
+        "riparian_and_floodplain": {
+          "content": "A zona ripária é a área das margens de uma ribeira coberta por vegetação ripária (ou ripícola). Uma vegetação ripária saudável inclui uma variedade de plantas nativas de diferentes alturas (estratos), desde ervas a arbustos e árvores, típicas da região e adaptadas à proximidade da água (Figura 4)."
+        },
+        "figure4": {
+          "caption": "Figura 4. Zona ripária bem preservada: A) camada mais baixa com plantas herbáceas, fetos, musgos e líquenes, com um papel crucial no ciclo de nutrientes e estabilização do solo; B) camada arbustiva com plantas lenhosas de menor porte que as árvores (tipicamente até 6 metros de altura); C) camada superior, dominada por árvores maduras que formam a copa da floresta ripária."
+        },
+        "figure_description": "As planícies de inundação são áreas naturais que ficam submersas com água durante períodos de elevada precipitação (cheias). As cheias enriquecem estes solos com sedimentos ricos em nutrientes, tornando-se planícies mais férteis (Figura 5). A forma e a natureza das planícies de inundação podem mudar ao longo do tempo, pois o canal principal da ribeira pode desviar-se naturalmente devido à acumulação ou erosão destes sedimentos.",
+        "figure5": {
+          "caption": "Figura 5. A) Canal molhado; B) Planície de inundação ativa; C) Planície de inundação reguladora; D) Planície de inundação geológica (menos sujeita a eventos de cheia); E) Terraço."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Principais diferenças entre ribeiras de floresta e ribeiras urbanas",
+          "content": "O desenvolvimento urbano em torno das ribeiras urbanas aumenta as superfícies impermeáveis nas margens, taludes e planícies de inundação, devido à construção de estradas, edifícios ou passeios com betão, asfalto ou outros materiais (Figura 6). Estas superfícies não permitem a infiltração da água, ao contrário do que acontece em solos florestais ou campos abertos. Esta situação é especialmente crítica durante eventos de precipitação intensa, pois resulta em cheias súbitas que elevam rapidamente o nível da água, aumentando o risco de danos materiais e até de perdas humanas. As áreas impermeáveis também impedem a recarga dos aquíferos e interrompem o ciclo natural da água, o que pode originar escassez hídrica mais severa durante os períodos secos – muitas vezes agravada pela retenção em barragens ou pela captação de água. Além disso, as ribeiras urbanas são frequentemente poluídas por escorrências urbanas e descargas combinadas de esgotos, agravando ainda mais estes desafios."
+        },
+        "figure6": {
+          "caption": "Figura 6. Superfícies permeáveis à esquerda, superfícies medianamente impermeáveis ao centro e superfícies impermeáveis à direita."
+        },
+        "oneaquahealth_project": {
+          "title": "O projeto OneAquaHealth e a aplicação OAH",
+          "content": "O projeto OneAquaHealth pretende melhorar a qualidade ecológica dos ecossistemas de água doce nas cidades, como forma de reforçar o conceito de Uma Só Saúde. Outro dos seus objetivos é identificar indicadores de alerta precoce de degradação desses ecossistemas, que possam representar um risco para a saúde no âmbito da Uma Só Saúde. Para apoiar a gestão das ribeiras urbanas, foi criado um Sistema de Vigilância Ambiental, que inclui esta aplicação OAH. Esta aplicação convida os cidadãos a monitorizar as ribeiras urbanas, promovendo o seu conhecimento e contribuindo para a sua recuperação."
+        },
+        "onehealth": {
+          "title": "O que é Uma Só Saúde (One Health)?",
+          "content": "Uma Só Saúde (One Health) é uma abordagem que promove a saúde sustentável das pessoas, dos organismos e do ambiente (Figura 7). As zonas naturais bem preservadas nas cidades oferecem benefícios essenciais, como ar e água mais limpos, além de espaços tranquilos que contribuem para o bem-estar físico e mental da população. Ter áreas verdes e azuis próximas de casa incentiva as pessoas a sair, conviver, relaxar e usufruir de experiências sensoriais variadas. As ribeiras urbanas, muitas vezes escondidas na paisagem das cidades, estão disseminadas e têm um potencial ainda por explorar. Quando reabilitadas com base no conceito de Uma Só Saúde, estas ribeiras podem tornar-se espaços importantes de colaboração, aproximando diferentes grupos para criar comunidades mais saudáveis e sustentáveis."
+        },
+        "figure7": {
+          "caption": "Figura 7. Ilustração do conceito de Uma Só Saúde (One Health), mostrando a relação interligada entre a Saúde Humana, a Saúde dos Organismos e a Saúde Ambiental. As áreas sobrepostas destacam a abordagem integrada necessária para responder de forma eficaz aos desafios globais da saúde."
+        },
+        "what_you_can_do": {
+          "title": "O que pode fazer connosco?",
+          "content": "Se tiver uma ribeira urbana por perto pode ajudar-nos a cuidar dela. Mesmo que esteja muito modificada (com paredes de betão, parecendo um canal por onde só escorre água), observe o leito, as margens e a zona ripária ou ripícola. Através desta aplicação, pode enviar-nos informações relevantes e fotografias. No final, pedimos ainda que partilhe a sua avaliação geral da ribeira nas seguintes categorias:"
+        },
+        "quality": {
+          "good": "Boa qualidade (os componentes do ecossistema estão presentes e em bom estado: vegetação ripária, leito natural, boa qualidade da água e biodiversidade visível)",
+          "moderate": "Qualidade moderada (há algumas alterações, mas ainda se observa alguma biodiversidade, vegetação nas margens e a água parece em boas condições)",
+          "poor": "Má qualidade (a ribeira está muito modificada ou artificializada, com grande perda de vegetação ripária - ou apenas espécies invasoras - perda de habitats e sinais de poluição na água)"
+        },
+        "submission_hint": "Para colaborar, basta fornecer a informação solicitada clicando 'Seguinte' (ver acima destas instruções de submissão)"
+      },
+      "step": "Passo",
+      "next": "Seguinte",
+      "previous": "Anterior",
+      "submit": "Submeter",
+      "basic_information": "Informação Básica",
+      "additional_details": "Detalhes Adicionais",
+      "media_upload": "Carregar Multimédia",
+      "questions_1_3_": "Perguntas (1/3)",
+      "questions_2_3_": "Perguntas (2/3)",
+      "questions_3_3_": "Perguntas (3/3)",
+      "feedback_1_2": "Feedback (1/2)",
+      "feedback_2_2": "Feedback (2/2)",
+      "review_submit": "Revisar & Submeter",
+      "select_from_my_sites": "Selecionar dos Meus Locais",
+      "enter_longitude": "Inserir Longitude",
+      "enter_latitude": "Inserir Latitude",
+      "enter_site_name": "Inserir Nome do Local",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
+      "site_name": "Nome do Local",
+      "site_selection": {
+        "title": "Selecionar locais de ribeiras urbanas OneAquaHealth para avaliação (distância até ao local indicada)",
+        "description": "Adicionar Novo Local"
+      },
+      "media": {
+        "title": "Selecionar as suas imagens",
+        "upstream_photo_label": "Foto a montante",
+        "upstream_photo_description": "Foto tirada para montante",
+        "downstream_photo_label": "Foto a jusante",
+        "downstream_photo_description": "Foto tirada para jusante",
+        "context_photo_label": "Foto do contexto envolvente",
+        "context_photo_description": "Foto do contexto envolvente (casas, estradas...)",
+        "biodiversity_photo_label": "Foto com um elemento interessante de biodiversidade",
+        "biodiversity_photo_description": "Foto com um elemento interessante de biodiversidade (planta, animal, fungo, outro)",
+        "video_label": "Fazer um vídeo curto (5 ou 10 segundos)",
+        "video_description": "Fazer um vídeo curto (5 ou 10 segundos)",
+        "select_file_button": "Selecionar Ficheiro"
+      },
+      "questions_1_3": {
+        "title": "O que observa num raio de aproximadamente 100m?",
+        "channel_form": {
+          "question": "Forma do Canal",
+          "questiontext": "A forma do canal é...",
+          "labels": {
+            "Flat (Α)": "Plano (A)",
+            "Flat (A)": "Plano (A)",
+            "U Shape (Β)": "Forma de U (B)",
+            "U Shape (B)": "Forma de U (B)",
+            "V Shape (C)": "Forma de V (C)",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "bottom_type": {
+          "question": "Tipo de Leito",
+          "questiontext": "O fundo do canal molhado é...",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (betão ou pedras com betão) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (betão ou pedras com betão) (B)",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "bank_type": {
+          "question": "Tipo de Margem",
+          "questiontext": "As margens do canal são...",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (betão ou pedras com betão) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (betão ou pedras com betão) (B)",
+            "Layed stones with no concrete (C)": "Pedras sobrepostas sem betão (C)",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "habitats": {
+          "question": "Habitats",
+          "questiontext": "Os habitats presentes são...",
+          "questiontextshow": "Há habitats presentes?",
+          "options": {
+            "Sand banks (A)": "Bancos de areia (A)",
+            "Sand banks (Α)": "Bancos de areia (A)",
+            "Sand islands (B)": "Ilhas de areia (B)",
+            "Sand islands (Β)": "Ilhas de areia (B)",
+            "Stone deposits (C)": "Depósitos de pedras (C)",
+            "Riffles, rapids, falls (D)": "Correntes rápidas, quedas (D)",
+            "Aquatic vegetation (E)": "Vegetação aquática (E)"
+          },
+          "info": "Pode selecionar vários tipos de habitats. Primeiro selecione a caixa e depois marque todos os habitats identificados."
+        },
+        "natural_debris": {
+          "question": "Detritos Naturais",
+          "questiontext": "Há...",
+          "questiontextshow": "Há detritos naturais presentes?",
+          "labels": {
+            "Fallen trees (A)": "Árvores caídas (A)",
+            "Fallen trees (Α)": "Árvores caídas (A)",
+            "Fallen branches (B)": "Ramos caídos (B)",
+            "Fallen branches (Β)": "Ramos caídos (B)",
+            "Deposits of fallen leaves (C)": "Depósitos de folhas caídas (C)"
+          },
+          "info": "Pode selecionar vários tipos de detritos naturais. Primeiro clique no círculo e depois marque os elementos identificados."
+        },
+        "water_flow": {
+          "question": "Fluxo da Água",
+          "questiontext": "Como está a correr a água?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Rápido (com ondas ou alta velocidade) (A)",
+            "Fast (with waves or high velocity) (Α)": "Rápido (com ondas ou alta velocidade) (A)",
+            "Slow (B)": "Lento (B)",
+            "Slow (Β)": "Lento (B)",
+            "Stagnant/intermittent (C)": "Estagnado/intermitente (C)",
+            "Dry (D)": "Seco (D)",
+            "I am not sure": "Não tenho a certeza"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aspeto da Água",
+          "questiontext": "Como está a água?",
+          "labels": {
+            "Clear/transparent (A)": "Transparente (A)",
+            "Clear/transparent (Α)": "Transparente (A)",
+            "Muddy/turbid (B)": "Turva (B)",
+            "Muddy/turbid (Β)": "Turva (B)",
+            "Has foam (C)": "Tem espuma (C)",
+            "Has colors/altered color (D)": "Tem cores / cor alterada (D)",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Captação de Água",
+          "questiontext": "Há algum tipo de captação/remoção óbvia de água da ribeira?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "barriers": {
+          "question": "Barreiras",
+          "questiontext": "Vê alguma barragem ou barreira artificial transversal (veja exemplos nas imagens)?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "draining_pipes": {
+          "question": "Canos de Drenagem",
+          "questiontext": "Há canos a descarregar água poluída na ribeira?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Descarga de Esgotos",
+          "questiontext": "Há alguma entrada ou descarga de esgotos?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "construction": {
+          "question": "Obras",
+          "questiontext": "Há alguma obra/construção no leito da ribeira?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "water_height": {
+          "question": "Altura da Água",
+          "questiontext": "Qual é a altura da água?",
+          "placeholder": "Indique a altura da água",
+          "info": "Por favor indique a estimativa em metros (m), usando ponto decimal (ex: 1.5m)"
+        }
+      },
+      "questions_3_3": {
+        "title": "Nas margens/zona ripária (5-10m desde o topo da margem)",
+        "impervious_left": {
+          "question": "Áreas Impermeáveis (Esquerda)",
+          "questiontext": "Mais de um terço da margem esquerda está coberta por áreas impermeáveis (como estradas, passeios ou edifícios)?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "impervious_right": {
+          "question": "Áreas Impermeáveis (Direita)",
+          "questiontext": "Mais de um terço da margem direita está coberta por áreas impermeáveis (como estradas, passeios ou edifícios)?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetação (Esquerda)",
+          "questiontext": "A margem esquerda está coberta por vegetação?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Tipo de Vegetação (Esquerda)",
+          "questiontext": "Que tipo de vegetação é dominante (mais de 50%) na margem esquerda (primeiros 5 metros)?",
+          "labels": {
+            "Herbs (A)": "Ervas (A)",
+            "Herbs (Α)": "Ervas (A)",
+            "Shrubs (B)": "Arbustos (B)",
+            "Shrubs (Β)": "Arbustos (B)",
+            "Trees (C)": "Árvores (C)",
+            "I am not sure": "Não tenho a certeza"
+          },
+          "info": "Não se esqueça de observar a margem esquerda virado para jusante"
+        },
+        "vegetation_right": {
+          "question": "Vegetação (Direita)",
+          "questiontext": "A margem direita está coberta por vegetação?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Tipo de Vegetação (Direita)",
+          "questiontext": "Que tipo de vegetação é dominante (mais de 50%) na margem direita (primeiros 5 metros)?",
+          "labels": {
+            "Herbs (A)": "Ervas (A)",
+            "Herbs (Α)": "Ervas (A)",
+            "Shrubs (B)": "Arbustos (B)",
+            "Shrubs (Β)": "Arbustos (B)",
+            "Trees (C)": "Árvores (C)",
+            "I am not sure": "Não tenho a certeza"
+          },
+          "info": "Não se esqueça de observar a margem direita virado para jusante"
+        },
+        "invasive_species": {
+          "question": "Espécies Invasoras",
+          "questiontext": "Vê alguma planta exótica ou invasora?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          },
+          "placeholder": "Quais?"
+        },
+        "vegetation_cut": {
+          "question": "Corte de Vegetação",
+          "questiontext": "Houve cortes recentes (parciais ou totais) da vegetação nas margens?",
+          "labels": {
+            "Yes": "Sim",
+            "No": "Não",
+            "I am not sure": "Não tenho a certeza"
+          }
+        }
+      },
+      "submission_hint": "Para colaborar, basta fornecer a informação solicitada clicando 'Seguinte' (ver acima destas instruções de submissão)",
+      "stream_health": {
+        "question": "Forneça uma avaliação geral da saúde do ecossistema da ribeira (escolha uma das opções abaixo)",
+        "good_quality": "Boa qualidade",
+        "good_quality_description": "Os componentes do ecossistema estão presentes: vegetação ripária, leito natural, boa qualidade da água, biodiversidade",
+        "moderate_quality": "Qualidade moderada",
+        "moderate_quality_description": "Algumas alterações, ainda biodiverso, com vegetação nas margens, água parece em boas condições...",
+        "poor_quality": "Má qualidade",
+        "poor_quality_description": "Altamente modificado/artificializado, perda de vegetação ripária, perda de habitats, poluição"
+      },
+      "feelings": {
+        "question": "Que sentimento(s) melhor descrevem a sua experiência?",
+        "info": "Pesquisas indicam que ribeiros podem influenciar as emoções humanas.",
+        "instructions": "Arraste os seus dedos no seletor para avaliar a intensidade do que está a sentir. Uma pontuação mais alta significa um sentimento mais intenso.",
+        "Joy": "Alegria",
+        "Serenity": "Serenidade",
+        "Anger": "Raiva",
+        "Fear": "Medo",
+        "NotApplicable": "Não se aplica"
+      },
+      "summary": {
+        "title": "Resumo da submissão",
+        "research_site_label": "Local de Investigação",
+        "coordinates_label": "Coordenadas",
+        "photos_label": "Fotografias",
+        "video_label": "Vídeo",
+        "channel_form_label": "Forma do Canal",
+        "bottom_type_label": "Tipo de Leito",
+        "bank_type_label": "Tipo de Margem",
+        "habitats_label": "Habitats",
+        "natural_debris_label": "Detritos Naturais",
+        "water_flow_label": "Fluxo da Água",
+        "water_quality_label": "Qualidade da Água",
+        "water_abstraction_label": "Captação de Água",
+        "water_extraction_label": "Extração de Água",
+        "draining_pipes_label": "Canos de Drenagem",
+        "barriers_label": "Barreiras",
+        "construction_label": "Obras",
+        "impervious_areas_left_label": "Áreas Impermeáveis (Esquerda)",
+        "impervious_areas_right_label": "Áreas Impermeáveis (Direita)",
+        "vegetation_left_label": "Vegetação (Esquerda)",
+        "vegetation_right_label": "Vegetação (Direita)",
+        "vegetation_cuts_label": "Cortes de Vegetação",
+        "invasive_species_label": "Espécies Invasoras",
+        "feelings_label": "Sentimentos",
+        "feelings": {
+          "joy": "Alegria",
+          "serenity": "Serenidade",
+          "anger": "Raiva",
+          "fear": "Medo"
+        },
+        "water_height_label": "Altura da Água",
+        "overall_assessment_label": "Avaliação Geral"
+      },
+      "my_submissions_list": {
+        "title": "Submissões para Locais de Investigação Existentes",
+        "longitude_label": "Longitude",
+        "latitude_label": "Latitude",
+        "research_site_label": "Local de Investigação",
+        "created_label": "Data de Criação",
+        "overall_label": "Avaliação Geral",
+        "actions_label": "Ações",
+        "title2": "Submissões para Locais Gerados",
+        "longitude_label_2": "Longitude",
+        "latitude_label_2": "Latitude",
+        "research_site_label_2": "Local de Investigação",
+        "created_label_2": "Data de Criação",
+        "overall_label_2": "Avaliação Geral",
+        "actions_label_2": "Ações"
+      }
+    },
+    "nl": {
+      "citizens_menu": {
+        "instructions": "Instructies",
+        "instructions_title": "Citizen Science Instructies",
+        "new_observation": "Nieuwe Observatie",
+        "new_observation_title": "Nieuwe Citizen Science Inzending",
+        "my_submissions": "Mijn inzendingen",
+        "my_submissions_title": "Mijn inzendingen"
+      },
+      "instructions": "Instructies",
+      "make_observation": "Nieuwe observatie maken",
+      "my_submissions": "Mijn inzendingen",
+      "title": "OneAquaHealth Citizen Science App - Installatie-instructies",
+      "app_intro_title": "Waar is deze app voor?",
+      "app_intro_text": "Deze app is voor burgers en heeft als doel gegevens te verzamelen over de gezondheid van stedelijke beken",
+      "viewInstructions": "Bekijk instructies",
+      "version": "OneAquaHealth Citizen Science App - Versie 1.0",
+      "installation_modal": {
+        "title": "Installatie van de OAH Citizen Science App",
+        "intro": "Voordat u de OAH Citizen Science App installeert, moet u eerst lid worden van de <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth Community</a>.<br />Na registratie volgt u de onderstaande stappen met het toegewezen e-mailadres en wachtwoord om in te loggen in de applicatie.",
+        "step1_label": "Stap 1.",
+        "step1_desc": "Open de browser van uw telefoon en ga naar:",
+        "step2_label": "Stap 2. Zoek naar de prompt om de app te installeren:",
+        "step2_list_item1": "Als er een pop-up verschijnt die voorstelt de app te installeren, volg dan de instructies op het scherm.",
+        "step2_list_item2": "Als er geen prompt verschijnt, ga door naar de volgende stap.",
+        "step3_label": "Stap 3. Voeg toe aan startscherm:",
+        "step3_ios": "<b>Voor iOS (a):</b> Tik op het deelpictogram (vierkant met pijl) onderaan het scherm en kies <span class=\"font-semibold\">\"Zet op beginscherm\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"IOS Example\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Voor Android (b):</b> Tik op het menu-icoon (drie puntjes) en kies <span class=\"font-semibold\">\"Toevoegen aan startscherm\"</span> of <span class=\"font-semibold\">\"App installeren\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android Example\" class=\"max-h-96\" /></div>",
+        "step4_label": "Stap 4.",
+        "step4_desc": "Bevestig de installatie door op <span class=\"font-semibold\">\"Toevoegen\"</span> of <span class=\"font-semibold\">\"Installeren\"</span> te tikken",
+        "step5_label": "Stap 5.",
+        "step5_desc": "Zoek het nieuw geïnstalleerde app-icoon op uw startscherm en tik om te starten",
+        "close": "Sluiten"
+      },
+      "before_submit": "Voordat u uw aanvraag indient",
+      "education": {
+        "title": "Wat is een stedelijke beek?",
+        "intro": "Stedelijke beken zijn stromende wateren die samengaan met stedelijke ontwikkeling en vaak deel uitmaken van grotere stroomgebieden. Ze worden daarom doorgaans beïnvloed door menselijke activiteiten, wat onder andere leidt tot veranderingen in hun beddingen (waaronder volledige en gedeeltelijke bedekking, kunstmatige materialen in de oevers en de bedding), waterverontreiniging en veranderingen in de natuurlijke vegetatie langs de oevers.",
+        "healthy_streams": {
+          "title": "Gezonde stroomecosystemen",
+          "content": "Gezonde beken moeten worden omgeven door specifieke vegetatie – oevervegetatie – die met haar wortels in verzadigde of vochtige grond kan leven zonder te rotten. Beken en hun oevervegetatie bieden leefgebied aan water- en landdieren (bijv. ongewervelden, schimmels, vissen, amfibieën, reptielen, zoogdieren, vogels) en micro-organismen. Deze organismen zijn ook betrokken bij belangrijke ecosysteemprocessen, zoals de primaire en secundaire productie, de nutriëntenkringloop en de afbraak van organisch materiaal."
+        },
+        "ecosystem_services": {
+          "title": "Ecosysteemdiensten",
+          "content": "Als beken goed bewaard blijven, leveren ze belangrijke ecosysteemdiensten aan de menselijke bevolking, zoals betere luchtkwaliteit, regeling van temperatuur en vochtigheid, beperking van overstromingen. Daarnaast bieden ze plekken voor recreatie in de natuur en sociale interactie, of buitenlaboratoria voor milieueducatie."
+        },
+        "key_concepts": {
+          "title": "Essentiële concepten voor de beoordeling van stromen",
+          "downstream_direction": "De linker- en rechteroever en de randen van beken worden gedefinieerd wanneer men stroomafwaarts kijkt (naar de richting waar de stroom loopt) (Figuur 1)."
+        },
+        "figure1": {
+          "caption": "Figuur 1. De linker (L) en rechter (R) oever van de beken. De pijl geeft de stroomrichting aan."
+        },
+        "cross_section": {
+          "description": "De breedte (figuur 2) en de diepte (figuur 3) van de beek worden gemeten in een transept loodrecht op de beekbedding. Deze maten kunnen variëren over een beektraject, maar ze moeten worden gemeten in een transept dat representatief is voor de gemiddelde omstandigheden."
+        },
+        "figure2": {
+          "caption": "Figuur 2. Illustratie van een dwarsdoorsnede van de stroming, waarbij: A) oevertop; B) oever; C) belangrijkste natte kanaal; D) stroomrichting (stroomafwaarts zicht); E) breedte; en F) diepte."
+        },
+        "figure3": {
+          "caption": "Figuur 3. Dieptemeting met behulp van een liniaal/meter."
+        },
+        "riparian_and_floodplain": {
+          "content": "De oeverzone is het gebied aan de oeverrand dat bedekt is met oevervegetatie. Een gezonde oevervegetatie omvat een verscheidenheid aan inheemse planten van verschillende hoogtes (lagen), van kruiden tot struiken en bomen, die typisch zijn voor de regio en aangepast zijn aan de nabijheid van water (figuur 4)."
+        },
+        "figure4": {
+          "caption": "Figuur 4. Goed bewaarde oeverzone: A) onderste laag met kruidachtige planten, varens, mossen en korstmossen, die een cruciale rol spelen in de nutriëntencyclus en de bodemstabilisatie); B) een struiklaag met houtachtige planten die kleiner zijn dan bomen (doorgaans tot 6 meter hoog); C) een bovenste laag, gedomineerd door volwassen bomen die het bladerdak van de oeverzone vormen."
+        },
+        "figure_description": "Overstromingsgebieden zijn gebieden met natuurlijke overstroming, die tijdens periodes met veel neerslag onder water komen te staan (overstromingen). De overstromingen verrijken deze vruchtbare bodems met sedimenten die rijk zijn aan voedingsstoffen (figuur 5). De vorm en aard van de overstromingsvlakte kunnen in de loop van de tijd veranderen doordat de hoofdstroom van een rivier van nature verschuift door aangroei en erosie.",
+        "figure5": {
+          "caption": "Figuur 5. A) Nat kanaal; B) Actieve overstromingsvlakte; C) Regulerende overstromingsvlakte; D) Geologische overstromingsvlakte (regelmatige overstromingen); E) Terras."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Belangrijkste verschillen tussen bos- en stadsstromen",
+          "content": "De verstedelijking rond stedelijke beken vergroot de verharde oppervlakken in oevers, marges en uiterwaarden, door de aanleg van wegen, gebouwen of trottoirs met beton, asfalt of andere materialen (Figuur 6). Deze oppervlakken laten geen waterinfiltratie toe, zoals in bosgrond of open velden. Dit is met name relevant tijdens periodes met veel neerslag, omdat het leidt tot plotselinge overstromingen die de waterstand snel doen stijgen, met risico's op materiële schade en zelfs menselijke verliezen tot gevolg. De verharde oppervlakken verhinderen ook de aanvulling van grondwaterlagen en de voortzetting van de waterkringloop, wat kan leiden tot intensere waterschaarste tijdens droge seizoenen – vaak verergerd door het vasthouden van water in dammen of het onttrekken van water. Bovendien worden stedelijke beken vaak vervuild door stedelijk afvalwater en afvalwater uit gemengde riolen, wat deze uitdagingen verergert."
+        },
+        "figure6": {
+          "caption": "Figuur 6. Doorlatende oppervlakken aan de linkerkant, matig ondoorlatende oppervlakken in het midden en ondoorlatende oppervlakken aan de rechterkant."
+        },
+        "oneaquahealth_project": {
+          "title": "Het OneAquaHealth-project en de OAH-app",
+          "content": "OneAquaHealth streeft ernaar de ecologische conditie van stedelijke zoetwaterecosystemen te verbeteren om One Health in steden te versterken en vroegtijdige waarschuwingsindicatoren te identificeren voor degradatie van zoetwaterecosystemen die een risico kunnen vormen voor One Health. Om het beheer van stedelijke waterlopen te verbeteren, hebben we een milieusurveillancesysteem ontwikkeld, inclusief de OAH-app. Deze app is bedoeld om de monitoring van stedelijke waterlopen door burgers te bevorderen en zo hun kennis en herstel te vergroten."
+        },
+        "onehealth": {
+          "title": "Wat is OneHealth?",
+          "content": "OneHealth is een aanpak die gericht is op het bevorderen van duurzame gezondheid voor mensen, organismen en het milieu (figuur 7). Goed bewaard gebleven natuurgebieden in steden bieden essentiële voordelen, zoals schonere lucht en water, en bieden tegelijkertijd rustige plekken die zowel het fysieke als mentale welzijn bevorderen. Blauwe en groene gebieden dicht bij huis moedigen mensen aan om naar buiten te gaan, contact te maken met anderen, te ontspannen en diverse zintuiglijke genoegens te ervaren. Stadsbeken, vaak verborgen in het stadslandschap, zijn vrijwel overal en bieden een onbenut potentieel. Wanneer ze worden hersteld met het OneHealth-concept in gedachten, kunnen deze beken essentiële ruimtes worden voor samenwerking, waar diverse groepen samenkomen om gezondere, duurzamere gemeenschappen te creëren."
+        },
+        "figure7": {
+          "caption": "Figuur 7. Illustratie van het One Health-concept, met de onderlinge relatie tussen menselijke gezondheid, de gezondheid van organismen en de gezondheid van het milieu. De overlappende gebieden benadrukken de geïntegreerde aanpak die nodig is om wereldwijde gezondheidsuitdagingen effectief aan te pakken."
+        },
+        "what_you_can_do": {
+          "title": "Wat kun je bij ons doen?",
+          "content": "Als er een stadsbeek in de buurt is, soms in verborgen valleien tussen de heuvels van je stad, zelfs al is die flink aangepast (met betonnen muren die op een kanaal lijken), kun je ons helpen door de bedding, oever en oeverzone te onderzoeken en ons relevante informatie en foto's te sturen via deze app. Laat ons ten slotte weten wat je van de beek vindt in de volgende categorieën:"
+        },
+        "quality": {
+          "good": "<strong>Goede kwaliteit</strong> (de ecosysteemcomponenten zijn aanwezig en zien er goed uit: oevervegetatie, natuurlijke bedding, goede waterkwaliteit, biodiversiteit)",
+          "moderate": "<strong>Matige kwaliteit</strong> (er zijn wat veranderingen, wat biodiversiteit, wat vegetatie in de randen en het water ziet er goed uit ...)",
+          "poor": "<strong>Slechte kwaliteit</strong> (het is sterk aangepast/kunstmatig, met grote verliezen aan oevervegetatie of alleen invasieve soorten, verlies van habitats, het water is vervuild)"
+        },
+        "submission_hint": "Om mee te werken, hoeft u alleen maar de gevraagde informatie te verstrekken door op <strong>'Volgende'</strong> te klikken (zie de richtlijnen voor het indienen hierboven)."
+      },
+      "step": "Stap",
+      "next": "Volgende",
+      "previous": "Vorige",
+      "submit": "Indienen",
+      "basic_information": "Basisinformatie",
+      "additional_details": "Aanvullende details",
+      "media_upload": "Media uploaden",
+      "questions_1_3_": "Vragen (1/3)",
+      "questions_2_3_": "Vragen (2/3)",
+      "questions_3_3_": "Vragen (3/3)",
+      "feedback_1_2": "Feedback (1/2)",
+      "feedback_2_2": "Feedback (2/2)",
+      "review_submit": "Controleren & Indienen",
+      "select_from_my_sites": "Selecteer uit mijn sites",
+      "enter_longitude": "Voer lengtegraad in",
+      "enter_latitude": "Voer breedtegraad in",
+      "enter_site_name": "Voer sitenaam in",
+      "longitude": "Lengtegraad",
+      "latitude": "Breedtegraad",
+      "site_name": "Locatienaam",
+      "site_selection": {
+        "title": "Selecteer OneAquaHealth stedelijke stroomlocaties om te beoordelen (de afstand van u tot de locatie wordt aangegeven)",
+        "description": "Nieuwe site toevoegen"
+      },
+      "media": {
+        "title": "Selecteer uw afbeeldingen",
+        "upstream_photo_label": "Stroomopwaartse foto",
+        "upstream_photo_description": "Stroomopwaartse foto",
+        "downstream_photo_label": "Stroomafwaartse foto",
+        "downstream_photo_description": "Stroomafwaartse foto",
+        "context_photo_label": "Foto met de omringende context",
+        "context_photo_description": "Foto met de omgeving (huizen, wegen...)",
+        "biodiversity_photo_label": "Foto met een interessant element van biodiversiteit",
+        "biodiversity_photo_description": "Foto met een interessant element van biodiversiteit (plant, dier, schimmel, andere)",
+        "video_label": "Maak een korte video (5 of 10 seconden)",
+        "video_description": "Maak een korte video (5 of 10 seconden)",
+        "select_file_button": "Selecteer bestand"
+      },
+      "questions_1_3": {
+        "title": "Wat zie je vanaf waar je staat (in ca. 100m)?",
+        "channel_form": {
+          "question": "Kanaalvorm",
+          "questiontext": "De kanaalvorm is...",
+          "labels": {
+            "Flat (Α)": "Plat (A)",
+            "Flat (A)": "Plat (A)",
+            "U Shape (Β)": "U-vorm (B)",
+            "U Shape (B)": "U-vorm (B)",
+            "V Shape (C)": "V-vorm (C)",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "bottom_type": {
+          "question": "Bodemtype",
+          "questiontext": "De bodem van het natte kanaal is…",
+          "labels": {
+            "Natural (A)": "Natuurlijk (A)",
+            "Natural (Α)": "Natuurlijk (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Kunstmatig (beton of stenen met beton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Kunstmatig (beton of stenen met beton) (Β)",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "bank_type": {
+          "question": "Banktype",
+          "questiontext": "De oevers van het kanaal zijn…",
+          "labels": {
+            "Natural (A)": "Natuurlijk (A)",
+            "Natural (Α)": "Natuurlijk (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Kunstmatig (beton of stenen met beton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Kunstmatig (beton of stenen met beton) (Β)",
+            "Layed stones with no concrete (C)": "Gelegde stenen zonder beton (C)",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "habitats": {
+          "question": "Leefgebieden",
+          "questiontext": "De aanwezige leefgebieden zijn…",
+          "questiontextshow": "Zijn er leefgebieden aanwezig?",
+          "options": {
+            "Sand banks (A)": "Zandbanken (A)",
+            "Sand banks (Α)": "Zandbanken (A)",
+            "Sand islands (B)": "Zandeilanden (B)",
+            "Sand islands (Β)": "Zandeilanden (B)",
+            "Stone deposits (C)": "Steenafzettingen (C)",
+            "Riffles, rapids, falls (D)": "Geultjes, stroomversnellingen, watervallen (D)",
+            "Aquatic vegetation (E)": "Watervegetatie (E)"
+          },
+          "info": "U kunt meerdere soorten leefgebieden selecteren. Vink eerst het vakje aan en selecteer vervolgens alle leefgebieden die u identificeert."
+        },
+        "natural_debris": {
+          "question": "Natuurlijk afval",
+          "questiontext": "Er zijn…",
+          "questiontextshow": "Zijn er natuurlijke resten aanwezig?",
+          "labels": {
+            "Fallen trees (A)": "Omgevallen bomen (A)",
+            "Fallen trees (Α)": "Omgevallen bomen (A)",
+            "Fallen branches (B)": "Afgevallen takken (B)",
+            "Fallen branches (Β)": "Afgevallen takken (B)",
+            "Deposits of fallen leaves (C)": "Afzettingen van gevallen bladeren (C)"
+          },
+          "info": "U kunt verschillende soorten natuurlijk afval selecteren. Vink hiervoor eerst de cirkel achter de gegeven alternatieven aan en selecteer vervolgens alles wat u ziet."
+        },
+        "water_flow": {
+          "question": "Waterstroom",
+          "questiontext": "Hoe stroomt het water?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Snel (met golven of hoge snelheid) (A)",
+            "Fast (with waves or high velocity) (Α)": "Snel (met golven of hoge snelheid) (A)",
+            "Slow (B)": "Langzaam (B)",
+            "Slow (Β)": "Langzaam (B)",
+            "Stagnant/intermittent (C)": "Stilstaand/intermitterend (C)",
+            "Dry (D)": "Droog (D)",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Wateraspect",
+          "questiontext": "Hoe is het water?",
+          "labels": {
+            "Clear/transparent (A)": "Helder/transparant (A)",
+            "Clear/transparent (Α)": "Helder/transparant (A)",
+            "Muddy/turbid (B)": "Modderig/troebel (B)",
+            "Muddy/turbid (Β)": "Modderig/troebel (B)",
+            "Has foam (C)": "Heeft schuim (C)",
+            "Has colors/altered color (D)": "Heeft kleuren/veranderde kleur (D)",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Wateronttrekking",
+          "questiontext": "Is er sprake van een duidelijke verzameling, gebruik en verwijdering van water uit de beek?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "barriers": {
+          "question": "Barrières",
+          "questiontext": "Ziet u dammen of andere dwarse kunstmatige barrières (zie enkele voorbeelden in de bijgevoegde afbeeldingen)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "draining_pipes": {
+          "question": "Afvoerbuizen",
+          "questiontext": "Zijn er leidingen die vervuild water naar de beek afvoeren?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Rioollozing",
+          "questiontext": "Is er sprake van watertoevoer en -afvoer van rioolwater?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "construction": {
+          "question": "Bouw",
+          "questiontext": "Worden er werkzaamheden/constructies in de vaart uitgevoerd?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "water_height": {
+          "question": "Waterhoogte",
+          "questiontext": "Hoe hoog staat het water?",
+          "placeholder": "Voer de waterhoogte in",
+          "info": "Geef uw schatting in meters (m) en gebruik een punt (.) als decimaal punt (bijv. 1,5m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "In de oevers/rivierzone (5-10m vanaf de oeverrand)",
+        "impervious_left": {
+          "question": "Ondoordringbare gebieden (links)",
+          "questiontext": "Wordt meer dan een derde van de linkermarge bedekt door verharde oppervlakken (zoals wegen, trottoirs of gebouwen)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "impervious_right": {
+          "question": "Ondoordringbare gebieden (rechts)",
+          "questiontext": "Wordt meer dan een derde van de rechtermarge bedekt door verharde oppervlakken (zoals wegen, trottoirs of gebouwen)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetatie (links)",
+          "questiontext": "Is de linkermarge bedekt met vegetatie?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vegetatietype (links)",
+          "questiontext": "Welke vegetatie is dominant (dat wil zeggen dat het meer dan 50% of de helft beslaat) in de linkermarge (de eerste 5 meter vanaf de oever van het kanaal)?",
+          "labels": {
+            "Herbs (A)": "Kruiden (A)",
+            "Herbs (Α)": "Kruiden (A)",
+            "Shrubs (B)": "Heesters (B)",
+            "Shrubs (Β)": "Heesters (B)",
+            "Trees (C)": "Bomen (C)",
+            "I am not sure": "Ik weet het niet zeker"
+          },
+          "info": "Vergeet niet om naar de vegetatie links te kijken als je stroomafwaarts gaat"
+        },
+        "vegetation_right": {
+          "question": "Vegetatie (rechts)",
+          "questiontext": "Is de rechtermarge bedekt met vegetatie?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vegetatietype (rechts)",
+          "questiontext": "Welke vegetatie is dominant (dat wil zeggen dat het meer dan 50% of de helft bedekt) in de rechtermarge (de eerste 5 meter vanaf de kanaaloever/bovenkant)?",
+          "labels": {
+            "Herbs (A)": "Kruiden (A)",
+            "Herbs (Α)": "Kruiden (A)",
+            "Shrubs (B)": "Heesters (B)",
+            "Shrubs (Β)": "Heesters (B)",
+            "Trees (C)": "Bomen (C)",
+            "I am not sure": "Ik weet het niet zeker"
+          },
+          "info": "Vergeet niet om naar de juiste vegetatie te kijken als u stroomafwaarts gaat"
+        },
+        "invasive_species": {
+          "question": "Invasieve soorten",
+          "questiontext": "Ziet u niet-inheemse of invasieve plantensoorten?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          },
+          "placeholder": "Welke?"
+        },
+        "vegetation_cut": {
+          "question": "Vegetatiesnoei",
+          "questiontext": "Is er recentelijk de vegetatie (gedeeltelijk of volledig) aan de oevers (of slechts één van de oevers) van de beek gesnoeid?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nee",
+            "I am not sure": "Ik weet het niet zeker"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Geef een algemene beoordeling van de gezondheid van het ecosysteem van de stroom (kies een van de onderstaande mogelijkheden)",
+        "good_quality": "Goede kwaliteit",
+        "good_quality_description": "De ecosysteemcomponenten zijn aanwezig: oevervegetatie, natuurlijk kanaal, goede waterkwaliteit, biodiversiteit",
+        "moderate_quality": "Matige kwaliteit",
+        "moderate_quality_description": "Enkele aanpassingen, nog steeds biodiversiteit, met vegetatie in de randen, het water ziet er goed uit...",
+        "poor_quality": "Slechte kwaliteit",
+        "poor_quality_description": "Sterk gemodificeerd/kunstmatig, verlies van oevervegetatie, verlies van leefgebieden, vervuiling"
+      },
+      "feelings": {
+        "question": "Welk(e) gevoel(en) beschrijft/beschrijven uw ervaring het best?",
+        "info": "Onderzoek wijst uit dat beken de menselijke emoties kunnen beïnvloeden.",
+        "instructions": "Versleep je vingers over de schuifbalk om de intensiteit van je gevoel te beoordelen. Een hogere beoordeling betekent een intenser gevoel.",
+        "Joy": "Vreugde",
+        "Serenity": "Rust",
+        "Anger": "Woede",
+        "Fear": "Angst",
+        "NotApplicable": "Niet van toepassing"
+      },
+      "summary": {
+        "title": "Samenvatting van de inzending",
+        "research_site_label": "Onderzoekssite",
+        "coordinates_label": "Coördinaten",
+        "photos_label": "Foto's",
+        "video_label": "Video",
+        "channel_form_label": "Kanaalvorm",
+        "bottom_type_label": "Bodemtype",
+        "bank_type_label": "Banktype",
+        "habitats_label": "Leefgebieden",
+        "natural_debris_label": "Natuurlijk afval",
+        "water_flow_label": "Waterstroom",
+        "water_quality_label": "Waterkwaliteit",
+        "water_abstraction_label": "Wateronttrekking",
+        "water_extraction_label": "Waterwinning",
+        "draining_pipes_label": "Afvoerbuizen",
+        "barriers_label": "Barrières",
+        "construction_label": "Bouw",
+        "impervious_areas_left_label": "Ondoordringbare gebieden (links)",
+        "impervious_areas_right_label": "Ondoordringbare gebieden (rechts)",
+        "vegetation_left_label": "Vegetatie (links)",
+        "vegetation_right_label": "Vegetatie (rechts)",
+        "vegetation_cuts_label": "Vegetatiesnoei",
+        "invasive_species_label": "Invasieve soorten",
+        "feelings_label": "Gevoelens",
+        "feelings": {
+          "joy": "Vreugde",
+          "serenity": "Rust",
+          "anger": "Woede",
+          "fear": "Angst"
+        },
+        "water_height_label": "Waterhoogte",
+        "overall_assessment_label": "Algemene beoordeling"
+      },
+      "my_submissions_list": {
+        "title": "Inzendingen voor bestaande onderzoekslocaties",
+        "longitude_label": "Lengtegraad",
+        "latitude_label": "Breedtegraad",
+        "research_site_label": "Onderzoekssite",
+        "created_label": "Aangemaakt",
+        "overall_label": "Algemene beoordeling",
+        "actions_label": "Acties",
+        "title2": "Inzendingen voor gegenereerde locaties",
+        "longitude_label_2": "Lengtegraad",
+        "latitude_label_2": "Breedtegraad",
+        "research_site_label_2": "Onderzoekssite",
+        "created_label_2": "Aangemaakt",
+        "overall_label_2": "Algemene beoordeling",
+        "actions_label_2": "Acties"
+      }
+    },
+    "no": {
+      "citizens_menu": {
+        "instructions": "Instruksjoner",
+        "instructions_title": "Instruksjoner for folkeforskning",
+        "new_observation": "Registrer ny observasjon",
+        "new_observation_title": "Ny innlevering for folkeforskning",
+        "my_submissions": "Mine innleveringer",
+        "my_submissions_title": "Mine innleveringer"
+      },
+      "title": "OneAquaHealth Folkeforskningsapp - Installasjonsinstruksjoner",
+      "viewInstructions": "Vis instruksjoner",
+      "version": "OneAquaHealth Folkeforskningsapp - Versjon 1.0",
+      "installation_modal": {
+        "title": "Installasjon av OAH Citizen Science-app",
+        "intro": "Før du installerer OAH Citizen Science-appen må du først bli med i <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth-samfunnet</a>.<br />Når du har registrert deg, følg trinnene nedenfor ved å bruke den tildelte e-posten og passordet for å logge inn i applikasjonen.",
+        "step1_label": "Trinn 1.",
+        "step1_desc": "Åpne nettleseren på telefonen din og gå til:",
+        "step2_label": "Trinn 2. Se etter installasjonsmeldingen for appen:",
+        "step2_list_item1": "Hvis et popup-vindu vises med forslag om å installere appen, følg instruksjonene på skjermen.",
+        "step2_list_item2": "Hvis ingen melding vises, gå videre til neste trinn.",
+        "step3_label": "Trinn 3. Legg til på startskjerm:",
+        "step3_ios": "<b>For iOS (a):</b> Trykk på deleikonet (boks med pil) nederst på skjermen og velg <span class=\"font-semibold\">\"Legg til på Hjem-skjerm\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"IOS Example\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>For Android (b):</b> Trykk på menyikonet (tre prikker) og velg <span class=\"font-semibold\">\"Legg til på startskjerm\"</span> eller <span class=\"font-semibold\">\"Installer app\"</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android Example\" class=\"max-h-96\" /></div>",
+        "step4_label": "Trinn 4.",
+        "step4_desc": "Bekreft installasjonen ved å trykke <span class=\"font-semibold\">\"Legg til\"</span> eller <span class=\"font-semibold\">\"Installer\"</span>",
+        "step5_label": "Trinn 5.",
+        "step5_desc": "Finn det nylig installerte app-ikonet på startskjermen og trykk for å starte",
+        "close": "Lukk"
+      },
+      "app_intro_title": "Hva gjør denne appen?",
+      "app_intro_text": "Denne appen er for innbyggere og har som mål å samle inn data om helsen til urbane bekker",
+      "before_submit": "Før du sender inn",
+      "education": {
+        "title": "Hva er en urban bekk?",
+        "intro": "Urbane bekker er rennende vann som sameksisterer med byutvikling, og som ofte er en del av større nedbørfelt. Disse bekkenes tilstand påvirkes i stor grad av menneskelig aktivitet, noe som kan medføre betydelige endringer i kanalene deres. Dette inkluderer både total og delvis dekning, bruk av kunstige materialer i bredder og kanaler, samt vannforurensning og endringer i den naturlige vegetasjonen langs breddene.",
+        "healthy_streams": {
+          "title": "Sunne bekkelivsmiljøer",
+          "content": "Sunne bekker må være omgitt av spesifikk vegetasjon—elvenær (ripariansk) vegetasjon—som kan tåle å ha røttene sine i mettet eller høyt fuktighetsholdig jord uten å råtne. Bekker og den tilhørende elvenære vegetasjonen gir levesteder for både akvatiske og terrestriske dyr, inkludert virvelløse dyr, sopp, fisk, amfibier, reptiler, pattedyr, fugler og mikroorganismer. Disse organismene spiller en viktig rolle i essensielle økosystemprosesser, som primær- og sekundærproduksjon, næringssykling og nedbrytning av organisk materiale."
+        },
+        "ecosystem_services": {
+          "title": "Økosystemtjenester",
+          "content": "Hvis de er godt bevart, gir bekker viktige økosystemtjenester til befolkningen, som bedre luftkvalitet, regulering av temperatur og fuktighet, flomreduksjon, samtidig som de tilbyr rekreasjonsområder i naturen og sosiale områder, eller utendørs laboratorier for miljøundervisning."
+        },
+        "key_concepts": {
+          "title": "Viktige konsepter for vurdering av bekker",
+          "downstream_direction": "Venstre og høyre bredde og kant av bekker er definert når de vender nedstrøms (mot der bekken renner) (figur 1)."
+        },
+        "figure1": {
+          "caption": "Figur 1. Den venstre (L) og høyre (R) bredden av bekken. Pilen viser strømretningen."
+        },
+        "cross_section": {
+          "description": "Bredden (Figur 2) og dybden (Figur 3) av bekken måles i tverrsnitt vinkelrett på bekken. Disse målingene kan variere over en bekkestrekning, men de bør måles i et tverrsnitt som er representativt for de gjennomsnittlige forholdene."
+        },
+        "figure2": {
+          "caption": "Figur 2. Illustrasjon av bekk/elve tverrsnitt hvor: A) toppen av elvebredden; B) elvebredden; C) hoved våtkanal; D) strømretning (nedstrøms visning); E) bredde; og F) dybde."
+        },
+        "figure3": {
+          "caption": "Figur 3. Dybdemåling med bruk av en linjal/meterstokk."
+        },
+        "riparian_and_floodplain": {
+          "content": "Elvebreddesonen er området som ligger i kantene og er dekket av elvebreddevegetasjon. En sunn elvebreddevegetasjon inkluderer en rekke innfødte planter av forskjellige høyder (lag), fra urter til busker og trær, typiske for regionen og tilpasset nærheten til vann (Figur 4)."
+        },
+        "figure4": {
+          "caption": "Figur 4. Godt bevart kantsone: A) nederste laget består av urteaktige planter, bregner, moser og lav, som spiller en avgjørende rolle i næringsomsetning og jordstabilisering; B) busklaget omfatter treaktige planter som vanligvis er mindre enn trær, ofte opptil 6 meter høye; C) øverste laget domineres av modne trær som danner skogkronen i kantsonen."
+        },
+        "figure_description": "Flomområder er områder med naturlig oversvømmelse, som dekkes av vann (flommer) i perioder med høy nedbør. Flommene beriker disse fruktbare områdene med sedimenter rike på næringsstoffer (Figur 5). Formen og naturen til flomområdet kan endres over tid fordi en bekks hovedkanal naturlig skifter på grunn av tilvekst og erosjon.",
+        "figure5": {
+          "caption": "Figur 5. A) Våt kanal; B) Aktiv flomslette; C) Regulert flomslette; D) Geologisk flomslette (lite regelmessige flomhendelser); E) Terrasse."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Hovedforskjeller mellom skog- og urbane bekker",
+          "content": "Den urbane utviklingen rundt urbane bekker øker de ugjennomtrengelige flatene i breddene, kantene og flomslettene, på grunn av bygging av veier, bygninger eller fortau med betong, asfalt eller annet (Figur 6). Disse flatene tillater ikke vanninfiltrering som i skogbunnen eller åpne marker. Dette er spesielt relevant under hendelser med høy nedbør, da det resulterer i hurtig flom som raskt hever vannstanden, noe som fører til risiko for materielle skader og til og med tap av liv. De ugjennomtrengelige områdene hindrer også påfyll av grunnvann og forstyrrer vannkretsløpet, noe som kan føre til økt vannmangel i tørre perioder, ofte forverret av vannlagring eller uttak. Videre blir urbane bekker ofte forurenset av urbane avrenninger og kombinerte kloakkutslipp, noe som forsterker disse utfordringene."
+        },
+        "figure6": {
+          "caption": "Figur 6. Gjennomtrengelige flater til venstre, mellomtette flater i midten og ugjennomtrengelige flater til høyre."
+        },
+        "oneaquahealth_project": {
+          "title": "OneAquaHealth-prosjektet og OAH-appen",
+          "content": "OneAquaHealth har som mål å fremme den økologiske tilstanden til urbane ferskvannssystemer som en måte å forbedre 'One Health' (en helse) i byene og til å identifisere tidlige varselsindikatorer for nedbrytning av ferskvannssystemer som kan representere en risiko for 'One Health'. For å oppnå bedre forvaltning av urbane bekker har vi utviklet et miljøovervåkingssystem som inkluderer OAH-appen. Denne appen har som mål å fremme overvåkingen av urbane bekker av innbyggerne for å øke deres kunnskap og gjenoppretting."
+        },
+        "onehealth": {
+          "title": "Hva er OneHealth?",
+          "content": "OneHealth er en tilnærming som har som mål å fremme bærekraftig helse for mennesker, organismer og miljøet (Figur 7). Godt bevarte naturområder i byene gir viktige fordeler, som renere luft og vann, samtidig som de også tilbyr fredelige områder som forbedrer både fysisk og mental velvære. Å ha blå og grønne områder nær hjemmet oppmuntrer folk til å gå ut, knytte kontakt med andre, slappe av og oppleve en rekke sanseinntrykk. Urbane bekker, som ofte er skjult i bylandskapet, finnes praktisk talt overalt og har uutnyttet potensiale. Når disse bekkene restaureres med OneHealth-konseptet i tankene, kan de bli viktige rom for samarbeid, og bringe sammen ulike grupper for å skape sunnere og mer bærekraftige lokalsamfunn."
+        },
+        "figure7": {
+          "caption": "Figur 7. Illustrasjon av One Health-konseptet, som viser det sammenkoblede forholdet mellom menneskers helse, organismers helse og miljøhelse. De overlappende områdene fremhever den integrerte tilnærmingen som er nødvendig for å adressere globale helseutfordringer på en effektiv måte."
+        },
+        "what_you_can_do": {
+          "title": "Hva kan du gjøre med oss?",
+          "content": "Hvis du har en urban bekk i nærheten, noen ganger i skjulte daler mellom åsene i byen din, selv om de er sterkt modifisert (med betongvegger som ser ut som en kanal), kan du hjelpe oss med å ta vare på den ved å se på kanalen, bredden og kantene/elvebreddesonen og gi oss relevant informasjon og bilder gjennom denne appen. Og til slutt, gi oss din overordnede vurdering av bekken i følgende kategorier:"
+        },
+        "quality": {
+          "good": "<strong>God kvalitet</strong> (økosystemkomponentene er til stede og ser bra ut: elvebreddevegetasjon, naturlig kanal, god vannkvalitet, biologisk mangfold)",
+          "moderate": "<strong>Moderat kvalitet</strong> (det er noen endringer, noe biologisk mangfold, med noe vegetasjon i kantene, og vannet ser bra ut ...)",
+          "poor": "<strong>Dårlig kvalitet</strong> (den er sterkt modifisert/kunstig, med store tap av elvebreddevegetasjon eller kun fremmede arter, tap av habitater, vannet er forurenset)"
+        },
+        "submission_hint": "For å samarbeide, gi ganske enkelt den forespurte informasjonen ved å klikke på <strong>'Neste'</strong> (ovenfor disse innsendings retningslinjene)."
+      },
+      "step": "Steg",
+      "next": "Neste",
+      "previous": "Forrige",
+      "submit": "Send inn",
+      "basic_information": "Grunnleggende informasjon",
+      "additional_details": "Tilleggsinformasjon",
+      "media_upload": "Last opp media",
+      "questions_1_3_": "Spørsmål (1/3)",
+      "questions_2_3_": "Spørsmål (2/3)",
+      "questions_3_3_": "Spørsmål (3/3)",
+      "feedback_1_2": "Tilbakemelding (1/2)",
+      "feedback_2_2": "Tilbakemelding (2/2)",
+      "select_from_my_sites": "Velg fra mine steder",
+      "enter_longitude": "Angi lengdegrad",
+      "enter_latitude": "Angi breddegrad",
+      "enter_site_name": "Angi stedsnavn",
+      "longitude": "Lengdegrad",
+      "latitude": "Breddegrad",
+      "site_name": "Stedsnavn",
+      "review_submit": "Gjennomgå og send inn",
+      "site_selection": {
+        "title": "Velg et OneAquaHealth urbant bekkeområde for vurdering (avstand fra deg til stedet er angitt)",
+        "description": "Legg til nytt sted"
+      },
+      "media": {
+        "title": "Velg bildene dine",
+        "upstream_photo_label": "Oppstrømsfoto",
+        "upstream_photo_description": "Oppstrømsfoto",
+        "downstream_photo_label": "Nedstrømsfoto",
+        "downstream_photo_description": "Nedstrømsfoto",
+        "context_photo_label": "Foto med omkringliggende kontekst",
+        "context_photo_description": "Foto med omkringliggende kontekst (hus, veier...)",
+        "biodiversity_photo_label": "Foto med et interessant element av biologisk mangfold",
+        "biodiversity_photo_description": "Foto med et interessant element av biologisk mangfold (planter, dyr, sopp, annet)",
+        "video_label": "Lag en kort video (5 eller 10 sekunder)",
+        "video_description": "Lag en kort video (5 eller 10 sekunder)",
+        "select_file_button": "Velg fil"
+      },
+      "questions_1_3": {
+        "title": "Hva ser du fra der du står (innen ca. 100 meter)?",
+        "channel_form": {
+          "question": "Kanalform",
+          "questiontext": "Kanalformen er...",
+          "labels": {
+            "Flat (Α)": "Flat (A)",
+            "Flat (A)": "Flat (A)",
+            "U Shape (Β)": "U-formet (B)",
+            "U Shape (B)": "U-formet (B)",
+            "V Shape (C)": "V-formet (C)",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "bottom_type": {
+          "question": "Bunntype",
+          "questiontext": "Bunnlaget til den våte kanalen er...",
+          "labels": {
+            "Natural (A)": "Naturlig (A)",
+            "Natural (Α)": "Naturlig (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Kunstig (betong eller steiner med betong) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Kunstig (betong eller steiner med betong) (B)",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "bank_type": {
+          "question": "Kanttype",
+          "questiontext": "Kantene til kanalen er...",
+          "labels": {
+            "Natural (A)": "Naturlige (A)",
+            "Natural (Α)": "Naturlige (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Kunstige (betong eller steiner med betong) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Kunstige (betong eller steiner med betong) (B)",
+            "Layed stones with no concrete (C)": "Steinbelagt uten betong (C)",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "habitats": {
+          "question": "Habitater",
+          "questiontext": "De tilstedeværende habitatene er...",
+          "questiontextshow": "Er det noen habitater tilstede?",
+          "options": {
+            "Sand banks (A)": "Sandbanker (A)",
+            "Sand banks (Α)": "Sandbanker (A)",
+            "Sand islands (B)": "Sandøyer (B)",
+            "Sand islands (Β)": "Sandøyer (B)",
+            "Stone deposits (C)": "Steinavsetninger (C)",
+            "Riffles, rapids, falls (D)": "Strømvirvler, stryk, fosser (D)",
+            "Aquatic vegetation (E)": "Vannvegetasjon (E)"
+          },
+          "info": "Du kan velge flere typer habitater. Først krysser du av i boksen, deretter velger du alle habitatene du identifiserer."
+        },
+        "natural_debris": {
+          "question": "Naturlig avfall",
+          "questiontext": "Det er...",
+          "questiontextshow": "Er det noe naturlig avfall tilstede?",
+          "labels": {
+            "Fallen trees (A)": "Falne trær (A)",
+            "Fallen trees (Α)": "Falne trær (A)",
+            "Fallen branches (B)": "Falne greiner (B)",
+            "Fallen branches (Β)": "Falne greiner (B)",
+            "Deposits of fallen leaves (C)": "Oppsamling av falne blader (C)"
+          },
+          "info": "Du kan velge flere typer naturlig avfall. For å gjøre dette, krysser du først av i sirkelen bak alternativene som er gitt, og deretter velger du alle du identifiserer."
+        },
+        "water_flow": {
+          "question": "Vannstrøm",
+          "questiontext": "Hvordan flyter vannet?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Raskt (med bølger eller høy hastighet) (A)",
+            "Fast (with waves or high velocity) (Α)": "Raskt (med bølger eller høy hastighet) (A)",
+            "Slow (B)": "Langsomt (B)",
+            "Slow (Β)": "Langsomt (B)",
+            "Stagnant/intermittent (C)": "Stillestående/intermitterende (C)",
+            "Dry (D)": "Tørt (D)",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Vannaspekt",
+          "questiontext": "Hvordan er vannet?",
+          "labels": {
+            "Clear/transparent (A)": "Klart/gjennomsiktig (A)",
+            "Clear/transparent (Α)": "Klart/gjennomsiktig (A)",
+            "Muddy/turbid (B)": "Gjørmete/grumsete (B)",
+            "Muddy/turbid (Β)": "Gjørmete/grumsete (B)",
+            "Has foam (C)": "Har skum (C)",
+            "Has colors/altered color (D)": "Har farger/endret farge (D)",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Vannuttak",
+          "questiontext": "Er det noen form for åpenbar vannoppsamling, bruk eller fjerning fra bekken?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "barriers": {
+          "question": "Barrierer",
+          "questiontext": "Ser du noen demninger eller andre tverrgående kunstige barrierer (se noen eksempler på bildene som er vedlagt)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "draining_pipes": {
+          "question": "Dreneringsrør",
+          "questiontext": "Er det rør som drenerer forurenset vann inn i bekken?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Avløpsutslipp",
+          "questiontext": "Er det noen form for inngang eller utslipp av avløpsvann?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "construction": {
+          "question": "Konstruksjon",
+          "questiontext": "Er det noen konstruksjon/arbeid i bekken?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "water_height": {
+          "question": "Vannhøyde",
+          "questiontext": "Hva er vannhøyden?",
+          "placeholder": "Oppgi vannhøyden",
+          "info": "Vennligst gi ditt estimat i meter (m), bruk punktum (.) som desimaltegn (f.eks. 1.5m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "I kantsonene/randsonene (5–10 m fra elvebreddens topp)",
+        "impervious_left": {
+          "question": "Ugjennomtrengelige områder (Venstre)",
+          "questiontext": "Er mer enn en tredjedel av venstre kant dekket av ugjennomtrengelige områder (som veier, fortau eller bygninger)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "impervious_right": {
+          "question": "Ugjennomtrengelige områder (Høyre)",
+          "questiontext": "Er mer enn en tredjedel av høyre kant dekket av ugjennomtrengelige områder (som veier, fortau eller bygninger)?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetasjon (Venstre)",
+          "questiontext": "Er venstre kant dekket av vegetasjon?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vegetasjonstype (Venstre)",
+          "questiontext": "Hvilken type vegetasjon er dominerende (betyr at den dekker mer enn 50%, eller halvparten) i venstre kant (de første 5 meter fra elvebredden)?",
+          "labels": {
+            "Herbs (A)": "Ugress (A)",
+            "Herbs (Α)": "Ugress (A)",
+            "Shrubs (B)": "Busker (B)",
+            "Shrubs (Β)": "Busker (B)",
+            "Trees (C)": "Trær (C)",
+            "I am not sure": "Jeg er ikke sikker"
+          },
+          "info": "Ikke glem å se mot venstre mot vegetasjonen når du er i nedstrøms retning"
+        },
+        "vegetation_right": {
+          "question": "Vegetasjon (Høyre)",
+          "questiontext": "Er høyre kant dekket av vegetasjon?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vegetasjonstype (Høyre)",
+          "questiontext": "Hvilken type vegetasjon er dominerende (betyr at den dekker mer enn 50%, eller halvparten) i høyre kant (de første 5 meter fra elvebredden)?",
+          "labels": {
+            "Herbs (A)": "Ugress (A)",
+            "Herbs (Α)": "Ugress (A)",
+            "Shrubs (B)": "Busker (B)",
+            "Shrubs (Β)": "Busker (B)",
+            "Trees (C)": "Trær (C)",
+            "I am not sure": "Jeg er ikke sikker"
+          },
+          "info": "Ikke glem å se mot høyre mot vegetasjonen når du er i nedstrøms retning"
+        },
+        "invasive_species": {
+          "question": "Fremmede arter",
+          "questiontext": "Ser du noen ikke-innfødte eller invasive plantearter?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          },
+          "placeholder": "Hvilke?"
+        },
+        "vegetation_cut": {
+          "question": "Vegetasjonskutt",
+          "questiontext": "Har det vært nylige kutt av vegetasjonen (delvis eller helt) på breddene (eller bare på en av breddene) av bekken?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nei",
+            "I am not sure": "Jeg er ikke sikker"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Gi en overordnet vurdering av elveøkosystemets helse (velg en av følgende muligheter)",
+        "good_quality": "God kvalitet",
+        "good_quality_description": "Økosystemkomponentene er til stede: elvebreddevegetasjon, naturlig kanal, god vannkvalitet, biologisk mangfold",
+        "moderate_quality": "Moderat kvalitet",
+        "moderate_quality_description": "Noen endringer, fortsatt biologisk mangfold, med vegetasjon i kantene, vannet ser bra ut...",
+        "poor_quality": "Dårlig kvalitet",
+        "poor_quality_description": "Sterkt modifisert / kunstig, tap av elvebreddevegetasjon, tap av habitater, forurenset"
+      },
+      "feelings": {
+        "question": "Hvilke følelse(r) beskriver best din opplevelse?",
+        "info": "Forskning indikerer at bekker kan påvirke menneskers følelser.",
+        "instructions": "Dra fingrene dine på skyveknappen for å vurdere intensiteten av det du føler. En høyere vurdering betyr en mer intens følelse.",
+        "Joy": "Glede",
+        "Serenity": "Ro",
+        "Anger": "Raseri",
+        "Fear": "Frykt",
+        "NotApplicable": "Ikke relevant"
+      },
+      "summary": {
+        "title": "Sammendrag av innleveringen",
+        "research_site_label": "Forskningssted",
+        "coordinates_label": "Koordinater",
+        "photos_label": "Foto",
+        "video_label": "Video",
+        "channel_form_label": "Kanalform",
+        "bottom_type_label": "Bunntype",
+        "bank_type_label": "Kantsonetype",
+        "habitats_label": "Habitater",
+        "natural_debris_label": "Naturlig avfall",
+        "water_flow_label": "Vannstrøm",
+        "water_quality_label": "Vannkvalitet",
+        "water_abstraction_label": "Vannuttak",
+        "water_extraction_label": "Vannfangst",
+        "draining_pipes_label": "Dreneringsrør",
+        "barriers_label": "Barrierer",
+        "construction_label": "Konstruksjon",
+        "impervious_areas_left_label": "Ugjennomtrengelige områder (Venstre)",
+        "impervious_areas_right_label": "Ugjennomtrengelige områder (Høyre)",
+        "vegetation_left_label": "Vegetasjon (Venstre)",
+        "vegetation_right_label": "Vegetasjon (Høyre)",
+        "vegetation_cuts_label": "Vegetasjonskutt",
+        "invasive_species_label": "Fremmede arter",
+        "feelings_label": "Følelser",
+        "feelings": {
+          "joy": "Glede",
+          "serenity": "Ro",
+          "anger": "Raseri",
+          "fear": "Frykt"
+        },
+        "water_height_label": "Vannhøyde",
+        "overall_assessment_label": "Totalvurdering"
+      },
+      "my_submissions_list": {
+        "title": "Innleveringer for eksisterende forskningssteder",
+        "longitude_label": "Lengdegrad",
+        "latitude_label": "Breddegrad",
+        "research_site_label": "Forskningssted",
+        "created_label": "Opprettet",
+        "overall_label": "Totalvurdering",
+        "actions_label": "Handlinger",
+        "title2": "Innleveringer for genererte steder",
+        "longitude_label_2": "Lengdegrad",
+        "latitude_label_2": "Breddegrad",
+        "research_site_label_2": "Forskningssted",
+        "created_label_2": "Opprettet",
+        "overall_label_2": "Totalvurdering",
+        "actions_label_2": "Handlinger"
+      }
+    },
+    "fr": {
+      "citizens_menu": {
+        "instructions": "Instructions",
+        "instructions_title": "Instructions pour la Science Citoyenne",
+        "new_observation": "Faire une nouvelle observation",
+        "new_observation_title": "Nouvelle soumission de Science Citoyenne",
+        "my_submissions": "Mes soumissions",
+        "my_submissions_title": "Mes soumissions"
+      },
+      "title": "Application OneAquaHealth Science Citoyenne - Instructions d'installation",
+      "viewInstructions": "Voir les instructions",
+      "version": "Application OneAquaHealth Science Citoyenne - Version 1.0",
+      "installation_modal": {
+        "title": "Installation de l'application OAH Citizen Science",
+        "intro": "Avant d'installer l'application OAH Citizen Science, vous devez d'abord rejoindre la <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">communauté OneAquaHealth</a>.<br />Une fois inscrit, suivez les étapes ci-dessous à l'aide de l'adresse e-mail et du mot de passe qui vous ont été attribués pour vous connecter à l'application.",
+        "step1_label": "Étape 1.",
+        "step1_desc": "Ouvrez le navigateur de votre téléphone et allez sur :",
+        "step2_label": "Étape 2. Recherchez la fenêtre d'installation de l'application :",
+        "step2_list_item1": "Si une fenêtre contextuelle apparaît pour proposer l'installation, suivez les instructions à l'écran.",
+        "step2_list_item2": "Si aucune fenêtre n'apparaît, passez à l'étape suivante.",
+        "step3_label": "Étape 3. Ajouter à l'écran d'accueil :",
+        "step3_ios": "<b>Pour iOS (a) :</b> Appuyez sur l'icône de partage (carré avec flèche) en bas de l'écran puis sélectionnez <span class=\"font-semibold\">\"Ajouter à l'écran d'accueil\"</span>",
+        "step3_android": "<b>Pour Android (b) :</b> Appuyez sur l'icône menu (trois points) et choisissez <span class=\"font-semibold\">\"Ajouter à l'écran d'accueil\"</span> ou <span class=\"font-semibold\">\"Installer l'application\"</span>",
+        "step4_label": "Étape 4.",
+        "step4_desc": "Confirmez l'installation en appuyant sur <span class=\"font-semibold\">\"Ajouter\"</span> ou <span class=\"font-semibold\">\"Installer\"</span>",
+        "step5_label": "Étape 5.",
+        "step5_desc": "Trouvez la nouvelle icône de l'application sur votre écran d'accueil et appuyez pour lancer",
+        "close": "Fermer"
+      },
+      "app_intro_title": "À quoi sert cette application ?",
+      "app_intro_text": "Cette application est destinée aux citoyens et vise à recueillir des données sur la santé des cours d'eau urbains",
+      "before_submit": "Avant de soumettre",
+      "education": {
+        "title": "Qu’est-ce qu’un cours d’eau urbain ?",
+        "intro": "Les cours d’eau urbains sont des eaux courantes situées en zones urbaines, souvent intégrées à de plus grands bassins versants. Par conséquent, ils sont généralement influencés par les activités humaines, ce qui entraîne, entre autres, des modifications de leur lit (y compris des recouvrements partiels ou totaux, l'utilisation de matériaux artificiels sur les berges et dans le lit), une pollution de l’eau, des altérations de la végétation naturelle des rives.",
+        "healthy_streams": {
+          "title": "Écosystèmes fluviaux sains",
+          "content": "Un cours d’eau en bonne santé doit être bordé d’un type de végétation particulier – la végétation riveraine – dont les racines sont capables de persister dans un sol saturé en eau ou très humide sans pourrir. Les cours d’eau et leur végétation riveraine offrent un habitat aux animaux aquatiques et terrestres (par exemple : invertébrés, champignons, poissons, amphibiens, reptiles, mammifères, oiseaux) ainsi qu’aux micro-organismes. Ces organismes participent également à des processus écologiques essentiels tels que la production primaire et secondaire, le cycle des nutriments et la décomposition de la matière organique."
+        },
+        "ecosystem_services": {
+          "title": "Services écosystémiques",
+          "content": "Lorsqu’ils sont bien préservés, les cours d’eau procurent d’importants services écosystémiques aux populations humaines, comme l’amélioration de la qualité de l’air, la régulation de la température et de l’humidité, l’atténuation des inondations, et offrent aussi des espaces de loisirs en pleine nature, des lieux de rencontre sociale. Les rivières peuvent aussi être considérées comme des laboratoires à ciel ouvert, propices à l’éducation et à la sensibilisation à l’environnement."
+        },
+        "key_concepts": {
+          "title": "Concepts essentiels pour l’évaluation des cours d’eau",
+          "downstream_direction": "Les berges gauche et droite ainsi que les rives d’un cours d’eau sont définies en regardant dans le sens de l’écoulement (vers l’aval) (voir Figure 1)."
+        },
+        "figure1": {
+          "caption": "Figure 1. Les berges gauche (G) et droite (D) des cours d’eau. La flèche indique la direction de l’écoulement."
+        },
+        "cross_section": {
+          "description": "La largeur (Figure 2) et la profondeur (Figure 3) du cours d’eau sont mesurées sur un transect perpendiculaire au lit du cours d’eau. Ces mesures peuvent varier le long d’un tronçon, mais elles doivent être effectuées sur un transect représentatif des conditions moyennes."
+        },
+        "figure2": {
+          "caption": "Figure 2. Illustration d’une coupe transversale de cours d’eau. A) sommet de la berge ; B) berge ; C) lit principal ; D) direction de l’écoulement (vue vers l’aval) ; E) largeur ; F) profondeur."
+        },
+        "figure3": {
+          "caption": "Figure 3. Mesure de la profondeur à l’aide d’un mètre ruban."
+        },
+        "riparian_and_floodplain": {
+          "content": "La zone riveraine est la zone située sur les berges du cours d’eau et couverte par la végétation riveraine. Une végétation riveraine en bonne santé comprend une variété de plantes indigènes, typiques de la région, de différentes hauteurs (strates), allant des herbes aux arbustes et aux arbres, et adaptées à la proximité de l’eau (Figure 4)."
+        },
+        "figure4": {
+          "caption": "Figure 4. Zone riveraine bien préservée. A) strate inférieure composée de plantes herbacées, de fougères, de mousses et de lichens, jouant un rôle crucial dans le cycle des nutriments et la stabilisation des sols ; B) strate arbustive formée de plantes ligneuses plus petites que les arbres (pouvant atteindre généralement jusqu’à 6 mètres de hauteur) ; C) strate supérieure, dominée par des arbres matures formant la canopée forestière de la zone riveraine."
+        },
+        "figure_description": "Les plaines inondables sont des zones d’inondation naturelle, qui sont recouvertes d’eau lors de périodes de fortes précipitations (crues). Les crues enrichissent ces sols fertiles par des sédiments riches en nutriments (Figure 5). La forme et la nature de la plaine inondable peuvent évoluer au fil du temps, car le lit principal d’un cours d’eau se déplace naturellement en raison des processus d’accumulation et d’érosion.",
+        "figure5": {
+          "caption": "Figure 5. A) Lit du cours d’eau ; B) Plaines inondables actives ; C) Plaines inondables réglementaires ; D) Plaines inondables géologiques (crues moins fréquentes) ; E) Terrasse."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Principales différences entre les cours d’eau de forêt et les cours d’eau urbains",
+          "content": "Le développement urbain autour des cours d’eau augmente les surfaces imperméables sur les berges et les plaines inondables, en raison de la construction de routes, de bâtiments ou de trottoirs en béton, en asphalte ou autres matériaux (Figure 6). Ces surfaces ne permettent pas l’infiltration de l’eau, à l’inverse des sols forestiers ou des champs ouverts. Cela est particulièrement impactant lors d’épisodes de fortes précipitations, car cela entraîne des crues soudaines qui font rapidement monter le niveau de l’eau, avec des risques de dommages matériels, voire de pertes humaines. Les surfaces imperméables empêchent également la recharge des nappes phréatiques et la poursuite du cycle de l’eau, ce qui peut aggraver la pénurie d’eau durant les saisons sèches – un phénomène souvent accentué par la rétention dans des barrages ou le pompage de l’eau. De plus, les cours d’eau urbains sont fréquemment pollués par les eaux de ruissellement provenant de la ville, ainsi que par des débordements de réseaux d’égouts unitaires, ce qui accentue ces problématiques."
+        },
+        "figure6": {
+          "caption": "Figure 6. Surfaces perméables à gauche, surfaces partiellement imperméables au centre, et surfaces imperméables à droite."
+        },
+        "oneaquahealth_project": {
+          "title": "Le projet OneAquaHealth et l’application OAH",
+          "content": "OneAquaHealth vise à faire le lien entre amélioration de l’état écologique des cours d’eau urbains et amélioration de la santé unique (« One Health ») dans les villes. OAH a également pour objectif d’identifier des indicateurs précoces de dégradation des écosystèmes d’eau douce susceptibles de représenter un risque pour la santé unique. Pour parvenir à une meilleure gestion des cours d’eau urbains, nous avons développé un système de surveillance environnementale qui inclue l’application OAH. Cette application a pour objectif de favoriser le suivi des cours d’eau urbains par les citoyens afin d’accroître leurs connaissances et de soutenir la restauration de ces milieux."
+        },
+        "onehealth": {
+          "title": "Qu’est-ce que le concept de santé unique (“OneHealth”) ?",
+          "content": "OneHealth est une approche qui vise à promouvoir une santé durable pour les humains, les organismes vivants et l’environnement (Figure 7). Les espaces naturels bien préservés en milieu urbain offrent des bénéfices essentiels, tels qu’un air et une eau plus propres, tout en proposant des lieux paisibles qui favorisent le bien-être physique et mental. La proximité des espaces bleus et verts encourage les habitants à sortir, à se connecter avec les autres, à se détendre et à profiter d’une variété de stimulations sensorielles. Les cours d’eau urbains, souvent cachés dans le paysage des villes, sont pratiquement partout et recèlent un potentiel encore inexploité. Restaurés dans une optique OneHealth, ces cours d’eau peuvent devenir des espaces clés de collaboration, réunissant différents acteurs pour bâtir des communautés plus saines et durables."
+        },
+        "figure7": {
+          "caption": "Figure 7. Illustration du concept One Health, montrant la interconnection entre la santé humaine, la santé des organismes et la santé environnementale. Les zones de chevauchement mettent en évidence l’approche intégrée nécessaire pour relever efficacement les défis sanitaires mondiaux."
+        },
+        "what_you_can_do": {
+          "title": "Comment pouvez-vous nous aider ?",
+          "content": "Si vous avez un cours d’eau urbain près de chez vous, parfois dissimulé dans des vallées entre les collines de votre ville, même s’il est fortement modifié (avec des murs en béton ressemblant à un conduit), vous pouvez nous aider à en prendre soin en observant son lit, ses berges et ses zones riveraines, puis en nous fournissant des informations pertinentes et des photos à travers cette application. Enfin, donnez-nous votre évaluation globale du cours d’eau selon les catégories suivantes :"
+        },
+        "quality": {
+          "good": "Bonne qualité : les composants de l’écosystème sont présents et en bon état : végétation riveraine, lit naturel, bonne qualité de l’eau, biodiversité.",
+          "moderate": "Qualité modérée : certaines altérations sont visibles, une certaine biodiversité est présente, un peu de végétation sur les berges, et l’eau semble de bonne qualité…",
+          "poor": "Mauvaise qualité : le cours d’eau est très modifié/artificiel, avec une perte majeure de la végétation riveraine ou seulement des espèces invasives, perte d’habitats, l’eau est polluée."
+        },
+        "submission_hint": "Pour collaborer, il vous suffit de fournir les informations demandées en cliquant sur « Suivant » (voir ci-dessus les consignes de saisie)."
+      },
+      "step": "Étape",
+      "next": "Suivant",
+      "previous": "Précédent",
+      "submit": "Soumettre",
+      "basic_information": "Informations de base",
+      "additional_details": "Détails supplémentaires",
+      "media_upload": "Téléversement de médias",
+      "questions_1_3_": "Questions (1/3)",
+      "questions_2_3_": "Questions (2/3)",
+      "questions_3_3_": "Questions (3/3)",
+      "feedback_1_2": "Commentaires (1/2)",
+      "feedback_2_2": "Commentaires (2/2)",
+      "review_submit": "Vérification & Soumission",
+      "select_from_my_sites": "Sélectionner parmi mes sites",
+      "enter_longitude": "Entrer la longitude",
+      "enter_latitude": "Entrer la latitude",
+      "enter_site_name": "Entrer le nom du site",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
+      "site_name": "Nom du site",
+      "site_selection": {
+        "title": "Sélectionnez un site de ruisseau urbain OneAquaHealth à évaluer (la distance vous séparant du site est indiquée)",
+        "description": "Ajouter un nouveau site"
+      },
+      "media": {
+        "title": "Sélectionner vos images",
+        "upstream_photo_label": "Photo de l'amont",
+        "upstream_photo_description": "Photo de l'amont",
+        "downstream_photo_label": "Photo de l'aval",
+        "downstream_photo_description": "Photo de l'aval",
+        "context_photo_label": "Photo de l'environnement",
+        "context_photo_description": "Photo de l'environnement (maisons, routes ...)",
+        "biodiversity_photo_label": "Photo présentant un élément intéressant en matière de biodiversité",
+        "biodiversity_photo_description": "Photo présentant un élément intéressant en matière de biodiversité (plante, animal, champignons, autre)",
+        "video_label": "Faites une courte vidéo (5 à 10 secondes)",
+        "video_description": "Faites une courte vidéo (5 à 10 secondes)",
+        "select_file_button": "Sélectionner un fichier"
+      },
+      "questions_1_3": {
+        "title": "Que voyez-vous depuis votre position (dans un rayon d’environ 100 m) ?",
+        "channel_form": {
+          "question": "Forme du lit",
+          "questiontext": "La forme du lit est ...",
+          "labels": {
+            "Flat (Α)": "Plate (A)",
+            "Flat (A)": "Plate (A)",
+            "U Shape (Β)": "En U (B)",
+            "U Shape (B)": "En U (B)",
+            "V Shape (C)": "En V (C)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "bottom_type": {
+          "question": "Type du lit",
+          "questiontext": "Le fond du lit est ...",
+          "labels": {
+            "Natural (A)": "Naturel (A)",
+            "Natural (Α)": "Naturel (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificiel (béton ou pierres avec béton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificiel (béton ou pierres avec béton) (B)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "bank_type": {
+          "question": "Type de berges",
+          "questiontext": "Les berges sont ...",
+          "labels": {
+            "Natural (A)": "Naturelles (A)",
+            "Natural (Α)": "Naturelles (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificielles (béton ou pierres avec béton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificielles (béton ou pierres avec béton) (B)",
+            "Layed stones with no concrete (C)": "Pierres posées sans béton (C)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "habitats": {
+          "question": "Habitats",
+          "questiontext": "Les habitats présents sont ...",
+          "questiontextshow": "Y a-t-il des habitats présents ?",
+          "options": {
+            "Sand banks (A)": "Bancs de sable (A)",
+            "Sand banks (Α)": "Bancs de sable (A)",
+            "Sand islands (B)": "Îlots de sable (B)",
+            "Sand islands (Β)": "Îlots de sable (B)",
+            "Stone deposits (C)": "Dépôts de pierres (C)",
+            "Riffles, rapids, falls (D)": "Rapides, cascades, chutes d’eau (D)",
+            "Aquatic vegetation (E)": "Végétation aquatique (E)"
+          },
+          "info": "Vous pouvez sélectionner plusieurs types d’habitats. Cochez d’abord la case, puis sélectionnez tous les habitats que vous identifiez."
+        },
+        "natural_debris": {
+          "question": "Débris naturels",
+          "questiontext": "Il y a ...",
+          "questiontextshow": "Y a-t-il des débris naturels présents ?",
+          "labels": {
+            "Fallen trees (A)": "Arbres tombés (A)",
+            "Fallen trees (Α)": "Arbres tombés (A)",
+            "Fallen branches (B)": "Branches tombées (B)",
+            "Fallen branches (Β)": "Branches tombées (B)",
+            "Deposits of fallen leaves (C)": "Dépôts de feuilles (C)"
+          },
+          "info": "Vous pouvez sélectionner plusieurs types de débris naturels. Cochez d’abord la case, puis sélectionnez tous les types de débris que vous identifiez."
+        },
+        "water_flow": {
+          "question": "Écoulement de l’eau",
+          "questiontext": "Comment s’écoule l’eau ?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Rapidement (avec des vagues ou une grande vitesse) (A)",
+            "Fast (with waves or high velocity) (Α)": "Rapidement (avec des vagues ou une grande vitesse) (A)",
+            "Slow (B)": "Lentement (B)",
+            "Slow (Β)": "Lentement (B)",
+            "Stagnant/intermittent (C)": "Stagnant ou intermittent (C)",
+            "Dry (D)": "Sec (D)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aspect de l’eau",
+          "questiontext": "Comment est l’aspect de l’eau ?",
+          "labels": {
+            "Clear/transparent (A)": "Claire ou transparente (A)",
+            "Clear/transparent (Α)": "Claire ou transparente (A)",
+            "Muddy/turbid (B)": "Boueuse ou turbide (B)",
+            "Muddy/turbid (Β)": "Boueuse ou turbide (B)",
+            "Has foam (C)": "Présence de mousse (C)",
+            "Has colors/altered color (D)": "Est colorée, ou a une couleur altérée (D)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Prélèvement d’eau",
+          "questiontext": "Y a-t-il une forme évidente de prélèvement, d’utilisation ou de retrait d’eau dans la rivière ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "barriers": {
+          "question": "Obstacle à l’écoulement",
+          "questiontext": "Voyez-vous des barrages ou d’autres obstacles artificiels transversaux (voir quelques exemples de barrière à l’écoulement dans les images ci-dessous) ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "draining_pipes": {
+          "question": "Rejet d’eaux pluviales",
+          "questiontext": "Y a-t-il des canalisations qui déversent des eaux pluviales dans le cours d’eau ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Rejet d’eaux usées",
+          "questiontext": "Y a-t-il une entrée d’eau ou un rejet d’eaux usées dans le cours d’eau ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "construction": {
+          "question": "Zone de construction",
+          "questiontext": "Y a-t-il des travaux de construction dans ou autour du cours d’eau ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "water_height": {
+          "question": "Profondeur",
+          "questiontext": "Quelle est la profondeur d’eau ?",
+          "placeholder": "Entrez la profondeur",
+          "info": "Veuillez indiquer votre estimation en mètres (m), en utilisant un point (.) comme séparateur décimal (par exemple : 1.5m). Vous pouvez aussi donner un intervalle ou une description, par exemple : « Cela m’arrive environ aux genoux… à la taille… ou c’est plus haut que moi »."
+        }
+      },
+      "questions_3_3": {
+        "title": "Dans les marges / la zone riveraine (5 à 10 m depuis le sommet de la berge)",
+        "impervious_left": {
+          "question": "Zones imperméables (Gauche)",
+          "questiontext": "Plus d’un tiers de la berge gauche est-elle recouverte par des surfaces imperméables (comme des routes, trottoirs ou bâtiments) ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "impervious_right": {
+          "question": "Zones imperméables (Droite)",
+          "questiontext": "Plus d’un tiers de la berge droite est-elle recouverte par des surfaces imperméables (comme des routes, trottoirs ou bâtiments) ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "vegetation_left": {
+          "question": "Végétation (Gauche)",
+          "questiontext": "La berge gauche est-elle recouverte de végétation ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Type de végétation (Gauche)",
+          "questiontext": "Quelle végétation est dominante (c’est-à-dire couvrant plus de 50 %) sur la berge gauche (dans les 5 premiers mètres à partir du sommet de la berge) ?",
+          "labels": {
+            "Herbs (A)": "Herbacées (A)",
+            "Herbs (Α)": "Herbacées (A)",
+            "Shrubs (B)": "Arbustes (B)",
+            "Shrubs (Β)": "Arbustes (B)",
+            "Trees (C)": "Arbres (C)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          },
+          "info": "N’oubliez pas d’observer la végétation à gauche lorsque vous êtes face à l’aval (dans le sens de l’écoulement)."
+        },
+        "vegetation_right": {
+          "question": "Végétation (Droite)",
+          "questiontext": "La berge droite est-elle recouverte de végétation ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Type de végétation (Droite)",
+          "questiontext": "Quelle végétation est dominante (c’est-à-dire couvrant plus de 50 %) sur la berge droite (dans les 5 premiers mètres à partir du sommet de la berge) ?",
+          "labels": {
+            "Herbs (A)": "Herbacées (A)",
+            "Herbs (Α)": "Herbacées (A)",
+            "Shrubs (B)": "Arbustes (B)",
+            "Shrubs (Β)": "Arbustes (B)",
+            "Trees (C)": "Arbres (C)",
+            "I am not sure": "Je ne suis pas sûr-e"
+          },
+          "info": "N’oubliez pas d’observer la végétation à droite lorsque vous êtes face à l’aval (dans le sens de l’écoulement)."
+        },
+        "invasive_species": {
+          "question": "Espèces invasives",
+          "questiontext": "Voyez-vous des espèces végétales non natives ou invasives ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          },
+          "placeholder": "Lesquelles ?"
+        },
+        "vegetation_cut": {
+          "question": "Coupes de végétation",
+          "questiontext": "Y a-t-il eu récemment des coupes de végétation (partielles ou totales) sur les berges (ou sur l’une des berges) du cours d’eau ?",
+          "labels": {
+            "Yes": "Oui",
+            "No": "Non",
+            "I am not sure": "Je ne suis pas sûr-e"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Fournissez une évaluation globale de la santé de l'écosystème du cours d'eau (choisissez l'une des possibilités ci-dessous)",
+        "good_quality": "Bonne qualité",
+        "good_quality_description": "Les composantes de l'écosystème sont présentes : végétation riveraine, cours d'eau naturel, bonne qualité de l'eau, biodiversité.",
+        "moderate_quality": "Qualité modérée",
+        "moderate_quality_description": "Certaines modifications, toujours riches en biodiversité, avec une végétation en bordure, l'eau semble en bon état...",
+        "poor_quality": "Qualité basse",
+        "poor_quality_description": "Fortement modifié / artificiel, perte de végétation riveraine, perte d'habitats, pollué"
+      },
+      "feelings": {
+        "question": "Quel(s) sentiment(s) décrit/décrivent le mieux votre expérience ?",
+        "info": "Les recherches indiquent que les cours d'eau peuvent influencer les émotions humaines.",
+        "instructions": "Faites glisser vos doigts sur le curseur pour évaluer l'intensité de votre sentiment. Une note plus élevée signifie une sensation plus intense.",
+        "Joy": "Joie",
+        "Serenity": "Sérénité / bien être",
+        "Anger": "Colère",
+        "Fear": "Anxiété / peur",
+        "NotApplicable": "Non applicable"
+      },
+      "summary": {
+        "title": "Résumé de la soumission",
+        "research_site_label": "Site d'étude",
+        "coordinates_label": "Coordonnées",
+        "photos_label": "Photo",
+        "video_label": "Vidéo",
+        "channel_form_label": "Forme du lit",
+        "bottom_type_label": "Type de lit",
+        "bank_type_label": "Type de berges",
+        "habitats_label": "Habitats",
+        "natural_debris_label": "Débris naturels",
+        "water_flow_label": "Débit",
+        "water_quality_label": "Qualité de l'eau",
+        "water_abstraction_label": "Prélevement d'eau",
+        "water_extraction_label": "Rejet d'eau",
+        "draining_pipes_label": "Tuyaux de drainage",
+        "barriers_label": "Barrières / Barrages",
+        "construction_label": "Construction",
+        "impervious_areas_left_label": "Zones imperméables (gauche)",
+        "impervious_areas_right_label": "Zones imperméables (droite)",
+        "vegetation_left_label": "Végétation (gauche)",
+        "vegetation_right_label": "Végétation (droite)",
+        "vegetation_cuts_label": "Coupe dans la végétation",
+        "invasive_species_label": "Espèces invasives",
+        "feelings_label": "Sentiments / ressentis",
+        "feelings": {
+          "joy": "Joie",
+          "serenity": "Sérénité / bien être",
+          "anger": "Colère",
+          "fear": "Anxiété / peur"
+        },
+        "water_height_label": "Profondeur",
+        "overall_assessment_label": "Évaluation globale"
+      },
+      "my_submissions_list": {
+        "title": "Soumissions pour les sites d'étude existants",
+        "longitude_label": "Longitude",
+        "latitude_label": "Latitude",
+        "research_site_label": "Site d'étude",
+        "created_label": "Date de création",
+        "overall_label": "Évaluation globale",
+        "actions_label": "Actions",
+        "title2": "Soumissions pour les sites générés",
+        "longitude_label_2": "Longitude",
+        "latitude_label_2": "Latitude",
+        "research_site_label_2": "Site d'étude",
+        "created_label_2": "Date de création",
+        "overall_label_2": "Évaluation globale",
+        "actions_label_2": "Actions"
+      }
+    },
+    "it": {
+      "citizens_menu": {
+        "instructions": "Istruzioni",
+        "instructions_title": "Istruzioni per la Scienza dei Cittadini",
+        "new_observation": "Crea una nuova osservazione",
+        "new_observation_title": "Nuovo invio di Scienza dei Cittadini",
+        "my_submissions": "Le mie osservazioni",
+        "my_submissions_title": "Le mie osservazioni"
+      },
+      "title": "App OneAquaHealth Citizen Science - Istruzioni per l'installazione",
+      "viewInstructions": "Visualizza le istruzioni",
+      "version": "OneAquaHealth Citizen Science App - Versione 1.0",
+      "installation_modal": {
+        "title": "Installazione dell'app OAH Citizen Science",
+        "intro": "Prima di installare l'app OAH Citizen Science devi prima unirti alla <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">community OneAquaHealth</a>.<br />Una volta registrato, segui i passaggi seguenti utilizzando l'e-mail e la password assegnate per accedere all'applicazione.",
+        "step1_label": "Passaggio 1.",
+        "step1_desc": "Apri il browser del tuo telefono e visita:",
+        "step2_label": "Passaggio 2. Cerca il prompt di installazione dell'app:",
+        "step2_list_item1": "Se compare una finestra pop-up che suggerisce l'installazione dell'app, segui le istruzioni sullo schermo.",
+        "step2_list_item2": "Se non compare alcun messaggio, prosegui al passaggio successivo.",
+        "step3_label": "Passaggio 3. Aggiungi alla schermata Home:",
+        "step3_ios": "<b>Per iOS (a):</b> Tocca l'icona di condivisione (quadrato con freccia) nella parte inferiore dello schermo e seleziona <span class=\"font-semibold\">\"Aggiungi a Home\"</span>",
+        "step3_android": "<b>Per Android (b):</b> Tocca l'icona del menu (tre punti) e scegli <span class=\"font-semibold\">\"Aggiungi a schermata Home\"</span> o <span class=\"font-semibold\">\"Installa app\"</span>",
+        "step4_label": "Passaggio 4.",
+        "step4_desc": "Conferma l'installazione toccando <span class=\"font-semibold\">\"Aggiungi\"</span> o <span class=\"font-semibold\">\"Installa\"</span>",
+        "step5_label": "Passaggio 5.",
+        "step5_desc": "Trova l'icona della nuova app installata sulla schermata Home e tocca per avviare",
+        "close": "Chiudi"
+      },
+      "app_intro_title": "A cosa serve questa App?",
+      "app_intro_text": "Questa App è rivolta ai cittadini e mira a raccogliere dati sullo stato di salute dei corsi d'acqua urbani",
+      "before_submit": "Prima della tua adesione",
+      "education": {
+        "title": "Cos'è un torrente urbano?",
+        "intro": "I corsi d'acqua urbani sono corsi d'acqua correnti che coesistono con lo sviluppo urbano e che spesso fanno parte di bacini idrografici più ampi. Pertanto, sono tipicamente influenzati dalle attività umane che provocano alterazioni nei loro alvei (tra cui copertura totale e parziale, materiali artificiali nelle sponde e nel canale), inquinamento delle acque e alterazioni della vegetazione naturale ai margini, tra le altre cose.",
+        "healthy_streams": {
+          "title": "Ecosistemi fluviali sani",
+          "content": "I corsi d'acqua sani devono essere circondati da una vegetazione specifica – la vegetazione riparia – in grado di vivere con le proprie radici in terreni saturi o ad elevata umidità senza marcire. I corsi d'acqua e la loro vegetazione riparia forniscono habitat per animali acquatici e terrestri (ad esempio, invertebrati, funghi, pesci, anfibi, rettili, mammiferi, uccelli) e microrganismi. Questi organismi sono anche coinvolti in importanti processi ecosistemici, come la produzione primaria e secondaria, il ciclo dei nutrienti e la decomposizione della materia organica."
+        },
+        "ecosystem_services": {
+          "title": "Servizi ecosistemici",
+          "content": "Se ben conservati, i corsi d'acqua forniscono importanti servizi ecosistemici alla popolazione umana, come una migliore qualità dell'aria, la regolazione della temperatura e dell'umidità, la mitigazione delle inondazioni, offrendo al contempo aree ricreative e sociali nella natura o laboratori all'aperto per l'educazione ambientale."
+        },
+        "key_concepts": {
+          "title": "Concetti essenziali per la valutazione del torrente",
+          "downstream_direction": "Le sponde e i margini sinistro e destro dei corsi d'acqua sono definiti guardando verso valle (verso il punto in cui scorre il corso d'acqua) (Figura 1)."
+        },
+        "figure1": {
+          "caption": "Figura 1. Le sponde sinistra (L) e destra (R) dei corsi d'acqua. La freccia indica la direzione del flusso."
+        },
+        "cross_section": {
+          "description": "La larghezza (Figura 2) e la profondità (Figura 3) del corso d'acqua vengono misurate in un transetto perpendicolare all'alveo. Queste misure possono variare lungo un tratto di corso d'acqua, ma dovrebbero essere misurate in un transetto rappresentativo delle condizioni medie."
+        },
+        "figure2": {
+          "caption": "Figura 2. Illustrazione della sezione trasversale del corso d'acqua in cui: A) sommità della sponda; B) sponda; C) canale umido principale; D) direzione del flusso (vista a valle); E) larghezza; e F) profondità."
+        },
+        "figure3": {
+          "caption": "Figura 3. Misurazione della profondità mediante rullina/metro."
+        },
+        "riparian_and_floodplain": {
+          "content": "La fascia riparia è l'area situata ai margini e ricoperta da vegetazione riparia. Una vegetazione riparia sana comprende una varietà di piante autoctone di diverse altezze (strati), dalle erbe agli arbusti e agli alberi, tipiche della regione e adattate alla vicinanza dell'acqua (Figura 4)."
+        },
+        "figure4": {
+          "caption": "Figura 4. Zona ripariale ben conservata: A) strato più basso con piante erbacee, felci, muschi e licheni, che svolgono un ruolo cruciale nel ciclo dei nutrienti e nella stabilizzazione del suolo); B) uno strato arbustivo con piante legnose più piccole degli alberi (che in genere raggiungono i 6 metri di altezza); C) uno strato più alto, dominato da alberi maturi che formano la volta forestale della zona ripariale."
+        },
+        "figure_description": "Le pianure alluvionali sono aree di inondazione naturale, che vengono ricoperte d'acqua (alluvioni) durante i periodi di elevata piovosità. Le alluvioni arricchiscono questi terreni fertili con sedimenti ricchi di nutrienti (Figura 5). La forma e la natura della pianura alluvionale possono cambiare nel tempo a causa dello spostamento naturale del corso d'acqua principale dovuto all'accrescimento e all'erosione.",
+        "figure5": {
+          "caption": "Figura 5. A) Canale umido; B) Pianura alluvionale attiva; C) Pianura alluvionale regolatrice; D) Pianura alluvionale geologica (tranne eventi di piena regolari); E) Terrazzamento."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Principali differenze tra corsi d'acqua forestali e urbani",
+          "content": "Lo sviluppo urbano attorno ai corsi d'acqua urbani aumenta le superfici impermeabili lungo le rive, i margini e le pianure alluvionali, a causa della costruzione di strade, edifici o marciapiedi in cemento, asfalto o altro (Figura 6). Queste superfici non consentono l'infiltrazione d'acqua come nei terreni boschivi o nei campi aperti. Ciò è particolarmente rilevante durante gli eventi di precipitazioni intense, poiché provoca alluvioni improvvise che innalzano rapidamente il livello dell'acqua, con il rischio di danni materiali e persino perdite umane. Le aree impermeabili impediscono inoltre la ricarica delle falde acquifere e la continuazione del ciclo dell'acqua, il che può causare una maggiore scarsità d'acqua durante le stagioni secche, spesso aggravata dalla ritenzione idrica delle dighe o dal prelievo d'acqua. Inoltre, i corsi d'acqua urbani sono spesso inquinati dal deflusso urbano e dai deflussi fognari misti, aggravando ulteriormente queste problematiche."
+        },
+        "figure6": {
+          "caption": "Figura 6. Superfici permeabili a sinistra, superfici intermediamente impermeabili al centro e superfici impermeabili a destra."
+        },
+        "oneaquahealth_project": {
+          "title": "Il progetto OneAquaHealth e l'app OAH",
+          "content": "OneAquaHealth si propone di promuovere le condizioni ecologiche degli ecosistemi di acqua dolce urbani al fine di migliorare il concetto di One Health nelle città e di identificare indicatori di allerta precoce del degrado degli ecosistemi di acqua dolce che potrebbero rappresentare un rischio per One Health. Per una migliore gestione dei corsi d'acqua urbani, abbiamo sviluppato un sistema di sorveglianza ambientale che include l'app OAH. Questa app mira a promuovere il monitoraggio dei corsi d'acqua urbani da parte dei cittadini per migliorarne la conoscenza e il ripristino."
+        },
+        "onehealth": {
+          "title": "Che cos'è OneHealth?",
+          "content": "OneHealth è un approccio che mira a promuovere la salute sostenibile per le persone, gli organismi e l'ambiente (Figura 7). Le aree naturali ben conservate nelle città offrono benefici essenziali, come aria e acqua più pulite, offrendo al contempo aree tranquille che migliorano il benessere fisico e mentale. Avere aree blu e verdi vicino a casa incoraggia le persone a uscire, a connettersi con gli altri, a rilassarsi e a sperimentare una varietà di piaceri sensoriali. I corsi d'acqua urbani, spesso nascosti nei paesaggi urbani, sono praticamente ovunque e racchiudono un potenziale inesplorato. Se ripristinati tenendo presente il concetto di OneHealth, questi corsi d'acqua possono diventare spazi vitali di collaborazione, riunendo gruppi diversi per creare comunità più sane e sostenibili."
+        },
+        "figure7": {
+          "caption": "Figura 7. Illustrazione del concetto di \"One Health\", che mostra la relazione interconnessa tra salute umana, salute degli organismi e salute ambientale. Le aree sovrapposte evidenziano l'approccio integrato necessario per affrontare efficacemente le sfide sanitarie globali."
+        },
+        "what_you_can_do": {
+          "title": "Cosa puoi fare con noi?",
+          "content": "Se nelle vicinanze c'è un corso d'acqua urbano, a volte nascosto in valli tra le colline della tua città, anche se pesantemente modificato (con muri di cemento che sembrano un condotto), puoi aiutarci a prendertene cura esaminandone il canale, la sponda e i margini/fasce ripariali e fornendoci informazioni e foto pertinenti tramite questa app. Infine, facci sapere la tua valutazione complessiva del corso d'acqua nelle seguenti categorie:"
+        },
+        "quality": {
+          "good": "Buona qualità: i componenti dell'ecosistema sono presenti e si presentano bene: vegetazione ripariale, canale naturale, buona qualità dell'acqua, biodiversità.",
+          "moderate": "Qualità moderata: ci sono alcune alterazioni, un po' di biodiversità, con un po' di vegetazione ai margini e l'acqua sembra buona...",
+          "poor": "Scarsa qualità: è altamente modificato/artificiale, con importanti perdite di vegetazione ripariale o solo specie invasive, perdita di habitat, l'acqua è inquinata."
+        },
+        "submission_hint": "Per collaborare, è sufficiente fornire le informazioni richieste cliccando su «Avanti» (vedere sopra queste linee guida per l'invio)"
+      },
+      "step": "Passo",
+      "next": "Avanti",
+      "previous": "Indietro",
+      "submit": "Invia",
+      "basic_information": "Informazioni di base",
+      "additional_details": "Dettagli aggiuntivi",
+      "media_upload": "Caricamento media",
+      "questions_1_3_": "Domande (1/3)",
+      "questions_2_3_": "Domande (2/3)",
+      "questions_3_3_": "Domande (3/3)",
+      "feedback_1_2": "Feedback (1/2)",
+      "feedback_2_2": "Feedback (2/2)",
+      "review_submit": "Revisione e invio",
+      "select_from_my_sites": "Seleziona dai miei siti",
+      "enter_longitude": "Inserisci la longitudine",
+      "enter_latitude": "Inserisci la latitudine",
+      "enter_site_name": "Inserisci il nome del sito",
+      "longitude": "Longitudine",
+      "latitude": "Latitudine",
+      "site_name": "Nome del sito",
+      "site_selection": {
+        "title": "Seleziona i siti fluviali urbani OneAquaHealth da valutare (la distanza dal sito è indicata)",
+        "description": "Aggiungi un nuovo sito"
+      },
+      "media": {
+        "title": "Seleziona le tue immagini",
+        "upstream_photo_label": "Foto a monte",
+        "upstream_photo_description": "Foto a monte",
+        "downstream_photo_label": "Foto a valle",
+        "downstream_photo_description": "Foto a valle",
+        "context_photo_label": "Foto con il contesto circostante",
+        "context_photo_description": "Foto con il contesto circostante (case, strade...)",
+        "biodiversity_photo_label": "Foto con un interessante elemento di biodiversità",
+        "biodiversity_photo_description": "Foto con un elemento interessante della biodiversità (pianta, animale, fungo, altro)",
+        "video_label": "Realizza un breve video (5 o 10 secondi)",
+        "video_description": "Realizza un breve video (5 o 10 secondi)",
+        "select_file_button": "Seleziona file"
+      },
+      "questions_1_3": {
+        "title": "Cosa vedi dal punto in cui ti trovi (circa 100m)?",
+        "channel_form": {
+          "question": "Forma del canale",
+          "questiontext": "La forma del canale è...",
+          "labels": {
+            "Flat (Α)": "Piatta (A)",
+            "Flat (A)": "Piatta (A)",
+            "U Shape (Β)": "Forma a U (B)",
+            "U Shape (B)": "Forma a U (B)",
+            "V Shape (C)": "Forma a V (C)",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "bottom_type": {
+          "question": "Tipo di fondo",
+          "questiontext": "Il fondo del canale umido è…",
+          "labels": {
+            "Natural (A)": "Naturale (A)",
+            "Natural (Α)": "Naturale (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificiale (cemento o pietre con cemento) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificiale (cemento o pietre con cemento) (B)",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "bank_type": {
+          "question": "Tipo di banco",
+          "questiontext": "I banchi del canale sono...",
+          "labels": {
+            "Natural (A)": "Naturale (A)",
+            "Natural (Α)": "Naturale (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificiale (cemento o pietre con cemento) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificiale (cemento o pietre con cemento) (B)",
+            "Layed stones with no concrete (C)": "Pietre posate senza cemento (C)",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "habitats": {
+          "question": "Habitat",
+          "questiontext": "Gli habitat presenti sono...",
+          "questiontextshow": "Sono presenti degli habitat?",
+          "options": {
+            "Sand banks (A)": "Banchi di sabbia (A)",
+            "Sand banks (Α)": "Banchi di sabbia (A)",
+            "Sand islands (B)": "Isole di sabbia (B)",
+            "Sand islands (Β)": "Isole di sabbia (B)",
+            "Stone deposits (C)": "Depositi di sassi (C)",
+            "Riffles, rapids, falls (D)": "Ruscellamenti, rapide, cascate (D)",
+            "Aquatic vegetation (E)": "Vegetazione acquatica (E)"
+          },
+          "info": "Puoi selezionare diversi tipi di habitat. Prima spunta la casella, poi seleziona tutti gli habitat che identifichi."
+        },
+        "natural_debris": {
+          "question": "Detriti naturali",
+          "questiontext": "Ci sono...",
+          "questiontextshow": "Ci sono detriti naturali presenti?",
+          "labels": {
+            "Fallen trees (A)": "Alberi caduti (A)",
+            "Fallen trees (Α)": "Alberi caduti (A)",
+            "Fallen branches (B)": "Rami caduti (B)",
+            "Fallen branches (Β)": "Rami caduti (B)",
+            "Deposits of fallen leaves (C)": "Depositi di foglie cadute (C)"
+          },
+          "info": "Puoi selezionare diversi tipi di detriti naturali. Per farlo, spunta prima il cerchio accanto alle alternative proposte e poi seleziona tutti quelli che identifichi."
+        },
+        "water_flow": {
+          "question": "Flusso d'acqua",
+          "questiontext": "Come scorre l'acqua?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Veloce (con onde o alta velocità) (A)",
+            "Fast (with waves or high velocity) (Α)": "Veloce (con onde o alta velocità) (A)",
+            "Slow (B)": "Lento (B)",
+            "Slow (Β)": "Lento (B)",
+            "Stagnant/intermittent (C)": "Stagnante/intermittente (C)",
+            "Dry (D)": "Secco (D)",
+            "I am not sure": "Non sono sicuro"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aspetto dell'acqua",
+          "questiontext": "Com'è l'acqua?",
+          "labels": {
+            "Clear/transparent (A)": "Chiara/trasparente (A)",
+            "Clear/transparent (Α)": "Chiara/trasparente (A)",
+            "Muddy/turbid (B)": "Fangoso/torbido (B)",
+            "Muddy/turbid (Β)": "Fangoso/torbido (B)",
+            "Has foam (C)": "Ha schiuma (C)",
+            "Has colors/altered color (D)": "Ha colori/colore alterato (D)",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Prelievo di acqua",
+          "questiontext": "Esiste qualche tipo di evidente raccolta, utilizzo o rimozione dell'acqua dal corso d'acqua?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "barriers": {
+          "question": "Barriere",
+          "questiontext": "Vedete dighe o altre barriere artificiali trasversali (vedere alcuni esempi nelle immagini fornite)?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "draining_pipes": {
+          "question": "Tubi di scarico",
+          "questiontext": "Ci sono tubi che scaricano l'acqua piovana nel fiume?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Scarico di liquami",
+          "questiontext": "C'è qualche tipo di ingresso di acqua o scarico di liquami?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "construction": {
+          "question": "Costruzioni",
+          "questiontext": "Ci sono lavori in opera nel corso d'acqua?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "water_height": {
+          "question": "Altezza dell'acqua",
+          "questiontext": "Qual è l'altezza dell'acqua?",
+          "placeholder": "Inserisci l'altezza dell'acqua",
+          "info": "Si prega di esprimere la stima in metri (m), utilizzando un punto (.) come punto decimale (ad esempio 1.5 m). Puoi anche fornire un intervallo o una descrizione, ad esempio: \"Mi arriva circa alle ginocchia... alla vita... o è più alto di me\"."
+        }
+      },
+      "questions_3_3": {
+        "title": "Nelle zone marginali/ripariali (5-10m dalla sommità dell'argine)",
+        "impervious_left": {
+          "question": "Aree impermeabili (sinistra)",
+          "questiontext": "Più di un terzo del margine sinistro è coperto da aree impermeabili (come strade, marciapiedi o edifici)?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "impervious_right": {
+          "question": "Aree impermeabili (destra)",
+          "questiontext": "Più di un terzo del margine destro è coperto da aree impermeabili (come strade, marciapiedi o edifici)?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetazione (sinistra)",
+          "questiontext": "Il margine sinistro è coperto dalla vegetazione?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Tipo di vegetazione (sinistra)",
+          "questiontext": "Quale vegetazione è dominante (vale a dire che copre più del 50%, o metà) nel margine sinistro (i primi 5 metri dalla sommità dell'argine del canale)?",
+          "labels": {
+            "Herbs (A)": "Erbe (A)",
+            "Herbs (Α)": "Erbe (A)",
+            "Shrubs (B)": "Arbusti (B)",
+            "Shrubs (Β)": "Arbusti (B)",
+            "Trees (C)": "Alberi (C)",
+            "I am not sure": "Non sono sicuro"
+          },
+          "info": "Non dimenticare di guardare la vegetazione a sinistra quando sei in direzione valle"
+        },
+        "vegetation_right": {
+          "question": "Vegetazione (destra)",
+          "questiontext": "Il margine destro è coperto dalla vegetazione?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Tipo di vegetazione (destra)",
+          "questiontext": "Quale vegetazione è dominante (vale a dire che copre più del 50%, o metà) nel margine destro (i primi 5 metri dalla sommità dell'argine del canale)?",
+          "labels": {
+            "Herbs (A)": "Erbe (A)",
+            "Herbs (Α)": "Erbe (A)",
+            "Shrubs (B)": "Arbusti (B)",
+            "Shrubs (Β)": "Arbusti (B)",
+            "Trees (C)": "Alberi (C)",
+            "I am not sure": "Non sono sicuro"
+          },
+          "info": "Non dimenticare di guardare la vegetazione a destra quando sei in direzione valle"
+        },
+        "invasive_species": {
+          "question": "Specie invasive",
+          "questiontext": "Vedi specie vegetali non autoctone o invasive?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          },
+          "placeholder": "Quali?"
+        },
+        "vegetation_cut": {
+          "question": "Tagli di vegetazione",
+          "questiontext": "Ci sono stati recenti tagli di vegetazione (parziali o totali) sulle rive (o solo su una delle rive) del torrente?",
+          "labels": {
+            "Yes": "Sì",
+            "No": "No",
+            "I am not sure": "Non sono sicuro"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Fornire una valutazione complessiva dello stato di salute dell'ecosistema del corso d'acqua (scegliere una delle possibilità seguenti)",
+        "good_quality": "Buona qualità",
+        "good_quality_description": "I componenti dell'ecosistema sono presenti: vegetazione ripariale, canale naturale, buona qualità dell'acqua, biodiversità.",
+        "moderate_quality": "Moderata qualità",
+        "moderate_quality_description": "Alcune alterazioni, ancora biodiversità, con vegetazione ai margini, l'acqua sembra buona...",
+        "poor_quality": "Povera qualità",
+        "poor_quality_description": "Altamente modificato/artificializzato, perdita di vegetazione ripariale, perdita di habitat, inquinato"
+      },
+      "feelings": {
+        "question": "Quale/i sentimento/i descrive/ono meglio la tua esperienza?",
+        "info": "La ricerca indica che i ruscelli possono influenzare le emozioni umane.",
+        "instructions": "Trascina le dita sul cursore per valutare l'intensità di ciò che stai provando. Un punteggio più alto indica una sensazione più intensa.",
+        "Joy": "Gioia",
+        "Serenity": "Serenità",
+        "Anger": "Rabbia",
+        "Fear": "Paura",
+        "NotApplicable": "Non applicabile"
+      },
+      "summary": {
+        "title": "Riepilogo della presentazione",
+        "research_site_label": "Sito di Ricerca",
+        "coordinates_label": "Coordinate",
+        "photos_label": "Foto",
+        "video_label": "Video",
+        "channel_form_label": "Tipo di canale",
+        "bottom_type_label": "Tipo di fondo",
+        "bank_type_label": "Tipo di banco",
+        "habitats_label": "Habitat",
+        "natural_debris_label": "Detriti naturali",
+        "water_flow_label": "Flusso di acqua",
+        "water_quality_label": "Qualità dell'acqua",
+        "water_abstraction_label": "Prelievi di acqua",
+        "water_extraction_label": "Estrazione d'acqua",
+        "draining_pipes_label": "Tubi di scarico",
+        "barriers_label": "Barriere",
+        "construction_label": "Costruzioni",
+        "impervious_areas_left_label": "Aree impervie (sinistra)",
+        "impervious_areas_right_label": "Aree impervie (destra)",
+        "vegetation_left_label": "Vegetazione (sinistra)",
+        "vegetation_right_label": "Vegetazione (destra)",
+        "vegetation_cuts_label": "Tagli della vegetazione",
+        "invasive_species_label": "Specie invasive",
+        "feelings_label": "Sensazioni",
+        "feelings": {
+          "joy": "Gioia",
+          "serenity": "Serenità",
+          "anger": "Rabbia",
+          "fear": "Paura"
+        },
+        "water_height_label": "Profondità dell'acqua",
+        "overall_assessment_label": "Valutazione complessiva"
+      },
+      "my_submissions_list": {
+        "title": "Invii per i siti di ricerca esistenti",
+        "longitude_label": "Longitudine",
+        "latitude_label": "Latitudine",
+        "research_site_label": "Sito di ricerca",
+        "created_label": "Data di creazione",
+        "overall_label": "Valutazione complessiva",
+        "actions_label": "Azioni",
+        "title2": "Invii per i siti generati",
+        "longitude_label_2": "Longitudine",
+        "latitude_label_2": "Latitudine",
+        "research_site_label_2": "Sito di ricerca",
+        "created_label_2": "Data di creazione",
+        "overall_label_2": "Valutazione complessiva",
+        "actions_label_2": "Azioni"
+      }
+    }
+  }
+}
