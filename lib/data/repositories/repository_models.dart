@@ -102,6 +102,11 @@ class AssessmentDraft {
     this.siteKind = SiteKind.research,
     this.latitude = 0,
     this.longitude = 0,
+    this.siteLatitude,
+    this.siteLongitude,
+    this.gpsAccuracyMeters,
+    this.gpsDistanceMeters,
+    this.gpsConfirmed = false,
     this.attachments = const <AssessmentMediaRole, AssessmentAttachment>{},
     this.channelForm,
     this.bottomChannelType,
@@ -140,6 +145,14 @@ class AssessmentDraft {
   final SiteKind siteKind;
   final double latitude;
   final double longitude;
+
+  /// Coordinates of the selected site. [latitude]/[longitude] become the
+  /// observation coordinates after the right-stream check runs.
+  final double? siteLatitude;
+  final double? siteLongitude;
+  final double? gpsAccuracyMeters;
+  final double? gpsDistanceMeters;
+  final bool gpsConfirmed;
   final Map<AssessmentMediaRole, AssessmentAttachment> attachments;
   final String? channelForm;
   final String? bottomChannelType;
@@ -193,6 +206,11 @@ class AssessmentDraft {
     SiteKind? siteKind,
     double? latitude,
     double? longitude,
+    Object? siteLatitude = _unset,
+    Object? siteLongitude = _unset,
+    Object? gpsAccuracyMeters = _unset,
+    Object? gpsDistanceMeters = _unset,
+    bool? gpsConfirmed,
     Map<AssessmentMediaRole, AssessmentAttachment>? attachments,
     Object? channelForm = _unset,
     Object? bottomChannelType = _unset,
@@ -230,6 +248,11 @@ class AssessmentDraft {
     siteKind: siteKind ?? this.siteKind,
     latitude: latitude ?? this.latitude,
     longitude: longitude ?? this.longitude,
+    siteLatitude: _resolve(siteLatitude, this.siteLatitude),
+    siteLongitude: _resolve(siteLongitude, this.siteLongitude),
+    gpsAccuracyMeters: _resolve(gpsAccuracyMeters, this.gpsAccuracyMeters),
+    gpsDistanceMeters: _resolve(gpsDistanceMeters, this.gpsDistanceMeters),
+    gpsConfirmed: gpsConfirmed ?? this.gpsConfirmed,
     attachments: attachments ?? this.attachments,
     channelForm: _resolve(channelForm, this.channelForm),
     bottomChannelType: _resolve(bottomChannelType, this.bottomChannelType),
@@ -351,6 +374,11 @@ class AssessmentDraft {
     'siteKind': siteKind.name,
     'latitude': latitude,
     'longitude': longitude,
+    if (siteLatitude != null) 'siteLatitude': siteLatitude,
+    if (siteLongitude != null) 'siteLongitude': siteLongitude,
+    if (gpsAccuracyMeters != null) 'gpsAccuracyMeters': gpsAccuracyMeters,
+    if (gpsDistanceMeters != null) 'gpsDistanceMeters': gpsDistanceMeters,
+    'gpsConfirmed': gpsConfirmed,
     'attachments': <String, Object?>{
       for (final entry in attachments.entries)
         entry.key.name: entry.value.toJson(),
@@ -370,6 +398,13 @@ class AssessmentDraft {
       ),
       latitude: _double(json['latitude']),
       longitude: _double(json['longitude']),
+      siteLatitude: _nullableDouble(json['siteLatitude']) ??
+          _nullableDouble(json['latitude']),
+      siteLongitude: _nullableDouble(json['siteLongitude']) ??
+          _nullableDouble(json['longitude']),
+      gpsAccuracyMeters: _nullableDouble(json['gpsAccuracyMeters']),
+      gpsDistanceMeters: _nullableDouble(json['gpsDistanceMeters']),
+      gpsConfirmed: json['gpsConfirmed'] as bool? ?? false,
       attachments: attachmentsJson is Map
           ? <AssessmentMediaRole, AssessmentAttachment>{
               for (final entry in attachmentsJson.entries)

@@ -11,8 +11,10 @@ import '../data/repositories/repository_models.dart';
 import '../debug/mascot_gallery_screen.dart';
 import '../features/auth/sign_in_screen.dart';
 import '../features/check/assessment_review_screen.dart';
+import '../features/check/assessment_celebration_screen.dart';
 import '../features/check/assessment_shell.dart';
 import '../features/check/check_site_picker_screen.dart';
+import '../features/check/photo_capture_screen.dart';
 import '../features/home/home_map_screen.dart';
 import '../features/home/site_detail_screen.dart';
 import '../features/home/stream_map_view.dart';
@@ -34,6 +36,8 @@ abstract final class AppRoutes {
   static const String check = '/check';
   static const String checkAssess = '/check/assess';
   static const String checkReview = '/check/review';
+  static const String checkPhotos = '/check/photos';
+  static const String checkCelebration = '/check/celebration';
   static const String impact = '/impact';
   static const String profile = '/profile';
   static const String settings = '/settings';
@@ -187,7 +191,20 @@ GoRouter createAppRouter({
       pageBuilder: (context, state) => _page(
         context: context,
         state: state,
-        child: AssessmentShell(site: state.extra! as StreamSite),
+        child: AssessmentShell(
+          site: state.extra! as StreamSite,
+          initialPage: int.tryParse(state.uri.queryParameters['page'] ?? ''),
+        ),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.checkPhotos,
+      redirect: (context, state) =>
+          state.extra is AssessmentDraft ? null : AppRoutes.home,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: PhotoCaptureScreen(draft: state.extra! as AssessmentDraft),
       ),
     ),
     GoRoute(
@@ -198,6 +215,18 @@ GoRouter createAppRouter({
         context: context,
         state: state,
         child: AssessmentReviewScreen(draft: state.extra! as AssessmentDraft),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.checkCelebration,
+      redirect: (context, state) =>
+          state.extra is AssessmentCelebrationData ? null : AppRoutes.home,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: AssessmentCelebrationScreen(
+          data: state.extra! as AssessmentCelebrationData,
+        ),
       ),
     ),
     if (kDebugMode)

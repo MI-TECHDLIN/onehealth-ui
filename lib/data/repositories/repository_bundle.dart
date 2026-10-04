@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart' as http;
 
 import '../../core/settings/app_preferences.dart';
@@ -21,6 +24,23 @@ class RepositoryBundle {
 
   factory RepositoryBundle.demo({AppPreferences? preferences}) {
     final content = AssessmentContentSource();
+    final assessments = LiveAssessmentRepository(
+      api: api,
+      auth: auth,
+      preferences: preferences,
+      contentSource: content,
+    );
+    unawaited(assessments.retryQueued());
+    Connectivity().onConnectivityChanged.listen(
+      (connections) {
+        if (connections.any((value) => value != ConnectivityResult.none)) {
+          unawaited(assessments.retryQueued());
+        }
+      },
+      // Platform channels are absent in widget tests; retries still run on
+      // app start and through the explicit Retry action there.
+      onError: (_) {},
+    );
     return RepositoryBundle(
       auth: DemoAuthRepository(),
       sites: DemoSiteRepository(),
@@ -56,12 +76,7 @@ class RepositoryBundle {
       auth: auth,
       sites: LiveSiteRepository(api: api),
       references: LiveReferenceRepository(api: api),
-      assessments: LiveAssessmentRepository(
-        api: api,
-        auth: auth,
-        preferences: preferences,
-        contentSource: content,
-      ),
+      assessments: assessments,
     );
   }
 

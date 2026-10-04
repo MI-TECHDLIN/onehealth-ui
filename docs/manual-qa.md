@@ -223,10 +223,10 @@ Round 4: stream-check question flow (`lib/features/check/`):
     the same site's "Check this stream" - a "Pick up where you left off?"
     dialog offers to continue (restoring every prior answer) or start
     over (clears that site's draft back to blank).
-76. Reach the end of the feelings screen and tap Next - a "Your answers so
-    far" screen lists every answered question with its answer (or "Not
-    answered yet"/"Not sure"); this is a deliberate placeholder for the
-    next round's photo capture, review, and submit/celebration.
+76. Reach the end of the feelings screen and tap Next - the optional photo
+    step opens with upstream, downstream, surroundings and biodiversity
+    roles. "Take photo" immediately slides up the in-app live camera over a
+    blurred/dimmed screen; it never launches the system camera app.
 77. Turn on reduce motion and repeat next/back through a few questions -
     transitions become a short dissolve instead of the shared-axis slide.
 78. Switch to Arabic (or another RTL-capable locale) mid-flow - question

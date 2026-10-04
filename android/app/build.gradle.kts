@@ -25,6 +25,8 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         // flutter_secure_storage 11 uses the Android 6+ encryption APIs.
+        // The pinned in-app CameraX and gallery picker versions support API
+        // 23; do not resolve them onto their newer API-24-only major line.
         minSdk = 23
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

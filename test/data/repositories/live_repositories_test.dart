@@ -227,10 +227,11 @@ void main() {
       ),
       baseUri: testBase,
     );
+    final preferences = MemoryAppPreferences();
     final repository = LiveAssessmentRepository(
       api: api,
       auth: const _StaticAuthRepository('river-user'),
-      preferences: MemoryAppPreferences(),
+      preferences: preferences,
       now: () => now,
     );
     final draft = AssessmentDraft(
@@ -255,12 +256,16 @@ void main() {
       fear: 3,
     );
 
-    await repository.submit(draft);
+    await Future.wait(<Future<AssessmentRecord>>[
+      repository.submit(draft),
+      repository.submit(draft),
+    ]);
 
     expect(calls.take(2), <String>[
       'PUT /api/files',
       'PUT /api/citizens/submit',
     ]);
+    expect(calls.where((call) => call == 'PUT /api/citizens/submit'), hasLength(1));
     expect(submittedPayload?['upstreamPhoto'], 'FILE-1');
     expect(submittedPayload?['waterAbstraction'], isFalse);
     expect(submittedPayload?['channelForm'], isNull);
@@ -275,6 +280,81 @@ void main() {
     expect(history.map((record) => record.id), isNot(contains('private-other')));
     },
   );
+
+  test('failed submissions queue with uploaded ids and retry without re-upload', () async {
+    var submitAttempts = 0;
+    var uploadAttempts = 0;
+    final preferences = MemoryAppPreferences();
+    final client = MockClient((request) async {
+      if (request.url.path == '/api/files') {
+        uploadAttempts++;
+        return http.Response(jsonEncode(<String, Object?>{'id': 'FILE-1'}), 200);
+      }
+      if (request.url.path == '/api/citizens/submit') {
+        submitAttempts++;
+        expect(
+          request.headers.entries
+              .singleWhere(
+                (header) => header.key.toLowerCase() == 'x-idempotency-key',
+              )
+              .value,
+          'client-submission-1',
+        );
+        if (submitAttempts == 1) return http.Response('', 503);
+        return http.Response(jsonEncode(<String, Object?>{'id': 'REC-1'}), 200);
+      }
+      fail('Unexpected fake request: ${request.method} ${request.url}');
+    });
+    final repository = LiveAssessmentRepository(
+      api: LiveApiClient(
+        client: client,
+        tokenStore: MemoryTokenStore(
+          _jwt(<String, Object?>{'username': 'river-user', 'exp': 2100000000}),
+        ),
+        baseUri: testBase,
+      ),
+      auth: const _StaticAuthRepository('river-user'),
+      preferences: preferences,
+      now: () => now,
+    );
+    final outcome = await repository.submitOrQueue(
+      AssessmentDraft(
+        id: 'client-submission-1',
+        siteCode: 'SITE-1',
+        overallAssessment: 'GOOD',
+        attachments: <AssessmentMediaRole, AssessmentAttachment>{
+          AssessmentMediaRole.upstreamPhoto: AssessmentAttachment(
+            filename: 'upstream.jpg',
+            bytes: Uint8List.fromList(<int>[1, 2, 3]),
+          ),
+        },
+      ),
+    );
+
+    expect(outcome.queued, isTrue);
+    expect((await repository.queuedSubmissions()).single.uploadedFileIds,
+        <AssessmentMediaRole, String>{AssessmentMediaRole.upstreamPhoto: 'FILE-1'});
+
+    final restartedRepository = LiveAssessmentRepository(
+      api: LiveApiClient(
+        client: client,
+        tokenStore: MemoryTokenStore(
+          _jwt(<String, Object?>{'username': 'river-user', 'exp': 2100000000}),
+        ),
+        baseUri: testBase,
+      ),
+      auth: const _StaticAuthRepository('river-user'),
+      preferences: preferences,
+      now: () => now,
+    );
+    expect(await restartedRepository.queuedSubmissions(), hasLength(1));
+
+    await restartedRepository.retryQueued(force: true);
+
+    expect(await restartedRepository.queuedSubmissions(), isEmpty);
+    expect(uploadAttempts, 1);
+    expect(submitAttempts, 2);
+  });
 }
 
 String _jwt(Map<String, Object?> claims) {

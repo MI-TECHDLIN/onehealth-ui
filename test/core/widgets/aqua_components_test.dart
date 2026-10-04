@@ -1,4 +1,7 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:onehealth_ui/core/mascot/aqua_mascot.dart';
 import 'package:onehealth_ui/core/widgets/aqua_components.dart';
@@ -225,6 +228,41 @@ void main() {
 
     expect(find.byType(ReducedMotionLottie), findsOneWidget);
     expect(tester.widget<AquaMascot>(find.byType(AquaMascot)).mood, MascotMood.celebrating);
+  });
+
+  testWidgets('celebration Lottie paints non-transparent pixels mid-animation', (
+    tester,
+  ) async {
+    const repaintKey = Key('celebrationLottieBoundary');
+    await tester.pumpWidget(
+      _app(
+        const RepaintBoundary(
+          key: repaintKey,
+          child: SizedBox.square(
+            dimension: 220,
+            child: ReducedMotionLottie(
+              asset: 'assets/animations/celebration-burst.json',
+              semanticLabel: 'Celebration burst',
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    final boundary = tester.renderObject<RenderRepaintBoundary>(
+      find.byKey(repaintKey),
+    );
+    final image = await boundary.toImage(pixelRatio: 1);
+    final bytes = await image.toByteData(format: ui.ImageByteFormat.rawRgba);
+    expect(bytes, isNotNull);
+    final pixelBytes = bytes!;
+    var paintedPixels = 0;
+    for (var offset = 3; offset < pixelBytes.lengthInBytes; offset += 4) {
+      if (pixelBytes.getUint8(offset) != 0) paintedPixels++;
+    }
+    expect(paintedPixels, greaterThan(100));
   });
 
   testWidgets('badges render locked, unlocked, new and reveal states', (

@@ -14,6 +14,7 @@ enum FriendlyErrorKind {
   unauthorized,
   noConnection,
   payloadTooLarge,
+  permissionDenied,
   serverError,
   unknown,
 }
@@ -31,6 +32,9 @@ abstract final class FriendlyError {
 
   static const String payloadTooLarge =
       "That file is too large. Try a smaller file, or crop it down before uploading.";
+
+  static const String permissionDenied =
+      "Camera or photo access is off. Open app settings to allow it, then try again.";
 
   static const String serverError =
       "Something went wrong on our end — not yours. Try again in a moment.";
@@ -55,6 +59,8 @@ abstract final class FriendlyError {
         return noConnection;
       case FriendlyErrorKind.payloadTooLarge:
         return payloadTooLarge;
+      case FriendlyErrorKind.permissionDenied:
+        return permissionDenied;
       case FriendlyErrorKind.serverError:
         return serverError;
       case FriendlyErrorKind.unknown:
@@ -74,6 +80,16 @@ abstract final class FriendlyError {
       return isSignIn ? FriendlyErrorKind.invalidCredentials : FriendlyErrorKind.unauthorized;
     }
     if (statusCode == 413) return FriendlyErrorKind.payloadTooLarge;
+    final errorText = error?.toString().toLowerCase() ?? '';
+    if (statusCode == null &&
+        (errorText.contains('permission') ||
+            errorText.contains('access_denied') ||
+            errorText.contains('camera_access') ||
+            errorText.contains('cameraaccessdenied') ||
+            errorText.contains('camera access denied') ||
+            errorText.contains('photo_access'))) {
+      return FriendlyErrorKind.permissionDenied;
+    }
     if (statusCode != null && statusCode >= 500 && statusCode < 600) {
       return FriendlyErrorKind.serverError;
     }

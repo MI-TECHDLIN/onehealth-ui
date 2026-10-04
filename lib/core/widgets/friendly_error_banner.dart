@@ -12,6 +12,7 @@ class FriendlyErrorBanner extends StatelessWidget {
     super.key,
     required this.message,
     this.onRetry,
+    this.retryLabel = 'Retry',
     this.mood,
     this.title,
     this.onDismiss,
@@ -24,6 +25,7 @@ class FriendlyErrorBanner extends StatelessWidget {
 
   /// Optional retry action surfaced next to the message.
   final VoidCallback? onRetry;
+  final String retryLabel;
 
   /// Optional mascot override. When omitted, concerned Ripple is shown.
   final Widget? mood;
@@ -76,7 +78,7 @@ class FriendlyErrorBanner extends StatelessWidget {
             if (onRetry != null)
               TextButton(
                 onPressed: onRetry,
-                child: const Text('Retry'),
+                child: Text(retryLabel),
               ),
             if (onDismiss != null)
               IconButton(
