@@ -57,12 +57,14 @@ class ProfileScreen extends StatelessWidget {
                   ? const SizedBox.shrink()
                   : ListTile(
                       leading: const Icon(Icons.verified_user_outlined),
-                      title: Text(
-                        strings.authSignedInAs(snapshot.data!.username),
+                      title: Text(snapshot.data!.displayName),
+                      subtitle: Text(
+                        <String>[
+                          strings.authSignedInAs(snapshot.data!.username),
+                          if (snapshot.data!.email != null)
+                            snapshot.data!.email!,
+                        ].join('\n'),
                       ),
-                      subtitle: snapshot.data!.email == null
-                          ? null
-                          : Text(snapshot.data!.email!),
                     ),
             ),
             const SizedBox(height: AppSpacing.md),

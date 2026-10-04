@@ -11,11 +11,12 @@ class LiveApiClient {
   LiveApiClient({
     required http.Client client,
     required TokenStore tokenStore,
-    this.baseUri = productionBaseUri,
+    Uri? baseUri,
     this.onUnauthorized,
     DateTime Function()? now,
   }) : _client = client,
        _tokenStore = tokenStore,
+       baseUri = baseUri ?? productionBaseUri,
        _now = now ?? DateTime.now;
 
   static final Uri productionBaseUri = Uri.parse('https://api.enora-oah.eu/');
