@@ -83,6 +83,24 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   keep every test on a fake client/base URI. Demo assessment/reference content
   comes from the bundled `assets/data/assessment-content.json` and must never
   fall through to Live networking.
+- The map home (`lib/features/home/home_map_screen.dart`) and site detail
+  (`site_detail_screen.dart`) use `maplibre_gl` over OpenFreeMap tiles, with the
+  bundled light/dark "water-first" style JSON at `assets/map/`
+  (`lib/core/map/map_style.dart` picks the asset by `Theme.of(context).brightness`).
+  Never build a real `MapLibreMap`/`StreamMapView` in a widget test — it stands
+  up a native platform view with no channel handler in `flutter_test` and will
+  fail. Go through the `StreamMapViewBuilder` seam instead: `HomeMapScreen`
+  takes a `mapViewBuilder` and `OneHealthApp`/`createAppRouter` take a matching
+  `homeMapViewBuilder` all the way from the router, so tests can pass a plain
+  stand-in widget (see `test/features/home/*_test.dart` and the
+  `homeMapViewBuilder` override in `test/widget_test.dart` /
+  `test/features/shell/localized_shell_test.dart`). "Needs data"/"Visited" are
+  derived client-side from the signed-in citizen's own assessment history
+  (`AssessmentRepository.history()` filtered by site code) — there is no
+  aggregate-across-researchers signal available to the client.
+- `geolocator`, `maplibre_gl`, `phosphor_flutter`, and `url_launcher` joined
+  `pubspec.yaml` for the map/site-detail work; the same Flutter/Dart
+  compatibility check above applies before bumping any of them.
 
 ## Maintaining this file
 

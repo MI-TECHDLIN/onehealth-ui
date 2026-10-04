@@ -8,6 +8,7 @@ import 'core/settings/app_settings_controller.dart';
 import 'core/theme/app_theme.dart';
 import 'data/repositories/repository_bundle.dart';
 import 'data/repositories/repository_scope.dart';
+import 'features/home/stream_map_view.dart';
 import 'l10n/generated/app_localizations.dart';
 
 Future<void> main() async {
@@ -31,6 +32,7 @@ class OneHealthApp extends StatefulWidget {
     this.liveRepositories,
     this.repositoryPreferences,
     this.applyGoogleFonts = true,
+    this.homeMapViewBuilder,
   });
 
   final AppSettingsController? settings;
@@ -38,6 +40,10 @@ class OneHealthApp extends StatefulWidget {
   final RepositoryBundle? liveRepositories;
   final AppPreferences? repositoryPreferences;
   final bool applyGoogleFonts;
+
+  /// Overrides the map home's native MapLibre view; see
+  /// `createAppRouter`'s `homeMapViewBuilder` for why tests need this.
+  final StreamMapViewBuilder? homeMapViewBuilder;
 
   @override
   State<OneHealthApp> createState() => _OneHealthAppState();
@@ -69,6 +75,7 @@ class _OneHealthAppState extends State<OneHealthApp> {
           : AppRoutes.onboarding,
       settings: _settings,
       liveAuth: _liveRepositories.auth,
+      homeMapViewBuilder: widget.homeMapViewBuilder,
     );
   }
 
