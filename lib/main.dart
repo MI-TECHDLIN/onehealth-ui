@@ -35,7 +35,11 @@ class OneHealthApp extends StatefulWidget {
 class _OneHealthAppState extends State<OneHealthApp> {
   late final AppSettingsController _settings =
       widget.settings ?? AppSettingsController.memory();
-  late final _router = createAppRouter();
+  late final _router = createAppRouter(
+    initialLocation: _settings.onboardingComplete
+        ? AppRoutes.home
+        : AppRoutes.onboarding,
+  );
   late final RepositoryBundle _demoRepositories = RepositoryBundle.demo();
 
   bool get _ownsSettings => widget.settings == null;

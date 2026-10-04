@@ -44,4 +44,51 @@ void main() {
   test('mode-owned storage namespaces cannot collide', () {
     expect(AppMode.demo.storageNamespace, isNot(AppMode.live.storageNamespace));
   });
+
+  test('onboarding defaults to not complete and read-aloud defaults to on', () {
+    final controller = AppSettingsController.memory();
+    addTearDown(controller.dispose);
+
+    expect(controller.onboardingComplete, isFalse);
+    expect(controller.readAloudEnabled, isTrue);
+  });
+
+  test('completeOnboarding persists and is idempotent', () async {
+    final preferences = MemoryAppPreferences();
+    final controller = AppSettingsController(preferences: preferences);
+    addTearDown(controller.dispose);
+    await controller.load();
+
+    await controller.completeOnboarding();
+    expect(controller.onboardingComplete, isTrue);
+    expect(
+      await preferences.readString(
+        AppSettingsController.onboardingCompleteKey,
+      ),
+      'true',
+    );
+
+    // A second call must not throw or flip anything back.
+    await controller.completeOnboarding();
+    expect(controller.onboardingComplete, isTrue);
+  });
+
+  test('setReadAloudEnabled persists the remembered preference', () async {
+    final preferences = MemoryAppPreferences();
+    final controller = AppSettingsController(preferences: preferences);
+    addTearDown(controller.dispose);
+    await controller.load();
+
+    await controller.setReadAloudEnabled(false);
+    expect(controller.readAloudEnabled, isFalse);
+    expect(
+      await preferences.readString(AppSettingsController.readAloudEnabledKey),
+      'false',
+    );
+
+    final reloaded = AppSettingsController(preferences: preferences);
+    addTearDown(reloaded.dispose);
+    await reloaded.load();
+    expect(reloaded.readAloudEnabled, isFalse);
+  });
 }
