@@ -14,10 +14,10 @@ abstract final class ThirdPartyCredits {
       website: 'https://www.dicebear.com',
     ),
     ThirdPartyCredit(
-      name: 'Open Peeps',
-      notice: 'Avatar artwork by Pablo Stanley, remixed by DiceBear',
-      license: 'CC0 1.0',
-      website: 'https://www.openpeeps.com',
+      name: 'Avataaars',
+      notice: 'Avataaars by Pablo Stanley, remixed by DiceBear',
+      license: 'Free for personal and commercial use',
+      website: 'https://avataaars.com/',
     ),
     ThirdPartyCredit(
       name: 'Phosphor Icons',

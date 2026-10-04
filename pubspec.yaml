@@ -43,7 +43,7 @@ dependencies:
   http: ^1.6.0
   intl: ^0.20.2
   just_audio: ^0.10.6
-  maplibre_gl: ^0.27.1
+  maplibre_gl: ^0.22.0
   phosphor_flutter: ^2.1.0
   shared_preferences: ^2.5.5
   url_launcher: ^6.3.3

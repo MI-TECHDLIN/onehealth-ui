@@ -91,10 +91,15 @@ Authentication, Live data, and avatars:
 41. During a slow sign-in - controls are disabled, thinking Ripple appears, and
     “Signing you in…” is announced. Toggle password visibility before retrying.
 42. Complete a first successful sign-in - Choose your avatar appears once with
-    a three-column grid; only the selected portrait is in colour and has a check.
+    a three-column grid of 12 centred, forward-facing, happy portraits; only the
+    selected portrait is in colour and has a check. Confirm the set varies skin
+    tone, hair, hijab, turban, facial hair, glasses, and clothing without any
+    sad, angry, worried, or surprised expressions.
 43. Choose “Do this later” after clearing app data - an avatar is assigned and
     persists after restart. Change it later from You/Profile and confirm the new
-    choice persists.
+    choice persists. Open Settings -> Credits - Avataaars is attributed to
+    Pablo Stanley, remixed by DiceBear, and marked free for personal and
+    commercial use; Open Peeps is no longer listed.
 44. In Live mode, load sites with location available - curated and
     user-generated sites are combined and ordered nearest-first. Create a test
     site only with an owner-approved test account.
