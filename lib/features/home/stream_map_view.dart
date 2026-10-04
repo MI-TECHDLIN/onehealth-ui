@@ -55,8 +55,22 @@ class StreamMapView extends StatefulWidget {
 }
 
 class _StreamMapViewState extends State<StreamMapView> {
+  static const Duration _duplicateTapWindow = Duration(milliseconds: 300);
+
   MapLibreMapController? _controller;
   bool _styleReady = false;
+  final Stopwatch _tapClock = Stopwatch()..start();
+  math.Point<double>? _lastTapPoint;
+  int? _lastTapMilliseconds;
+
+  late final OnFeatureInteractionCallback _featureTapListener =
+      _onFeatureTapped;
+
+  @override
+  void dispose() {
+    _controller?.onFeatureTapped.remove(_featureTapListener);
+    super.dispose();
+  }
 
   @override
   void didUpdateWidget(StreamMapView oldWidget) {
@@ -109,7 +123,9 @@ class _StreamMapViewState extends State<StreamMapView> {
   }
 
   void _onMapCreated(MapLibreMapController controller) {
+    _controller?.onFeatureTapped.remove(_featureTapListener);
     _controller = controller;
+    controller.onFeatureTapped.add(_featureTapListener);
     widget.onControllerReady(controller);
   }
 
@@ -195,6 +211,35 @@ class _StreamMapViewState extends State<StreamMapView> {
   }
 
   Future<void> _onMapClick(math.Point<double> point, LatLng coordinates) async {
+    await _handleMapTap(point, coordinates);
+  }
+
+  void _onFeatureTapped(
+    dynamic _,
+    math.Point<double> point,
+    LatLng coordinates,
+    String layerId,
+  ) {
+    if (!isStreamMapInteractiveLayer(layerId)) return;
+    unawaited(_handleMapTap(point, coordinates));
+  }
+
+  Future<void> _handleMapTap(
+    math.Point<double> point,
+    LatLng coordinates,
+  ) async {
+    // Some MapLibre platforms may emit both callbacks for one interactive
+    // feature. Collapse that pair before it can select or zoom twice.
+    final now = _tapClock.elapsedMilliseconds;
+    final lastTapMilliseconds = _lastTapMilliseconds;
+    if (_lastTapPoint == point &&
+        lastTapMilliseconds != null &&
+        now - lastTapMilliseconds <= _duplicateTapWindow.inMilliseconds) {
+      return;
+    }
+    _lastTapPoint = point;
+    _lastTapMilliseconds = now;
+
     final controller = _controller;
     if (controller == null) return;
     final features = await controller.queryRenderedFeatures(point, <String>[
@@ -204,7 +249,8 @@ class _StreamMapViewState extends State<StreamMapView> {
     if (features.isEmpty) return;
 
     final feature = features.first as Map;
-    final properties = (feature['properties'] as Map?) ?? const <String, Object?>{};
+    final properties =
+        (feature['properties'] as Map?) ?? const <String, Object?>{};
 
     if (properties.containsKey('point_count')) {
       await _zoomIntoCluster(controller, feature, properties, coordinates);
@@ -240,6 +286,13 @@ class _StreamMapViewState extends State<StreamMapView> {
     );
   }
 }
+
+/// Whether a MapLibre feature callback belongs to a layer whose tap should be
+/// routed through the stream-map rendered-feature query.
+bool isStreamMapInteractiveLayer(String layerId) =>
+    layerId == SiteMapLayers.clusterCircleLayerId ||
+    layerId == SiteMapLayers.clusterCountLayerId ||
+    layerId == SiteMapLayers.siteCircleLayerId;
 
 extension _FirstOrNull<T> on Iterable<T> {
   T? get firstOrNull => isEmpty ? null : first;
