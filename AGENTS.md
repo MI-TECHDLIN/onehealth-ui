@@ -144,6 +144,12 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   extra: streamSiteOrDraft)`; the Check tab's own `/check` route shows
   `CheckSitePickerScreen` instead. A missing/wrong-typed `extra` redirects
   home rather than crashing (see the `redirect:` on those `GoRoute`s).
+- The post-question field flow is `/check/photos` → `/check/review` →
+  `/check/celebration`. Photo compression/quality heuristics and GPS proximity
+  rules live under `lib/features/check/`; Live pending uploads, idempotency
+  receipts and retry backoff live in `assessment_repository.dart`. The camera
+  stack is deliberately pinned in `pubspec.yaml` to its API-23-compatible line;
+  do not loosen those pins without rechecking Android minimum-SDK constraints.
 
 ## Maintaining this file
 

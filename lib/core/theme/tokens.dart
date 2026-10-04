@@ -98,6 +98,9 @@ abstract final class AppOpacity {
   static const double disabled = 0.46;
   static const double pressedOverlay = 0.12;
   static const double scrim = 0.48;
+  static const double cameraPreviewScrim = 0.12;
+  static const double cameraControl = 0.66;
+  static const double cameraMenu = 0.82;
 }
 
 abstract final class AppStrokes {
@@ -146,6 +149,14 @@ abstract final class AppSizes {
   static const double raisedNavigationAction = 58;
   static const double navigationIcon = 24;
   static const double placeholderIllustration = 112;
+  static const double photoAspectRatio = 4 / 3;
+  static const double cameraPanelHeightFactor = 0.72;
+  static const double cameraBackdropBlur = 10;
+  static const double cameraShutter = 78;
+  static const double cameraFrameTopInset = 92;
+  static const double cameraFrameBottomInset = 126;
+  static const double cameraMessageBottomInset = 112;
+  static const double cameraOptionsBottomInset = 96;
 }
 
 abstract final class AppMotion {

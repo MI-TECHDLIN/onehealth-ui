@@ -32,6 +32,30 @@ abstract final class ThirdPartyCredits {
       website: 'https://github.com/EkType/Baloo2',
     ),
     ThirdPartyCredit(
+      name: 'Flutter camera',
+      notice: 'In-app field photo preview and capture',
+      license: 'BSD 3-Clause License',
+      website: 'https://pub.dev/packages/camera',
+    ),
+    ThirdPartyCredit(
+      name: 'Flutter image_picker',
+      notice: 'Device photo-library selection',
+      license: 'BSD 3-Clause / Apache 2.0',
+      website: 'https://pub.dev/packages/image_picker',
+    ),
+    ThirdPartyCredit(
+      name: 'Dart image',
+      notice: 'On-device photo compression and quality analysis',
+      license: 'MIT License',
+      website: 'https://pub.dev/packages/image',
+    ),
+    ThirdPartyCredit(
+      name: 'connectivity_plus',
+      notice: 'Connectivity changes used to retry queued field checks',
+      license: 'BSD 3-Clause License',
+      website: 'https://pub.dev/packages/connectivity_plus',
+    ),
+    ThirdPartyCredit(
       name: 'Piper — "alba" voice (en_GB, medium)',
       notice:
           'Onboarding narration synthesized offline with the open-source '

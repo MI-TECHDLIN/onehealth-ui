@@ -22,6 +22,21 @@ void main() {
     );
   });
 
+  test('flags a smooth gradient as blurry', () {
+    final image = img.Image(width: 96, height: 96);
+    for (var y = 0; y < image.height; y++) {
+      for (var x = 0; x < image.width; x++) {
+        final value = 55 + (x * 150 ~/ image.width);
+        image.setPixelRgb(x, y, value, value, value);
+      }
+    }
+
+    expect(
+      PhotoProcessor.analyze(image).issues,
+      contains(PhotoQualityIssue.blurry),
+    );
+  });
+
   test('accepts a detailed, normally exposed checker pattern', () {
     final image = img.Image(width: 96, height: 96);
     for (var y = 0; y < image.height; y++) {

@@ -1,5 +1,17 @@
 import '../../data/repositories/repository_models.dart';
 
+enum CompletenessField {
+  upstreamPhoto,
+  downstreamPhoto,
+  channelForm,
+  streambedType,
+  bankType,
+  waterFlow,
+  waterAppearance,
+  habitatObservations,
+  marginVegetation,
+}
+
 class AssessmentCompleteness {
   const AssessmentCompleteness({
     required this.completed,
@@ -9,33 +21,45 @@ class AssessmentCompleteness {
 
   final int completed;
   final int total;
-  final String? mostValuableMissingField;
+  final CompletenessField? mostValuableMissingField;
 
   double get fraction => total == 0 ? 1 : completed / total;
 }
 
 abstract final class AssessmentCompletenessMeter {
   static AssessmentCompleteness evaluate(AssessmentDraft draft) {
-    final fields = <({String name, bool present})>[
-      (name: 'upstream photo', present: draft.attachments.containsKey(AssessmentMediaRole.upstreamPhoto)),
-      (name: 'downstream photo', present: draft.attachments.containsKey(AssessmentMediaRole.downstreamPhoto)),
-      (name: 'channel form', present: draft.channelForm != null),
-      (name: 'streambed type', present: draft.bottomChannelType != null),
-      (name: 'bank type', present: draft.banksChannelType != null),
-      (name: 'water flow', present: draft.waterFlow != null),
-      (name: 'water appearance', present: draft.waterColor != null),
-      (name: 'habitat observations', present: draft.habitats.isNotEmpty),
+    final fields = <({CompletenessField field, bool present})>[
       (
-        name: 'margin vegetation',
+        field: CompletenessField.upstreamPhoto,
+        present: draft.attachments.containsKey(AssessmentMediaRole.upstreamPhoto),
+      ),
+      (
+        field: CompletenessField.downstreamPhoto,
+        present: draft.attachments.containsKey(AssessmentMediaRole.downstreamPhoto),
+      ),
+      (field: CompletenessField.channelForm, present: draft.channelForm != null),
+      (
+        field: CompletenessField.streambedType,
+        present: draft.bottomChannelType != null,
+      ),
+      (field: CompletenessField.bankType, present: draft.banksChannelType != null),
+      (field: CompletenessField.waterFlow, present: draft.waterFlow != null),
+      (field: CompletenessField.waterAppearance, present: draft.waterColor != null),
+      (
+        field: CompletenessField.habitatObservations,
+        present: draft.habitats.isNotEmpty,
+      ),
+      (
+        field: CompletenessField.marginVegetation,
         present: draft.isVegetationCoveredLeft != null &&
             draft.isVegetationCoveredRight != null,
       ),
     ];
     final completed = fields.where((field) => field.present).length;
-    String? mostValuableMissingField;
+    CompletenessField? mostValuableMissingField;
     for (final field in fields) {
       if (!field.present) {
-        mostValuableMissingField = field.name;
+        mostValuableMissingField = field.field;
         break;
       }
     }

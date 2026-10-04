@@ -227,10 +227,11 @@ void main() {
       ),
       baseUri: testBase,
     );
+    final preferences = MemoryAppPreferences();
     final repository = LiveAssessmentRepository(
       api: api,
       auth: const _StaticAuthRepository('river-user'),
-      preferences: MemoryAppPreferences(),
+      preferences: preferences,
       now: () => now,
     );
     final draft = AssessmentDraft(
@@ -281,6 +282,7 @@ void main() {
   test('failed submissions queue with uploaded ids and retry without re-upload', () async {
     var submitAttempts = 0;
     var uploadAttempts = 0;
+    final preferences = MemoryAppPreferences();
     final client = MockClient((request) async {
       if (request.url.path == '/api/files') {
         uploadAttempts++;
@@ -303,7 +305,7 @@ void main() {
         baseUri: testBase,
       ),
       auth: const _StaticAuthRepository('river-user'),
-      preferences: MemoryAppPreferences(),
+      preferences: preferences,
       now: () => now,
     );
     final outcome = await repository.submitOrQueue(
@@ -324,9 +326,23 @@ void main() {
     expect((await repository.queuedSubmissions()).single.uploadedFileIds,
         <AssessmentMediaRole, String>{AssessmentMediaRole.upstreamPhoto: 'FILE-1'});
 
-    await repository.retryQueued(force: true);
+    final restartedRepository = LiveAssessmentRepository(
+      api: LiveApiClient(
+        client: client,
+        tokenStore: MemoryTokenStore(
+          _jwt(<String, Object?>{'username': 'river-user', 'exp': 2100000000}),
+        ),
+        baseUri: testBase,
+      ),
+      auth: const _StaticAuthRepository('river-user'),
+      preferences: preferences,
+      now: () => now,
+    );
+    expect(await restartedRepository.queuedSubmissions(), hasLength(1));
 
-    expect(await repository.queuedSubmissions(), isEmpty);
+    await restartedRepository.retryQueued(force: true);
+
+    expect(await restartedRepository.queuedSubmissions(), isEmpty);
     expect(uploadAttempts, 1);
     expect(submitAttempts, 2);
   });

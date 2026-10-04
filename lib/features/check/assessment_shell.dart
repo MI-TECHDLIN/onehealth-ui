@@ -46,9 +46,14 @@ class _AssessmentPage {
 /// `/check/review` after the feelings step -- the next round's photo
 /// capture and real review/submit pick up from there.
 class AssessmentShell extends StatefulWidget {
-  const AssessmentShell({super.key, required this.site});
+  const AssessmentShell({
+    super.key,
+    required this.site,
+    this.initialPage,
+  });
 
   final StreamSite site;
+  final int? initialPage;
 
   @override
   State<AssessmentShell> createState() => _AssessmentShellState();
@@ -98,14 +103,21 @@ class _AssessmentShellState extends State<AssessmentShell> {
       }
     }
     final draft = existing ?? _freshDraft();
+    final pages = _buildPages(protocol);
     if (!mounted) return;
     setState(() {
       _protocol = protocol;
       _draft = draft;
-      _pages = _buildPages(protocol);
+      _pages = pages;
+      _pageIndex = (widget.initialPage ?? 0).clamp(
+        0,
+        pages.length - 1,
+      ).toInt();
       _loading = false;
     });
-    if (existing != null && existing.answeredQuestionIds.isNotEmpty) {
+    if (widget.initialPage == null &&
+        existing != null &&
+        existing.answeredQuestionIds.isNotEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) unawaited(_offerResume(existing!));
       });
@@ -118,6 +130,8 @@ class _AssessmentShellState extends State<AssessmentShell> {
     siteKind: widget.site.isUserGenerated ? SiteKind.userGenerated : SiteKind.research,
     latitude: widget.site.latitude,
     longitude: widget.site.longitude,
+    siteLatitude: widget.site.latitude,
+    siteLongitude: widget.site.longitude,
   );
 
   Future<void> _offerResume(AssessmentDraft existing) async {
@@ -463,7 +477,7 @@ class _AssessmentShellState extends State<AssessmentShell> {
   }
 
   void _handOff() {
-    context.go(AppRoutes.checkReview, extra: _draft);
+    context.go(AppRoutes.checkPhotos, extra: _draft);
   }
 
   Future<void> _confirmExit() async {

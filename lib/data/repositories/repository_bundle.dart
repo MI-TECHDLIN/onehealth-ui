@@ -31,11 +31,16 @@ class RepositoryBundle {
       contentSource: content,
     );
     unawaited(assessments.retryQueued());
-    Connectivity().onConnectivityChanged.listen((connections) {
-      if (connections.any((value) => value != ConnectivityResult.none)) {
-        unawaited(assessments.retryQueued());
-      }
-    });
+    Connectivity().onConnectivityChanged.listen(
+      (connections) {
+        if (connections.any((value) => value != ConnectivityResult.none)) {
+          unawaited(assessments.retryQueued());
+        }
+      },
+      // Platform channels are absent in widget tests; retries still run on
+      // app start and through the explicit Retry action there.
+      onError: (_) {},
+    );
     return RepositoryBundle(
       auth: DemoAuthRepository(),
       sites: DemoSiteRepository(),

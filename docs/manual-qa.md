@@ -223,10 +223,10 @@ Round 4: stream-check question flow (`lib/features/check/`):
     the same site's "Check this stream" - a "Pick up where you left off?"
     dialog offers to continue (restoring every prior answer) or start
     over (clears that site's draft back to blank).
-76. Reach the end of the feelings screen and tap Next - a "Your answers so
-    far" screen lists every answered question with its answer (or "Not
-    answered yet"/"Not sure"); this is a deliberate placeholder for the
-    next round's photo capture, review, and submit/celebration.
+76. Reach the end of the feelings screen and tap Next - the optional photo
+    step opens with upstream, downstream, surroundings and biodiversity
+    roles. "Take photo" immediately slides up the in-app live camera over a
+    blurred/dimmed screen; it never launches the system camera app.
 77. Turn on reduce motion and repeat next/back through a few questions -
     transitions become a short dissolve instead of the shared-axis slide.
 78. Switch to Arabic (or another RTL-capable locale) mid-flow - question
@@ -237,3 +237,39 @@ Round 4: stream-check question flow (`lib/features/check/`):
 Items 65-78 require on-device verification; the shell's navigation,
 gating, resume/start-over, and conditional-visibility logic are covered by
 `test/features/check/`.
+
+Round 4: capture, review, offline submit, and celebration:
+79. Open each photo role's camera - the current-role framing guide overlays a
+    live edge-to-edge preview in a rounded lower panel; Close, shutter, and
+    options controls float over the preview. Options can choose from gallery,
+    toggle flash, and switch cameras.
+80. Capture a photo - the same panel shows Retake and Use photo. Try a dark,
+    overexposed, blurry, and covered-lens shot: Ripple gives one plain reason
+    to retake, but Use photo remains available. Confirm accepted photos are
+    JPEG-compressed and survive saving/reopening the draft.
+81. Deny camera permission - a friendly in-panel message offers Open settings
+    and gallery fallback. Grant permission in settings and retry without
+    restarting the app. Turn on Reduce motion and confirm the camera panel
+    fades rather than slides.
+82. Continue from photos with a good location fix near the selected site - the
+    review opens without an extra warning. Test more than 300 m away and with
+    accuracy worse than 100 m - a dialog shows both distance and accuracy and
+    asks for explicit right-stream confirmation; canceling returns to photos.
+83. Review shows grouped Photos, Channel, Water, Margins, Stream health and
+    Your experience receipts, working Edit actions, consent copy, and a
+    completeness meter naming the highest-value missing optional detail.
+    Submit stays disabled if the required overall-health answer is absent.
+84. In Demo mode, submit in airplane mode - no network request occurs and the
+    celebration shows Ripple plus a real painted Lottie burst and a factual
+    receipt naming the site, photo count, research destination, and use.
+85. With an owner-approved test account only, submit in Live mode - raw photo
+    PUTs finish before the assessment PUT and a repeated tap/retry never
+    creates a second submission. Never point automated tests at production.
+86. Disconnect before Live submit - the review says the check is safely queued
+    with its photos. The Check tab shows each pending site with Retry now and
+    Discard. Reconnect and confirm automatic backoff retry removes the pending
+    indicator after success; restart while offline and confirm it remains.
+
+Items 79-86 require a physical Android device for camera/permission/location
+verification. Automated tests cover synthetic photo heuristics, proximity,
+completeness ranking, review gating, idempotent fake HTTP, and queue retry.

@@ -9,6 +9,7 @@ import '../../core/theme/tokens.dart';
 import '../../core/widgets/aqua_components.dart';
 import '../../core/widgets/friendly_error_banner.dart';
 import '../../data/repositories/repository_models.dart';
+import '../../data/repositories/assessment_repository.dart';
 import '../../data/repositories/repository_scope.dart';
 import '../../l10n/generated/app_localizations.dart';
 
@@ -24,6 +25,7 @@ class CheckSitePickerScreen extends StatefulWidget {
 
 class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
   Future<List<StreamSite>>? _sitesFuture;
+  Future<List<QueuedAssessment>>? _queueFuture;
   bool _addingSite = false;
   final TextEditingController _nameController = TextEditingController();
   double? _latitude;
@@ -34,6 +36,10 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _sitesFuture ??= RepositoryScope.of(context).repositories.sites.nearbySites();
+    final assessments = RepositoryScope.of(context).repositories.assessments;
+    if (_queueFuture == null && assessments is QueuedAssessmentRepository) {
+      _queueFuture = assessments.queuedSubmissions();
+    }
   }
 
   @override
@@ -84,6 +90,24 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
     context.push(AppRoutes.checkAssess, extra: site);
   }
 
+  Future<void> _retryQueue() async {
+    final repository = RepositoryScope.of(context).repositories.assessments;
+    if (repository is! QueuedAssessmentRepository) return;
+    await repository.retryQueued(force: true);
+    if (mounted) {
+      setState(() => _queueFuture = repository.queuedSubmissions());
+    }
+  }
+
+  Future<void> _discardQueued(String id) async {
+    final repository = RepositoryScope.of(context).repositories.assessments;
+    if (repository is! QueuedAssessmentRepository) return;
+    await repository.discardQueued(id);
+    if (mounted) {
+      setState(() => _queueFuture = repository.queuedSubmissions());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
@@ -98,6 +122,58 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
               padding: const EdgeInsets.all(AppSpacing.page),
               children: <Widget>[
                 Text(strings.checkPickSiteBody, style: Theme.of(context).textTheme.bodyLarge),
+                if (_queueFuture != null) ...<Widget>[
+                  const SizedBox(height: AppSpacing.md),
+                  FutureBuilder<List<QueuedAssessment>>(
+                    future: _queueFuture,
+                    builder: (context, queueSnapshot) {
+                      final queued = queueSnapshot.data ?? const <QueuedAssessment>[];
+                      if (queued.isEmpty) return const SizedBox.shrink();
+                      return Container(
+                        padding: const EdgeInsets.all(AppSpacing.md),
+                        decoration: BoxDecoration(
+                          color: AppColors.warningContainer,
+                          borderRadius: BorderRadius.circular(AppRadii.md),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                const Icon(
+                                  PhosphorIconsRegular.cloudArrowUp,
+                                  color: AppColors.warning,
+                                ),
+                                const SizedBox(width: AppSpacing.xs),
+                                Expanded(
+                                  child: Text(
+                                    strings.assessQueuePending(queued.length),
+                                    style: Theme.of(context).textTheme.labelLarge,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            for (final pending in queued)
+                              Row(
+                                children: <Widget>[
+                                  Expanded(child: Text(pending.draft.siteCode)),
+                                  TextButton(
+                                    onPressed: () => _discardQueued(pending.draft.id),
+                                    child: Text(strings.assessQueueDiscardAction),
+                                  ),
+                                ],
+                              ),
+                            AquaButton(
+                              label: strings.assessQueueRetryAction,
+                              variant: AquaButtonVariant.secondary,
+                              onPressed: _retryQueue,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
                 const SizedBox(height: AppSpacing.lg),
                 if (snapshot.connectionState == ConnectionState.waiting)
                   const Center(child: CircularProgressIndicator())

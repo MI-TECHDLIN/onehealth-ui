@@ -39,9 +39,9 @@ Future<RepositoryBundle> _pumpShell(
             const Scaffold(body: Text('home-placeholder')),
       ),
       GoRoute(
-        path: '/check/review',
+        path: '/check/photos',
         builder: (context, state) =>
-            const Scaffold(body: Text('review-placeholder')),
+            const Scaffold(body: Text('photos-placeholder')),
       ),
     ],
   );

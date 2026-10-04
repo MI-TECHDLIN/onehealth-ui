@@ -15,7 +15,10 @@ void main() {
 
     final completeness = AssessmentCompletenessMeter.evaluate(draft);
 
-    expect(completeness.mostValuableMissingField, 'upstream photo');
+    expect(
+      completeness.mostValuableMissingField,
+      CompletenessField.upstreamPhoto,
+    );
     expect(completeness.completed, 2);
     expect(completeness.total, 9);
   });
@@ -34,7 +37,7 @@ void main() {
 
     expect(
       AssessmentCompletenessMeter.evaluate(draft).mostValuableMissingField,
-      'downstream photo',
+      CompletenessField.downstreamPhoto,
     );
   });
 }

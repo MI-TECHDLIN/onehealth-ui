@@ -30,6 +30,9 @@ environment:
 dependencies:
   animations: ^2.2.0
   audio_session: ^0.2.4
+  camera: 0.11.0+2
+  camera_android_camerax: 0.6.18
+  camera_avfoundation: 0.9.21+2
   connectivity_plus: ^6.1.5
   flutter:
     sdk: flutter
@@ -43,7 +46,8 @@ dependencies:
   google_fonts: ^8.2.1
   http: ^1.6.0
   image: ^4.10.1
-  image_picker: ^1.2.3
+  image_picker: 1.1.2
+  image_picker_android: 0.8.12+17
   intl: ^0.20.2
   just_audio: ^0.10.6
   maplibre_gl: ^0.22.0
