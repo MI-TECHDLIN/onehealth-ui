@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/profile/avatar_catalog.dart';
@@ -219,7 +220,7 @@ class _AvatarChoice extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(AppSpacing.xxs),
                   child: const Icon(
-                    Icons.check_rounded,
+                    PhosphorIconsFill.check,
                     size: 18,
                     color: AppColors.white,
                   ),
