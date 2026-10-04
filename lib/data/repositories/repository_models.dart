@@ -131,6 +131,8 @@ class AssessmentDraft {
     this.serenity = 3,
     this.anger = 3,
     this.fear = 3,
+    this.notSureFieldIds = const <String>{},
+    this.answeredQuestionIds = const <String>{},
   });
 
   final String id;
@@ -167,6 +169,120 @@ class AssessmentDraft {
   final int serenity;
   final int anger;
   final int fear;
+
+  /// Question ids (matching `AssessmentQuestion.id`) the citizen explicitly
+  /// answered "I'm not sure" for -- tracked separately from the `null`
+  /// submission-contract fields above so a reopened draft can restore the
+  /// "not sure" chip as selected rather than showing the question as unset.
+  /// Purely a UI concern: it never reaches [toSubmissionJson].
+  final Set<String> notSureFieldIds;
+
+  /// Question ids the citizen has explicitly answered (including "I'm not
+  /// sure"), independent of any payload field's default value. This is what
+  /// "required" gating and the review hand-off's progress check key off,
+  /// since several payload fields (for example `overallAssessment`) carry a
+  /// non-null default that must not be mistaken for a deliberate answer.
+  final Set<String> answeredQuestionIds;
+
+  /// Builds a copy with the given fields replaced. Nullable fields accept an
+  /// explicit `null` to clear them (for example when a conditional question
+  /// like vegetation type must reset after its gate flips back to "No").
+  AssessmentDraft copyWith({
+    String? id,
+    String? siteCode,
+    SiteKind? siteKind,
+    double? latitude,
+    double? longitude,
+    Map<AssessmentMediaRole, AssessmentAttachment>? attachments,
+    Object? channelForm = _unset,
+    Object? bottomChannelType = _unset,
+    Object? banksChannelType = _unset,
+    List<String>? habitats,
+    List<String>? fallenBiomassTypes,
+    Object? waterFlow = _unset,
+    Object? waterColor = _unset,
+    Object? waterAbstraction = _unset,
+    Object? hasDams = _unset,
+    Object? numberOfDams = _unset,
+    Object? pipes = _unset,
+    Object? waterDischarge = _unset,
+    Object? construction = _unset,
+    Object? waterHeight = _unset,
+    Object? imperviousAreasLeft = _unset,
+    Object? imperviousAreasRight = _unset,
+    Object? isVegetationCoveredLeft = _unset,
+    Object? isVegetationCoveredRight = _unset,
+    Object? vegetationTypeLeft = _unset,
+    Object? vegetationTypeRight = _unset,
+    Object? hasInvasivePlantSpecies = _unset,
+    Object? invasivePlantSpecies = _unset,
+    Object? recentVegetationCuts = _unset,
+    String? overallAssessment,
+    int? joy,
+    int? serenity,
+    int? anger,
+    int? fear,
+    Set<String>? notSureFieldIds,
+    Set<String>? answeredQuestionIds,
+  }) => AssessmentDraft(
+    id: id ?? this.id,
+    siteCode: siteCode ?? this.siteCode,
+    siteKind: siteKind ?? this.siteKind,
+    latitude: latitude ?? this.latitude,
+    longitude: longitude ?? this.longitude,
+    attachments: attachments ?? this.attachments,
+    channelForm: _resolve(channelForm, this.channelForm),
+    bottomChannelType: _resolve(bottomChannelType, this.bottomChannelType),
+    banksChannelType: _resolve(banksChannelType, this.banksChannelType),
+    habitats: habitats ?? this.habitats,
+    fallenBiomassTypes: fallenBiomassTypes ?? this.fallenBiomassTypes,
+    waterFlow: _resolve(waterFlow, this.waterFlow),
+    waterColor: _resolve(waterColor, this.waterColor),
+    waterAbstraction: _resolve(waterAbstraction, this.waterAbstraction),
+    hasDams: _resolve(hasDams, this.hasDams),
+    numberOfDams: _resolve(numberOfDams, this.numberOfDams),
+    pipes: _resolve(pipes, this.pipes),
+    waterDischarge: _resolve(waterDischarge, this.waterDischarge),
+    construction: _resolve(construction, this.construction),
+    waterHeight: _resolve(waterHeight, this.waterHeight),
+    imperviousAreasLeft: _resolve(imperviousAreasLeft, this.imperviousAreasLeft),
+    imperviousAreasRight: _resolve(
+      imperviousAreasRight,
+      this.imperviousAreasRight,
+    ),
+    isVegetationCoveredLeft: _resolve(
+      isVegetationCoveredLeft,
+      this.isVegetationCoveredLeft,
+    ),
+    isVegetationCoveredRight: _resolve(
+      isVegetationCoveredRight,
+      this.isVegetationCoveredRight,
+    ),
+    vegetationTypeLeft: _resolve(vegetationTypeLeft, this.vegetationTypeLeft),
+    vegetationTypeRight: _resolve(
+      vegetationTypeRight,
+      this.vegetationTypeRight,
+    ),
+    hasInvasivePlantSpecies: _resolve(
+      hasInvasivePlantSpecies,
+      this.hasInvasivePlantSpecies,
+    ),
+    invasivePlantSpecies: _resolve(
+      invasivePlantSpecies,
+      this.invasivePlantSpecies,
+    ),
+    recentVegetationCuts: _resolve(
+      recentVegetationCuts,
+      this.recentVegetationCuts,
+    ),
+    overallAssessment: overallAssessment ?? this.overallAssessment,
+    joy: joy ?? this.joy,
+    serenity: serenity ?? this.serenity,
+    anger: anger ?? this.anger,
+    fear: fear ?? this.fear,
+    notSureFieldIds: notSureFieldIds ?? this.notSureFieldIds,
+    answeredQuestionIds: answeredQuestionIds ?? this.answeredQuestionIds,
+  );
 
   Map<String, Object?> toSubmissionJson({
     Map<AssessmentMediaRole, String> uploadedFileIds =
@@ -239,6 +355,8 @@ class AssessmentDraft {
       for (final entry in attachments.entries)
         entry.key.name: entry.value.toJson(),
     },
+    'notSureFieldIds': notSureFieldIds.toList(),
+    'answeredQuestionIds': answeredQuestionIds.toList(),
     ...toSubmissionJson(),
   };
 
@@ -289,6 +407,8 @@ class AssessmentDraft {
       serenity: (json['serenity'] as num?)?.toInt() ?? 3,
       anger: (json['anger'] as num?)?.toInt() ?? 3,
       fear: (json['fear'] as num?)?.toInt() ?? 3,
+      notSureFieldIds: _strings(json['notSureFieldIds']).toSet(),
+      answeredQuestionIds: _strings(json['answeredQuestionIds']).toSet(),
     );
   }
 }
@@ -455,6 +575,14 @@ bool _isNotSure(String value) {
   final normalized = value.toLowerCase().replaceAll("'", '').trim();
   return normalized == 'i am not sure' || normalized == 'im not sure';
 }
+
+/// Sentinel default for `copyWith` parameters typed `Object?` so a caller can
+/// pass an explicit `null` to clear a nullable field, while omitting the
+/// parameter entirely keeps the current value.
+const Object _unset = Object();
+
+T? _resolve<T>(Object? provided, T? current) =>
+    provided == _unset ? current : provided as T?;
 
 double _double(Object? value) => (value as num?)?.toDouble() ?? 0;
 double? _nullableDouble(Object? value) => (value as num?)?.toDouble();
