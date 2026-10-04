@@ -8,7 +8,12 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/errors/friendly_error.dart';
+import '../../core/gamification/reminder_rules.dart';
 import '../../core/mascot/aqua_mascot.dart';
+import '../../core/notifications/reminder_coordinator.dart';
+import '../../core/notifications/reminder_notifier.dart';
+import '../../core/settings/app_preferences.dart';
+import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/aqua_components.dart';
 import '../../core/widgets/friendly_error_banner.dart';
@@ -26,12 +31,17 @@ class HomeMapScreen extends StatefulWidget {
   const HomeMapScreen({
     super.key,
     this.mapViewBuilder = buildDefaultStreamMapView,
+    this.reminderCoordinator,
   });
 
   /// Swappable so widget tests can skip the native MapLibre view. Everything
   /// else on this screen (filters, loading/empty/offline/error states, the
   /// preview card) is ordinary Flutter and is tested directly.
   final StreamMapViewBuilder mapViewBuilder;
+
+  /// Overridable so tests can verify the gentle-reminder check without the
+  /// real notifications plugin; production constructs one lazily.
+  final ReminderCoordinator? reminderCoordinator;
 
   @override
   State<HomeMapScreen> createState() => _HomeMapScreenState();
@@ -46,7 +56,9 @@ class _HomeMapScreenState extends State<HomeMapScreen> {
   String? _errorMessage;
   bool _initialized = false;
   bool _locationGranted = false;
+  bool _reminderChecked = false;
   MapLibreMapController? _mapController;
+  ReminderCoordinator? _reminderCoordinator;
 
   @override
   void didChangeDependencies() {
@@ -211,6 +223,7 @@ class _HomeMapScreenState extends State<HomeMapScreen> {
         _visitedCodes = visited;
         _state = _LoadState.loaded;
       });
+      unawaited(_maybeShowReminder(sites));
     } catch (error) {
       if (!mounted) return;
       final failure = error is ApiFailure ? error : null;
@@ -222,6 +235,55 @@ class _HomeMapScreenState extends State<HomeMapScreen> {
         );
       });
     }
+  }
+
+  /// Checks once per screen mount whether a gentle reminder is due. Reads
+  /// its own history rather than reusing `_load`'s scoped result, since this
+  /// must survive being called again after a retry or a locate-me refresh
+  /// without re-firing -- see the `_reminderChecked` guard.
+  Future<void> _maybeShowReminder(List<StreamSite> sites) async {
+    if (_reminderChecked) return;
+    _reminderChecked = true;
+    if (!mounted) return;
+    // A plain `AppSettingsScope.of` would throw if a test pumps this screen
+    // without one (several existing ones do, predating this feature); skip
+    // quietly instead of crashing an unrelated test's async gap.
+    final settings = context
+        .dependOnInheritedWidgetOfExactType<AppSettingsScope>()
+        ?.notifier;
+    if (settings == null) return;
+    final mode = RepositoryScope.of(context).mode;
+    final strings = AppLocalizations.of(context);
+    List<AssessmentRecord> history;
+    try {
+      history = await RepositoryScope.of(context).repositories.assessments.history();
+    } catch (_) {
+      return;
+    }
+    if (!mounted) return;
+    final coordinator = _reminderCoordinator ??= widget.reminderCoordinator ??
+        ReminderCoordinator(
+          preferences: SharedPreferencesAppPreferences(),
+          notifier: LocalReminderNotifier(),
+        );
+    await coordinator.maybeNotify(
+      mode: mode,
+      remindersEnabled: settings.remindersEnabled,
+      history: history,
+      siteNamesByCode: <String, String>{
+        for (final site in sites) site.code: site.name,
+      },
+      buildMessage: (candidate) => switch (candidate.kind) {
+        ReminderKind.staleSite => (
+          title: strings.reminderStaleSiteTitle,
+          body: strings.reminderStaleSiteBody(candidate.siteName),
+        ),
+        ReminderKind.seasonalRevisit => (
+          title: strings.reminderSeasonalTitle,
+          body: strings.reminderSeasonalBody(candidate.siteName),
+        ),
+      },
+    );
   }
 
   Future<void> _locateMe() async {

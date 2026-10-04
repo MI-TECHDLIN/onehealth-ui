@@ -57,6 +57,12 @@ class DemoAssessmentRepository implements AssessmentRepository {
       longitude: draft.longitude,
       username: 'demo',
       overallAssessment: draft.overallAssessment,
+      habitats: draft.habitats,
+      // Demo never uploads files, but the evidence badges only need to know
+      // *which* media roles were captured, not a real server file id.
+      fileIds: <AssessmentMediaRole, String>{
+        for (final role in draft.attachments.keys) role: 'demo-${role.name}',
+      },
     );
     await _store.writeHistory(<AssessmentRecord>[...history, record]);
     await _store.removeDraft(draft.id);

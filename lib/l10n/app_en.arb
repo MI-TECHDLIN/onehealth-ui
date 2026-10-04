@@ -214,5 +214,81 @@
   "glossaryRiparianZoneTitle": "Riparian zone",
   "glossaryRiparianZoneExplanation": "The riparian zone -- also called the margin -- is the strip of land alongside a stream, usually covered by plants adapted to living near water.",
   "glossaryInvasiveSpeciesTitle": "Invasive species",
-  "glossaryInvasiveSpeciesExplanation": "An invasive species is a non-native plant or animal that spreads aggressively and can crowd out the local wildlife a healthy stream depends on."
+  "glossaryInvasiveSpeciesExplanation": "An invasive species is a non-native plant or animal that spreads aggressively and can crowd out the local wildlife a healthy stream depends on.",
+
+  "healthLevelGood": "Good",
+  "healthLevelModerate": "Moderate",
+  "healthLevelPoor": "Poor",
+  "healthLevelUnknown": "Not recorded",
+
+  "streamsEmptyTitle": "No checks yet",
+  "streamsEmptyBody": "When you check a stream, it will show up here with a simple record you can look back on.",
+  "streamsEmptyAction": "Check a stream",
+  "streamsSectionContinue": "Continue where you left off",
+  "streamsSectionHistory": "History",
+  "streamsDraftStatus": "Draft",
+  "streamsQueuedStatus": "Queued to upload",
+  "streamsContinueAction": "Continue",
+  "streamsReceiptTitle": "Check receipt",
+  "streamsReceiptSiteLabel": "Stream",
+  "streamsReceiptDateLabel": "Date",
+  "streamsReceiptOverallLabel": "Overall health",
+  "streamsReceiptPhotosLabel": "Photos included",
+  "streamsReceiptPhotosValue": "{count} of 4",
+  "@streamsReceiptPhotosValue": {
+    "description": "Count of the four photo roles present on a submitted check.",
+    "placeholders": {"count": {"type": "int"}}
+  },
+  "streamsReceiptCloseAction": "Close",
+
+  "siteDetailTimelineTitle": "Past checks",
+  "siteDetailTimelineEmpty": "No past checks yet for this stream.",
+
+  "profileStatsChecksThisSeason": "Checks this season",
+  "profileStatsStreamsCovered": "Streams covered",
+  "profileRhythmTitle": "Weekly rhythm",
+  "profileRhythmThisWeekDone": "This week: done",
+  "profileRhythmThisWeekPending": "This week: not yet",
+  "profileRhythmStreak": "{weeks}-week run",
+  "@profileRhythmStreak": {
+    "description": "Current run of active contribution weeks.",
+    "placeholders": {"weeks": {"type": "int"}}
+  },
+  "profileRhythmStreakNone": "No run yet — any check this week starts one",
+  "profileRhythmGraceAvailable": "One grace week still available if you need it",
+  "profileRhythmGraceUsed": "Grace week already used this run",
+  "profileBadgesTitle": "Evidence badges",
+  "profileBadgeNewSheetTitle": "Badge unlocked!",
+  "profileBadgeNewSheetCta": "Nice!",
+
+  "badgeFirstSignalName": "First signal",
+  "badgeFirstSignalCriterion": "Complete one check",
+  "badgeThreeStreamsName": "Three streams",
+  "badgeThreeStreamsCriterion": "Visit three streams",
+  "badgeHabitatEyeName": "Habitat eye",
+  "badgeHabitatEyeCriterion": "Revisit in another season",
+  "badgeClearViewName": "Clear view",
+  "badgeClearViewCriterion": "Complete a photo set",
+  "badgeBiodiversityObservationName": "Biodiversity observation",
+  "badgeBiodiversityObservationCriterion": "Capture an interesting biodiversity photo",
+
+  "settingsRemindersToggle": "Gentle reminders",
+  "settingsRemindersToggleDescription": "Occasional nudges for a stream you haven't checked in a while — at most once a week.",
+  "settingsCredits": "Credits",
+
+  "creditsTitle": "Credits",
+  "creditsIntro": "OneAquaHealth is built with the help of these open-source projects and resources.",
+
+  "reminderStaleSiteTitle": "Miss a stream?",
+  "reminderStaleSiteBody": "It's been a while since you checked {site}. A quick look keeps the record useful.",
+  "@reminderStaleSiteBody": {
+    "description": "Gentle reminder body for a site not checked in 30+ days.",
+    "placeholders": {"site": {"type": "String"}}
+  },
+  "reminderSeasonalTitle": "Time for a seasonal check?",
+  "reminderSeasonalBody": "The season has changed since your last check at {site}. A fresh look could reveal something new.",
+  "@reminderSeasonalBody": {
+    "description": "Gentle reminder body for a seasonal revisit nudge.",
+    "placeholders": {"site": {"type": "String"}}
+  }
 }

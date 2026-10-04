@@ -7,16 +7,22 @@ import '../../app/app_router.dart';
 import '../../core/haptics/app_haptics.dart';
 import '../../core/localization/app_locale.dart';
 import '../../core/mode/app_mode.dart';
+import '../../core/notifications/reminder_notifier.dart';
 import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/mode_badge.dart';
 import '../../debug/mascot_gallery_screen.dart';
 import '../../l10n/generated/app_localizations.dart';
+import 'credits_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key, this.haptics});
+  const SettingsScreen({super.key, this.haptics, this.reminderNotifier});
 
   final AppHaptics? haptics;
+
+  /// Overridable so tests can verify the permission flow without the real
+  /// plugin; production constructs a [LocalReminderNotifier] lazily.
+  final ReminderNotifier? reminderNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +73,34 @@ class SettingsScreen extends StatelessWidget {
             ),
             const SizedBox(height: AppSpacing.md),
             Card(
+              child: SwitchListTile.adaptive(
+                title: Text(strings.settingsRemindersToggle),
+                subtitle: Text(strings.settingsRemindersToggleDescription),
+                value: settings.remindersEnabled,
+                onChanged: (value) => _setRemindersEnabled(context, settings, value),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            Card(
               child: ListTile(
                 leading: const Icon(PhosphorIconsRegular.clockCounterClockwise),
                 title: Text(strings.onboardingSettingsReplay),
                 trailing: const Icon(PhosphorIconsRegular.caretRight),
                 onTap: () =>
                     context.push('${AppRoutes.onboarding}?replay=true'),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            Card(
+              child: ListTile(
+                leading: const Icon(PhosphorIconsRegular.info),
+                title: Text(strings.settingsCredits),
+                trailing: const Icon(PhosphorIconsRegular.caretRight),
+                onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const CreditsScreen(),
+                  ),
+                ),
               ),
             ),
             if (kDebugMode) ...<Widget>[
@@ -90,6 +118,19 @@ class SettingsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _setRemindersEnabled(
+    BuildContext context,
+    AppSettingsController settings,
+    bool enabled,
+  ) async {
+    if (enabled) {
+      // Asked only here -- the user just explicitly turned the feature on --
+      // never on first launch. See AGENTS.md and `ReminderCoordinator`.
+      await (reminderNotifier ?? LocalReminderNotifier()).ensurePermission();
+    }
+    await settings.setRemindersEnabled(enabled);
   }
 
   Future<void> _confirmModeChange(
