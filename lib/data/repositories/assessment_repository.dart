@@ -148,6 +148,8 @@ class LiveAssessmentRepository
   final _LocalAssessmentStore _store;
   final AssessmentContentSource _contentSource;
   final DateTime Function() _now;
+  final Map<String, Future<AssessmentRecord>> _inFlight =
+      <String, Future<AssessmentRecord>>{};
 
   @override
   Future<Map<String, dynamic>> contentForLocale(String languageCode) =>
@@ -189,7 +191,23 @@ class LiveAssessmentRepository
   Future<AssessmentRecord> submit(AssessmentDraft draft) async {
     final receipt = await _store.readReceipt(draft.id);
     if (receipt != null) return receipt;
-    return _performSubmit(draft);
+    return _coalesced(draft.id, () => _performSubmit(draft));
+  }
+
+  Future<AssessmentRecord> _coalesced(
+    String clientSubmissionId,
+    Future<AssessmentRecord> Function() operation,
+  ) {
+    final active = _inFlight[clientSubmissionId];
+    if (active != null) return active;
+    late final Future<AssessmentRecord> future;
+    future = operation().whenComplete(() {
+      if (identical(_inFlight[clientSubmissionId], future)) {
+        _inFlight.remove(clientSubmissionId);
+      }
+    });
+    _inFlight[clientSubmissionId] = future;
+    return future;
   }
 
   Future<AssessmentRecord> _performSubmit(
@@ -261,15 +279,18 @@ class LiveAssessmentRepository
       if (receipt != null) {
         return AssessmentSubmissionOutcome.submitted(receipt);
       }
-      final record = await _performSubmit(
-        draft,
-        onUpload: (uploadedIds) async {
-          queued = QueuedAssessment(
-            draft: draft,
-            uploadedFileIds: uploadedIds,
-          );
-          await _store.saveQueued(queued);
-        },
+      final record = await _coalesced(
+        draft.id,
+        () => _performSubmit(
+          draft,
+          onUpload: (uploadedIds) async {
+            queued = QueuedAssessment(
+              draft: draft,
+              uploadedFileIds: uploadedIds,
+            );
+            await _store.saveQueued(queued);
+          },
+        ),
       );
       return AssessmentSubmissionOutcome.submitted(record);
     } catch (_) {
@@ -298,18 +319,21 @@ class LiveAssessmentRepository
         continue;
       }
       try {
-        await _performSubmit(
-          queued.draft,
-          uploadedFileIds: queued.uploadedFileIds,
-          onUpload: (uploadedIds) async {
-            queued = QueuedAssessment(
-              draft: queued.draft,
-              uploadedFileIds: uploadedIds,
-              attempts: queued.attempts,
-              lastAttemptAt: queued.lastAttemptAt,
-            );
-            await _store.saveQueued(queued);
-          },
+        await _coalesced(
+          queued.draft.id,
+          () => _performSubmit(
+            queued.draft,
+            uploadedFileIds: queued.uploadedFileIds,
+            onUpload: (uploadedIds) async {
+              queued = QueuedAssessment(
+                draft: queued.draft,
+                uploadedFileIds: uploadedIds,
+                attempts: queued.attempts,
+                lastAttemptAt: queued.lastAttemptAt,
+              );
+              await _store.saveQueued(queued);
+            },
+          ),
         );
       } catch (_) {
         await _store.saveQueued(

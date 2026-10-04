@@ -101,6 +101,7 @@ abstract final class AppOpacity {
   static const double cameraPreviewScrim = 0.12;
   static const double cameraControl = 0.66;
   static const double cameraMenu = 0.82;
+  static const double photoPlaceholder = 0.8;
 }
 
 abstract final class AppStrokes {

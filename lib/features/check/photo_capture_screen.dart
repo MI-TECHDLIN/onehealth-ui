@@ -409,7 +409,9 @@ class _PhotoRoleCard extends StatelessWidget {
                         child: Icon(
                           PhosphorIconsRegular.camera,
                           size: AppSpacing.xxl,
-                          color: AppColors.white.withValues(alpha: 0.8),
+                          color: AppColors.white.withValues(
+                            alpha: AppOpacity.photoPlaceholder,
+                          ),
                         ),
                       ),
                     )

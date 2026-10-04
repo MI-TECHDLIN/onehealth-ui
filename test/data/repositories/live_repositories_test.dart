@@ -256,8 +256,10 @@ void main() {
       fear: 3,
     );
 
-    await repository.submit(draft);
-    await repository.submit(draft);
+    await Future.wait(<Future<AssessmentRecord>>[
+      repository.submit(draft),
+      repository.submit(draft),
+    ]);
 
     expect(calls.take(2), <String>[
       'PUT /api/files',
@@ -290,7 +292,14 @@ void main() {
       }
       if (request.url.path == '/api/citizens/submit') {
         submitAttempts++;
-        expect(request.headers['x-idempotency-key'], 'client-submission-1');
+        expect(
+          request.headers.entries
+              .singleWhere(
+                (header) => header.key.toLowerCase() == 'x-idempotency-key',
+              )
+              .value,
+          'client-submission-1',
+        );
         if (submitAttempts == 1) return http.Response('', 503);
         return http.Response(jsonEncode(<String, Object?>{'id': 'REC-1'}), 200);
       }

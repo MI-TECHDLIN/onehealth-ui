@@ -228,9 +228,16 @@
   "assessGpsUnavailableTitle": "Location check unavailable",
   "assessGpsUnavailableBody": "Your location couldn't be checked. You can try again or confirm the selected stream yourself.",
   "assessGpsContinueWithoutAction": "Confirm and continue",
+  "assessGpsResult": "{distance} m from the selected site · {accuracy} m accuracy",
+  "@assessGpsResult": {
+    "placeholders": {"distance": {"type": "int"}, "accuracy": {"type": "int"}}
+  },
+  "assessGpsManuallyConfirmed": "Selected stream confirmed without a GPS fix",
+  "assessGpsNotChecked": "Location has not been confirmed yet",
   "assessReviewTitle": "Review your stream check",
   "assessReviewBody": "Check what will be recorded before you submit.",
   "assessReviewPhotosGroup": "Photos",
+  "assessReviewLocationGroup": "Right-stream check",
   "assessReviewChannelGroup": "Channel",
   "assessReviewWaterGroup": "Water",
   "assessReviewMarginsGroup": "Margins",

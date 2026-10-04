@@ -121,6 +121,23 @@ class _AssessmentReviewScreenState extends State<AssessmentReviewScreen> {
                   summary: strings.assessReviewPhotoCount(widget.draft.attachments.length),
                   onEdit: () => context.go(AppRoutes.checkPhotos, extra: widget.draft),
                 ),
+                _ReviewGroup(
+                  title: strings.assessReviewLocationGroup,
+                  icon: PhosphorIconsRegular.mapPin,
+                  summary: !widget.draft.gpsConfirmed
+                      ? strings.assessGpsNotChecked
+                      : widget.draft.gpsDistanceMeters == null ||
+                          widget.draft.gpsAccuracyMeters == null
+                      ? strings.assessGpsManuallyConfirmed
+                      : strings.assessGpsResult(
+                          widget.draft.gpsDistanceMeters!.round(),
+                          widget.draft.gpsAccuracyMeters!.round(),
+                        ),
+                  onEdit: () => context.go(
+                    AppRoutes.checkPhotos,
+                    extra: widget.draft,
+                  ),
+                ),
                 _QuestionGroup(
                   title: strings.assessReviewChannelGroup,
                   icon: PhosphorIconsRegular.path,
@@ -385,6 +402,9 @@ String _answerSummary(
   AssessmentQuestion question,
 ) {
   if (draft.isNotSure(question.id)) return strings.assessReviewNotSure;
+  if (question.required && !draft.answeredQuestionIds.contains(question.id)) {
+    return strings.assessReviewUnanswered;
+  }
   switch (question.type) {
     case AssessmentFieldType.singleChoice:
     case AssessmentFieldType.overallChoice:
