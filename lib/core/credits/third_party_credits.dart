@@ -20,6 +20,18 @@ abstract final class ThirdPartyCredits {
       website: 'https://www.openpeeps.com',
     ),
     ThirdPartyCredit(
+      name: 'Phosphor Icons',
+      notice: 'App icons use the Phosphor icon family',
+      license: 'MIT License',
+      website: 'https://phosphoricons.com',
+    ),
+    ThirdPartyCredit(
+      name: 'Baloo 2',
+      notice: 'Headings, titles and buttons use the Baloo 2 typeface',
+      license: 'SIL Open Font License 1.1',
+      website: 'https://github.com/EkType/Baloo2',
+    ),
+    ThirdPartyCredit(
       name: 'Piper — "alba" voice (en_GB, medium)',
       notice:
           'Onboarding narration synthesized offline with the open-source '

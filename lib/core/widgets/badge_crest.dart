@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../theme/tokens.dart';
 import 'reduced_motion_lottie.dart';
@@ -146,7 +147,7 @@ class _BadgeCrestState extends State<BadgeCrest>
                             child: Padding(
                               padding: EdgeInsets.all(5),
                               child: Icon(
-                                Icons.lock_rounded,
+                                PhosphorIconsFill.lockSimple,
                                 size: 14,
                                 color: AppColors.white,
                               ),

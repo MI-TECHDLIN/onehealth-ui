@@ -17,6 +17,9 @@ migrate_working_dir/
 # Private reference material
 /docs/
 
+# Local design-preview scratch files (lavish-axi artifacts)
+/.lavish/
+
 # IntelliJ related
 *.iml
 *.ipr

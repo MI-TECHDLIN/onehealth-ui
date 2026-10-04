@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../icons/water_icons.dart';
 import '../theme/tokens.dart';
 
 /// A calm, non-alarming list of field safety reminders.
@@ -37,8 +38,8 @@ class FieldSafetyNotice extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                const Icon(
-                  Icons.health_and_safety_outlined,
+                const WaterIconWidget(
+                  WaterIcon.fieldSafety,
                   color: AppColors.deepWater,
                 ),
                 const SizedBox(width: AppSpacing.xs),

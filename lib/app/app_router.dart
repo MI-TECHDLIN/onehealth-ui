@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../core/motion/app_page_transitions.dart';
 import '../core/motion/motion_preferences.dart';
@@ -64,7 +65,7 @@ GoRouter createAppRouter({
       body: PlaceholderScreen(
         title: AppLocalizations.of(context).pageUnavailableTitle,
         body: AppLocalizations.of(context).pageUnavailableBody,
-        icon: Icons.route_outlined,
+        icon: PhosphorIconsRegular.signpost,
       ),
     ),
   ),
@@ -106,22 +107,22 @@ GoRouter createAppRouter({
       routes: <RouteBase>[
         _placeholderRoute(
           path: AppRoutes.home,
-          icon: Icons.map_outlined,
+          icon: PhosphorIconsRegular.mapTrifold,
           title: (strings) => strings.homeTitle,
         ),
         _placeholderRoute(
           path: AppRoutes.streams,
-          icon: Icons.water_outlined,
+          icon: PhosphorIconsRegular.drop,
           title: (strings) => strings.streamsTitle,
         ),
         _placeholderRoute(
           path: AppRoutes.check,
-          icon: Icons.add_a_photo_outlined,
+          icon: PhosphorIconsRegular.cameraPlus,
           title: (strings) => strings.checkTitle,
         ),
         _placeholderRoute(
           path: AppRoutes.impact,
-          icon: Icons.insights_outlined,
+          icon: PhosphorIconsRegular.chartLineUp,
           title: (strings) => strings.impactTitle,
         ),
         GoRoute(
