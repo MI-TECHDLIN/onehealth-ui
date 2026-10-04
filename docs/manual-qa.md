@@ -110,3 +110,39 @@ Authentication, Live data, and avatars:
 
 Items 39-47 require on-device verification. Repository tests use fake HTTP only;
 they must never be pointed at the production OneAquaHealth base URL.
+
+Map home and site detail:
+48. Open Home - a water-first MapLibre map loads over the pilot area, with
+    Nearby/Needs data/Visited filter chips, a Demo/Live badge in the app bar,
+    and the OpenFreeMap attribution visible (top-right) at all times.
+49. Toggle the phone's light/dark mode while on Home - the map switches
+    between the bundled light and dark "water-first" styles without a blank
+    frame.
+50. Tap Needs data, then Visited - the map and pin count change to match;
+    tapping Nearby returns every site. An empty filter result shows a guiding
+    Ripple with a "Show all streams" action back to Nearby.
+51. Tap a cluster - the camera zooms to exactly the level it splits at. Tap an
+    individual pin - a preview card appears at the bottom with the stream
+    name, estimated walk time, and Needs data/Visited status; the OpenFreeMap
+    attribution stays visible above it, never covered.
+52. Tap the locate-me control with location permission denied - a friendly
+    message appears ("Location isn't available right now...") and the map
+    keeps working; grant permission and tap again - the map centers on the
+    device and the site list re-sorts nearest-first.
+53. Turn off device location services entirely, then tap locate-me - the same
+    friendly message appears, no crash.
+54. Switch to airplane mode in Live mode and open Home - a friendly
+    "No connection" message appears with Retry; turning connectivity back on
+    and tapping Retry loads the map.
+55. From a pin's preview card, tap into the stream - site detail shows the
+    human-readable name first with the research code secondary (and city when
+    known), a "last checked" freshness cue based on your own history for that
+    site, and a short safety note under "Before you go".
+56. On site detail, tap "Get directions" - the device's maps app opens
+    (geo intent on Android) centered on the stream; with no maps app
+    installed, a friendly message appears instead of a crash.
+57. On site detail, tap "Check this stream" - the Check tab opens naming this
+    stream, as a placeholder for round 4's assessment flow.
+
+Items 48-57 require on-device verification (the MapLibre view itself is not
+exercised by automated tests; see `test/features/home/`).

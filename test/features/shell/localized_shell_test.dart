@@ -16,7 +16,19 @@ void main() {
     await settings.completeOnboarding();
 
     await tester.pumpWidget(
-      OneHealthApp(settings: settings, applyGoogleFonts: false),
+      OneHealthApp(
+        settings: settings,
+        applyGoogleFonts: false,
+        // Avoids standing up the native MapLibre view in a widget test.
+        homeMapViewBuilder:
+            ({
+              required sites,
+              required visitedCodes,
+              required myLocationEnabled,
+              required onSiteTapped,
+              required onControllerReady,
+            }) => const SizedBox.shrink(),
+      ),
     );
     await tester.pumpAndSettle();
 

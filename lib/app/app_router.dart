@@ -6,8 +6,12 @@ import '../core/motion/app_page_transitions.dart';
 import '../core/motion/motion_preferences.dart';
 import '../core/settings/app_settings_controller.dart';
 import '../data/repositories/auth_repository.dart';
+import '../data/repositories/repository_models.dart';
 import '../debug/mascot_gallery_screen.dart';
 import '../features/auth/sign_in_screen.dart';
+import '../features/home/home_map_screen.dart';
+import '../features/home/site_detail_screen.dart';
+import '../features/home/stream_map_view.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/avatar_picker_screen.dart';
 import '../features/profile/profile_screen.dart';
@@ -26,12 +30,17 @@ abstract final class AppRoutes {
   static const String impact = '/impact';
   static const String profile = '/profile';
   static const String settings = '/settings';
+  static const String siteDetail = '/site';
 }
 
 GoRouter createAppRouter({
   String initialLocation = AppRoutes.home,
   AppSettingsController? settings,
   AuthRepository? liveAuth,
+  // Overrides the map home's native MapLibre view. Tests pass a stand-in
+  // widget here instead of standing up a real platform view; production
+  // leaves this null and gets the real map.
+  StreamMapViewBuilder? homeMapViewBuilder,
 }) => GoRouter(
   initialLocation: initialLocation,
   refreshListenable: settings == null
@@ -104,20 +113,40 @@ GoRouter createAppRouter({
         child: child,
       ),
       routes: <RouteBase>[
-        _placeholderRoute(
+        GoRoute(
           path: AppRoutes.home,
-          icon: Icons.map_outlined,
-          title: (strings) => strings.homeTitle,
+          pageBuilder: (context, state) => _page(
+            context: context,
+            state: state,
+            child: HomeMapScreen(
+              mapViewBuilder: homeMapViewBuilder ?? buildDefaultStreamMapView,
+            ),
+          ),
         ),
         _placeholderRoute(
           path: AppRoutes.streams,
           icon: Icons.water_outlined,
           title: (strings) => strings.streamsTitle,
         ),
-        _placeholderRoute(
+        GoRoute(
           path: AppRoutes.check,
-          icon: Icons.add_a_photo_outlined,
-          title: (strings) => strings.checkTitle,
+          pageBuilder: (context, state) {
+            final siteCode = state.uri.queryParameters['site'];
+            final siteName = state.uri.queryParameters['name'];
+            return _page(
+              context: context,
+              state: state,
+              child: PlaceholderScreen(
+                title: AppLocalizations.of(context).checkTitle,
+                icon: Icons.add_a_photo_outlined,
+                body: siteCode == null || siteName == null
+                    ? null
+                    : AppLocalizations.of(
+                        context,
+                      ).siteCheckPlaceholderBody(siteName),
+              ),
+            );
+          },
         ),
         _placeholderRoute(
           path: AppRoutes.impact,
@@ -140,6 +169,17 @@ GoRouter createAppRouter({
         context: context,
         state: state,
         child: const SettingsScreen(),
+      ),
+    ),
+    GoRoute(
+      path: '${AppRoutes.siteDetail}/:code',
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: SiteDetailScreen(
+          code: state.pathParameters['code']!,
+          site: state.extra is StreamSite ? state.extra! as StreamSite : null,
+        ),
       ),
     ),
     if (kDebugMode)

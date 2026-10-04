@@ -1,4 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Coarse is required by geolocator; fine is requested alongside it so the
+         locate-me control can center the map precisely (see AGENTS.md). -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <application
         android:label="onehealth_ui"
         android:name="${applicationName}"

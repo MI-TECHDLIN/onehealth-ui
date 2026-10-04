@@ -36,12 +36,16 @@ dependencies:
     sdk: flutter
   flutter_secure_storage: ^11.2.0
   flutter_svg: ^2.3.0
+  geolocator: ^14.1.1
   go_router: ^17.5.0
   google_fonts: ^8.2.1
   http: ^1.6.0
   intl: ^0.20.2
   just_audio: ^0.10.6
+  maplibre_gl: ^0.27.1
+  phosphor_flutter: ^2.1.0
   shared_preferences: ^2.5.5
+  url_launcher: ^6.3.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -77,6 +81,8 @@ flutter:
     - assets/data/assessment-content.json
     - assets/avatars/
     - assets/audio/onboarding/en/
+    - assets/map/oneaquahealth-water-light.json
+    - assets/map/oneaquahealth-water-dark.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:

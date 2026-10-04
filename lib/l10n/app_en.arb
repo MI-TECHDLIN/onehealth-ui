@@ -98,5 +98,58 @@
   "onboardingSettingsReadAloudToggle": "Read-aloud narration",
   "onboardingSettingsReadAloudToggleDescription": "Hear Ripple read onboarding screens aloud",
   "onboardingSignInPlaceholderTitle": "Sign in",
-  "onboardingSignInPlaceholderBody": "Sign-in is coming soon. This screen will let you contribute real observations to OneAquaHealth."
+  "onboardingSignInPlaceholderBody": "Sign-in is coming soon. This screen will let you contribute real observations to OneAquaHealth.",
+  "mapFilterNearby": "Nearby",
+  "mapFilterNeedsData": "Needs data",
+  "mapFilterVisited": "Visited",
+  "mapLoadingLabel": "Finding nearby streams…",
+  "mapEmptyFilteredTitle": "No streams match this filter",
+  "mapEmptyFilteredBody": "Try Nearby to see every stream on the map again.",
+  "mapEmptyFilteredAction": "Show all streams",
+  "mapWalkMinutes": "{minutes} min walk",
+  "@mapWalkMinutes": {
+    "description": "Estimated walking time to a stream site, shown on the map preview card and site detail.",
+    "placeholders": {"minutes": {"type": "int"}}
+  },
+  "mapLocateMeTooltip": "Locate me",
+  "mapLocationUnavailable": "Location isn't available right now. You can still browse the map.",
+  "mapClusterSemanticLabel": "{count} streams here, zoom in to see them",
+  "@mapClusterSemanticLabel": {
+    "description": "Accessible label for a map cluster bubble.",
+    "placeholders": {"count": {"type": "int"}}
+  },
+  "mapSitePreviewViewAction": "View stream",
+  "mapSitePreviewCloseLabel": "Close preview",
+  "siteDetailTitle": "Stream detail",
+  "siteDetailCodeLabel": "Site code {code}",
+  "@siteDetailCodeLabel": {
+    "description": "Secondary research code shown under a stream's human-readable name.",
+    "placeholders": {"code": {"type": "String"}}
+  },
+  "siteDetailLocationWithCity": "{city} · site code {code}",
+  "@siteDetailLocationWithCity": {
+    "description": "Secondary line combining city and research code when the city is known.",
+    "placeholders": {"city": {"type": "String"}, "code": {"type": "String"}}
+  },
+  "siteDetailLastCheckedToday": "You checked this stream today",
+  "siteDetailLastCheckedYesterday": "You checked this stream yesterday",
+  "siteDetailLastCheckedDaysAgo": "You last checked this stream {days} days ago",
+  "@siteDetailLastCheckedDaysAgo": {
+    "description": "Freshness cue for a stream the citizen has checked more than a day ago.",
+    "placeholders": {"days": {"type": "int"}}
+  },
+  "siteDetailNeverChecked": "You haven't checked this stream yet",
+  "siteDetailBeforeYouGoTitle": "Before you go",
+  "siteDetailSafetyNote": "Stay on public paths, never enter the water, and bring a friend when you can.",
+  "siteDetailDirectionsAction": "Get directions",
+  "siteDetailDirectionsUnavailable": "Couldn't open a maps app. Check that one is installed.",
+  "siteDetailCheckAction": "Check this stream",
+  "siteDetailMissingTitle": "Stream not found",
+  "siteDetailMissingBody": "Go back to the map and choose a stream.",
+  "siteDetailBackToMapAction": "Back to map",
+  "siteCheckPlaceholderBody": "Checking {siteName} is coming in round 4. Your assessment will start here.",
+  "@siteCheckPlaceholderBody": {
+    "description": "Placeholder body shown on the Check tab when reached from a specific site's detail screen.",
+    "placeholders": {"siteName": {"type": "String"}}
+  }
 }
