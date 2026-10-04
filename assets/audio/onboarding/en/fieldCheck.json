@@ -1,0 +1,137 @@
+{
+  "id": "fieldCheck",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 10387,
+  "segments": [
+    {
+      "id": "headline",
+      "words": 3
+    },
+    {
+      "id": "body",
+      "words": 20
+    }
+  ],
+  "words": [
+    "Look,",
+    "photograph,",
+    "answer",
+    "Ripple",
+    "helps",
+    "you",
+    "capture",
+    "the",
+    "stream,",
+    "its",
+    "banks",
+    "and",
+    "biodiversity,",
+    "then",
+    "answer",
+    "simple",
+    "picture-based",
+    "questions.",
+    "About",
+    "8",
+    "to",
+    "12",
+    "minutes."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 255
+    },
+    {
+      "start": 255,
+      "end": 836
+    },
+    {
+      "start": 836,
+      "end": 1370
+    },
+    {
+      "start": 1853,
+      "end": 2120
+    },
+    {
+      "start": 2120,
+      "end": 2468
+    },
+    {
+      "start": 2468,
+      "end": 2584
+    },
+    {
+      "start": 2584,
+      "end": 2839
+    },
+    {
+      "start": 2839,
+      "end": 2921
+    },
+    {
+      "start": 2921,
+      "end": 3327
+    },
+    {
+      "start": 3327,
+      "end": 3455
+    },
+    {
+      "start": 3455,
+      "end": 3826
+    },
+    {
+      "start": 3826,
+      "end": 3942
+    },
+    {
+      "start": 3942,
+      "end": 4929
+    },
+    {
+      "start": 4929,
+      "end": 5092
+    },
+    {
+      "start": 5092,
+      "end": 5394
+    },
+    {
+      "start": 5394,
+      "end": 5695
+    },
+    {
+      "start": 5695,
+      "end": 6195
+    },
+    {
+      "start": 6195,
+      "end": 6996
+    },
+    {
+      "start": 8337,
+      "end": 8604
+    },
+    {
+      "start": 8604,
+      "end": 8802
+    },
+    {
+      "start": 8802,
+      "end": 8883
+    },
+    {
+      "start": 8883,
+      "end": 9127
+    },
+    {
+      "start": 9127,
+      "end": 9835
+    }
+  ],
+  "alignment": "piper-phoneme"
+}
