@@ -206,7 +206,7 @@ class _SignInScreenState extends State<SignInScreen> {
       setState(() {
         _errorMessage = FriendlyError.fromFailure(
           statusCode: error is ApiFailure ? error.statusCode : null,
-          error: error,
+          error: error is ApiFailure ? error.cause : error,
           isSignIn: true,
         );
       });

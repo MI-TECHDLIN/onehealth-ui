@@ -13,6 +13,7 @@ void main() {
     );
     addTearDown(settings.dispose);
     await settings.setLocale(const Locale('ar'));
+    await settings.completeOnboarding();
 
     await tester.pumpWidget(
       OneHealthApp(settings: settings, applyGoogleFonts: false),

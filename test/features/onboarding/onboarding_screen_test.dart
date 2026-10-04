@@ -20,6 +20,10 @@ Widget _app(GoRouter router) => MaterialApp.router(
   routerConfig: router,
   localizationsDelegates: AppLocalizations.localizationsDelegates,
   supportedLocales: AppLocalizations.supportedLocales,
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: true),
+    child: child!,
+  ),
 );
 
 void main() {

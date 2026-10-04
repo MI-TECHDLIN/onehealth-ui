@@ -12,11 +12,15 @@ import 'l10n/generated/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final settings = AppSettingsController(
-    preferences: SharedPreferencesAppPreferences(),
-  );
+  final preferences = SharedPreferencesAppPreferences();
+  final settings = AppSettingsController(preferences: preferences);
   await settings.load();
-  runApp(OneHealthApp(settings: settings));
+  runApp(
+    OneHealthApp(
+      settings: settings,
+      repositoryPreferences: preferences,
+    ),
+  );
 }
 
 class OneHealthApp extends StatefulWidget {
@@ -25,12 +29,14 @@ class OneHealthApp extends StatefulWidget {
     this.settings,
     this.demoRepositories,
     this.liveRepositories,
+    this.repositoryPreferences,
     this.applyGoogleFonts = true,
   });
 
   final AppSettingsController? settings;
   final RepositoryBundle? demoRepositories;
   final RepositoryBundle? liveRepositories;
+  final AppPreferences? repositoryPreferences;
   final bool applyGoogleFonts;
 
   @override
@@ -49,9 +55,8 @@ class _OneHealthAppState extends State<OneHealthApp> {
   @override
   void initState() {
     super.initState();
-    final repositoryPreferences = _ownsSettings
-        ? SharedPreferencesAppPreferences()
-        : MemoryAppPreferences();
+    final repositoryPreferences =
+        widget.repositoryPreferences ?? MemoryAppPreferences();
     _demoRepositories =
         widget.demoRepositories ??
         RepositoryBundle.demo(preferences: repositoryPreferences);

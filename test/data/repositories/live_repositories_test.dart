@@ -31,7 +31,14 @@ void main() {
       final client = MockClient((request) async {
         expect(request.method, 'POST');
         expect(request.url.path, '/api/auth/login');
-        expect(request.headers['content-type'], 'application/json');
+        expect(
+          request.headers.entries
+              .singleWhere(
+                (header) => header.key.toLowerCase() == 'content-type',
+              )
+              .value,
+          'application/json',
+        );
         expect(jsonDecode(request.body), <String, Object?>{
           'username': 'river-user',
           'password': 'test-password',
@@ -91,7 +98,9 @@ void main() {
     });
   });
 
-  test('reference and site repositories map contract shapes and sort locally', () async {
+  test(
+    'reference and site repositories map contract shapes and sort locally',
+    () async {
     final tokenStore = MemoryTokenStore(
       _jwt(<String, Object?>{'username': 'river-user', 'exp': 2100000000}),
     );
@@ -162,9 +171,12 @@ void main() {
       longitude: -8.2,
     );
     expect(created.code, 'UG-NEW');
-  });
+    },
+  );
 
-  test('submission uploads raw files before payload and history drops other users', () async {
+  test(
+    'submission uploads raw files before payload and history drops other users',
+    () async {
     final calls = <String>[];
     Map<String, dynamic>? submittedPayload;
     final client = MockClient((request) async {
@@ -174,11 +186,16 @@ void main() {
           expect(request.url.queryParameters['filename'], 'upstream.jpg');
           expect(request.bodyBytes, <int>[1, 2, 3]);
           return http.Response(
-            jsonEncode(<String, Object?>{'id': 'FILE-1', 'filename': 'upstream.jpg'}),
+            jsonEncode(<String, Object?>{
+              'id': 'FILE-1',
+              'filename': 'upstream.jpg',
+            }),
             200,
           );
         case '/api/citizens/submit':
-          submittedPayload = Map<String, dynamic>.from(jsonDecode(request.body) as Map);
+          submittedPayload = Map<String, dynamic>.from(
+            jsonDecode(request.body) as Map,
+          );
           return http.Response('', 200);
         case '/api/citizens/submissions':
           return http.Response(
@@ -240,7 +257,10 @@ void main() {
 
     await repository.submit(draft);
 
-    expect(calls.take(2), <String>['PUT /api/files', 'PUT /api/citizens/submit']);
+    expect(calls.take(2), <String>[
+      'PUT /api/files',
+      'PUT /api/citizens/submit',
+    ]);
     expect(submittedPayload?['upstreamPhoto'], 'FILE-1');
     expect(submittedPayload?['waterAbstraction'], isFalse);
     expect(submittedPayload?['channelForm'], isNull);
@@ -248,9 +268,13 @@ void main() {
     expect(submittedPayload?['joy'], 0);
 
     final history = await repository.history();
-    expect(history.map((record) => record.id), containsAll(<String>['mine', 'my-user-site']));
+    expect(
+      history.map((record) => record.id),
+      containsAll(<String>['mine', 'my-user-site']),
+    );
     expect(history.map((record) => record.id), isNot(contains('private-other')));
-  });
+    },
+  );
 }
 
 String _jwt(Map<String, Object?> claims) {

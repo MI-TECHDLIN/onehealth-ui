@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:onehealth_ui/core/mascot/aqua_mascot.dart';
 import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
 import 'package:onehealth_ui/data/repositories/api_failure.dart';
@@ -53,6 +54,10 @@ void main() {
 
     expect(find.byKey(const Key('authLoading')), findsOneWidget);
     expect(find.text('Signing you in…'), findsOneWidget);
+    expect(
+      tester.widget<AquaMascot>(find.byType(AquaMascot)).mood,
+      MascotMood.thinking,
+    );
     expect(completed, isFalse);
 
     pending.complete(
@@ -64,7 +69,7 @@ void main() {
 
   testWidgets('401 sign-in failure uses bad-credentials copy', (tester) async {
     final auth = _ControlledAuthRepository(
-      result: Future<AuthUser>.error(const ApiFailure(statusCode: 401)),
+      error: const ApiFailure(statusCode: 401),
     );
     await _pumpSignIn(tester, auth);
     await tester.enterText(
@@ -79,6 +84,12 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byKey(const Key('authErrorBanner')), findsOneWidget);
+    expect(
+      tester.widgetList<AquaMascot>(find.byType(AquaMascot)).every(
+        (mascot) => mascot.mood == MascotMood.concerned,
+      ),
+      isTrue,
+    );
     expect(
       find.text("That email or password didn't match. Check them and try again."),
       findsOneWidget,
@@ -118,7 +129,7 @@ Future<void> _pumpSignIn(
 }
 
 class _ControlledAuthRepository implements AuthRepository {
-  _ControlledAuthRepository({Future<AuthUser>? result})
+  _ControlledAuthRepository({Future<AuthUser>? result, this.error})
     : _result =
           result ??
           Future<AuthUser>.value(
@@ -129,6 +140,7 @@ class _ControlledAuthRepository implements AuthRepository {
           );
 
   final Future<AuthUser> _result;
+  final Object? error;
 
   @override
   Future<AuthUser?> currentUser() async => null;
@@ -137,7 +149,7 @@ class _ControlledAuthRepository implements AuthRepository {
   Future<AuthUser> signIn({
     required String username,
     required String password,
-  }) => _result;
+  }) => error == null ? _result : Future<AuthUser>.error(error!);
 
   @override
   Future<void> signOut() async {}
