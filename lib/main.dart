@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'app/app_router.dart';
 import 'core/localization/app_locale.dart';
@@ -11,21 +12,31 @@ import 'l10n/generated/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final settings = AppSettingsController(
-    preferences: SharedPreferencesAppPreferences(),
-  );
+  final preferences = SharedPreferencesAppPreferences();
+  final settings = AppSettingsController(preferences: preferences);
   await settings.load();
-  runApp(OneHealthApp(settings: settings));
+  runApp(
+    OneHealthApp(
+      settings: settings,
+      repositoryPreferences: preferences,
+    ),
+  );
 }
 
 class OneHealthApp extends StatefulWidget {
   const OneHealthApp({
     super.key,
     this.settings,
+    this.demoRepositories,
+    this.liveRepositories,
+    this.repositoryPreferences,
     this.applyGoogleFonts = true,
   });
 
   final AppSettingsController? settings;
+  final RepositoryBundle? demoRepositories;
+  final RepositoryBundle? liveRepositories;
+  final AppPreferences? repositoryPreferences;
   final bool applyGoogleFonts;
 
   @override
@@ -35,14 +46,31 @@ class OneHealthApp extends StatefulWidget {
 class _OneHealthAppState extends State<OneHealthApp> {
   late final AppSettingsController _settings =
       widget.settings ?? AppSettingsController.memory();
-  late final _router = createAppRouter(
-    initialLocation: _settings.onboardingComplete
-        ? AppRoutes.home
-        : AppRoutes.onboarding,
-  );
-  late final RepositoryBundle _demoRepositories = RepositoryBundle.demo();
+  late final RepositoryBundle _demoRepositories;
+  late final RepositoryBundle _liveRepositories;
+  late final GoRouter _router;
 
   bool get _ownsSettings => widget.settings == null;
+
+  @override
+  void initState() {
+    super.initState();
+    final repositoryPreferences =
+        widget.repositoryPreferences ?? MemoryAppPreferences();
+    _demoRepositories =
+        widget.demoRepositories ??
+        RepositoryBundle.demo(preferences: repositoryPreferences);
+    _liveRepositories =
+        widget.liveRepositories ??
+        RepositoryBundle.live(preferences: repositoryPreferences);
+    _router = createAppRouter(
+      initialLocation: _settings.onboardingComplete
+          ? AppRoutes.home
+          : AppRoutes.onboarding,
+      settings: _settings,
+      liveAuth: _liveRepositories.auth,
+    );
+  }
 
   @override
   void dispose() {
@@ -59,7 +87,9 @@ class _OneHealthAppState extends State<OneHealthApp> {
         animation: _settings,
         builder: (context, _) => RepositoryScope(
           mode: _settings.mode,
-          repositories: _settings.mode.isLive ? null : _demoRepositories,
+          repositories: _settings.mode.isLive
+              ? _liveRepositories
+              : _demoRepositories,
           child: MaterialApp.router(
             onGenerateTitle: (context) => AppLocalizations.of(context).appName,
             debugShowCheckedModeBanner: false,

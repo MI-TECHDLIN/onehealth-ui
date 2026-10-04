@@ -4,9 +4,13 @@ import 'package:go_router/go_router.dart';
 
 import '../core/motion/app_page_transitions.dart';
 import '../core/motion/motion_preferences.dart';
+import '../core/settings/app_settings_controller.dart';
+import '../data/repositories/auth_repository.dart';
 import '../debug/mascot_gallery_screen.dart';
-import '../features/auth/sign_in_placeholder_screen.dart';
+import '../features/auth/sign_in_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
+import '../features/profile/avatar_picker_screen.dart';
+import '../features/profile/profile_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/shell/app_shell.dart';
 import '../features/shell/placeholder_screen.dart';
@@ -15,6 +19,7 @@ import '../l10n/generated/app_localizations.dart';
 abstract final class AppRoutes {
   static const String onboarding = '/onboarding';
   static const String signIn = '/sign-in';
+  static const String avatar = '/choose-avatar';
   static const String home = '/home';
   static const String streams = '/streams';
   static const String check = '/check';
@@ -23,8 +28,35 @@ abstract final class AppRoutes {
   static const String settings = '/settings';
 }
 
-GoRouter createAppRouter({String initialLocation = AppRoutes.home}) => GoRouter(
+GoRouter createAppRouter({
+  String initialLocation = AppRoutes.home,
+  AppSettingsController? settings,
+  AuthRepository? liveAuth,
+}) => GoRouter(
   initialLocation: initialLocation,
+  refreshListenable: settings == null
+      ? null
+      : Listenable.merge(<Listenable>[
+          settings,
+          if (liveAuth is Listenable) liveAuth,
+        ]),
+  redirect: settings == null || liveAuth == null
+      ? null
+      : (context, state) async {
+          if (!settings.mode.isLive ||
+              state.matchedLocation == AppRoutes.onboarding) {
+            return null;
+          }
+          final isSignedIn = await liveAuth.currentUser() != null;
+          final atSignIn = state.matchedLocation == AppRoutes.signIn;
+          if (!isSignedIn && !atSignIn) return AppRoutes.signIn;
+          if (isSignedIn && atSignIn) {
+            return settings.hasCompletedAvatarSetup
+                ? AppRoutes.home
+                : AppRoutes.avatar;
+          }
+          return null;
+        },
   errorPageBuilder: (context, state) => _page(
     context: context,
     state: state,
@@ -53,7 +85,17 @@ GoRouter createAppRouter({String initialLocation = AppRoutes.home}) => GoRouter(
       pageBuilder: (context, state) => _page(
         context: context,
         state: state,
-        child: const SignInPlaceholderScreen(),
+        child: const SignInScreen(),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.avatar,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: AvatarPickerScreen(
+          returnToProfile: state.uri.queryParameters['change'] == 'true',
+        ),
       ),
     ),
     ShellRoute(
@@ -82,10 +124,13 @@ GoRouter createAppRouter({String initialLocation = AppRoutes.home}) => GoRouter(
           icon: Icons.insights_outlined,
           title: (strings) => strings.impactTitle,
         ),
-        _placeholderRoute(
+        GoRoute(
           path: AppRoutes.profile,
-          icon: Icons.person_outline_rounded,
-          title: (strings) => strings.profileTitle,
+          pageBuilder: (context, state) => _page(
+            context: context,
+            state: state,
+            child: const ProfileScreen(),
+          ),
         ),
       ],
     ),

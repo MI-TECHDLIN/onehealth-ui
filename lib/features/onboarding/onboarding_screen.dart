@@ -89,7 +89,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       context.pop();
       return;
     }
-    await AppSettingsScope.of(context).completeOnboarding();
+    final settings = AppSettingsScope.of(context);
+    await settings.completeOnboarding();
+    await settings.setMode(AppMode.live);
     if (!mounted) return;
     context.go(AppRoutes.signIn);
   }
@@ -103,7 +105,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     await settings.completeOnboarding();
     await settings.setMode(AppMode.demo);
     if (!mounted) return;
-    context.go(AppRoutes.home);
+    context.go(
+      settings.hasCompletedAvatarSetup ? AppRoutes.home : AppRoutes.avatar,
+    );
   }
 
   @override

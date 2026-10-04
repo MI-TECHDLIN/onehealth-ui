@@ -57,6 +57,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   `/onboarding` route in `lib/app/app_router.dart` are the only places that
   decide whether onboarding shows; replay it from Settings via
   `OnboardingScreen(isReplay: true)` rather than duplicating its screens.
+- Live transport/auth is centralized in `lib/data/repositories/live_api_client.dart`
+  and `auth_repository.dart`; inject `http.Client` and `TokenStore` in tests and
+  keep every test on a fake client/base URI. Demo assessment/reference content
+  comes from the bundled `assets/data/assessment-content.json` and must never
+  fall through to Live networking.
 
 ## Maintaining this file
 

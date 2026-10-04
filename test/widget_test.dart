@@ -85,6 +85,7 @@ void main() {
       preferences: MemoryAppPreferences(),
     );
     addTearDown(settings.dispose);
+    await settings.completeOnboarding();
     await tester.pumpWidget(
       OneHealthApp(settings: settings, applyGoogleFonts: false),
     );

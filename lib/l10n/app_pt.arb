@@ -1,1 +1,24 @@
-{"@@locale":"pt"}
+{
+  "@@locale": "pt",
+  "authWelcomeBack": "Welcome back",
+  "authSignInBody": "Sign in with your OneAquaHealth Community account.",
+  "authUsernameLabel": "Username or email",
+  "authPasswordLabel": "Password",
+  "authShowPassword": "Show password",
+  "authHidePassword": "Hide password",
+  "authSignInAction": "Sign in",
+  "authSigningIn": "Signing you in…",
+  "authErrorTitle": "Try those details again",
+  "authRequiredField": "Please fill in this field.",
+  "authUseDemoAction": "Use Demo instead",
+  "authAvatarTitle": "Choose your avatar",
+  "authAvatarReassurance": "It represents you in the app while helping protect your identity.",
+  "authAvatarCompleteAction": "Complete set-up",
+  "authAvatarLaterAction": "Do this later",
+  "authAvatarChangeAction": "Change avatar",
+  "authAvatarSelectedLabel": "Avatar {number}, selected",
+  "authAvatarLabel": "Avatar {number}",
+  "authSignedInAs": "Signed in as {username}",
+  "authSignOutAction": "Sign out",
+  "liveModeDescription": "Real OneAquaHealth sites, reference data and submissions. Sign-in required."
+}

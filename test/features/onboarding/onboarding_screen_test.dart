@@ -20,6 +20,10 @@ Widget _app(GoRouter router) => MaterialApp.router(
   routerConfig: router,
   localizationsDelegates: AppLocalizations.localizationsDelegates,
   supportedLocales: AppLocalizations.supportedLocales,
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(context).copyWith(disableAnimations: true),
+    child: child!,
+  ),
 );
 
 void main() {
@@ -125,11 +129,13 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(settings.onboardingComplete, isTrue);
-    // Landed on the sign-in placeholder, identified by its AppBar title.
-    expect(find.text('Sign in'), findsOneWidget);
+    expect(settings.mode, AppMode.live);
+    expect(find.text('Welcome back'), findsOneWidget);
   });
 
-  testWidgets('Look around first enters Demo mode at Home', (tester) async {
+  testWidgets('Look around first enters Demo mode at avatar setup', (
+    tester,
+  ) async {
     final router = createAppRouter(initialLocation: AppRoutes.onboarding);
     addTearDown(router.dispose);
 
@@ -145,8 +151,7 @@ void main() {
 
     expect(settings.onboardingComplete, isTrue);
     expect(settings.mode, AppMode.demo);
-    // Landed on the Home shell, identified by its AppBar title.
-    expect(find.text('Explore streams'), findsOneWidget);
+    expect(find.text('Choose your avatar'), findsOneWidget);
   });
 
   testWidgets('replay mode returns to the previous screen instead of hand-off', (

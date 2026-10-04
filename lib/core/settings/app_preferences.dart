@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract interface class AppPreferences {
   Future<String?> readString(String key);
   Future<void> writeString(String key, String value);
+  Future<void> remove(String key);
 }
 
 class SharedPreferencesAppPreferences implements AppPreferences {
@@ -18,6 +19,11 @@ class SharedPreferencesAppPreferences implements AppPreferences {
   Future<void> writeString(String key, String value) async {
     await _preferences.setString(key, value);
   }
+
+  @override
+  Future<void> remove(String key) async {
+    await _preferences.remove(key);
+  }
 }
 
 class MemoryAppPreferences implements AppPreferences {
@@ -32,5 +38,10 @@ class MemoryAppPreferences implements AppPreferences {
   @override
   Future<void> writeString(String key, String value) async {
     _values[key] = value;
+  }
+
+  @override
+  Future<void> remove(String key) async {
+    _values.remove(key);
   }
 }

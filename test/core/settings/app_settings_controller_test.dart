@@ -12,6 +12,7 @@ void main() {
 
     expect(controller.locale, const Locale('en'));
     expect(controller.mode, AppMode.demo);
+    expect(controller.hasCompletedAvatarSetup, isFalse);
   });
 
   test('loads and persists locale and mode', () async {
@@ -43,6 +44,20 @@ void main() {
 
   test('mode-owned storage namespaces cannot collide', () {
     expect(AppMode.demo.storageNamespace, isNot(AppMode.live.storageNamespace));
+  });
+
+  test('persists an explicit or automatically assigned avatar', () async {
+    final preferences = MemoryAppPreferences();
+    final controller = AppSettingsController(preferences: preferences);
+    addTearDown(controller.dispose);
+
+    await controller.autoAssignAvatar();
+    expect(controller.hasCompletedAvatarSetup, isTrue);
+
+    final restored = AppSettingsController(preferences: preferences);
+    addTearDown(restored.dispose);
+    await restored.load();
+    expect(restored.avatarId, controller.avatarId);
   });
 
   test('onboarding defaults to not complete and read-aloud defaults to on', () {

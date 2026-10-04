@@ -8,6 +8,18 @@ abstract final class ThirdPartyCredits {
       website: 'https://lucide.dev',
     ),
     ThirdPartyCredit(
+      name: 'DiceBear',
+      notice: 'Avatar generation library',
+      license: 'MIT License',
+      website: 'https://www.dicebear.com',
+    ),
+    ThirdPartyCredit(
+      name: 'Open Peeps',
+      notice: 'Avatar artwork by Pablo Stanley, remixed by DiceBear',
+      license: 'CC0 1.0',
+      website: 'https://www.openpeeps.com',
+    ),
+    ThirdPartyCredit(
       name: 'Piper — "alba" voice (en_GB, medium)',
       notice:
           'Onboarding narration synthesized offline with the open-source '
