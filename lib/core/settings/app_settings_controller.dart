@@ -18,6 +18,7 @@ class AppSettingsController extends ChangeNotifier {
   static const String avatarPreferenceKey = 'profile.avatar';
   static const String onboardingCompleteKey = 'settings.onboardingComplete';
   static const String readAloudEnabledKey = 'settings.onboardingReadAloudEnabled';
+  static const String remindersEnabledKey = 'settings.remindersEnabled';
 
   final AppPreferences _preferences;
 
@@ -26,6 +27,7 @@ class AppSettingsController extends ChangeNotifier {
   String? _avatarId;
   bool _onboardingComplete = false;
   bool _readAloudEnabled = true;
+  bool _remindersEnabled = true;
 
   Locale get locale => _locale;
   AppMode get mode => _mode;
@@ -38,6 +40,12 @@ class AppSettingsController extends ChangeNotifier {
   /// The user's remembered on/off preference for onboarding narration.
   bool get readAloudEnabled => _readAloudEnabled;
 
+  /// The user's remembered on/off preference for gentle reminders (a stream
+  /// not checked in 30 days, a seasonal revisit). On by default; the Android
+  /// 13+ OS permission is only ever requested once a reminder is actually
+  /// due, never on first launch -- see `ReminderCoordinator`.
+  bool get remindersEnabled => _remindersEnabled;
+
   Future<void> load() async {
     final values = await Future.wait<String?>(<Future<String?>>[
       _preferences.readString(localePreferenceKey),
@@ -45,12 +53,14 @@ class AppSettingsController extends ChangeNotifier {
       _preferences.readString(avatarPreferenceKey),
       _preferences.readString(onboardingCompleteKey),
       _preferences.readString(readAloudEnabledKey),
+      _preferences.readString(remindersEnabledKey),
     ]);
     _locale = AppLocaleRegistry.fromLanguageCode(values[0]).locale;
     _mode = AppMode.fromStorage(values[1]);
     _avatarId = AvatarCatalog.ids.contains(values[2]) ? values[2] : null;
     _onboardingComplete = values[3] == 'true';
     _readAloudEnabled = values[4] != 'false';
+    _remindersEnabled = values[5] != 'false';
     notifyListeners();
   }
 
@@ -68,6 +78,16 @@ class AppSettingsController extends ChangeNotifier {
     notifyListeners();
     await _preferences.writeString(
       readAloudEnabledKey,
+      enabled ? 'true' : 'false',
+    );
+  }
+
+  Future<void> setRemindersEnabled(bool enabled) async {
+    if (_remindersEnabled == enabled) return;
+    _remindersEnabled = enabled;
+    notifyListeners();
+    await _preferences.writeString(
+      remindersEnabledKey,
       enabled ? 'true' : 'false',
     );
   }
