@@ -92,9 +92,7 @@ class _StreamMapViewState extends State<StreamMapView> {
       initialCameraPosition: CameraPosition(target: target, zoom: 12),
       trackCameraPosition: true,
       compassEnabled: false,
-      logoEnabled: false,
       myLocationEnabled: widget.myLocationEnabled,
-      featureTapsTriggersMapClick: true,
       onMapClick: _onMapClick,
       // Keeps the attribution control clear of the bottom sheet-style site
       // preview card, which is required to stay visible at all times.
@@ -227,10 +225,9 @@ class _StreamMapViewState extends State<StreamMapView> {
   ) async {
     final clusterId = (properties['cluster_id'] as num?)?.toInt();
     if (clusterId == null) return;
-    final expansionZoom = await controller.getClusterExpansionZoom(
-      SiteMapLayers.sourceId,
-      clusterId,
-    );
+    final expansionZoom = ((controller.cameraPosition?.zoom ?? 12) + 2)
+        .clamp(0, 22)
+        .toDouble();
     final coordinates = (feature['geometry'] as Map?)?['coordinates'];
     final target = coordinates is List && coordinates.length >= 2
         ? LatLng(
@@ -239,7 +236,7 @@ class _StreamMapViewState extends State<StreamMapView> {
           )
         : tapCoordinates;
     await controller.animateCamera(
-      CameraUpdate.newLatLngZoom(target, expansionZoom.toDouble()),
+      CameraUpdate.newLatLngZoom(target, expansionZoom),
     );
   }
 }
