@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../app/app_router.dart';
 import '../../core/haptics/app_haptics.dart';
 import '../../core/localization/app_locale.dart';
 import '../../core/mode/app_mode.dart';
@@ -50,6 +51,27 @@ class SettingsScreen extends StatelessWidget {
                 subtitle: Text(selectedLocale.endonym),
                 trailing: const Icon(Icons.chevron_right_rounded),
                 onTap: () => _chooseLanguage(context, settings),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            Card(
+              child: SwitchListTile.adaptive(
+                title: Text(strings.onboardingSettingsReadAloudToggle),
+                subtitle: Text(
+                  strings.onboardingSettingsReadAloudToggleDescription,
+                ),
+                value: settings.readAloudEnabled,
+                onChanged: (value) => settings.setReadAloudEnabled(value),
+              ),
+            ),
+            const SizedBox(height: AppSpacing.md),
+            Card(
+              child: ListTile(
+                leading: const Icon(Icons.replay_rounded),
+                title: Text(strings.onboardingSettingsReplay),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () =>
+                    context.push('${AppRoutes.onboarding}?replay=true'),
               ),
             ),
             if (kDebugMode) ...<Widget>[

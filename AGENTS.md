@@ -44,6 +44,19 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   Flutter 3.32; wrap the group in a `RadioGroup<T>` ancestor that owns
   `groupValue`/`onChanged` instead (see the language picker in
   `lib/features/settings/settings_screen.dart`).
+- The read-aloud narration pipeline (speaker control, word-by-word highlight,
+  Ripple talk-viseme sync) lives in `lib/core/audio/` (`ReadAloudService`,
+  `NarrationAudioPlayer`) and `lib/core/widgets/read_aloud_control.dart`
+  (`ReadAloudControl`, `ReadAloudHighlightedText`); it is screen-agnostic, so
+  reuse it rather than building a second player for assessment questions.
+  Narration audio/timing assets are generated offline by
+  `scripts/narration/generate_narration.py` -- see that directory's README for
+  the Piper setup, regeneration steps, and a known espeak-ng word-boundary
+  limitation. Never add a Python/TTS toolchain to the Flutter app itself.
+- First-launch gating (`AppSettingsController.onboardingComplete`) and the
+  `/onboarding` route in `lib/app/app_router.dart` are the only places that
+  decide whether onboarding shows; replay it from Settings via
+  `OnboardingScreen(isReplay: true)` rather than duplicating its screens.
 
 ## Maintaining this file
 

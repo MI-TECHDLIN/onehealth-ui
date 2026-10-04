@@ -5,12 +5,16 @@ import 'package:go_router/go_router.dart';
 import '../core/motion/app_page_transitions.dart';
 import '../core/motion/motion_preferences.dart';
 import '../debug/mascot_gallery_screen.dart';
+import '../features/auth/sign_in_placeholder_screen.dart';
+import '../features/onboarding/onboarding_screen.dart';
 import '../features/settings/settings_screen.dart';
 import '../features/shell/app_shell.dart';
 import '../features/shell/placeholder_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
 abstract final class AppRoutes {
+  static const String onboarding = '/onboarding';
+  static const String signIn = '/sign-in';
   static const String home = '/home';
   static const String streams = '/streams';
   static const String check = '/check';
@@ -34,6 +38,24 @@ GoRouter createAppRouter({String initialLocation = AppRoutes.home}) => GoRouter(
   ),
   routes: <RouteBase>[
     GoRoute(path: '/', redirect: (_, _) => AppRoutes.home),
+    GoRoute(
+      path: AppRoutes.onboarding,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: OnboardingScreen(
+          isReplay: state.uri.queryParameters['replay'] == 'true',
+        ),
+      ),
+    ),
+    GoRoute(
+      path: AppRoutes.signIn,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: const SignInPlaceholderScreen(),
+      ),
+    ),
     ShellRoute(
       builder: (context, state, child) => AppShell(
         currentPath: state.uri.path,

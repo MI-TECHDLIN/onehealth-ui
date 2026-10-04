@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   animations: ^2.2.0
+  audio_session: ^0.2.4
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -36,6 +37,7 @@ dependencies:
   go_router: ^17.5.0
   google_fonts: ^8.2.1
   intl: ^0.20.2
+  just_audio: ^0.10.6
   shared_preferences: ^2.5.5
 
   # The following adds the Cupertino Icons font to your application.
@@ -69,6 +71,7 @@ flutter:
   assets:
     - assets/animations/celebration-burst.json
     - assets/animations/badge-unlock.json
+    - assets/audio/onboarding/en/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -1,0 +1,132 @@
+{
+  "id": "getStarted",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8135,
+  "segments": [
+    {
+      "id": "headline",
+      "words": 4
+    },
+    {
+      "id": "body",
+      "words": 18
+    }
+  ],
+  "words": [
+    "Ready",
+    "when",
+    "you",
+    "are",
+    "Check",
+    "a",
+    "nearby",
+    "stream",
+    "now,",
+    "or",
+    "explore",
+    "the",
+    "map",
+    "first.",
+    "You",
+    "can",
+    "review",
+    "safety",
+    "tips",
+    "before",
+    "every",
+    "visit."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 360
+    },
+    {
+      "start": 360,
+      "end": 534
+    },
+    {
+      "start": 534,
+      "end": 708
+    },
+    {
+      "start": 708,
+      "end": 906
+    },
+    {
+      "start": 1504,
+      "end": 1736
+    },
+    {
+      "start": 1736,
+      "end": 1760
+    },
+    {
+      "start": 1760,
+      "end": 2050
+    },
+    {
+      "start": 2050,
+      "end": 2363
+    },
+    {
+      "start": 2363,
+      "end": 2851
+    },
+    {
+      "start": 2851,
+      "end": 2944
+    },
+    {
+      "start": 2944,
+      "end": 3281
+    },
+    {
+      "start": 3281,
+      "end": 3362
+    },
+    {
+      "start": 3362,
+      "end": 3559
+    },
+    {
+      "start": 3559,
+      "end": 4163
+    },
+    {
+      "start": 4924,
+      "end": 5052
+    },
+    {
+      "start": 5052,
+      "end": 5145
+    },
+    {
+      "start": 5145,
+      "end": 5388
+    },
+    {
+      "start": 5388,
+      "end": 5853
+    },
+    {
+      "start": 5853,
+      "end": 6097
+    },
+    {
+      "start": 6097,
+      "end": 6410
+    },
+    {
+      "start": 6410,
+      "end": 6642
+    },
+    {
+      "start": 6642,
+      "end": 7281
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

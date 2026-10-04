@@ -48,3 +48,36 @@ Foundation shell, localization, and modes:
 28. In a release build, the Ripple gallery route and Settings row are absent.
 
 Items 21-28 require on-device verification.
+
+Onboarding and read-aloud narration:
+29. Clear app data and launch - the five-screen onboarding story opens before
+    Home; Ripple plays a distinct gesture on each screen (swim in, wave,
+    point, nod, jump) and the final screen shows both "Get started" and
+    "Look around first".
+30. On each screen, tap Listen - narration plays once (never autoplays),
+    words highlight in reading order with both a fill and an underline (not
+    color alone), and Ripple's mouth moves in sync. Tap Pause mid-sentence,
+    then Listen again - playback resumes from where it paused, not the start.
+31. Let narration finish - the control switches to Replay and tapping it
+    restarts from the first word.
+32. Start narration, then background the app or receive a call - playback
+    pauses for the interruption and does not talk over it.
+33. Turn off "Read-aloud narration" in Settings - the Listen control
+    disappears from every onboarding screen; turn it back on - it returns.
+34. Turn on reduce motion and replay the story - page transitions become an
+    instant cut, Ripple's gestures hold a settled pose, and Listen/word
+    highlighting still work normally.
+35. On the data-journey screen, confirm the field-safety reminder (stay on
+    the bank, watch for slippery banks, adults with children, skip in bad
+    weather) is visible and included in the narration.
+36. Tap "Get started" - onboarding is marked complete and the app hands off
+    to `/sign-in`; relaunch - onboarding does not show again. Tap
+    "Look around first" instead (after clearing app data again) - the app
+    enters Home directly in Demo mode.
+37. Open Settings -> "Replay onboarding" - the story reopens; its "Get
+    started"/"Look around first" return to Settings instead of re-routing
+    into sign-in or resetting the mode.
+38. Open Settings -> Credits - the Piper "alba" voice and its CC BY 4.0
+    license are listed.
+
+Items 29-38 require on-device verification.

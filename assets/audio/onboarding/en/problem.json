@@ -1,0 +1,147 @@
+{
+  "id": "problem",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 10271,
+  "segments": [
+    {
+      "id": "headline",
+      "words": 7
+    },
+    {
+      "id": "body",
+      "words": 18
+    }
+  ],
+  "words": [
+    "Your",
+    "stream",
+    "is",
+    "part",
+    "of",
+    "city",
+    "health",
+    "Urban",
+    "streams",
+    "connect",
+    "people,",
+    "wildlife",
+    "and",
+    "plants.",
+    "When",
+    "a",
+    "stream",
+    "struggles,",
+    "the",
+    "effects",
+    "can",
+    "reach",
+    "the",
+    "whole",
+    "neighbourhood."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 116
+    },
+    {
+      "start": 116,
+      "end": 499
+    },
+    {
+      "start": 499,
+      "end": 592
+    },
+    {
+      "start": 592,
+      "end": 859
+    },
+    {
+      "start": 859,
+      "end": 917
+    },
+    {
+      "start": 917,
+      "end": 1219
+    },
+    {
+      "start": 1219,
+      "end": 1544
+    },
+    {
+      "start": 2352,
+      "end": 2584
+    },
+    {
+      "start": 2584,
+      "end": 2932
+    },
+    {
+      "start": 2932,
+      "end": 3246
+    },
+    {
+      "start": 3246,
+      "end": 3791
+    },
+    {
+      "start": 3791,
+      "end": 4349
+    },
+    {
+      "start": 4349,
+      "end": 4476
+    },
+    {
+      "start": 4476,
+      "end": 5138
+    },
+    {
+      "start": 5957,
+      "end": 6120
+    },
+    {
+      "start": 6120,
+      "end": 6166
+    },
+    {
+      "start": 6166,
+      "end": 6480
+    },
+    {
+      "start": 6480,
+      "end": 7316
+    },
+    {
+      "start": 7316,
+      "end": 7409
+    },
+    {
+      "start": 7409,
+      "end": 7745
+    },
+    {
+      "start": 7745,
+      "end": 7850
+    },
+    {
+      "start": 7850,
+      "end": 8082
+    },
+    {
+      "start": 8082,
+      "end": 8152
+    },
+    {
+      "start": 8152,
+      "end": 8384
+    },
+    {
+      "start": 8384,
+      "end": 9092
+    }
+  ],
+  "alignment": "piper-phoneme"
+}
