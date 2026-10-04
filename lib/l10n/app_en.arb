@@ -153,6 +153,7 @@
     "placeholders": {"siteName": {"type": "String"}}
   },
 
+  "assessLoadingLabel": "Getting your stream check ready...",
   "assessNextAction": "Next",
   "assessBackAction": "Back",
   "assessSaveAndExitAction": "Save and exit",

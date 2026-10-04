@@ -70,6 +70,7 @@ class AssessmentQuestion {
     this.max = 5,
     this.defaultValue = 3,
     this.notApplicableValue = 0,
+    this.notApplicableLabel,
     this.glossaryTermIds = const <String>[],
   });
 
@@ -116,6 +117,11 @@ class AssessmentQuestion {
   final int max;
   final int defaultValue;
   final int notApplicableValue;
+
+  /// "Not Applicable" in the current locale, straight from
+  /// `feelings.NotApplicable` -- only set for [AssessmentFieldType.slider]
+  /// questions.
+  final String? notApplicableLabel;
 
   /// Glossary term ids (see `lib/core/glossary/glossary_terms.dart`) that
   /// appear underlined inside [prompt] and should be tap-to-explain.
@@ -487,6 +493,7 @@ class AssessmentProtocol {
         max: 5,
         defaultValue: 3,
         notApplicableValue: 0,
+        notApplicableLabel: feelings['NotApplicable'] as String?,
       );
     }
     final joy = feeling('joy', 'Joy');

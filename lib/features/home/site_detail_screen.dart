@@ -187,10 +187,7 @@ class _SiteDetailBody extends StatelessWidget {
   }
 
   void _checkThisStream(BuildContext context) {
-    context.push(
-      '${AppRoutes.check}?site=${Uri.encodeComponent(site.code)}'
-      '&name=${Uri.encodeComponent(site.name)}',
-    );
+    context.push(AppRoutes.checkAssess, extra: site);
   }
 
   Future<void> _openDirections(BuildContext context) async {
