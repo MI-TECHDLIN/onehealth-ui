@@ -59,6 +59,9 @@ class _OneHealthAppState extends State<OneHealthApp> {
         widget.liveRepositories ??
         RepositoryBundle.live(preferences: repositoryPreferences);
     _router = createAppRouter(
+      initialLocation: _settings.onboardingComplete
+          ? AppRoutes.home
+          : AppRoutes.onboarding,
       settings: _settings,
       liveAuth: _liveRepositories.auth,
     );

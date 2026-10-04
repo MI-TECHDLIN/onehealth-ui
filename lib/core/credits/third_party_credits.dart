@@ -19,6 +19,15 @@ abstract final class ThirdPartyCredits {
       license: 'CC0 1.0',
       website: 'https://www.openpeeps.com',
     ),
+    ThirdPartyCredit(
+      name: 'Piper — "alba" voice (en_GB, medium)',
+      notice:
+          'Onboarding narration synthesized offline with the open-source '
+          'Piper text-to-speech voice "alba", trained on Centre for Speech '
+          'Technology Voice Cloning Toolkit recordings',
+      license: 'CC BY 4.0',
+      website: 'https://huggingface.co/rhasspy/piper-voices',
+    ),
   ];
 }
 

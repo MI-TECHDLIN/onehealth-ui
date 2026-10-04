@@ -1,0 +1,301 @@
+{
+  "id": "dataJourney",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 24596,
+  "segments": [
+    {
+      "id": "headline",
+      "words": 4
+    },
+    {
+      "id": "body",
+      "words": 18
+    },
+    {
+      "id": "safety",
+      "words": 33
+    }
+  ],
+  "words": [
+    "Your",
+    "data",
+    "reaches",
+    "researchers",
+    "Standardised",
+    "observations",
+    "add",
+    "local",
+    "detail",
+    "to",
+    "a",
+    "growing",
+    "evidence",
+    "base,",
+    "helping",
+    "teams",
+    "monitor",
+    "change",
+    "and",
+    "investigate",
+    "early-warning",
+    "indicators.",
+    "A",
+    "quick",
+    "safety",
+    "reminder.",
+    "Stay",
+    "on",
+    "the",
+    "bank.",
+    "Never",
+    "enter",
+    "the",
+    "water.",
+    "Watch",
+    "for",
+    "slippery",
+    "or",
+    "steep",
+    "banks.",
+    "Children",
+    "check",
+    "streams",
+    "with",
+    "an",
+    "adult.",
+    "Skip",
+    "the",
+    "check",
+    "in",
+    "bad",
+    "weather",
+    "or",
+    "high",
+    "water."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 151
+    },
+    {
+      "start": 151,
+      "end": 441
+    },
+    {
+      "start": 441,
+      "end": 778
+    },
+    {
+      "start": 778,
+      "end": 1463
+    },
+    {
+      "start": 2154,
+      "end": 2874
+    },
+    {
+      "start": 2874,
+      "end": 3501
+    },
+    {
+      "start": 3501,
+      "end": 3664
+    },
+    {
+      "start": 3664,
+      "end": 3954
+    },
+    {
+      "start": 3954,
+      "end": 4372
+    },
+    {
+      "start": 4372,
+      "end": 4430
+    },
+    {
+      "start": 4430,
+      "end": 4465
+    },
+    {
+      "start": 4465,
+      "end": 4709
+    },
+    {
+      "start": 4709,
+      "end": 5173
+    },
+    {
+      "start": 5173,
+      "end": 5812
+    },
+    {
+      "start": 5812,
+      "end": 6113
+    },
+    {
+      "start": 6113,
+      "end": 6404
+    },
+    {
+      "start": 6404,
+      "end": 6717
+    },
+    {
+      "start": 6717,
+      "end": 7089
+    },
+    {
+      "start": 7089,
+      "end": 7240
+    },
+    {
+      "start": 7240,
+      "end": 7808
+    },
+    {
+      "start": 7808,
+      "end": 8366
+    },
+    {
+      "start": 8366,
+      "end": 9295
+    },
+    {
+      "start": 10845,
+      "end": 10892
+    },
+    {
+      "start": 10892,
+      "end": 11124
+    },
+    {
+      "start": 11124,
+      "end": 11472
+    },
+    {
+      "start": 11472,
+      "end": 12169
+    },
+    {
+      "start": 12918,
+      "end": 13273
+    },
+    {
+      "start": 13273,
+      "end": 13451
+    },
+    {
+      "start": 13451,
+      "end": 13717
+    },
+    {
+      "start": 13717,
+      "end": 14161
+    },
+    {
+      "start": 14481,
+      "end": 14748
+    },
+    {
+      "start": 14748,
+      "end": 15073
+    },
+    {
+      "start": 15073,
+      "end": 15131
+    },
+    {
+      "start": 15131,
+      "end": 15711
+    },
+    {
+      "start": 16263,
+      "end": 16530
+    },
+    {
+      "start": 16530,
+      "end": 16635
+    },
+    {
+      "start": 16635,
+      "end": 17123
+    },
+    {
+      "start": 17123,
+      "end": 17192
+    },
+    {
+      "start": 17192,
+      "end": 17413
+    },
+    {
+      "start": 17413,
+      "end": 17912
+    },
+    {
+      "start": 19080,
+      "end": 19405
+    },
+    {
+      "start": 19405,
+      "end": 19637
+    },
+    {
+      "start": 19637,
+      "end": 20136
+    },
+    {
+      "start": 20136,
+      "end": 20264
+    },
+    {
+      "start": 20264,
+      "end": 20345
+    },
+    {
+      "start": 20345,
+      "end": 20960
+    },
+    {
+      "start": 21594,
+      "end": 21896
+    },
+    {
+      "start": 21896,
+      "end": 21965
+    },
+    {
+      "start": 21965,
+      "end": 22198
+    },
+    {
+      "start": 22198,
+      "end": 22279
+    },
+    {
+      "start": 22279,
+      "end": 22511
+    },
+    {
+      "start": 22511,
+      "end": 22871
+    },
+    {
+      "start": 22871,
+      "end": 22975
+    },
+    {
+      "start": 22975,
+      "end": 23161
+    },
+    {
+      "start": 23161,
+      "end": 23765
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

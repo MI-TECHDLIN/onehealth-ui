@@ -8,6 +8,7 @@ import '../core/settings/app_settings_controller.dart';
 import '../data/repositories/auth_repository.dart';
 import '../debug/mascot_gallery_screen.dart';
 import '../features/auth/sign_in_screen.dart';
+import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/avatar_picker_screen.dart';
 import '../features/profile/profile_screen.dart';
 import '../features/settings/settings_screen.dart';
@@ -16,6 +17,7 @@ import '../features/shell/placeholder_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
 abstract final class AppRoutes {
+  static const String onboarding = '/onboarding';
   static const String signIn = '/sign-in';
   static const String avatar = '/choose-avatar';
   static const String home = '/home';
@@ -41,7 +43,10 @@ GoRouter createAppRouter({
   redirect: settings == null || liveAuth == null
       ? null
       : (context, state) async {
-          if (!settings.mode.isLive) return null;
+          if (!settings.mode.isLive ||
+              state.matchedLocation == AppRoutes.onboarding) {
+            return null;
+          }
           final isSignedIn = await liveAuth.currentUser() != null;
           final atSignIn = state.matchedLocation == AppRoutes.signIn;
           if (!isSignedIn && !atSignIn) return AppRoutes.signIn;
@@ -65,6 +70,16 @@ GoRouter createAppRouter({
   ),
   routes: <RouteBase>[
     GoRoute(path: '/', redirect: (_, _) => AppRoutes.home),
+    GoRoute(
+      path: AppRoutes.onboarding,
+      pageBuilder: (context, state) => _page(
+        context: context,
+        state: state,
+        child: OnboardingScreen(
+          isReplay: state.uri.queryParameters['replay'] == 'true',
+        ),
+      ),
+    ),
     GoRoute(
       path: AppRoutes.signIn,
       pageBuilder: (context, state) => _page(
