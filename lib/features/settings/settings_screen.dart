@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/haptics/app_haptics.dart';
@@ -46,10 +47,10 @@ class SettingsScreen extends StatelessWidget {
             Card(
               child: ListTile(
                 minVerticalPadding: AppSpacing.md,
-                leading: const Icon(Icons.language_rounded),
+                leading: const Icon(PhosphorIconsRegular.globe),
                 title: Text(strings.settingsLanguage),
                 subtitle: Text(selectedLocale.endonym),
-                trailing: const Icon(Icons.chevron_right_rounded),
+                trailing: const Icon(PhosphorIconsRegular.caretRight),
                 onTap: () => _chooseLanguage(context, settings),
               ),
             ),
@@ -67,9 +68,9 @@ class SettingsScreen extends StatelessWidget {
             const SizedBox(height: AppSpacing.md),
             Card(
               child: ListTile(
-                leading: const Icon(Icons.replay_rounded),
+                leading: const Icon(PhosphorIconsRegular.clockCounterClockwise),
                 title: Text(strings.onboardingSettingsReplay),
-                trailing: const Icon(Icons.chevron_right_rounded),
+                trailing: const Icon(PhosphorIconsRegular.caretRight),
                 onTap: () =>
                     context.push('${AppRoutes.onboarding}?replay=true'),
               ),
@@ -78,9 +79,9 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: AppSpacing.md),
               Card(
                 child: ListTile(
-                  leading: const Icon(Icons.water_drop_outlined),
+                  leading: const Icon(PhosphorIconsRegular.drop),
                   title: Text(strings.debugMascotGallery),
-                  trailing: const Icon(Icons.chevron_right_rounded),
+                  trailing: const Icon(PhosphorIconsRegular.caretRight),
                   onTap: () => context.push(MascotGalleryScreen.routeName),
                 ),
               ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../audio/read_aloud_service.dart';
+import '../icons/water_icons.dart';
 import '../theme/tokens.dart';
 import 'aqua_components.dart';
 
@@ -24,20 +26,20 @@ class ReadAloudControl extends StatelessWidget {
       builder: (context, _) {
         if (!service.isAvailable) return const SizedBox.shrink();
         final strings = AppLocalizations.of(context);
-        final (IconData icon, String label, Future<void> Function() onTap) =
+        final (Widget leading, String label, Future<void> Function() onTap) =
             switch (service.state) {
               ReadAloudPlaybackState.playing => (
-                Icons.pause_circle_filled_rounded,
+                const Icon(PhosphorIconsFill.pauseCircle),
                 strings.onboardingReadAloudPause,
                 service.pause,
               ),
               ReadAloudPlaybackState.completed => (
-                Icons.replay_circle_filled_rounded,
+                const Icon(PhosphorIconsFill.arrowCounterClockwise),
                 strings.onboardingReadAloudReplay,
                 service.replay,
               ),
               ReadAloudPlaybackState.idle || ReadAloudPlaybackState.paused => (
-                Icons.volume_up_rounded,
+                const WaterIconWidget(WaterIcon.narrationWave),
                 strings.onboardingReadAloudListen,
                 service.play,
               ),
@@ -47,7 +49,7 @@ class ReadAloudControl extends StatelessWidget {
           child: AquaButton(
             variant: AquaButtonVariant.secondary,
             expand: false,
-            leading: Icon(icon),
+            leading: leading,
             label: label,
             onPressed: () => onTap(),
           ),

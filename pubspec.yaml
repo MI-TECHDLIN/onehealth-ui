@@ -95,22 +95,23 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  # Bundled offline rather than fetched via google_fonts, since the field app
+  # can't assume network access -- see AppTypography.displayFontFamily and
+  # assets/fonts/baloo2/OFL.txt for the licence. Static per-weight instances,
+  # not the upstream variable font: Flutter only drives a variable font's
+  # `wght` axis through TextStyle.fontVariations, not through fontWeight, so
+  # registering one variable file under several pubspec `weight:` entries
+  # would render every weight at the file's default instance. These were
+  # generated with `fonttools varLib.instancer` from Google Fonts' upstream
+  # `Baloo2[wght].ttf` (see OFL.txt) at wght=400 and wght=700 -- the only
+  # weights AppTypography's display styles actually request.
+  fonts:
+    - family: Baloo 2
+      fonts:
+        - asset: assets/fonts/baloo2/Baloo2-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/baloo2/Baloo2-Bold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
