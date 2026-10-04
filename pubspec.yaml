@@ -36,6 +36,7 @@ dependencies:
     sdk: flutter
   flutter_secure_storage: ^11.2.0
   flutter_svg: ^2.3.0
+  flutter_tts: ^4.2.5
   geolocator: ^14.1.1
   go_router: ^17.5.0
   google_fonts: ^8.2.1
@@ -81,6 +82,8 @@ flutter:
     - assets/data/assessment-content.json
     - assets/avatars/
     - assets/audio/onboarding/en/
+    - assets/audio/assessment/en/
+    - assets/illustrations/assessment/
     - assets/map/oneaquahealth-water-light.json
     - assets/map/oneaquahealth-water-dark.json
 

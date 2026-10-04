@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="Natural grassy bank sloping to the water">
+  <rect width="160" height="120" fill="#E9F7F7"/>
+  <path d="M0 20 L90 20 L40 120 L0 120 Z" fill="#78A98A"/>
+  <path d="M40 120 L90 20 L120 20 L160 120 Z" fill="#DDEBDD"/>
+  <path d="M40 120 L160 120 L160 100 L40 100 Z" fill="#2E9EB0"/>
+  <circle cx="30" cy="40" r="5" fill="#DDEBDD"/>
+  <circle cx="55" cy="30" r="4" fill="#DDEBDD"/>
+</svg>

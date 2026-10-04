@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="U-shaped channel cross-section">
+  <rect width="160" height="120" fill="#E9F7F7"/>
+  <path d="M0 70 L20 70 C20 100 50 112 80 112 C110 112 140 100 140 70 L160 70 L160 120 L0 120 Z" fill="#DDEBDD"/>
+  <path d="M34 92 C34 104 56 110 80 110 C104 110 126 104 126 92 C126 102 104 108 80 108 C56 108 34 102 34 92 Z" fill="#2E9EB0"/>
+</svg>

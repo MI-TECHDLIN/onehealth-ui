@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="Natural streambed with stones and gravel">
+  <rect width="160" height="120" fill="#A9E0E4"/>
+  <rect y="60" width="160" height="60" fill="#2E9EB0"/>
+  <ellipse cx="34" cy="90" rx="16" ry="10" fill="#506773"/>
+  <ellipse cx="70" cy="100" rx="20" ry="12" fill="#B7C9CC"/>
+  <ellipse cx="108" cy="88" rx="14" ry="9" fill="#506773"/>
+  <ellipse cx="136" cy="102" rx="12" ry="8" fill="#B7C9CC"/>
+  <ellipse cx="52" cy="78" rx="7" ry="5" fill="#B7C9CC"/>
+</svg>
