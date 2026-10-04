@@ -305,7 +305,9 @@ class _PhotoCaptureScreenState extends State<PhotoCaptureScreen> {
               FriendlyErrorBanner(
                 message: _friendlyError!,
                 retryLabel: strings.assessPhotoSettingsAction,
-                onRetry: () => unawaited(Geolocator.openAppSettings()),
+                onRetry: () async {
+                  await Geolocator.openAppSettings();
+                },
               ),
             ],
             const SizedBox(height: AppSpacing.lg),
@@ -801,8 +803,9 @@ class _CameraOverlayState extends State<_CameraOverlay>
                               FriendlyErrorBanner(
                                 message: _friendlyError!,
                                 retryLabel: strings.assessPhotoSettingsAction,
-                                onRetry: () =>
-                                    unawaited(Geolocator.openAppSettings()),
+                                onRetry: () async {
+                                  await Geolocator.openAppSettings();
+                                },
                               ),
                               const SizedBox(height: AppSpacing.xs),
                               AquaButton(

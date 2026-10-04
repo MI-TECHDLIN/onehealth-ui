@@ -261,6 +261,8 @@
   "assessMissingWaterAppearance": "water appearance",
   "assessMissingHabitats": "habitat observations",
   "assessMissingMarginVegetation": "margin vegetation",
+  "assessMissingSurroundingsPhoto": "surroundings photo",
+  "assessMissingBiodiversityPhoto": "biodiversity photo",
   "assessReviewConsent": "By submitting, you agree to share these observations and photos with the OneAquaHealth research project for environmental and One Health research.",
   "assessReviewRequiredMissing": "Choose an overall stream-health assessment before submitting.",
   "assessReviewSubmitAction": "Submit stream check",

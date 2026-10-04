@@ -20,7 +20,7 @@ void main() {
       CompletenessField.upstreamPhoto,
     );
     expect(completeness.completed, 2);
-    expect(completeness.total, 9);
+    expect(completeness.total, 11);
   });
 
   test('moves to the next most valuable field once upstream is present', () {

@@ -285,6 +285,8 @@ String _missingFieldLabel(
   CompletenessField.waterAppearance => strings.assessMissingWaterAppearance,
   CompletenessField.habitatObservations => strings.assessMissingHabitats,
   CompletenessField.marginVegetation => strings.assessMissingMarginVegetation,
+  CompletenessField.surroundingsPhoto => strings.assessMissingSurroundingsPhoto,
+  CompletenessField.biodiversityPhoto => strings.assessMissingBiodiversityPhoto,
 };
 
 class _QuestionGroup extends StatelessWidget {

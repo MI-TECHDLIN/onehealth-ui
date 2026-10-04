@@ -26,6 +26,7 @@ class CheckSitePickerScreen extends StatefulWidget {
 class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
   Future<List<StreamSite>>? _sitesFuture;
   Future<List<QueuedAssessment>>? _queueFuture;
+  QueuedAssessmentRepository? _queueRepository;
   bool _addingSite = false;
   final TextEditingController _nameController = TextEditingController();
   double? _latitude;
@@ -37,8 +38,13 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
     super.didChangeDependencies();
     _sitesFuture ??= RepositoryScope.of(context).repositories.sites.nearbySites();
     final assessments = RepositoryScope.of(context).repositories.assessments;
-    if (_queueFuture == null && assessments is QueuedAssessmentRepository) {
+    if (assessments is QueuedAssessmentRepository &&
+        !identical(_queueRepository, assessments)) {
+      _queueRepository = assessments;
       _queueFuture = assessments.queuedSubmissions();
+    } else if (assessments is! QueuedAssessmentRepository) {
+      _queueRepository = null;
+      _queueFuture = null;
     }
   }
 

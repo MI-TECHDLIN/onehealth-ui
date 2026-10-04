@@ -10,6 +10,8 @@ enum CompletenessField {
   waterAppearance,
   habitatObservations,
   marginVegetation,
+  surroundingsPhoto,
+  biodiversityPhoto,
 }
 
 class AssessmentCompleteness {
@@ -53,6 +55,18 @@ abstract final class AssessmentCompletenessMeter {
         field: CompletenessField.marginVegetation,
         present: draft.isVegetationCoveredLeft != null &&
             draft.isVegetationCoveredRight != null,
+      ),
+      (
+        field: CompletenessField.surroundingsPhoto,
+        present: draft.attachments.containsKey(
+          AssessmentMediaRole.surroundingPhoto,
+        ),
+      ),
+      (
+        field: CompletenessField.biodiversityPhoto,
+        present: draft.attachments.containsKey(
+          AssessmentMediaRole.interestingPhoto,
+        ),
       ),
     ];
     final completed = fields.where((field) => field.present).length;
