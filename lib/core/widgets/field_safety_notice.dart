@@ -57,10 +57,12 @@ class FieldSafetyNotice extends StatelessWidget {
                   children: <Widget>[
                     const Padding(
                       padding: EdgeInsets.only(top: 7),
-                      child: Icon(
-                        Icons.circle,
-                        size: 6,
-                        color: AppColors.deepWater,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          color: AppColors.deepWater,
+                          shape: BoxShape.circle,
+                        ),
+                        child: SizedBox.square(dimension: 6),
                       ),
                     ),
                     const SizedBox(width: AppSpacing.xs),

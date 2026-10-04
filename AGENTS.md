@@ -29,6 +29,13 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   (`assets/fonts/baloo2/`, OFL-licensed), not `google_fonts`, so it renders
   offline; never applies to Arabic, which always keeps Noto Sans Arabic.
   Everything else (body, labels, chips) stays on Noto Sans/`familyFor`.
+  Bundled as static per-weight `.ttf` instances, not the upstream variable
+  font: Flutter only drives a variable font's `wght` axis through
+  `TextStyle.fontVariations`, not `fontWeight`, so registering one variable
+  file under several pubspec `weight:` entries silently renders every
+  weight at the file's default instance. Regenerate instances with
+  `fonttools varLib.instancer` (`pip install fonttools` in a throwaway venv)
+  from Google Fonts' upstream variable file if a new weight is ever needed.
 - Icons are Phosphor (`phosphor_flutter`, MIT) everywhere: `PhosphorIconsRegular.*`
   for idle states, `PhosphorIconsFill.*` for selected/active ones -- do not
   reintroduce Material `Icons.*`. For concepts Phosphor doesn't cover (stream

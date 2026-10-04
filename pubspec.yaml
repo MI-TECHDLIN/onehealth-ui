@@ -92,17 +92,21 @@ flutter:
 
   # Bundled offline rather than fetched via google_fonts, since the field app
   # can't assume network access -- see AppTypography.displayFontFamily and
-  # assets/fonts/baloo2/OFL.txt for the licence. A single variable-font file
-  # backs every weight Flutter requests from it.
+  # assets/fonts/baloo2/OFL.txt for the licence. Static per-weight instances,
+  # not the upstream variable font: Flutter only drives a variable font's
+  # `wght` axis through TextStyle.fontVariations, not through fontWeight, so
+  # registering one variable file under several pubspec `weight:` entries
+  # would render every weight at the file's default instance. These were
+  # generated with `fonttools varLib.instancer` from Google Fonts' upstream
+  # `Baloo2[wght].ttf` (see OFL.txt) at wght=400 and wght=700 -- the only
+  # weights AppTypography's display styles actually request.
   fonts:
     - family: Baloo 2
       fonts:
-        - asset: assets/fonts/baloo2/Baloo2-Variable.ttf
+        - asset: assets/fonts/baloo2/Baloo2-Regular.ttf
           weight: 400
-        - asset: assets/fonts/baloo2/Baloo2-Variable.ttf
+        - asset: assets/fonts/baloo2/Baloo2-Bold.ttf
           weight: 700
-        - asset: assets/fonts/baloo2/Baloo2-Variable.ttf
-          weight: 800
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
