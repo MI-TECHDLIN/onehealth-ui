@@ -101,6 +101,49 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - `geolocator`, `maplibre_gl`, `phosphor_flutter`, and `url_launcher` joined
   `pubspec.yaml` for the map/site-detail work; the same Flutter/Dart
   compatibility check above applies before bumping any of them.
+- The round-4 assessment question flow (`lib/features/check/`) is driven by
+  `AssessmentProtocol.fromContent` (`lib/data/assessment/assessment_protocol.dart`),
+  which normalizes `assessment-content.json`'s `fields`/`referenceData`/
+  `contentByLocale` tables into typed `AssessmentQuestion`s; the
+  `AssessmentDraftAnswers` extension on it (same file) is the only place that
+  maps a question id onto `AssessmentDraft`'s submission-contract fields --
+  route new question types through `withChoice`/`withYesNo`/etc. rather than
+  mutating draft fields directly, and track "answered" via
+  `AssessmentDraft.answeredQuestionIds` (not a field's own non-null default --
+  `overallAssessment` defaults to `'MODERATE'` even when untouched).
+  `yesNoNotSure` questions reuse `AssessmentOption` with sentinel codes
+  `'true'`/`'false'` (see `AssessmentYesNoOption.asYesNoValue`) so every
+  question type shares one option model.
+- Assessment question/option copy comes from `assessment-content.json` per
+  the active locale (English fallback already handled by
+  `AssessmentContentSource.localized`); UI chrome (buttons, progress,
+  coaching, glossary sheet, site picker) comes from ARB `assess*`/
+  `glossary*` keys instead -- these are two different locale universes
+  (the protocol ships el/pt/nl/no/fr/it; the app's ARB locale set is
+  separate and wider), so do not assume one covers the other.
+- Read-aloud on assessment questions goes through
+  `AssessmentNarrationController` (`lib/core/audio/`), which wraps the
+  existing screen-agnostic `ReadAloudService` (Piper, English today --
+  regenerate via `scripts/narration/generate_assessment_narration.py`) and
+  falls back to `flutter_tts` (`DeviceVoiceSpeaker`) for locales with no
+  generated track, surfaced as a "Listen (Device voice)" label. Only the
+  question `prompt` segment is ever word-highlighted
+  (`lib/features/check/widgets/question_frame.dart`); the full option list
+  still gets spoken for audio coverage, just without a highlight consumer
+  yet -- a deliberate round-4 scope cut, not a bug, left for whoever wires
+  per-chip highlighting into `PictureChoiceCard`/`AquaFilterChip`.
+- The tap-to-explain glossary (`lib/core/glossary/`) matches terms against
+  whatever word the protocol's own English copy actually uses (e.g.
+  "substrate" underlines the word "bottom"), not the term's own name --
+  check `GlossaryTerms.all`'s `matchPattern`s before assuming a term will
+  highlight somewhere just because its id appears in a question's
+  `glossaryTermIds`. English-only matching for now; other locales show no
+  underline rather than a wrong one.
+- `/check/assess` and `/check/review` are top-level routes (outside
+  `AppShell`'s bottom-nav `ShellRoute`), reached via `context.push(...,
+  extra: streamSiteOrDraft)`; the Check tab's own `/check` route shows
+  `CheckSitePickerScreen` instead. A missing/wrong-typed `extra` redirects
+  home rather than crashing (see the `redirect:` on those `GoRoute`s).
 
 ## Maintaining this file
 

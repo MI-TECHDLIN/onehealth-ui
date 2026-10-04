@@ -168,8 +168,65 @@ Map home and site detail:
 63. On site detail, tap "Get directions" - the device's maps app opens
     (geo intent on Android) centered on the stream; with no maps app
     installed, a friendly message appears instead of a crash.
-64. On site detail, tap "Check this stream" - the Check tab opens naming this
-    stream, as a placeholder for round 4's assessment flow.
+64. On site detail, tap "Check this stream" - the real question flow opens
+    directly on channel form (no more placeholder), full-screen with no
+    bottom nav.
 
 Items 55-64 require on-device verification (the MapLibre view itself is not
 exercised by automated tests; see `test/features/home/`).
+
+Round 4: stream-check question flow (`lib/features/check/`):
+65. Open the Check tab with no site context - a "Which stream?" picker
+    lists nearby sites and offers "Add a new site"; tapping either a site
+    or "Start checking this site" (after naming it and tapping "Use my
+    current location") opens the question flow for that site.
+66. Work through channel form, bottom type, and bank type - each renders a
+    2-column grid of the original illustrated cards (never OneAquaHealth's
+    own photos), plus an "I'm not sure" link beneath that shows a short
+    coaching line once tapped.
+67. On Habitats and Natural Debris - the screen opens on a Yes/No gate
+    ("Are there any habitats present?"); tapping Yes reveals the
+    multi-select chip list, tapping No skips straight past with nothing
+    selected.
+68. On every yes/no question (water abstraction, dams, pipes, sewage,
+    construction, the riparian items, vegetation cuts) - Yes/No/"I'm not
+    sure" render as three chips, never a plain Material switch.
+69. On the riparian step - a "Facing downstream" primer appears first,
+    then Impervious Areas and Vegetation Coverage each show Left and
+    Right margin side-by-side; marking a margin's vegetation "Yes" reveals
+    that side's own vegetation-type chips; flipping it back to "No" (or
+    "I'm not sure") hides and clears that side's type answer.
+70. On Invasive Species, answer "Yes" - a "Which ones?" text field appears
+    directly beneath; switching back to "No" hides it again.
+71. On Overall assessment - Next stays disabled until one of Good/
+    Moderate/Poor is tapped (this is the only required question in this
+    flow); each card shows its own one-line descriptor.
+72. On the feelings screen - joy, serenity, anger and fear each have their
+    own independent 0-5 row and a "Not applicable" checkbox; checking it
+    zeroes that feeling only, and tapping any level un-checks it.
+73. On any question, tap Listen - the prompt reads aloud with word
+    highlighting (English), then the options; on a locale with no
+    generated narration, the control instead shows "Listen (Device
+    voice)" and uses the phone's own TTS with no highlighting.
+74. Underlined words (channel, bottom, banks, margin/riparian, invasive)
+    open a bottom sheet with a plain-language explanation, a small
+    original illustration, and its own Listen control.
+75. Answer a few questions, then tap the exit icon (top-right) - a "Save
+    and exit?" dialog appears; "Save and exit" returns to the map. Reopen
+    the same site's "Check this stream" - a "Pick up where you left off?"
+    dialog offers to continue (restoring every prior answer) or start
+    over (clears that site's draft back to blank).
+76. Reach the end of the feelings screen and tap Next - a "Your answers so
+    far" screen lists every answered question with its answer (or "Not
+    answered yet"/"Not sure"); this is a deliberate placeholder for the
+    next round's photo capture, review, and submit/celebration.
+77. Turn on reduce motion and repeat next/back through a few questions -
+    transitions become a short dissolve instead of the shared-axis slide.
+78. Switch to Arabic (or another RTL-capable locale) mid-flow - question
+    copy and chrome fall back to English per-string wherever the protocol
+    or ARB has no translation yet (see `assets/data/assessment-content.json`
+    `localeStatus`), never a blank or broken row.
+
+Items 65-78 require on-device verification; the shell's navigation,
+gating, resume/start-over, and conditional-visibility logic are covered by
+`test/features/check/`.
