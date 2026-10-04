@@ -153,10 +153,12 @@ Map home and site detail:
 57. Tap Needs data, then Visited - the map and pin count change to match;
     tapping Nearby returns every site. An empty filter result shows a guiding
     Ripple with a "Show all streams" action back to Nearby.
-58. Tap a cluster - the camera zooms to exactly the level it splits at. Tap an
-    individual pin - a preview card appears at the bottom with the stream
-    name, estimated walk time, and Needs data/Visited status; the OpenFreeMap
-    attribution stays visible above it, never covered.
+58. On an Android device, tap a cluster - the camera zooms in two levels. Tap
+    an individual pin - a preview card appears at the bottom with the stream
+    name, estimated walk time, and Needs data/Visited status. Tap empty map
+    space and confirm it still receives the normal map tap; no pin or cluster
+    tap fires twice. The OpenFreeMap attribution stays visible above the card,
+    never covered.
 59. Tap the locate-me control with location permission denied - a friendly
     message appears ("Location isn't available right now...") and the map
     keeps working; grant permission and tap again - the map centers on the
