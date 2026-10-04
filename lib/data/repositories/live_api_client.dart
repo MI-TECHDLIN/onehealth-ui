@@ -31,14 +31,16 @@ class LiveApiClient {
 
   Future<http.Response> putJson(
     String path,
-    Map<String, Object?> body,
-  ) => send('PUT', path, jsonBody: body);
+    Map<String, Object?> body, {
+    Map<String, String>? headers,
+  }) => send('PUT', path, jsonBody: body, headers: headers);
 
   Future<http.Response> putBytes(
     String path,
     Uint8List bytes, {
     Map<String, String>? queryParameters,
     String? contentType,
+    Map<String, String>? headers,
   }) => send(
     'PUT',
     path,
@@ -77,6 +79,7 @@ class LiveApiClient {
     );
     final request = http.Request(method, uri)
       ..headers['Authorization'] = 'Bearer $token';
+    if (headers != null) request.headers.addAll(headers);
     if (jsonBody != null) {
       request.headers['Content-Type'] = 'application/json';
       request.body = jsonEncode(jsonBody);

@@ -30,6 +30,7 @@ environment:
 dependencies:
   animations: ^2.2.0
   audio_session: ^0.2.4
+  connectivity_plus: ^6.1.5
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -41,6 +42,8 @@ dependencies:
   go_router: ^17.5.0
   google_fonts: ^8.2.1
   http: ^1.6.0
+  image: ^4.10.1
+  image_picker: ^1.2.3
   intl: ^0.20.2
   just_audio: ^0.10.6
   maplibre_gl: ^0.22.0

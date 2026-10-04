@@ -25,7 +25,8 @@ android {
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         // flutter_secure_storage 11 uses the Android 6+ encryption APIs.
-        minSdk = 23
+        // image_picker 1.2.x supports Android 7.0 and newer.
+        minSdk = 24
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
