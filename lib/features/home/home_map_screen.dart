@@ -245,7 +245,13 @@ class _HomeMapScreenState extends State<HomeMapScreen> {
     if (_reminderChecked) return;
     _reminderChecked = true;
     if (!mounted) return;
-    final settings = AppSettingsScope.of(context);
+    // A plain `AppSettingsScope.of` would throw if a test pumps this screen
+    // without one (several existing ones do, predating this feature); skip
+    // quietly instead of crashing an unrelated test's async gap.
+    final settings = context
+        .dependOnInheritedWidgetOfExactType<AppSettingsScope>()
+        ?.notifier;
+    if (settings == null) return;
     final mode = RepositoryScope.of(context).mode;
     final strings = AppLocalizations.of(context);
     List<AssessmentRecord> history;

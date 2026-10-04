@@ -70,20 +70,15 @@ class _MyStreamsScreenState extends State<MyStreamsScreen> {
     });
     final repositories = RepositoryScope.of(context).repositories;
     try {
-      final results = await Future.wait<Object>(<Future<Object>>[
-        repositories.assessments.drafts(),
-        repositories.assessments.history(),
-        repositories.sites.nearbySites(),
-        (widget.queueStatusSource ?? const NoOpDraftQueueStatusSource())
-            .queuedDraftIds(),
-      ]);
-      final drafts = results[0] as List<AssessmentDraft>;
-      final history = results[1] as List<AssessmentRecord>;
-      final sites = results[2] as List<dynamic>;
-      final queuedIds = results[3] as Set<String>;
+      final drafts = await repositories.assessments.drafts();
+      final history = await repositories.assessments.history();
+      final sites = await repositories.sites.nearbySites();
+      final queuedIds =
+          await (widget.queueStatusSource ?? const NoOpDraftQueueStatusSource())
+              .queuedDraftIds();
 
       final namesByCode = <String, String>{
-        for (final site in sites) (site as dynamic).code as String: site.name as String,
+        for (final site in sites) site.code: site.name,
       };
 
       final draftEntries = drafts

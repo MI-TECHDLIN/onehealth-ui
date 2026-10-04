@@ -82,6 +82,45 @@ void main() {
     expect(find.text('You last checked this stream 3 days ago'), findsOneWidget);
   });
 
+  testWidgets('shows the demo-seeded health timeline for a bundled demo site', (
+    tester,
+  ) async {
+    await _pumpSiteDetail(tester, site: _siteWithoutCity);
+
+    expect(find.text('Past checks'), findsOneWidget);
+    // DEMO-RIVER-01's seed data (see `demo_stream_health_seed.dart`) is one
+    // GOOD and one MODERATE check -- no real history was passed here.
+    expect(find.text('Good'), findsOneWidget);
+    expect(find.text('Moderate'), findsOneWidget);
+  });
+
+  testWidgets('shows an empty timeline for a site with no checks and no seed data', (
+    tester,
+  ) async {
+    await _pumpSiteDetail(tester, site: _site);
+
+    expect(find.text('No past checks yet for this stream.'), findsOneWidget);
+  });
+
+  testWidgets('a real check appears on the timeline alongside the freshness cue', (
+    tester,
+  ) async {
+    await _pumpSiteDetail(
+      tester,
+      site: _site,
+      history: <AssessmentRecord>[
+        AssessmentRecord(
+          id: 'r1',
+          siteCode: _site.code,
+          submittedAt: DateTime.now().toUtc().subtract(const Duration(days: 3)),
+          overallAssessment: 'POOR',
+        ),
+      ],
+    );
+
+    expect(find.text('Poor'), findsOneWidget);
+  });
+
   testWidgets('Check this stream pushes to the assess route with the full site', (
     tester,
   ) async {
