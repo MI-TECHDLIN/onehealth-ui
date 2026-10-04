@@ -4,6 +4,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../app/app_router.dart';
+import '../../core/icons/water_icons.dart';
 import '../../core/mascot/aqua_mascot.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/aqua_components.dart';
@@ -140,8 +141,8 @@ class _SiteDetailBody extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const PhosphorIcon(
-                PhosphorIconsRegular.lifebuoy,
+              const WaterIconWidget(
+                WaterIcon.fieldSafety,
                 color: AppColors.deepWater,
               ),
               const SizedBox(width: AppSpacing.xs),
@@ -169,7 +170,7 @@ class _SiteDetailBody extends StatelessWidget {
         AquaButton(
           key: const Key('siteDetailCheckAction'),
           label: strings.siteDetailCheckAction,
-          leading: const PhosphorIcon(PhosphorIconsRegular.clipboardText),
+          leading: const WaterIconWidget(WaterIcon.streamCheck),
           onPressed: () => _checkThisStream(context),
         ),
         const SizedBox(height: AppSpacing.sm),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
+import '../../core/icons/water_icons.dart';
 import '../../core/theme/tokens.dart';
 import '../../data/repositories/repository_models.dart';
 import '../../l10n/generated/app_localizations.dart';
@@ -47,8 +48,8 @@ class SitePreviewCard extends StatelessWidget {
           padding: const EdgeInsets.all(AppSpacing.md),
           child: Row(
             children: <Widget>[
-              const PhosphorIcon(
-                PhosphorIconsRegular.mapPin,
+              const WaterIconWidget(
+                WaterIcon.rippleDrop,
                 color: AppColors.deepWater,
                 size: 28,
               ),
