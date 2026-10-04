@@ -1,0 +1,127 @@
+{
+  "id": "waterFlow",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 10627,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 5
+    },
+    {
+      "id": "options",
+      "words": 16
+    }
+  ],
+  "words": [
+    "How",
+    "is",
+    "the",
+    "water",
+    "flowing",
+    "Fast",
+    "(with",
+    "waves",
+    "or",
+    "high",
+    "velocity)",
+    "(A).",
+    "Slow",
+    "(B).",
+    "Stagnant/intermittent",
+    "(C).",
+    "Dry",
+    "(D).",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 197
+    },
+    {
+      "start": 197,
+      "end": 267
+    },
+    {
+      "start": 267,
+      "end": 325
+    },
+    {
+      "start": 325,
+      "end": 650
+    },
+    {
+      "start": 650,
+      "end": 1091
+    },
+    {
+      "start": 1736,
+      "end": 2085
+    },
+    {
+      "start": 2085,
+      "end": 2236
+    },
+    {
+      "start": 2236,
+      "end": 2561
+    },
+    {
+      "start": 2561,
+      "end": 2665
+    },
+    {
+      "start": 2665,
+      "end": 2839
+    },
+    {
+      "start": 2839,
+      "end": 3362
+    },
+    {
+      "start": 3362,
+      "end": 3571
+    },
+    {
+      "start": 4332,
+      "end": 4564
+    },
+    {
+      "start": 4564,
+      "end": 4982
+    },
+    {
+      "start": 5558,
+      "end": 7518
+    },
+    {
+      "start": 7518,
+      "end": 7891
+    },
+    {
+      "start": 8211,
+      "end": 8443
+    },
+    {
+      "start": 8443,
+      "end": 8826
+    },
+    {
+      "start": 9297,
+      "end": 9448
+    },
+    {
+      "start": 9448,
+      "end": 9634
+    },
+    {
+      "start": 9634,
+      "end": 10087
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

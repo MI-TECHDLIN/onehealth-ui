@@ -1,0 +1,107 @@
+{
+  "id": "downstreamPrimer",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 6828,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 2
+    },
+    {
+      "id": "options",
+      "words": 15
+    }
+  ],
+  "words": [
+    "Facing",
+    "downstream",
+    "Left",
+    "and",
+    "right",
+    "are",
+    "defined",
+    "as",
+    "you",
+    "face",
+    "downstream,",
+    "the",
+    "direction",
+    "the",
+    "water",
+    "is",
+    "flowing."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 418
+    },
+    {
+      "start": 418,
+      "end": 1115
+    },
+    {
+      "start": 1794,
+      "end": 2120
+    },
+    {
+      "start": 2120,
+      "end": 2259
+    },
+    {
+      "start": 2259,
+      "end": 2514
+    },
+    {
+      "start": 2514,
+      "end": 2596
+    },
+    {
+      "start": 2596,
+      "end": 2967
+    },
+    {
+      "start": 2967,
+      "end": 3048
+    },
+    {
+      "start": 3048,
+      "end": 3153
+    },
+    {
+      "start": 3153,
+      "end": 3339
+    },
+    {
+      "start": 3339,
+      "end": 4163
+    },
+    {
+      "start": 4163,
+      "end": 4233
+    },
+    {
+      "start": 4233,
+      "end": 4685
+    },
+    {
+      "start": 4685,
+      "end": 4743
+    },
+    {
+      "start": 4743,
+      "end": 5150
+    },
+    {
+      "start": 5150,
+      "end": 5254
+    },
+    {
+      "start": 5254,
+      "end": 5765
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

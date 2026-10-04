@@ -1,0 +1,142 @@
+{
+  "id": "banksChannelType",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 10110,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 6
+    },
+    {
+      "id": "options",
+      "words": 18
+    }
+  ],
+  "words": [
+    "The",
+    "banks",
+    "of",
+    "the",
+    "channel",
+    "are\u2026",
+    "Natural",
+    "(A).",
+    "Artificial",
+    "(concrete",
+    "or",
+    "stones",
+    "with",
+    "concrete)",
+    "(B).",
+    "Layed",
+    "stones",
+    "with",
+    "no",
+    "concrete",
+    "(C).",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 192
+    },
+    {
+      "start": 192,
+      "end": 511
+    },
+    {
+      "start": 511,
+      "end": 639
+    },
+    {
+      "start": 639,
+      "end": 830
+    },
+    {
+      "start": 830,
+      "end": 1277
+    },
+    {
+      "start": 1277,
+      "end": 1533
+    },
+    {
+      "start": 1853,
+      "end": 2445
+    },
+    {
+      "start": 2445,
+      "end": 2712
+    },
+    {
+      "start": 3171,
+      "end": 3775
+    },
+    {
+      "start": 3775,
+      "end": 4204
+    },
+    {
+      "start": 4204,
+      "end": 4297
+    },
+    {
+      "start": 4297,
+      "end": 4727
+    },
+    {
+      "start": 4727,
+      "end": 4831
+    },
+    {
+      "start": 4831,
+      "end": 5261
+    },
+    {
+      "start": 5261,
+      "end": 5563
+    },
+    {
+      "start": 6382,
+      "end": 6672
+    },
+    {
+      "start": 6672,
+      "end": 7113
+    },
+    {
+      "start": 7113,
+      "end": 7206
+    },
+    {
+      "start": 7206,
+      "end": 7415
+    },
+    {
+      "start": 7415,
+      "end": 7810
+    },
+    {
+      "start": 7810,
+      "end": 8089
+    },
+    {
+      "start": 8803,
+      "end": 8919
+    },
+    {
+      "start": 8919,
+      "end": 9105
+    },
+    {
+      "start": 9105,
+      "end": 9546
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

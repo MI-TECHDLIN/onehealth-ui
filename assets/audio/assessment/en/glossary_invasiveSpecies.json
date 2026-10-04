@@ -1,0 +1,138 @@
+{
+  "id": "glossary_invasiveSpecies",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8528,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 24
+    }
+  ],
+  "words": [
+    "An",
+    "invasive",
+    "species",
+    "is",
+    "a",
+    "non-native",
+    "plant",
+    "or",
+    "animal",
+    "that",
+    "spreads",
+    "aggressively",
+    "and",
+    "can",
+    "crowd",
+    "out",
+    "the",
+    "local",
+    "wildlife",
+    "a",
+    "healthy",
+    "stream",
+    "depends",
+    "on."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 58
+    },
+    {
+      "start": 58,
+      "end": 499
+    },
+    {
+      "start": 499,
+      "end": 1080
+    },
+    {
+      "start": 1080,
+      "end": 1149
+    },
+    {
+      "start": 1149,
+      "end": 1219
+    },
+    {
+      "start": 1219,
+      "end": 1718
+    },
+    {
+      "start": 1718,
+      "end": 2055
+    },
+    {
+      "start": 2055,
+      "end": 2194
+    },
+    {
+      "start": 2194,
+      "end": 2589
+    },
+    {
+      "start": 2589,
+      "end": 2728
+    },
+    {
+      "start": 2728,
+      "end": 3100
+    },
+    {
+      "start": 3100,
+      "end": 3715
+    },
+    {
+      "start": 3715,
+      "end": 3843
+    },
+    {
+      "start": 3843,
+      "end": 3924
+    },
+    {
+      "start": 3924,
+      "end": 4203
+    },
+    {
+      "start": 4203,
+      "end": 4365
+    },
+    {
+      "start": 4365,
+      "end": 4423
+    },
+    {
+      "start": 4423,
+      "end": 4737
+    },
+    {
+      "start": 4737,
+      "end": 5236
+    },
+    {
+      "start": 5236,
+      "end": 5271
+    },
+    {
+      "start": 5271,
+      "end": 5561
+    },
+    {
+      "start": 5561,
+      "end": 5817
+    },
+    {
+      "start": 5817,
+      "end": 6177
+    },
+    {
+      "start": 6177,
+      "end": 6478
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

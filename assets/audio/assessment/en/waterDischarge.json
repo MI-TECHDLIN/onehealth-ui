@@ -1,0 +1,102 @@
+{
+  "id": "waterDischarge",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 6772,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 11
+    },
+    {
+      "id": "options",
+      "words": 5
+    }
+  ],
+  "words": [
+    "Is",
+    "there",
+    "any",
+    "kind",
+    "of",
+    "water",
+    "entry",
+    "or",
+    "discharge",
+    "of",
+    "sewage?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 104
+    },
+    {
+      "start": 104,
+      "end": 244
+    },
+    {
+      "start": 244,
+      "end": 453
+    },
+    {
+      "start": 453,
+      "end": 650
+    },
+    {
+      "start": 650,
+      "end": 731
+    },
+    {
+      "start": 731,
+      "end": 987
+    },
+    {
+      "start": 987,
+      "end": 1393
+    },
+    {
+      "start": 1393,
+      "end": 1498
+    },
+    {
+      "start": 1498,
+      "end": 1927
+    },
+    {
+      "start": 1927,
+      "end": 1985
+    },
+    {
+      "start": 1985,
+      "end": 2566
+    },
+    {
+      "start": 3606,
+      "end": 4105
+    },
+    {
+      "start": 4599,
+      "end": 5029
+    },
+    {
+      "start": 5465,
+      "end": 5581
+    },
+    {
+      "start": 5581,
+      "end": 5778
+    },
+    {
+      "start": 5778,
+      "end": 6243
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

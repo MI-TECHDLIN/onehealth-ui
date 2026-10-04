@@ -1,0 +1,128 @@
+{
+  "id": "glossary_channel",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8361,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 22
+    }
+  ],
+  "words": [
+    "The",
+    "channel",
+    "is",
+    "the",
+    "path",
+    "water",
+    "flows",
+    "through.",
+    "Its",
+    "shape",
+    "and",
+    "materials,",
+    "natural",
+    "or",
+    "artificial,",
+    "affect",
+    "how",
+    "healthy",
+    "the",
+    "stream",
+    "can",
+    "be."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 93
+    },
+    {
+      "start": 93,
+      "end": 453
+    },
+    {
+      "start": 453,
+      "end": 534
+    },
+    {
+      "start": 534,
+      "end": 627
+    },
+    {
+      "start": 627,
+      "end": 929
+    },
+    {
+      "start": 929,
+      "end": 1289
+    },
+    {
+      "start": 1289,
+      "end": 1556
+    },
+    {
+      "start": 1556,
+      "end": 2032
+    },
+    {
+      "start": 2839,
+      "end": 2979
+    },
+    {
+      "start": 2979,
+      "end": 3199
+    },
+    {
+      "start": 3199,
+      "end": 3362
+    },
+    {
+      "start": 3362,
+      "end": 4198
+    },
+    {
+      "start": 4198,
+      "end": 4743
+    },
+    {
+      "start": 4743,
+      "end": 4860
+    },
+    {
+      "start": 4860,
+      "end": 5730
+    },
+    {
+      "start": 5730,
+      "end": 6055
+    },
+    {
+      "start": 6055,
+      "end": 6195
+    },
+    {
+      "start": 6195,
+      "end": 6450
+    },
+    {
+      "start": 6450,
+      "end": 6531
+    },
+    {
+      "start": 6531,
+      "end": 6775
+    },
+    {
+      "start": 6775,
+      "end": 6903
+    },
+    {
+      "start": 6903,
+      "end": 7181
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

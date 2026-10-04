@@ -1,0 +1,138 @@
+{
+  "id": "glossary_riparianZone",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8819,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 24
+    }
+  ],
+  "words": [
+    "The",
+    "riparian",
+    "zone,",
+    "also",
+    "called",
+    "the",
+    "margin,",
+    "is",
+    "the",
+    "strip",
+    "of",
+    "land",
+    "alongside",
+    "a",
+    "stream,",
+    "usually",
+    "covered",
+    "by",
+    "plants",
+    "adapted",
+    "to",
+    "living",
+    "near",
+    "water."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 81
+    },
+    {
+      "start": 81,
+      "end": 569
+    },
+    {
+      "start": 569,
+      "end": 1254
+    },
+    {
+      "start": 1254,
+      "end": 1544
+    },
+    {
+      "start": 1544,
+      "end": 1788
+    },
+    {
+      "start": 1788,
+      "end": 1846
+    },
+    {
+      "start": 1846,
+      "end": 2577
+    },
+    {
+      "start": 2577,
+      "end": 2659
+    },
+    {
+      "start": 2659,
+      "end": 2717
+    },
+    {
+      "start": 2717,
+      "end": 2972
+    },
+    {
+      "start": 2972,
+      "end": 3042
+    },
+    {
+      "start": 3042,
+      "end": 3274
+    },
+    {
+      "start": 3274,
+      "end": 3762
+    },
+    {
+      "start": 3762,
+      "end": 3808
+    },
+    {
+      "start": 3808,
+      "end": 4621
+    },
+    {
+      "start": 4621,
+      "end": 5062
+    },
+    {
+      "start": 5062,
+      "end": 5329
+    },
+    {
+      "start": 5329,
+      "end": 5480
+    },
+    {
+      "start": 5480,
+      "end": 5747
+    },
+    {
+      "start": 5747,
+      "end": 6107
+    },
+    {
+      "start": 6107,
+      "end": 6177
+    },
+    {
+      "start": 6177,
+      "end": 6351
+    },
+    {
+      "start": 6351,
+      "end": 6478
+    },
+    {
+      "start": 6478,
+      "end": 7094
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

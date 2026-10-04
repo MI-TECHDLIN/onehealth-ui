@@ -1,0 +1,312 @@
+{
+  "id": "overallAssessment",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 30266,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 15
+    },
+    {
+      "id": "options",
+      "words": 43
+    }
+  ],
+  "words": [
+    "Provide",
+    "an",
+    "overall",
+    "assessment",
+    "of",
+    "the",
+    "stream",
+    "ecosystem",
+    "health",
+    "(choose",
+    "one",
+    "of",
+    "the",
+    "below",
+    "possibilities)",
+    "Good",
+    "quality.",
+    "The",
+    "ecosystem",
+    "components",
+    "are",
+    "there:",
+    "riparian",
+    "vegetation,",
+    "natural",
+    "channel,",
+    "good",
+    "water",
+    "quality,",
+    "biodiversity.",
+    "Moderate",
+    "quality.",
+    "Some",
+    "alterations,",
+    "still",
+    "biodiverse,",
+    "with",
+    "vegetation",
+    "in",
+    "the",
+    "margins,",
+    "water",
+    "looks",
+    "good.",
+    "Poor",
+    "quality.",
+    "Highly",
+    "modified",
+    "slash",
+    "artificialized,",
+    "loss",
+    "of",
+    "riparian",
+    "vegetation,",
+    "loss",
+    "of",
+    "habitats,",
+    "polluted."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 448
+    },
+    {
+      "start": 448,
+      "end": 576
+    },
+    {
+      "start": 576,
+      "end": 1024
+    },
+    {
+      "start": 1024,
+      "end": 1664
+    },
+    {
+      "start": 1664,
+      "end": 1792
+    },
+    {
+      "start": 1792,
+      "end": 1984
+    },
+    {
+      "start": 1984,
+      "end": 2368
+    },
+    {
+      "start": 2368,
+      "end": 2944
+    },
+    {
+      "start": 2944,
+      "end": 3328
+    },
+    {
+      "start": 3328,
+      "end": 3775
+    },
+    {
+      "start": 3775,
+      "end": 3967
+    },
+    {
+      "start": 3967,
+      "end": 4095
+    },
+    {
+      "start": 4095,
+      "end": 4287
+    },
+    {
+      "start": 4287,
+      "end": 4607
+    },
+    {
+      "start": 4607,
+      "end": 5503
+    },
+    {
+      "start": 5823,
+      "end": 5986
+    },
+    {
+      "start": 5986,
+      "end": 6694
+    },
+    {
+      "start": 7200,
+      "end": 7316
+    },
+    {
+      "start": 7316,
+      "end": 7919
+    },
+    {
+      "start": 7919,
+      "end": 8454
+    },
+    {
+      "start": 8454,
+      "end": 8546
+    },
+    {
+      "start": 8546,
+      "end": 8790
+    },
+    {
+      "start": 8790,
+      "end": 9220
+    },
+    {
+      "start": 9220,
+      "end": 10114
+    },
+    {
+      "start": 10114,
+      "end": 10567
+    },
+    {
+      "start": 10567,
+      "end": 11391
+    },
+    {
+      "start": 11391,
+      "end": 11530
+    },
+    {
+      "start": 11530,
+      "end": 11786
+    },
+    {
+      "start": 11786,
+      "end": 12645
+    },
+    {
+      "start": 12645,
+      "end": 13585
+    },
+    {
+      "start": 14590,
+      "end": 15031
+    },
+    {
+      "start": 15031,
+      "end": 15716
+    },
+    {
+      "start": 16234,
+      "end": 16549
+    },
+    {
+      "start": 16549,
+      "end": 17496
+    },
+    {
+      "start": 17496,
+      "end": 17891
+    },
+    {
+      "start": 17891,
+      "end": 18759
+    },
+    {
+      "start": 18759,
+      "end": 19075
+    },
+    {
+      "start": 19075,
+      "end": 19864
+    },
+    {
+      "start": 19864,
+      "end": 20022
+    },
+    {
+      "start": 20022,
+      "end": 20258
+    },
+    {
+      "start": 20258,
+      "end": 20890
+    },
+    {
+      "start": 20890,
+      "end": 21284
+    },
+    {
+      "start": 21284,
+      "end": 21679
+    },
+    {
+      "start": 21679,
+      "end": 22073
+    },
+    {
+      "start": 22393,
+      "end": 22533
+    },
+    {
+      "start": 22533,
+      "end": 23253
+    },
+    {
+      "start": 23828,
+      "end": 24107
+    },
+    {
+      "start": 24107,
+      "end": 24641
+    },
+    {
+      "start": 24641,
+      "end": 24896
+    },
+    {
+      "start": 24896,
+      "end": 25860
+    },
+    {
+      "start": 25860,
+      "end": 26092
+    },
+    {
+      "start": 26092,
+      "end": 26138
+    },
+    {
+      "start": 26138,
+      "end": 26568
+    },
+    {
+      "start": 26568,
+      "end": 27450
+    },
+    {
+      "start": 27450,
+      "end": 27729
+    },
+    {
+      "start": 27729,
+      "end": 27787
+    },
+    {
+      "start": 27787,
+      "end": 28472
+    },
+    {
+      "start": 28472,
+      "end": 29180
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

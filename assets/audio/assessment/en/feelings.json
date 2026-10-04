@@ -1,0 +1,222 @@
+{
+  "id": "feelings",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 18245,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 6
+    },
+    {
+      "id": "options",
+      "words": 34
+    }
+  ],
+  "words": [
+    "Which",
+    "feeling(s)",
+    "best",
+    "describe",
+    "your",
+    "experience?",
+    "Research",
+    "indicates",
+    "that",
+    "streams",
+    "may",
+    "influence",
+    "human",
+    "emotions.",
+    "Drag",
+    "your",
+    "fingers",
+    "on",
+    "the",
+    "slider",
+    "to",
+    "rate",
+    "the",
+    "intensity",
+    "of",
+    "what",
+    "you",
+    "are",
+    "feeling.",
+    "A",
+    "higher",
+    "rating",
+    "means",
+    "more",
+    "intense",
+    "feeling.",
+    "Joy.",
+    "Serenity.",
+    "Anger.",
+    "Fear."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 363
+    },
+    {
+      "start": 363,
+      "end": 1090
+    },
+    {
+      "start": 1090,
+      "end": 1381
+    },
+    {
+      "start": 1381,
+      "end": 1963
+    },
+    {
+      "start": 1963,
+      "end": 2254
+    },
+    {
+      "start": 2254,
+      "end": 3053
+    },
+    {
+      "start": 3373,
+      "end": 3849
+    },
+    {
+      "start": 3849,
+      "end": 4349
+    },
+    {
+      "start": 4349,
+      "end": 4476
+    },
+    {
+      "start": 4476,
+      "end": 4825
+    },
+    {
+      "start": 4825,
+      "end": 4952
+    },
+    {
+      "start": 4952,
+      "end": 5440
+    },
+    {
+      "start": 5440,
+      "end": 5788
+    },
+    {
+      "start": 5788,
+      "end": 6601
+    },
+    {
+      "start": 7455,
+      "end": 7693
+    },
+    {
+      "start": 7693,
+      "end": 7931
+    },
+    {
+      "start": 7931,
+      "end": 8348
+    },
+    {
+      "start": 8348,
+      "end": 8467
+    },
+    {
+      "start": 8467,
+      "end": 8645
+    },
+    {
+      "start": 8645,
+      "end": 9002
+    },
+    {
+      "start": 9002,
+      "end": 9121
+    },
+    {
+      "start": 9121,
+      "end": 9359
+    },
+    {
+      "start": 9359,
+      "end": 9538
+    },
+    {
+      "start": 9538,
+      "end": 10073
+    },
+    {
+      "start": 10073,
+      "end": 10192
+    },
+    {
+      "start": 10192,
+      "end": 10430
+    },
+    {
+      "start": 10430,
+      "end": 10609
+    },
+    {
+      "start": 10609,
+      "end": 10787
+    },
+    {
+      "start": 10787,
+      "end": 11263
+    },
+    {
+      "start": 11583,
+      "end": 11606
+    },
+    {
+      "start": 11606,
+      "end": 11885
+    },
+    {
+      "start": 11885,
+      "end": 12210
+    },
+    {
+      "start": 12210,
+      "end": 12465
+    },
+    {
+      "start": 12465,
+      "end": 12686
+    },
+    {
+      "start": 12686,
+      "end": 13058
+    },
+    {
+      "start": 13058,
+      "end": 13510
+    },
+    {
+      "start": 14237,
+      "end": 14690
+    },
+    {
+      "start": 15091,
+      "end": 15845
+    },
+    {
+      "start": 16316,
+      "end": 16955
+    },
+    {
+      "start": 17368,
+      "end": 17855
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}
