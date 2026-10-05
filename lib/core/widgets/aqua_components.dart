@@ -135,6 +135,8 @@ class _AquaButtonState extends State<AquaButton> {
                             Flexible(
                               child: Text(
                                 widget.label,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context).textTheme.labelLarge?.copyWith(
                                   color: foreground,
@@ -289,7 +291,7 @@ class AquaFilterChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: Text(label),
+      label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
       selected: selected,
       onSelected: onSelected,
       avatar: leading,

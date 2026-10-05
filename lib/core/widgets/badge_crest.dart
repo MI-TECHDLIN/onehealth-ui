@@ -188,6 +188,8 @@ class _BadgeCrestState extends State<BadgeCrest>
                   ),
                   Text(
                     widget.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.labelLarge,
                   ),
