@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" role="img" aria-label="Artificial concrete streambed">
+  <rect width="160" height="120" fill="#A9E0E4"/>
+  <rect y="60" width="160" height="60" fill="#2E9EB0" opacity="0.55"/>
+  <rect y="70" width="160" height="50" fill="#B7C9CC"/>
+  <line x1="0" y1="90" x2="160" y2="90" stroke="#506773" stroke-width="2"/>
+  <line x1="40" y1="70" x2="40" y2="120" stroke="#506773" stroke-width="2"/>
+  <line x1="100" y1="70" x2="100" y2="120" stroke="#506773" stroke-width="2"/>
+</svg>

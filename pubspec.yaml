@@ -28,15 +28,33 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  animations: ^3.0.0
+  animations: ^2.2.0
+  audio_session: ^0.2.4
+  camera: 0.11.0+2
+  camera_android_camerax: 0.6.18
+  camera_avfoundation: 0.9.21+2
+  connectivity_plus: ^6.1.5
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  go_router: ^18.0.2
-  google_fonts: ^9.0.0
+  flutter_local_notifications: ^22.3.1
+  flutter_secure_storage: ^11.2.0
+  flutter_svg: ^2.3.0
+  flutter_tts: ^4.2.5
+  geolocator: ^14.1.1
+  go_router: ^17.5.0
+  google_fonts: ^8.2.1
+  http: ^1.6.0
+  image: ^4.10.1
+  image_picker: 1.1.2
+  image_picker_android: 0.8.12+17
   intl: ^0.20.2
+  just_audio: ^0.10.6
+  maplibre_gl: ^0.22.0
+  phosphor_flutter: ^2.1.0
   shared_preferences: ^2.5.5
+  url_launcher: ^6.3.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -69,6 +87,14 @@ flutter:
   assets:
     - assets/animations/celebration-burst.json
     - assets/animations/badge-unlock.json
+    - assets/data/assessment-content.json
+    - assets/data/local_accounts.json
+    - assets/avatars/
+    - assets/audio/onboarding/en/
+    - assets/audio/assessment/en/
+    - assets/illustrations/assessment/
+    - assets/map/oneaquahealth-water-light.json
+    - assets/map/oneaquahealth-water-dark.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -81,22 +107,23 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/to/asset-from-package
 
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+  # Bundled offline rather than fetched via google_fonts, since the field app
+  # can't assume network access -- see AppTypography.displayFontFamily and
+  # assets/fonts/baloo2/OFL.txt for the licence. Static per-weight instances,
+  # not the upstream variable font: Flutter only drives a variable font's
+  # `wght` axis through TextStyle.fontVariations, not through fontWeight, so
+  # registering one variable file under several pubspec `weight:` entries
+  # would render every weight at the file's default instance. These were
+  # generated with `fonttools varLib.instancer` from Google Fonts' upstream
+  # `Baloo2[wght].ttf` (see OFL.txt) at wght=400 and wght=700 -- the only
+  # weights AppTypography's display styles actually request.
+  fonts:
+    - family: Baloo 2
+      fonts:
+        - asset: assets/fonts/baloo2/Baloo2-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/baloo2/Baloo2-Bold.ttf
+          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

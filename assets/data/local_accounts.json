@@ -1,0 +1,31 @@
+{
+  "accounts": [
+    {
+      "displayName": "Avery Current",
+      "username": "avery.current",
+      "email": "avery.current@example.test",
+      "password": "Ripple2026!",
+      "region": "Porto District",
+      "memberSince": "2025-04-12",
+      "preferredLanguage": "English"
+    },
+    {
+      "displayName": "Sam Brook",
+      "username": "sam.brook",
+      "email": "sam.brook@example.test",
+      "password": "Ripple2026!",
+      "region": "Guimarães Region",
+      "memberSince": "2025-09-03",
+      "preferredLanguage": "Português"
+    },
+    {
+      "displayName": "Nuri Reed",
+      "username": "nuri.reed",
+      "email": "nuri.reed@example.test",
+      "password": "Ripple2026!",
+      "region": "Braga District",
+      "memberSince": "2026-01-18",
+      "preferredLanguage": "Español"
+    }
+  ]
+}

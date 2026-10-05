@@ -47,9 +47,21 @@ abstract final class AppTypography {
   static const String fontFamily = 'Noto Sans';
   static const String arabicFontFamily = 'Noto Sans Arabic';
 
+  /// Rounded display face for headings, titles and buttons (round 3 design
+  /// pick). Bundled as a font asset -- see `pubspec.yaml` and
+  /// `assets/fonts/baloo2/OFL.txt` -- rather than fetched via `google_fonts`,
+  /// since this is a field app that can't assume network access. Never used
+  /// for Arabic: [displayFamilyFor] always falls back to
+  /// [arabicFontFamily] there, matching [familyFor].
+  static const String displayFontFamily = 'Baloo 2';
+
   static String familyFor(Locale locale) => locale.languageCode == 'ar'
       ? arabicFontFamily
       : fontFamily;
+
+  static String displayFamilyFor(Locale locale) => locale.languageCode == 'ar'
+      ? arabicFontFamily
+      : displayFontFamily;
 
   static const double displaySize = 40;
   static const double headlineSize = 28;
@@ -86,6 +98,10 @@ abstract final class AppOpacity {
   static const double disabled = 0.46;
   static const double pressedOverlay = 0.12;
   static const double scrim = 0.48;
+  static const double cameraPreviewScrim = 0.12;
+  static const double cameraControl = 0.66;
+  static const double cameraMenu = 0.82;
+  static const double photoPlaceholder = 0.8;
 }
 
 abstract final class AppStrokes {
@@ -118,6 +134,30 @@ abstract final class AppElevation {
       blurRadius: 32,
     ),
   ];
+
+  static const List<BoxShadow> raisedAction = <BoxShadow>[
+    BoxShadow(
+      color: AppColors.navy,
+      offset: Offset(0, 5),
+    ),
+  ];
+}
+
+/// Component dimensions approved by the Ripple Field Guide.
+abstract final class AppSizes {
+  static const double primaryButtonHeight = 52;
+  static const double bottomNavigationHeight = 74;
+  static const double raisedNavigationAction = 58;
+  static const double navigationIcon = 24;
+  static const double placeholderIllustration = 112;
+  static const double photoAspectRatio = 4 / 3;
+  static const double cameraPanelHeightFactor = 0.72;
+  static const double cameraBackdropBlur = 10;
+  static const double cameraShutter = 78;
+  static const double cameraFrameTopInset = 92;
+  static const double cameraFrameBottomInset = 126;
+  static const double cameraMessageBottomInset = 112;
+  static const double cameraOptionsBottomInset = 96;
 }
 
 abstract final class AppMotion {
@@ -132,7 +172,6 @@ abstract final class AppMotion {
 
   static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve quickCurve = Curves.easeOutCubic;
-  static const Curve pageCurve = Curves.easeOutCubic;
   static const Curve moodCurve = Curves.easeInOutCubic;
   static const Curve celebrationCurve = Curves.easeOutBack;
 }

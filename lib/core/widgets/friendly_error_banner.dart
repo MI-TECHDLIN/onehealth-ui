@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../mascot/aqua_mascot.dart';
 import '../theme/tokens.dart';
@@ -11,6 +12,7 @@ class FriendlyErrorBanner extends StatelessWidget {
     super.key,
     required this.message,
     this.onRetry,
+    this.retryLabel = 'Retry',
     this.mood,
     this.title,
     this.onDismiss,
@@ -23,6 +25,7 @@ class FriendlyErrorBanner extends StatelessWidget {
 
   /// Optional retry action surfaced next to the message.
   final VoidCallback? onRetry;
+  final String retryLabel;
 
   /// Optional mascot override. When omitted, concerned Ripple is shown.
   final Widget? mood;
@@ -75,13 +78,13 @@ class FriendlyErrorBanner extends StatelessWidget {
             if (onRetry != null)
               TextButton(
                 onPressed: onRetry,
-                child: const Text('Retry'),
+                child: Text(retryLabel),
               ),
             if (onDismiss != null)
               IconButton(
                 tooltip: 'Dismiss',
                 onPressed: onDismiss,
-                icon: const Icon(Icons.close_rounded),
+                icon: const Icon(PhosphorIconsRegular.x),
               ),
           ],
         ),

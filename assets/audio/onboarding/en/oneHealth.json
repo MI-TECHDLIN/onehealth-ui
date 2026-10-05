@@ -1,0 +1,132 @@
+{
+  "id": "oneHealth",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 10556,
+  "segments": [
+    {
+      "id": "headline",
+      "words": 4
+    },
+    {
+      "id": "body",
+      "words": 18
+    }
+  ],
+  "words": [
+    "One",
+    "stream.",
+    "Many",
+    "lives.",
+    "One",
+    "Health",
+    "means",
+    "ecosystem,",
+    "animal",
+    "and",
+    "human",
+    "health",
+    "are",
+    "connected.",
+    "Caring",
+    "for",
+    "one",
+    "helps",
+    "us",
+    "understand",
+    "the",
+    "others."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 232
+    },
+    {
+      "start": 232,
+      "end": 731
+    },
+    {
+      "start": 1504,
+      "end": 1771
+    },
+    {
+      "start": 1771,
+      "end": 2468
+    },
+    {
+      "start": 3136,
+      "end": 3345
+    },
+    {
+      "start": 3345,
+      "end": 3554
+    },
+    {
+      "start": 3554,
+      "end": 3775
+    },
+    {
+      "start": 3775,
+      "end": 4576
+    },
+    {
+      "start": 4576,
+      "end": 4959
+    },
+    {
+      "start": 4959,
+      "end": 5087
+    },
+    {
+      "start": 5087,
+      "end": 5354
+    },
+    {
+      "start": 5354,
+      "end": 5621
+    },
+    {
+      "start": 5621,
+      "end": 5748
+    },
+    {
+      "start": 5748,
+      "end": 6515
+    },
+    {
+      "start": 7450,
+      "end": 7763
+    },
+    {
+      "start": 7763,
+      "end": 7880
+    },
+    {
+      "start": 7880,
+      "end": 8042
+    },
+    {
+      "start": 8042,
+      "end": 8390
+    },
+    {
+      "start": 8390,
+      "end": 8472
+    },
+    {
+      "start": 8472,
+      "end": 9041
+    },
+    {
+      "start": 9041,
+      "end": 9133
+    },
+    {
+      "start": 9133,
+      "end": 9772
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

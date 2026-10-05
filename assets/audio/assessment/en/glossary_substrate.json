@@ -1,0 +1,138 @@
+{
+  "id": "glossary_substrate",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 9580,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 24
+    }
+  ],
+  "words": [
+    "Substrate",
+    "is",
+    "the",
+    "material",
+    "lining",
+    "the",
+    "streambed,",
+    "like",
+    "rock,",
+    "gravel,",
+    "concrete,",
+    "or",
+    "sand.",
+    "It's",
+    "what",
+    "you're",
+    "looking",
+    "at",
+    "when",
+    "you",
+    "check",
+    "the",
+    "channel's",
+    "bottom."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 511
+    },
+    {
+      "start": 511,
+      "end": 580
+    },
+    {
+      "start": 580,
+      "end": 639
+    },
+    {
+      "start": 639,
+      "end": 1103
+    },
+    {
+      "start": 1103,
+      "end": 1440
+    },
+    {
+      "start": 1440,
+      "end": 1498
+    },
+    {
+      "start": 1498,
+      "end": 2426
+    },
+    {
+      "start": 2426,
+      "end": 2612
+    },
+    {
+      "start": 2612,
+      "end": 2926
+    },
+    {
+      "start": 2926,
+      "end": 3727
+    },
+    {
+      "start": 3727,
+      "end": 4319
+    },
+    {
+      "start": 4319,
+      "end": 4400
+    },
+    {
+      "start": 4400,
+      "end": 5016
+    },
+    {
+      "start": 6659,
+      "end": 6810
+    },
+    {
+      "start": 6810,
+      "end": 6961
+    },
+    {
+      "start": 6961,
+      "end": 7054
+    },
+    {
+      "start": 7054,
+      "end": 7321
+    },
+    {
+      "start": 7321,
+      "end": 7390
+    },
+    {
+      "start": 7390,
+      "end": 7530
+    },
+    {
+      "start": 7530,
+      "end": 7599
+    },
+    {
+      "start": 7599,
+      "end": 7785
+    },
+    {
+      "start": 7785,
+      "end": 7843
+    },
+    {
+      "start": 7843,
+      "end": 8180
+    },
+    {
+      "start": 8180,
+      "end": 8760
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

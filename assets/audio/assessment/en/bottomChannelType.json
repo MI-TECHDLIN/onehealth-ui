@@ -1,0 +1,117 @@
+{
+  "id": "bottomChannelType",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 8501,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 7
+    },
+    {
+      "id": "options",
+      "words": 12
+    }
+  ],
+  "words": [
+    "The",
+    "bottom",
+    "of",
+    "the",
+    "wet",
+    "channel",
+    "is\u2026",
+    "Natural",
+    "(A).",
+    "Artificial",
+    "(concrete",
+    "or",
+    "stones",
+    "with",
+    "concrete)",
+    "(B).",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 254
+    },
+    {
+      "start": 254,
+      "end": 762
+    },
+    {
+      "start": 762,
+      "end": 932
+    },
+    {
+      "start": 932,
+      "end": 1186
+    },
+    {
+      "start": 1186,
+      "end": 1440
+    },
+    {
+      "start": 1440,
+      "end": 2033
+    },
+    {
+      "start": 2033,
+      "end": 2287
+    },
+    {
+      "start": 2607,
+      "end": 3176
+    },
+    {
+      "start": 3176,
+      "end": 3373
+    },
+    {
+      "start": 3949,
+      "end": 4541
+    },
+    {
+      "start": 4541,
+      "end": 4994
+    },
+    {
+      "start": 4994,
+      "end": 5075
+    },
+    {
+      "start": 5075,
+      "end": 5470
+    },
+    {
+      "start": 5470,
+      "end": 5586
+    },
+    {
+      "start": 5586,
+      "end": 6062
+    },
+    {
+      "start": 6062,
+      "end": 6491
+    },
+    {
+      "start": 7206,
+      "end": 7345
+    },
+    {
+      "start": 7345,
+      "end": 7520
+    },
+    {
+      "start": 7520,
+      "end": 7949
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

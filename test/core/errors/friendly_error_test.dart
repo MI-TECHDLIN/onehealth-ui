@@ -39,6 +39,13 @@ void main() {
       );
     });
 
+    test('maps camera permission denial to recovery copy', () {
+      expect(
+        FriendlyError.fromFailure(error: 'CameraAccessDenied: permission denied'),
+        FriendlyError.permissionDenied,
+      );
+    });
+
     test('falls back to a generic message for unmapped failures', () {
       expect(
         FriendlyError.fromFailure(statusCode: 418, error: 'teapot'),

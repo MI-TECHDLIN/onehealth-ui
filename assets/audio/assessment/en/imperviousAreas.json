@@ -1,0 +1,292 @@
+{
+  "id": "imperviousAreas",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 24284,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 3
+    },
+    {
+      "id": "options",
+      "words": 51
+    }
+  ],
+  "words": [
+    "Impervious",
+    "Areas",
+    "(Left)",
+    "Is",
+    "more",
+    "than",
+    "one",
+    "third",
+    "of",
+    "the",
+    "left",
+    "margin",
+    "covered",
+    "by",
+    "impervious",
+    "areas,",
+    "such",
+    "as",
+    "roads,",
+    "sidewalks",
+    "or",
+    "buildings?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure.",
+    "Impervious",
+    "Areas",
+    "(Right).",
+    "Is",
+    "more",
+    "than",
+    "one",
+    "third",
+    "of",
+    "the",
+    "right",
+    "margin",
+    "covered",
+    "by",
+    "impervious",
+    "areas,",
+    "such",
+    "as",
+    "roads,",
+    "sidewalks",
+    "or",
+    "buildings?",
+    "Yes.",
+    "No.",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 557
+    },
+    {
+      "start": 557,
+      "end": 987
+    },
+    {
+      "start": 987,
+      "end": 1405
+    },
+    {
+      "start": 2050,
+      "end": 2196
+    },
+    {
+      "start": 2196,
+      "end": 2487
+    },
+    {
+      "start": 2487,
+      "end": 2778
+    },
+    {
+      "start": 2778,
+      "end": 2997
+    },
+    {
+      "start": 2997,
+      "end": 3361
+    },
+    {
+      "start": 3361,
+      "end": 3507
+    },
+    {
+      "start": 3507,
+      "end": 3725
+    },
+    {
+      "start": 3725,
+      "end": 4017
+    },
+    {
+      "start": 4017,
+      "end": 4454
+    },
+    {
+      "start": 4454,
+      "end": 4964
+    },
+    {
+      "start": 4964,
+      "end": 5110
+    },
+    {
+      "start": 5110,
+      "end": 5838
+    },
+    {
+      "start": 5838,
+      "end": 6275
+    },
+    {
+      "start": 6275,
+      "end": 6567
+    },
+    {
+      "start": 6567,
+      "end": 6712
+    },
+    {
+      "start": 6712,
+      "end": 7149
+    },
+    {
+      "start": 7149,
+      "end": 7805
+    },
+    {
+      "start": 7805,
+      "end": 7951
+    },
+    {
+      "start": 7951,
+      "end": 8679
+    },
+    {
+      "start": 8999,
+      "end": 9498
+    },
+    {
+      "start": 9946,
+      "end": 10434
+    },
+    {
+      "start": 10858,
+      "end": 10998
+    },
+    {
+      "start": 10998,
+      "end": 11207
+    },
+    {
+      "start": 11207,
+      "end": 11624
+    },
+    {
+      "start": 12212,
+      "end": 12827
+    },
+    {
+      "start": 12827,
+      "end": 13245
+    },
+    {
+      "start": 13245,
+      "end": 13686
+    },
+    {
+      "start": 14192,
+      "end": 14334
+    },
+    {
+      "start": 14334,
+      "end": 14620
+    },
+    {
+      "start": 14620,
+      "end": 14905
+    },
+    {
+      "start": 14905,
+      "end": 15119
+    },
+    {
+      "start": 15119,
+      "end": 15475
+    },
+    {
+      "start": 15475,
+      "end": 15618
+    },
+    {
+      "start": 15618,
+      "end": 15832
+    },
+    {
+      "start": 15832,
+      "end": 16188
+    },
+    {
+      "start": 16188,
+      "end": 16616
+    },
+    {
+      "start": 16616,
+      "end": 17115
+    },
+    {
+      "start": 17115,
+      "end": 17258
+    },
+    {
+      "start": 17258,
+      "end": 17971
+    },
+    {
+      "start": 17971,
+      "end": 18399
+    },
+    {
+      "start": 18399,
+      "end": 18684
+    },
+    {
+      "start": 18684,
+      "end": 18826
+    },
+    {
+      "start": 18826,
+      "end": 19254
+    },
+    {
+      "start": 19254,
+      "end": 19896
+    },
+    {
+      "start": 19896,
+      "end": 20038
+    },
+    {
+      "start": 20038,
+      "end": 20751
+    },
+    {
+      "start": 21071,
+      "end": 21559
+    },
+    {
+      "start": 22030,
+      "end": 22529
+    },
+    {
+      "start": 22977,
+      "end": 23128
+    },
+    {
+      "start": 23128,
+      "end": 23325
+    },
+    {
+      "start": 23325,
+      "end": 23766
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

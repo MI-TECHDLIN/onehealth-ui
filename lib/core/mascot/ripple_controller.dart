@@ -19,7 +19,7 @@ class RippleVisemeFrame {
     open: 0,
     width: 1,
   );
-  static const RippleVisemeFrame open = RippleVisemeFrame(
+  static const RippleVisemeFrame openMouth = RippleVisemeFrame(
     open: 1,
     width: 0.82,
   );
@@ -34,7 +34,7 @@ class RippleVisemeFrame {
 
   static RippleVisemeFrame forViseme(RippleViseme viseme) => switch (viseme) {
     RippleViseme.rest => rest,
-    RippleViseme.open => open,
+    RippleViseme.open => openMouth,
     RippleViseme.wide => wide,
     RippleViseme.round => round,
   };

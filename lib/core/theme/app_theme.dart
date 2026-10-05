@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -133,11 +132,21 @@ abstract final class AppTheme {
         color: colors.onSurfaceVariant,
       ),
     );
-    final textTheme = applyGoogleFonts
+    final bodyTextTheme = applyGoogleFonts
         ? locale.languageCode == 'ar'
               ? GoogleFonts.notoSansArabicTextTheme(baseTextTheme)
               : GoogleFonts.notoSansTextTheme(baseTextTheme)
         : baseTextTheme.apply(fontFamily: AppTypography.familyFor(locale));
+    // Headings, screen/app-bar/dialog titles switch to the bundled display
+    // face; body, label and chip text stay on Noto Sans above. Buttons get
+    // the display face directly in `AquaButton`, since its label style
+    // (`labelLarge`) is shared with non-heading chip/picture-choice text.
+    final displayFamily = AppTypography.displayFamilyFor(locale);
+    final textTheme = bodyTextTheme.copyWith(
+      displaySmall: bodyTextTheme.displaySmall?.copyWith(fontFamily: displayFamily),
+      headlineMedium: bodyTextTheme.headlineMedium?.copyWith(fontFamily: displayFamily),
+      titleLarge: bodyTextTheme.titleLarge?.copyWith(fontFamily: displayFamily),
+    );
 
     return ThemeData(
       useMaterial3: true,

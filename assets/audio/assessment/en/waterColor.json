@@ -1,0 +1,112 @@
+{
+  "id": "waterColor",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 11034,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 4
+    },
+    {
+      "id": "options",
+      "words": 14
+    }
+  ],
+  "words": [
+    "How",
+    "is",
+    "the",
+    "water?",
+    "Clear/transparent",
+    "(A).",
+    "Muddy/turbid",
+    "(B).",
+    "Has",
+    "foam",
+    "(C).",
+    "Has",
+    "colors/altered",
+    "color",
+    "(D).",
+    "I'm",
+    "not",
+    "sure."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 186
+    },
+    {
+      "start": 186,
+      "end": 255
+    },
+    {
+      "start": 255,
+      "end": 313
+    },
+    {
+      "start": 313,
+      "end": 894
+    },
+    {
+      "start": 1411,
+      "end": 2840
+    },
+    {
+      "start": 2840,
+      "end": 3176
+    },
+    {
+      "start": 3496,
+      "end": 4724
+    },
+    {
+      "start": 4724,
+      "end": 5133
+    },
+    {
+      "start": 5453,
+      "end": 5627
+    },
+    {
+      "start": 5627,
+      "end": 5906
+    },
+    {
+      "start": 5906,
+      "end": 6335
+    },
+    {
+      "start": 7213,
+      "end": 7466
+    },
+    {
+      "start": 7466,
+      "end": 8647
+    },
+    {
+      "start": 8647,
+      "end": 9069
+    },
+    {
+      "start": 9069,
+      "end": 9407
+    },
+    {
+      "start": 9727,
+      "end": 9866
+    },
+    {
+      "start": 9866,
+      "end": 10075
+    },
+    {
+      "start": 10075,
+      "end": 10505
+    }
+  ],
+  "alignment": "piper-phoneme-fallback"
+}

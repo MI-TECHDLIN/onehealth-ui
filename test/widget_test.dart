@@ -5,6 +5,7 @@ import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
 import 'package:onehealth_ui/core/theme/app_theme.dart';
 import 'package:onehealth_ui/core/theme/tokens.dart';
+import 'package:onehealth_ui/core/widgets/mode_badge.dart';
 import 'package:onehealth_ui/debug/mascot_gallery_screen.dart';
 import 'package:onehealth_ui/main.dart';
 
@@ -40,7 +41,9 @@ void main() {
     expect(AppRadii.xl, 32);
     expect(AppOpacity.disabled, 0.46);
     expect(AppStrokes.focus, 3);
-    expect(AppElevation.high.blurRadius, 32);
+    expect(AppElevation.high.single.blurRadius, 32);
+    expect(AppElevation.raisedAction.single.offset, const Offset(0, 5));
+    expect(AppSizes.bottomNavigationHeight, 74);
     expect(AppMotion.page, const Duration(milliseconds: 300));
     expect(AppMotion.reduced, const Duration(milliseconds: 120));
   });
@@ -83,22 +86,41 @@ void main() {
       preferences: MemoryAppPreferences(),
     );
     addTearDown(settings.dispose);
+    await settings.completeOnboarding();
     await tester.pumpWidget(
-      OneHealthApp(settings: settings, applyGoogleFonts: false),
+      OneHealthApp(
+        settings: settings,
+        applyGoogleFonts: false,
+        // Avoids standing up the native MapLibre view in a widget test.
+        homeMapViewBuilder:
+            ({
+              required sites,
+              required visitedCodes,
+              required myLocationEnabled,
+              required onSiteTapped,
+              required onControllerReady,
+            }) => const SizedBox.shrink(),
+      ),
     );
     await tester.pumpAndSettle();
 
     expect(find.text('Explore streams'), findsWidgets);
-    expect(find.text('DEMO'), findsOneWidget);
+    expect(find.text('DEMO'), findsNothing);
+    expect(find.byType(ModeBadge), findsNothing);
     expect(find.text('Check'), findsOneWidget);
 
     await tester.tap(find.text('Streams'));
     await tester.pumpAndSettle();
     expect(find.text('My streams'), findsWidgets);
 
-    await tester.tap(find.text('DEMO'));
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('shellSettingsButton')));
     await tester.pumpAndSettle();
     expect(find.text('Settings'), findsOneWidget);
+    expect(find.byType(ModeBadge), findsOneWidget);
 
     await tester.tap(find.text('Review Ripple moods'));
     await tester.pump();

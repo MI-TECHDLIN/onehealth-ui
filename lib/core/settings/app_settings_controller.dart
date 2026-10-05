@@ -1,10 +1,8 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 import '../localization/app_locale.dart';
 import '../mode/app_mode.dart';
+import '../profile/avatar_catalog.dart';
 import 'app_preferences.dart';
 
 class AppSettingsController extends ChangeNotifier {
@@ -17,23 +15,81 @@ class AppSettingsController extends ChangeNotifier {
 
   static const String localePreferenceKey = 'settings.locale';
   static const String modePreferenceKey = 'settings.mode';
+  static const String avatarPreferenceKey = 'profile.avatar';
+  static const String onboardingCompleteKey = 'settings.onboardingComplete';
+  static const String readAloudEnabledKey = 'settings.onboardingReadAloudEnabled';
+  static const String remindersEnabledKey = 'settings.remindersEnabled';
 
   final AppPreferences _preferences;
 
   Locale _locale = AppLocaleRegistry.english.locale;
   AppMode _mode = AppMode.demo;
+  String? _avatarId;
+  bool _onboardingComplete = false;
+  bool _readAloudEnabled = true;
+  bool _remindersEnabled = true;
 
   Locale get locale => _locale;
   AppMode get mode => _mode;
+  String? get avatarId => _avatarId;
+  bool get hasCompletedAvatarSetup => _avatarId != null;
+
+  /// Whether the five-screen onboarding story has been shown once.
+  bool get onboardingComplete => _onboardingComplete;
+
+  /// The user's remembered on/off preference for onboarding narration.
+  bool get readAloudEnabled => _readAloudEnabled;
+
+  /// The user's remembered on/off preference for gentle reminders (a stream
+  /// not checked in 30 days, a seasonal revisit). On by default; the Android
+  /// 13+ OS permission is only ever requested once a reminder is actually
+  /// due, never on first launch -- see `ReminderCoordinator`.
+  bool get remindersEnabled => _remindersEnabled;
 
   Future<void> load() async {
     final values = await Future.wait<String?>(<Future<String?>>[
       _preferences.readString(localePreferenceKey),
       _preferences.readString(modePreferenceKey),
+      _preferences.readString(avatarPreferenceKey),
+      _preferences.readString(onboardingCompleteKey),
+      _preferences.readString(readAloudEnabledKey),
+      _preferences.readString(remindersEnabledKey),
     ]);
     _locale = AppLocaleRegistry.fromLanguageCode(values[0]).locale;
     _mode = AppMode.fromStorage(values[1]);
+    _avatarId = AvatarCatalog.ids.contains(values[2]) ? values[2] : null;
+    _onboardingComplete = values[3] == 'true';
+    _readAloudEnabled = values[4] != 'false';
+    _remindersEnabled = values[5] != 'false';
     notifyListeners();
+  }
+
+  /// Marks onboarding as seen so it is not shown again on launch.
+  Future<void> completeOnboarding() async {
+    if (_onboardingComplete) return;
+    _onboardingComplete = true;
+    notifyListeners();
+    await _preferences.writeString(onboardingCompleteKey, 'true');
+  }
+
+  Future<void> setReadAloudEnabled(bool enabled) async {
+    if (_readAloudEnabled == enabled) return;
+    _readAloudEnabled = enabled;
+    notifyListeners();
+    await _preferences.writeString(
+      readAloudEnabledKey,
+      enabled ? 'true' : 'false',
+    );
+  }
+
+  Future<void> setRemindersEnabled(bool enabled) async {
+    if (_remindersEnabled == enabled) return;
+    _remindersEnabled = enabled;
+    notifyListeners();
+    await _preferences.writeString(
+      remindersEnabledKey,
+      enabled ? 'true' : 'false',
+    );
   }
 
   Future<void> setLocale(Locale locale) async {
@@ -53,6 +109,18 @@ class AppSettingsController extends ChangeNotifier {
     notifyListeners();
     await _preferences.writeString(modePreferenceKey, mode.name);
   }
+
+  Future<void> setAvatar(String avatarId) async {
+    if (!AvatarCatalog.ids.contains(avatarId)) {
+      throw ArgumentError.value(avatarId, 'avatarId', 'Unknown avatar');
+    }
+    if (_avatarId == avatarId) return;
+    _avatarId = avatarId;
+    notifyListeners();
+    await _preferences.writeString(avatarPreferenceKey, avatarId);
+  }
+
+  Future<void> autoAssignAvatar() => setAvatar(AvatarCatalog.autoAssignedId);
 }
 
 class AppSettingsScope extends InheritedNotifier<AppSettingsController> {

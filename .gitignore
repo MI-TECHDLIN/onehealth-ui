@@ -4,6 +4,7 @@
 *.log
 *.pyc
 *.swp
+node_modules/
 .DS_Store
 .atom/
 .build/
@@ -15,6 +16,9 @@ migrate_working_dir/
 
 # Private reference material
 /docs/
+
+# Local design-preview scratch files (lavish-axi artifacts)
+/.lavish/
 
 # IntelliJ related
 *.iml

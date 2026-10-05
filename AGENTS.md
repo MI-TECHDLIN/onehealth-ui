@@ -21,6 +21,210 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Import `lib/core/widgets/component_kit.dart` for the reusable field UI
   primitives and evidence badges; their reduced-motion and semantic states are
   represented in the debug mascot gallery.
+- Platform launcher icons are generated from Ripple's painter geometry and the
+  token palette by `tool/branding/generate_brand_assets.py`; keep that source,
+  native adaptive/splash vectors, and `lib/core/mascot/aqua_mascot.dart` aligned.
+- Headings, titles and buttons use the bundled Baloo 2 face via
+  `AppTypography.displayFontFamily`/`displayFamilyFor(locale)` (set on
+  `app_theme.dart`'s `displaySmall`/`headlineMedium`/`titleLarge` and applied
+  directly in `AquaButton`'s label style, since that shares `labelLarge` with
+  non-heading chip/picture-choice text). It is a font asset
+  (`assets/fonts/baloo2/`, OFL-licensed), not `google_fonts`, so it renders
+  offline; never applies to Arabic, which always keeps Noto Sans Arabic.
+  Everything else (body, labels, chips) stays on Noto Sans/`familyFor`.
+  Bundled as static per-weight `.ttf` instances, not the upstream variable
+  font: Flutter only drives a variable font's `wght` axis through
+  `TextStyle.fontVariations`, not `fontWeight`, so registering one variable
+  file under several pubspec `weight:` entries silently renders every
+  weight at the file's default instance. Regenerate instances with
+  `fonttools varLib.instancer` (`pip install fonttools` in a throwaway venv)
+  from Google Fonts' upstream variable file if a new weight is ever needed.
+- Icons are Phosphor (`phosphor_flutter`, MIT) everywhere: `PhosphorIconsRegular.*`
+  for idle states, `PhosphorIconsFill.*` for selected/active ones -- do not
+  reintroduce Material `Icons.*`. For concepts Phosphor doesn't cover (stream
+  check, ripple drop, water quality, riparian bank, field safety, narration
+  wave), use `WaterIconWidget`/`WaterIcon` from `lib/core/icons/water_icons.dart`
+  instead of drawing a one-off `CustomPainter`.
+- The captain builds locally on Flutter 3.41.7 stable (Dart 3.11.5). Before
+  adding or upgrading any dependency in `pubspec.yaml`, check its `environment:`
+  constraint on pub.dev and do not pick a version that needs a newer Flutter or
+  Dart than that. Keep `environment.sdk: ^3.11.5` unless a future captain
+  machine ships an older Dart that can't satisfy it.
+- There is no Flutter/Dart SDK in this worktree; `flutter analyze` / `flutter test`
+  can only be run by the captain. Review type correctness by reading, and ask
+  the captain to paste the actual analyzer/test output rather than assuming a fix worked.
+- Dart 3 sharp edge seen in `aqua_mascot.dart`: `math.max`/`math.min` on two
+  `double` operands can still infer `num` (not `double`) when the call sits in
+  a position with no downward double context (e.g. a bare `final x = ...`
+  local, as opposed to a named arg typed `double`). If the result later feeds
+  a `double`-typed parameter directly (not through `.clamp(...)`/`.toDouble()`),
+  add an explicit `.toDouble()` at the declaration rather than threading the
+  fix through every call site.
+- A static member and an instance member can't share a name in the same Dart
+  class (`conflicting_static_and_instance`); `RippleVisemeFrame` in
+  `ripple_controller.dart` keeps the instance field `open` (mouth openness)
+  and names the viseme preset `openMouth` to avoid this.
+- `Radio`/`RadioListTile`'s `groupValue`/`onChanged` are deprecated since
+  Flutter 3.32; wrap the group in a `RadioGroup<T>` ancestor that owns
+  `groupValue`/`onChanged` instead (see the language picker in
+  `lib/features/settings/settings_screen.dart`).
+- The read-aloud narration pipeline (speaker control, word-by-word highlight,
+  Ripple talk-viseme sync) lives in `lib/core/audio/` (`ReadAloudService`,
+  `NarrationAudioPlayer`) and `lib/core/widgets/read_aloud_control.dart`
+  (`ReadAloudControl`, `ReadAloudHighlightedText`); it is screen-agnostic, so
+  reuse it rather than building a second player for assessment questions.
+  Narration audio/timing assets are generated offline by
+  `scripts/narration/generate_narration.py` -- see that directory's README for
+  the Piper setup, regeneration steps, and a known espeak-ng word-boundary
+  limitation. Never add a Python/TTS toolchain to the Flutter app itself.
+- First-launch gating (`AppSettingsController.onboardingComplete`) and the
+  `/onboarding` route in `lib/app/app_router.dart` are the only places that
+  decide whether onboarding shows; replay it from Settings via
+  `OnboardingScreen(isReplay: true)` rather than duplicating its screens.
+- Live transport/auth is centralized in `lib/data/repositories/live_api_client.dart`
+  and `auth_repository.dart`; inject `http.Client` and `TokenStore` in tests and
+  keep every test on a fake client/base URI. Demo assessment/reference content
+  comes from the bundled `assets/data/assessment-content.json` and must never
+  fall through to Live networking.
+- The map home (`lib/features/home/home_map_screen.dart`) and site detail
+  (`site_detail_screen.dart`) use `maplibre_gl` over OpenFreeMap tiles, with the
+  bundled light/dark "water-first" style JSON at `assets/map/`
+  (`lib/core/map/map_style.dart` picks the asset by `Theme.of(context).brightness`).
+  Never build a real `MapLibreMap`/`StreamMapView` in a widget test — it stands
+  up a native platform view with no channel handler in `flutter_test` and will
+  fail. Go through the `StreamMapViewBuilder` seam instead: `HomeMapScreen`
+  takes a `mapViewBuilder` and `OneHealthApp`/`createAppRouter` take a matching
+  `homeMapViewBuilder` all the way from the router, so tests can pass a plain
+  stand-in widget (see `test/features/home/*_test.dart` and the
+  `homeMapViewBuilder` override in `test/widget_test.dart` /
+  `test/features/shell/localized_shell_test.dart`). "Needs data"/"Visited" are
+  derived client-side from the signed-in citizen's own assessment history
+  (`AssessmentRepository.history()` filtered by site code) — there is no
+  aggregate-across-researchers signal available to the client.
+- `geolocator`, `maplibre_gl`, `phosphor_flutter`, and `url_launcher` joined
+  `pubspec.yaml` for the map/site-detail work; the same Flutter/Dart
+  compatibility check above applies before bumping any of them.
+- The round-4 assessment question flow (`lib/features/check/`) is driven by
+  `AssessmentProtocol.fromContent` (`lib/data/assessment/assessment_protocol.dart`),
+  which normalizes `assessment-content.json`'s `fields`/`referenceData`/
+  `contentByLocale` tables into typed `AssessmentQuestion`s; the
+  `AssessmentDraftAnswers` extension on it (same file) is the only place that
+  maps a question id onto `AssessmentDraft`'s submission-contract fields --
+  route new question types through `withChoice`/`withYesNo`/etc. rather than
+  mutating draft fields directly, and track "answered" via
+  `AssessmentDraft.answeredQuestionIds` (not a field's own non-null default --
+  `overallAssessment` defaults to `'MODERATE'` even when untouched).
+  `yesNoNotSure` questions reuse `AssessmentOption` with sentinel codes
+  `'true'`/`'false'` (see `AssessmentYesNoOption.asYesNoValue`) so every
+  question type shares one option model.
+- Assessment question/option copy comes from `assessment-content.json` per
+  the active locale (English fallback already handled by
+  `AssessmentContentSource.localized`); UI chrome (buttons, progress,
+  coaching, glossary sheet, site picker) comes from ARB `assess*`/
+  `glossary*` keys instead. The protocol and ARB files now cover the same 18
+  locale codes, but the original en/el/pt/nl/no/fr/it protocol content remains
+  the official source while es/de/pl/ro/bg/tr/uk/ar/fi/sv/hr is
+  machine-assisted and pending review by native-speaking domain experts; keep
+  that distinction in `localeStatus` until review is recorded.
+- `assessment-content.json` keeps locale-independent option codes/names in its
+  root `referenceData`, outside `contentByLocale`; `AssessmentContentSource`
+  must carry that table into localized content or every choice list silently
+  parses empty (including illustrated cards whose SVG assets are otherwise valid).
+- Read-aloud on assessment questions goes through
+  `AssessmentNarrationController` (`lib/core/audio/`), which wraps the
+  existing screen-agnostic `ReadAloudService` (Piper, English today --
+  regenerate via `scripts/narration/generate_assessment_narration.py`) and
+  falls back to `flutter_tts` (`DeviceVoiceSpeaker`) for locales with no
+  generated track, surfaced as a "Listen (Device voice)" label. Only the
+  question `prompt` segment is ever word-highlighted
+  (`lib/features/check/widgets/question_frame.dart`); the full option list
+  still gets spoken for audio coverage, just without a highlight consumer
+  yet -- a deliberate round-4 scope cut, not a bug, left for whoever wires
+  per-chip highlighting into `PictureChoiceCard`/`AquaFilterChip`.
+- The tap-to-explain glossary (`lib/core/glossary/`) matches terms against
+  whatever word the protocol copy actually uses in each locale (e.g. the
+  substrate term matches that locale's word for "bottom"), not necessarily
+  the term's own title. Keep `GlossaryTerms.all`'s per-locale, inflection-aware
+  patterns aligned with assessment copy; Unicode letter boundaries are
+  required for Greek, Cyrillic, Arabic and words with diacritics.
+- `/check/assess` and `/check/review` are top-level routes (outside
+  `AppShell`'s bottom-nav `ShellRoute`), reached via `context.push(...,
+  extra: streamSiteOrDraft)`; the Check tab's own `/check` route shows
+  `CheckSitePickerScreen` instead. A missing/wrong-typed `extra` redirects
+  home rather than crashing (see the `redirect:` on those `GoRoute`s).
+- Round-5 gamification logic (`lib/core/gamification/`) is pure Dart with no
+  Flutter/plugin dependency, so it is fully unit-tested without a device:
+  `contribution_rhythm.dart` (weekly rhythm, one grace week, never broken by
+  a single missed week), `badge_rules.dart` (the five release-1
+  `EvidenceBadgeId`s, computed from `AssessmentRecord` history only --
+  never persisted separately), and `reminder_rules.dart` (stale-site vs.
+  seasonal-revisit decision, with its own 7-day throttle). `season.dart`'s
+  `seasonOf` is the one shared meteorological-season helper both
+  `badge_rules.dart` and `reminder_rules.dart` use -- don't reintroduce a
+  private copy. Which badges are "new" (unlock-reveal shown once) vs. plain
+  "unlocked" is tracked separately in `BadgeAcknowledgementStore`
+  (mode-namespaced `AppPreferences`), not derived from the rules.
+- `AssessmentRecord.fileIds`/`habitats` round-trip through local (Demo)
+  JSON storage (`repository_models.dart`'s `toJson`/`fromJson`) as of round
+  5, additively -- older persisted records without those keys still decode
+  fine. `DemoAssessmentRepository.submit()` populates `fileIds` with a
+  placeholder id per captured `AssessmentMediaRole` (no real upload exists
+  in Demo) purely so the evidence-badge rules have the same signal Live
+  already gets for free from `AssessmentRecord.fromApiJson`.
+- The site-detail "Past checks" timeline blends the citizen's real history
+  with `demo_stream_health_seed.dart`'s synthetic entries in Demo mode only
+  (by site code, for the four bundled `DemoSiteRepository` sites) so the
+  screen looks alive before any real submission exists. This seed is
+  read-only decoration for that one widget -- it is never written into
+  `AssessmentRepository.history()` itself, which several existing tests
+  (e.g. `demo_repositories_test.dart`) assert starts and stays empty until
+  a real submission happens.
+- Gentle reminders (`lib/core/notifications/`) show immediately via
+  `FlutterLocalNotificationsPlugin.show()` rather than `zonedSchedule`,
+  because the right reminder depends on history that changes between app
+  opens; `ReminderCoordinator.maybeNotify` (called once per `HomeMapScreen`
+  mount) re-evaluates `reminder_rules.dart` fresh each time and persists
+  its own weekly throttle. This is why there is no `timezone` package
+  dependency and no exact-alarm/boot-receiver `AndroidManifest.xml` entries
+  -- only `POST_NOTIFICATIONS`/`VIBRATE`. If a future round moves to
+  `zonedSchedule`, add `timezone` + the receiver entries then, not before.
+  The Android 13+ permission prompt fires only from an explicit user
+  action (the Settings toggle) or once real history exists -- never on
+  first launch; `HomeMapScreen`'s reminder check also degrades to a no-op
+  if it ever runs with no `AppSettingsScope` ancestor (some older widget
+  tests predate this feature and don't provide one).
+- `RepositoryBundle.demo`/`.live` (`lib/data/repositories/repository_bundle.dart`)
+  construct the mode's own repositories only -- Live's
+  `LiveAssessmentRepository` + its `retryQueued`/connectivity-retry wiring
+  belongs solely in `.live`, never `.demo` (a round-5 merge once swapped
+  these between the two factories, referencing undefined locals and failing
+  to compile; if a future edit here won't compile with "undefined name
+  api/auth/assessments", this is almost certainly the same slip).
+- The round-6 judge-demo story (`lib/core/gamification/demo_story_seed.dart`,
+  `DemoStorySeeder`) seeds real `AssessmentRecord`s/one `AssessmentDraft`
+  into Demo's own local history store (via the `DemoSeedableAssessmentRepository`
+  interface `DemoAssessmentRepository` implements, the same `is`-check
+  pattern as `QueuedAssessmentRepository`) so
+  `computeUnlockedBadges`/`computeWeeklyRhythm` pick it up for real --
+  unlike `demo_stream_health_seed.dart`'s read-time-only timeline
+  decoration. It runs once, from `OnboardingScreen._handleLookAround`
+  (first "Look around first" only, never on replay), and unconditionally
+  from Settings > Demo data > Reset demo; both no-op gracefully if no
+  `RepositoryScope` ancestor exists (same tolerance as the reminder check
+  above) so older tests that predate this feature keep passing.
+- A ~2s long-press on the small app-version line at the bottom of Settings
+  restarts onboarding (identical to the "Replay onboarding" row above it)
+  with a subtle haptic, with no visible label anywhere -- it exists only so
+  a future agent/demo recorder can jump back to onboarding on demand. Keep
+  it out of user-facing copy and ARB strings if it ever moves; see
+  `docs/manual-qa.md` item 97.
+
+- `submission/video/` is a self-contained Remotion project for the demo video,
+  separate from the Flutter app (Node + ffmpeg + Piper, no Flutter). New-app
+  screenshots are swapped in through the single `SHOTS` map in its
+  `scripts/import_new_shots.py`, which also burns in any account-detail
+  redactions; never commit a screenshot showing real login details. See its
+  README.
 
 ## Maintaining this file
 

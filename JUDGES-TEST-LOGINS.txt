@@ -1,0 +1,28 @@
+OneAquaHealth Citizen Science
+
+APK download: https://github.com/MI-TECHDLIN/onehealth-ui/releases/latest
+Download the .apk file under Assets.
+
+Install the APK
+1. Enable installation from unknown sources for the browser or file manager.
+2. Download and open the APK, then confirm the installation prompt.
+
+Test accounts
+Shared password: Ripple2026!
+
+Avery Current
+Username: avery.current
+Email: avery.current@example.test
+
+Sam Brook
+Username: sam.brook
+Email: sam.brook@example.test
+
+Nuri Reed
+Username: nuri.reed
+Email: nuri.reed@example.test
+
+These accounts are fictional and stored in the app for testing only. Either
+the username or email form can be used to sign in.
+
+Demo mode needs no sign-in. Choose "Look around first" during onboarding.

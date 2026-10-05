@@ -1,0 +1,137 @@
+{
+  "id": "waterHeight",
+  "locale": "en",
+  "voice": "en_GB-alba-medium",
+  "sampleRate": 22050,
+  "durationMs": 9069,
+  "segments": [
+    {
+      "id": "prompt",
+      "words": 5
+    },
+    {
+      "id": "options",
+      "words": 18
+    }
+  ],
+  "words": [
+    "What",
+    "is",
+    "the",
+    "water",
+    "height?",
+    "Please",
+    "give",
+    "your",
+    "estimate",
+    "in",
+    "meters,",
+    "use",
+    "a",
+    "dot",
+    "as",
+    "decimal",
+    "point,",
+    "for",
+    "example",
+    "one",
+    "point",
+    "five",
+    "meters."
+  ],
+  "timings": [
+    {
+      "start": 0,
+      "end": 209
+    },
+    {
+      "start": 209,
+      "end": 267
+    },
+    {
+      "start": 267,
+      "end": 325
+    },
+    {
+      "start": 325,
+      "end": 592
+    },
+    {
+      "start": 592,
+      "end": 1057
+    },
+    {
+      "start": 2166,
+      "end": 2410
+    },
+    {
+      "start": 2410,
+      "end": 2584
+    },
+    {
+      "start": 2584,
+      "end": 2735
+    },
+    {
+      "start": 2735,
+      "end": 3246
+    },
+    {
+      "start": 3246,
+      "end": 3339
+    },
+    {
+      "start": 3339,
+      "end": 3966
+    },
+    {
+      "start": 3966,
+      "end": 4233
+    },
+    {
+      "start": 4233,
+      "end": 4256
+    },
+    {
+      "start": 4256,
+      "end": 4604
+    },
+    {
+      "start": 4604,
+      "end": 4709
+    },
+    {
+      "start": 4709,
+      "end": 5092
+    },
+    {
+      "start": 5092,
+      "end": 5498
+    },
+    {
+      "start": 5498,
+      "end": 5603
+    },
+    {
+      "start": 5603,
+      "end": 6032
+    },
+    {
+      "start": 6032,
+      "end": 6218
+    },
+    {
+      "start": 6218,
+      "end": 6485
+    },
+    {
+      "start": 6485,
+      "end": 6764
+    },
+    {
+      "start": 6764,
+      "end": 7425
+    }
+  ],
+  "alignment": "piper-phoneme"
+}

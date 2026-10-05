@@ -1,13 +1,19 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:http/http.dart' as http;
+
+import '../../core/settings/app_preferences.dart';
 import 'assessment_repository.dart';
+import 'assessment_content_source.dart';
 import 'auth_repository.dart';
+import 'live_api_client.dart';
 import 'reference_repository.dart';
 import 'site_repository.dart';
+import 'token_store.dart';
 
 /// Repositories for one isolated data mode.
 ///
-/// Only the local Demo bundle exists in this foundation. A later integration
-/// supplies a separate Live bundle; no foundation implementation performs a
-/// network request.
 class RepositoryBundle {
   const RepositoryBundle({
     required this.auth,
@@ -16,12 +22,67 @@ class RepositoryBundle {
     required this.assessments,
   });
 
-  factory RepositoryBundle.demo() => RepositoryBundle(
-    auth: DemoAuthRepository(),
-    sites: DemoSiteRepository(),
-    references: DemoReferenceRepository(),
-    assessments: DemoAssessmentRepository(),
-  );
+  factory RepositoryBundle.demo({AppPreferences? preferences}) {
+    final content = AssessmentContentSource();
+    return RepositoryBundle(
+      auth: DemoAuthRepository(),
+      sites: DemoSiteRepository(),
+      references: DemoReferenceRepository(contentSource: content),
+      assessments: DemoAssessmentRepository(
+        preferences: preferences,
+        contentSource: content,
+      ),
+    );
+  }
+
+  factory RepositoryBundle.live({
+    required AppPreferences preferences,
+    http.Client? client,
+    TokenStore? tokenStore,
+    Uri? baseUri,
+  }) {
+    final network = client ?? http.Client();
+    final tokens = tokenStore ?? SecureTokenStore();
+    final remoteAuth = LiveAuthRepository(
+      client: network,
+      tokenStore: tokens,
+      baseUri: baseUri,
+    );
+    final auth = LocalAccountsAuthRepository(
+      preferences: preferences,
+      remoteRepository: remoteAuth,
+    );
+    final api = LiveApiClient(
+      client: network,
+      tokenStore: tokens,
+      baseUri: baseUri ?? LiveApiClient.productionBaseUri,
+      onUnauthorized: auth.signOut,
+    );
+    final content = AssessmentContentSource();
+    final assessments = LiveAssessmentRepository(
+      api: api,
+      auth: auth,
+      preferences: preferences,
+      contentSource: content,
+    );
+    unawaited(assessments.retryQueued());
+    Connectivity().onConnectivityChanged.listen(
+      (connections) {
+        if (connections.any((value) => value != ConnectivityResult.none)) {
+          unawaited(assessments.retryQueued());
+        }
+      },
+      // Platform channels are absent in widget tests; retries still run on
+      // app start and through the explicit Retry action there.
+      onError: (_) {},
+    );
+    return RepositoryBundle(
+      auth: auth,
+      sites: LiveSiteRepository(api: api),
+      references: LiveReferenceRepository(api: api),
+      assessments: assessments,
+    );
+  }
 
   final AuthRepository auth;
   final SiteRepository sites;

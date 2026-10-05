@@ -5,14 +5,15 @@ import 'package:onehealth_ui/data/repositories/repository_bundle.dart';
 import 'package:onehealth_ui/data/repositories/repository_scope.dart';
 
 void main() {
-  testWidgets('Live mode cannot resolve the Demo repository bundle', (
+  testWidgets('Live mode exposes its own repository bundle', (
     tester,
   ) async {
+    final live = RepositoryBundle.demo();
     RepositoryScope? captured;
     await tester.pumpWidget(
       RepositoryScope(
         mode: AppMode.live,
-        repositories: null,
+        repositories: live,
         child: MaterialApp(
           home: Builder(
             builder: (context) {
@@ -25,7 +26,7 @@ void main() {
     );
 
     expect(captured?.mode, AppMode.live);
-    expect(captured?.repositories, isNull);
+    expect(captured?.repositories, same(live));
   });
 
   testWidgets('Demo mode exposes only the local bundle', (tester) async {

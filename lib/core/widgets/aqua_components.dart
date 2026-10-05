@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../mascot/aqua_mascot.dart';
 import '../theme/tokens.dart';
@@ -134,9 +135,15 @@ class _AquaButtonState extends State<AquaButton> {
                             Flexible(
                               child: Text(
                                 widget.label,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.labelLarge
-                                    ?.copyWith(color: foreground),
+                                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                  color: foreground,
+                                  fontFamily: AppTypography.displayFamilyFor(
+                                    Localizations.localeOf(context),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -284,7 +291,7 @@ class AquaFilterChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: Text(label),
+      label: Text(label, maxLines: 1, overflow: TextOverflow.ellipsis),
       selected: selected,
       onSelected: onSelected,
       avatar: leading,
@@ -403,7 +410,7 @@ class PictureChoiceCard extends StatelessWidget {
                             ),
                             child: selected
                                 ? const Icon(
-                                    Icons.check_rounded,
+                                    PhosphorIconsFill.check,
                                     size: 18,
                                     color: AppColors.white,
                                   )
@@ -424,15 +431,16 @@ class PictureChoiceCard extends StatelessWidget {
 }
 
 class NotSureButton extends StatelessWidget {
-  const NotSureButton({super.key, required this.onPressed});
+  const NotSureButton({super.key, required this.onPressed, this.label = "I'm not sure"});
   final VoidCallback? onPressed;
+  final String label;
 
   @override
   Widget build(BuildContext context) => AquaButton(
-    label: "I'm not sure",
+    label: label,
     variant: AquaButtonVariant.ghost,
     onPressed: onPressed,
-    leading: const Icon(Icons.help_outline_rounded),
+    leading: const Icon(PhosphorIconsRegular.question),
   );
 }
 
