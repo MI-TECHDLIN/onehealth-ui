@@ -356,3 +356,20 @@ seeding (idempotent, reseed-on-reset, Live-untouched) and the long-press
 hand-off are covered by `test/core/gamification/demo_story_seed_test.dart`,
 `test/features/onboarding/onboarding_screen_test.dart`, and
 `test/features/settings/settings_screen_test.dart`.
+
+Brand launch assets and platform labels:
+98. Install the app fresh on Android 11 or earlier - the launcher shows Ripple
+    on the navy brand background (including launchers that request the round
+    icon), and opening it shows centered Ripple on the same navy background
+    until Flutter's first frame, with no white flash.
+99. Repeat on Android 12 or later - the system splash uses the padded Ripple
+    mark without clipping; apply a themed icon on Android 13 or later and
+    confirm the monochrome Ripple silhouette remains recognizable.
+100. On iOS, web, and macOS, confirm the launcher/favicon uses the same Ripple
+     mark; iOS launch also shows centered Ripple on navy. Android's launcher,
+     iOS's home-screen label, and the installed web app all read
+     "OneAquaHealth".
+
+Items 98-100 require platform/device verification. Their raster assets can be
+regenerated from the in-app painter geometry and brand tokens with
+`python3 tool/branding/generate_brand_assets.py`.
