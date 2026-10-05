@@ -19,7 +19,8 @@
     "es",
     "de",
     "pl",
-    "ro"
+    "ro",
+    "sv"
   ],
   "localeStatus": {
     "en": {
@@ -72,6 +73,12 @@
     },
     "ro": {
       "name": "Română",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "sv": {
+      "name": "Svenska",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -5116,6 +5123,441 @@
         "created_label_2": "Creat la",
         "overall_label_2": "Evaluare generală",
         "actions_label_2": "Acțiuni"
+      }
+    },
+    "sv": {
+      "citizens_menu": {
+        "instructions": "Instruktioner",
+        "instructions_title": "Instruktioner för medborgarforskning",
+        "new_observation": "Skapa ny observation",
+        "new_observation_title": "Nytt bidrag till medborgarforskningen",
+        "my_submissions": "Mina bidrag",
+        "my_submissions_title": "Mina bidrag"
+      },
+      "title": "OneAquaHealth-appen för medborgarforskning – installationsanvisningar",
+      "viewInstructions": "Visa anvisningar",
+      "version": "OneAquaHealth-appen för medborgarforskning – version 1.0",
+      "installation_modal": {
+        "title": "Installera OAH-appen för medborgarforskning",
+        "intro": "Innan du installerar OAH-appen måste du gå med i <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth Community</a>.<br />Följ sedan stegen nedan och logga in med din tilldelade e-postadress och ditt lösenord.",
+        "step1_label": "Steg 1.",
+        "step1_desc": "Öppna telefonens webbläsare och besök:",
+        "step2_label": "Steg 2. Leta efter uppmaningen att installera appen:",
+        "step2_list_item1": "Om ett fönster föreslår installation följer du anvisningarna på skärmen.",
+        "step2_list_item2": "Om ingen uppmaning visas fortsätter du till nästa steg.",
+        "step3_label": "Steg 3. Lägg till på startskärmen:",
+        "step3_ios": "<b>För iOS (a):</b> Tryck på delningsikonen (ruta med pil) längst ned och välj <span class=\"font-semibold\">”Lägg till på hemskärmen”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"iOS-exempel\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>För Android (b):</b> Tryck på menyikonen (tre punkter) och välj <span class=\"font-semibold\">”Lägg till på startskärmen”</span> eller <span class=\"font-semibold\">”Installera app”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android-exempel\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Steg 4.",
+        "step4_desc": "Bekräfta installationen genom att trycka på <span class=\"font-semibold\">”Lägg till”</span> eller <span class=\"font-semibold\">”Installera”</span>",
+        "step5_label": "Steg 5.",
+        "step5_desc": "Hitta den nya appikonen på startskärmen och tryck för att öppna appen",
+        "close": "Stäng"
+      },
+      "app_intro_title": "Vad används appen till?",
+      "app_intro_text": "Appen hjälper invånare att samla data om hälsan hos vattendrag i städer",
+      "before_submit": "Innan du skickar in",
+      "education": {
+        "title": "Vad är ett urbant vattendrag?",
+        "intro": "Urbana vattendrag är rinnande vatten som samexisterar med stadsbebyggelse och ofta ingår i större avrinningsområden. Mänsklig verksamhet förändrar fåran genom täckning och konstgjorda material, förorenar vattnet och påverkar den naturliga vegetationen i strandzonerna.",
+        "healthy_streams": {
+          "title": "Friska ekosystem i vattendrag",
+          "content": "Friska vattendrag omges av strandvegetation vars rötter klarar våt jord. Vattendrag och strandvegetation ger livsmiljö åt vatten- och landdjur, svampar och mikroorganismer. Organismerna bidrar till produktion, näringskretslopp och nedbrytning av organiskt material."
+        },
+        "ecosystem_services": {
+          "title": "Ekosystemtjänster",
+          "content": "Välbevarade vattendrag förbättrar luftkvaliteten, reglerar temperatur och fuktighet och minskar översvämningar. De erbjuder också natur för rekreation, möten och miljöundervisning."
+        },
+        "key_concepts": {
+          "title": "Viktiga begrepp vid bedömning",
+          "downstream_direction": "Vänster och höger strand och strandzon bestäms när du tittar nedströms, i vattnets riktning (figur 1)."
+        },
+        "figure1": {
+          "caption": "Figur 1. Vänster (V) och höger (H) strand. Pilen visar flödesriktningen."
+        },
+        "cross_section": {
+          "description": "Bredden (figur 2) och djupet (figur 3) mäts i ett tvärsnitt vinkelrätt mot fåran. De kan variera längs vattendraget, så mät på en plats som motsvarar genomsnittet."
+        },
+        "figure2": {
+          "caption": "Figur 2. Tvärsnitt: A) strandkrön; B) strand; C) huvudsaklig våt fåra; D) flödesriktning (vy nedströms); E) bredd; F) djup."
+        },
+        "figure3": {
+          "caption": "Figur 3. Djupmätning med linjal eller måttstock."
+        },
+        "riparian_and_floodplain": {
+          "content": "Strandzonen ligger längs vattendraget och täcks av strandvegetation. Frisk vegetation omfattar inhemska växter i olika höjd, från örter till buskar och träd, anpassade till närheten till vatten (figur 4)."
+        },
+        "figure4": {
+          "caption": "Figur 4. Välbevarad strandzon: A) låg nivå med örter, ormbunkar, mossor och lavar; B) buskskikt med vedartade växter upp till cirka 6 m; C) översta skikt med mogna träd som bildar kronorna."
+        },
+        "figure_description": "Översvämningsmarker täcks naturligt av vatten vid kraftig nederbörd. Översvämningar berikar jorden med näringsrikt sediment (figur 5). Formen kan ändras när huvudfåran flyttas genom avlagring och erosion.",
+        "figure5": {
+          "caption": "Figur 5. A) Våt fåra; B) aktiv översvämningsmark; C) reglerande översvämningsmark; D) geologisk översvämningsmark med mer sällsynta flöden; E) terrass."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Viktiga skillnader mellan skogs- och stadsvattendrag",
+          "content": "Stadsutveckling ökar mängden ogenomträngliga ytor vid stränder och översvämningsmarker genom vägar, byggnader och trottoarer av betong eller asfalt (figur 6). Vattnet kan inte tränga ned som i skog och fält. Kraftigt regn ger snabba flöden med risk för skador och människor. Ytorna minskar också grundvattenbildning och förvärrar vattenbrist, ibland tillsammans med dammar och uttag. Dagvatten och avloppsbräddning förorenar dessutom vattendragen."
+        },
+        "figure6": {
+          "caption": "Figur 6. Genomträngliga ytor till vänster, delvis ogenomträngliga i mitten och ogenomträngliga till höger."
+        },
+        "oneaquahealth_project": {
+          "title": "Projektet OneAquaHealth och OAH-appen",
+          "content": "OneAquaHealth vill förbättra det ekologiska tillståndet i urbana sötvattensekosystem, stärka One Health och hitta tidiga varningstecken på försämring. Ett miljöövervakningssystem med OAH-appen har utvecklats för bättre förvaltning. Appen låter invånare följa vattendrag, öka kunskapen och stödja återställning."
+        },
+        "onehealth": {
+          "title": "Vad är One Health?",
+          "content": "One Health främjar hållbar hälsa för människor, organismer och miljö (figur 7). Välbevarad stadsnatur ger renare luft och vatten och lugna platser som stärker välbefinnandet. Gröna och blå områden nära hemmet lockar oss ut för möten och avkoppling. Urbana vattendrag är ofta dolda men har stor potential. När de återställs med One Health kan de förena grupper och skapa friskare samhällen."
+        },
+        "figure7": {
+          "caption": "Figur 7. One Health visar sambandet mellan människors, organismers och miljöns hälsa. Överlappningen visar behovet av ett integrerat synsätt."
+        },
+        "what_you_can_do": {
+          "title": "Hur kan du hjälpa till?",
+          "content": "Om du har ett urbant vattendrag i närheten, även om det är dolt och starkt förändrat med betongväggar, kan du hjälpa oss att ta hand om det. Titta på fåran, stranden och strandzonen och skicka information och bilder i appen. Ge sedan en helhetsbedömning i någon av kategorierna:"
+        },
+        "quality": {
+          "good": "<strong>God kvalitet</strong> (ekosystemets delar finns och ser bra ut: strandvegetation, naturlig fåra, god vattenkvalitet och biologisk mångfald)",
+          "moderate": "<strong>Måttlig kvalitet</strong> (vissa förändringar, fortfarande biologisk mångfald och vegetation längs stränderna, vattnet ser bra ut ...)",
+          "poor": "<strong>Dålig kvalitet</strong> (kraftigt förändrat eller konstgjort, förlust av strandvegetation eller bara invasiva arter, förlust av livsmiljöer och förorenat vatten)"
+        },
+        "submission_hint": "Bidra genom att ange uppgifterna och trycka på <strong>”Nästa”</strong> (se riktlinjerna ovan)"
+      },
+      "step": "Steg",
+      "next": "Nästa",
+      "previous": "Föregående",
+      "submit": "Skicka in",
+      "basic_information": "Grunduppgifter",
+      "additional_details": "Ytterligare uppgifter",
+      "media_upload": "Ladda upp media",
+      "questions_1_3_": "Frågor (1/3)",
+      "questions_2_3_": "Frågor (2/3)",
+      "questions_3_3_": "Frågor (3/3)",
+      "feedback_1_2": "Återkoppling (1/2)",
+      "feedback_2_2": "Återkoppling (2/2)",
+      "review_submit": "Granska och skicka",
+      "select_from_my_sites": "Välj bland mina platser",
+      "enter_longitude": "Ange longitud",
+      "enter_latitude": "Ange latitud",
+      "enter_site_name": "Ange platsens namn",
+      "longitude": "Longitud",
+      "latitude": "Latitud",
+      "site_name": "Platsens namn",
+      "site_selection": {
+        "title": "Välj urbana OneAquaHealth-vattendrag att bedöma (avståndet visas)",
+        "description": "Lägg till ny plats"
+      },
+      "media": {
+        "title": "Välj bilder",
+        "upstream_photo_label": "Foto uppströms",
+        "upstream_photo_description": "Foto uppströms",
+        "downstream_photo_label": "Foto nedströms",
+        "downstream_photo_description": "Foto nedströms",
+        "context_photo_label": "Foto av omgivningen",
+        "context_photo_description": "Foto av omgivningen (hus, vägar ...)",
+        "biodiversity_photo_label": "Foto av något intressant i den biologiska mångfalden",
+        "biodiversity_photo_description": "Foto av något intressant i den biologiska mångfalden (växt, djur, svamp eller annat)",
+        "video_label": "Spela in en kort video (5 eller 10 sekunder)",
+        "video_description": "Spela in en kort video (5 eller 10 sekunder)",
+        "select_file_button": "Välj fil"
+      },
+      "questions_1_3": {
+        "title": "Vad ser du från platsen där du står (inom cirka 100 m)?",
+        "channel_form": {
+          "question": "Fårans form",
+          "questiontext": "Fårans form är …",
+          "labels": {
+            "Flat (Α)": "Platt (A)",
+            "Flat (A)": "Platt (A)",
+            "U Shape (Β)": "U-formad (B)",
+            "U Shape (B)": "U-formad (B)",
+            "V Shape (C)": "V-formad (C)",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "bottom_type": {
+          "question": "Typ av botten",
+          "questiontext": "Bottnen i den våta fåran är …",
+          "labels": {
+            "Natural (A)": "Naturlig (A)",
+            "Natural (Α)": "Naturlig (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Konstgjord (betong eller sten med betong) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Konstgjord (betong eller sten med betong) (B)",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "bank_type": {
+          "question": "Typ av strand",
+          "questiontext": "Fårans stränder är …",
+          "labels": {
+            "Natural (A)": "Naturliga (A)",
+            "Natural (Α)": "Naturliga (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Konstgjorda (betong eller sten med betong) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Konstgjorda (betong eller sten med betong) (B)",
+            "Layed stones with no concrete (C)": "Lagda stenar utan betong (C)",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "habitats": {
+          "question": "Livsmiljöer",
+          "questiontext": "Livsmiljöerna som finns är …",
+          "questiontextshow": "Finns det några livsmiljöer?",
+          "options": {
+            "Sand banks (A)": "Sandbankar (A)",
+            "Sand banks (Α)": "Sandbankar (A)",
+            "Sand islands (B)": "Sandöar (B)",
+            "Sand islands (Β)": "Sandöar (B)",
+            "Stone deposits (C)": "Stenavlagringar (C)",
+            "Riffles, rapids, falls (D)": "Strömmande partier, forsar eller fall (D)",
+            "Aquatic vegetation (E)": "Vattenvegetation (E)"
+          },
+          "info": "Du kan välja flera typer av livsmiljöer. Markera först rutan och sedan alla du hittar."
+        },
+        "natural_debris": {
+          "question": "Naturligt material",
+          "questiontext": "Det finns …",
+          "questiontextshow": "Finns det naturligt material?",
+          "labels": {
+            "Fallen trees (A)": "Fallna träd (A)",
+            "Fallen trees (Α)": "Fallna träd (A)",
+            "Fallen branches (B)": "Fallna grenar (B)",
+            "Fallen branches (Β)": "Fallna grenar (B)",
+            "Deposits of fallen leaves (C)": "Ansamlingar av fallna löv (C)"
+          },
+          "info": "Du kan välja flera typer av naturligt material. Markera först cirkeln och sedan allt du hittar."
+        },
+        "water_flow": {
+          "question": "Vattenflöde",
+          "questiontext": "Hur rinner vattnet?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Snabbt (med vågor eller hög hastighet) (A)",
+            "Fast (with waves or high velocity) (Α)": "Snabbt (med vågor eller hög hastighet) (A)",
+            "Slow (B)": "Långsamt (B)",
+            "Slow (Β)": "Långsamt (B)",
+            "Stagnant/intermittent (C)": "Stillastående eller periodiskt (C)",
+            "Dry (D)": "Torrt (D)",
+            "I am not sure": "Jag är inte säker"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Vattnets utseende",
+          "questiontext": "Hur ser vattnet ut?",
+          "labels": {
+            "Clear/transparent (A)": "Klart eller genomskinligt (A)",
+            "Clear/transparent (Α)": "Klart eller genomskinligt (A)",
+            "Muddy/turbid (B)": "Lerigt eller grumligt (B)",
+            "Muddy/turbid (Β)": "Lerigt eller grumligt (B)",
+            "Has foam (C)": "Har skum (C)",
+            "Has colors/altered color (D)": "Har färg eller förändrad färg (D)",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Vattenuttag",
+          "questiontext": "Syns någon insamling, användning eller bortledning av vatten från vattendraget?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "barriers": {
+          "question": "Hinder",
+          "questiontext": "Ser du dammar eller andra konstgjorda tvärgående hinder? Se exemplen på bilderna.",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "draining_pipes": {
+          "question": "Avloppsrör",
+          "questiontext": "Finns det rör som leder förorenat vatten till vattendraget?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Utsläpp av avloppsvatten",
+          "questiontext": "Finns det något inflöde eller utsläpp av avloppsvatten?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "construction": {
+          "question": "Byggarbete",
+          "questiontext": "Pågår byggarbete i eller vid vattendraget?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "water_height": {
+          "question": "Vattenhöjd",
+          "questiontext": "Hur högt är vattnet?",
+          "placeholder": "Ange vattenhöjden",
+          "info": "Uppskatta i meter (m) och använd punkt (.) som decimaltecken (t.ex. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "I strandzonen (5–10 m från strandkrönet)",
+        "impervious_left": {
+          "question": "Ogenomträngliga ytor (vänster)",
+          "questiontext": "Täcks mer än en tredjedel av vänster strandzon av vägar, trottoarer, byggnader eller andra ogenomträngliga ytor?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "impervious_right": {
+          "question": "Ogenomträngliga ytor (höger)",
+          "questiontext": "Täcks mer än en tredjedel av höger strandzon av vägar, trottoarer, byggnader eller andra ogenomträngliga ytor?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetation (vänster)",
+          "questiontext": "Täcks vänster strandzon av vegetation?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vegetationstyp (vänster)",
+          "questiontext": "Vilken vegetation dominerar, alltså täcker mer än 50 %, i vänster strandzon (de första 5 m från strandkrönet)?",
+          "labels": {
+            "Herbs (A)": "Örter (A)",
+            "Herbs (Α)": "Örter (A)",
+            "Shrubs (B)": "Buskar (B)",
+            "Shrubs (Β)": "Buskar (B)",
+            "Trees (C)": "Träd (C)",
+            "I am not sure": "Jag är inte säker"
+          },
+          "info": "Glöm inte att titta på vegetationen till vänster när du ser nedströms"
+        },
+        "vegetation_right": {
+          "question": "Vegetation (höger)",
+          "questiontext": "Täcks höger strandzon av vegetation?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vegetationstyp (höger)",
+          "questiontext": "Vilken vegetation dominerar, alltså täcker mer än 50 %, i höger strandzon (de första 5 m från strandkrönet)?",
+          "labels": {
+            "Herbs (A)": "Örter (A)",
+            "Herbs (Α)": "Örter (A)",
+            "Shrubs (B)": "Buskar (B)",
+            "Shrubs (Β)": "Buskar (B)",
+            "Trees (C)": "Träd (C)",
+            "I am not sure": "Jag är inte säker"
+          },
+          "info": "Glöm inte att titta på vegetationen till höger när du ser nedströms"
+        },
+        "invasive_species": {
+          "question": "Invasiva arter",
+          "questiontext": "Ser du främmande eller invasiva växtarter?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          },
+          "placeholder": "Vilka?"
+        },
+        "vegetation_cut": {
+          "question": "Nedskärning av vegetation",
+          "questiontext": "Har vegetationen på en eller båda stränderna nyligen skurits ned helt eller delvis?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nej",
+            "I am not sure": "Jag är inte säker"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Gör en helhetsbedömning av vattendragets hälsa (välj ett alternativ)",
+        "good_quality": "God kvalitet",
+        "good_quality_description": "Ekosystemets delar finns: strandvegetation, naturlig fåra, god vattenkvalitet och biologisk mångfald",
+        "moderate_quality": "Måttlig kvalitet",
+        "moderate_quality_description": "Vissa förändringar, men fortfarande biologisk mångfald och vegetation längs stränderna; vattnet ser bra ut ...",
+        "poor_quality": "Dålig kvalitet",
+        "poor_quality_description": "Kraftigt förändrat eller konstgjort, förlust av strandvegetation och livsmiljöer, förorenat vatten"
+      },
+      "feelings": {
+        "question": "Vilka känslor beskriver din upplevelse bäst?",
+        "info": "Forskning visar att vattendrag kan påverka människors känslor.",
+        "instructions": "Dra reglaget för att ange känslans styrka. Ett högre värde betyder en starkare känsla.",
+        "Joy": "Glädje",
+        "Serenity": "Lugn",
+        "Anger": "Ilska",
+        "Fear": "Rädsla",
+        "NotApplicable": "Inte tillämpligt"
+      },
+      "summary": {
+        "title": "Sammanfattning av bidraget",
+        "research_site_label": "Forskningsplats",
+        "coordinates_label": "Koordinater",
+        "photos_label": "Foton",
+        "video_label": "Video",
+        "channel_form_label": "Fårans form",
+        "bottom_type_label": "Typ av botten",
+        "bank_type_label": "Typ av strand",
+        "habitats_label": "Livsmiljöer",
+        "natural_debris_label": "Naturligt material",
+        "water_flow_label": "Vattenflöde",
+        "water_quality_label": "Vattenkvalitet",
+        "water_abstraction_label": "Vattenuttag",
+        "water_extraction_label": "Vattenbortledning",
+        "draining_pipes_label": "Avloppsrör",
+        "barriers_label": "Hinder",
+        "construction_label": "Byggarbete",
+        "impervious_areas_left_label": "Ogenomträngliga ytor (vänster)",
+        "impervious_areas_right_label": "Ogenomträngliga ytor (höger)",
+        "vegetation_left_label": "Vegetation (vänster)",
+        "vegetation_right_label": "Vegetation (höger)",
+        "vegetation_cuts_label": "Nedskärning av vegetation",
+        "invasive_species_label": "Invasiva arter",
+        "feelings_label": "Känslor",
+        "feelings": {
+          "joy": "Glädje",
+          "serenity": "Lugn",
+          "anger": "Ilska",
+          "fear": "Rädsla"
+        },
+        "water_height_label": "Vattenhöjd",
+        "overall_assessment_label": "Helhetsbedömning"
+      },
+      "my_submissions_list": {
+        "title": "Bidrag för befintliga forskningsplatser",
+        "longitude_label": "Longitud",
+        "latitude_label": "Latitud",
+        "research_site_label": "Forskningsplats",
+        "created_label": "Skapad",
+        "overall_label": "Helhetsbedömning",
+        "actions_label": "Åtgärder",
+        "title2": "Bidrag för skapade platser",
+        "longitude_label_2": "Longitud",
+        "latitude_label_2": "Latitud",
+        "research_site_label_2": "Forskningsplats",
+        "created_label_2": "Skapad",
+        "overall_label_2": "Helhetsbedömning",
+        "actions_label_2": "Åtgärder"
       }
     }
   }
