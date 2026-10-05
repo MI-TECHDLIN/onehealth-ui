@@ -71,7 +71,7 @@ six README stills (`screens/01-onboarding-purpose.png` ...).
 | Language | 03a language picker, 03b profile in Arabic (right to left, zoom), 03c profile in Greek | 5 |
 | Sign-in | 04a friendly error, fictional account (wipe and zoom), 04b avatar picker | 22, 21, 23 |
 | Map | 05a home map (zoom on the filters), 05b "Which stream?" | 6, 7, 8 |
-| Questions (dark theme) | 06a-06c picture answers (wipe on 06a), 06d Yes / No / I'm not sure | 10, 11, 12 |
+| Questions (dark theme) | 06a-06c picture answers (wipe on 06a), 06d impervious areas, left and right: Yes / No / I'm not sure | 10, 11, 12 |
 | Overall health (dark) | 08a overall assessment | 13, 14 |
 | Photos (dark) | 09a "Photograph the stream" (wipe) | 9 |
 | Submitted | 11a "Stream check submitted", 11b "Your impact" (zoom) | none |

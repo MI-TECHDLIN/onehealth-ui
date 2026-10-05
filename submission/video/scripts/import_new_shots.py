@@ -37,7 +37,7 @@ SHOTS = {
     '06a': 'Screenshot_20261005-124432.png',  # channel form, picture answers (dark)
     '06b': 'Screenshot_20261005-124434.png',  # bottom of the channel, picture answers
     '06c': 'Screenshot_20261005-124437.png',  # banks, picture answers
-    '06d': 'Screenshot_20261005-124441.png',  # pipes: Yes / No / I'm not sure
+    '06d': 'Screenshot_20261005-131125.png',  # impervious areas left/right: Yes / No / I'm not sure
     '08a': 'Screenshot_20261005-124446.png',  # overall health (dark)
     '09a': 'Screenshot_20261005-124515.png',  # photograph the stream (dark)
     '09r': 'Screenshot_20261005-113353.png',  # photograph the stream (light, README still)
@@ -71,7 +71,7 @@ TAP_DOTS = {
     '06a': [(463, 1093), (224, 1135), (171, 1436)],
     '06b': [(273, 1007), (226, 1269)],
     '06c': [(594, 1054), (389, 1092), (361, 1349)],
-    '06d': [(161, 1549), (437, 1144), (224, 1184)],
+    '06d': [(233, 1448, 1.03), (243, 1190, 1.03), (485, 1170, 1.03)],
     '08a': [(292, 1475), (258, 1262), (480, 1102)],
     '09a': [(635, 1170), (369, 1211), (338, 1448)],
     '09r': [(384, 973), (611, 1004), (272, 1218)],
