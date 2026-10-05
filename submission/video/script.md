@@ -1,6 +1,8 @@
 # OneAquaHealth demo video: script
 
-Narration is Ripple's voice (Piper `en_GB-alba-medium`, the app's own read-aloud voice). The source of truth is `src/scenes.json`: `captionText` is what appears on screen and in `captions.srt`, and `piperText` is what Piper reads (respelled where needed, for example "One Aqua Health" and "Git Hub"). Timings below come from the current narration and are regenerated on every render.
+Narration is Ripple's voice (Piper `en_GB-alba-medium`, the app's own read-aloud voice). The source of truth is `src/scenes.json`: `captionText` is what appears on screen and in `captions.srt`, and `piperText` is what Piper reads (respelled where needed, for example "One Aqua Health" and "Git Hub"). "Now" shots are the captain's screenshots in `screens/new/` (mapping in `scripts/import_new_shots.py`). Timings below come from the current narration and change when it is regenerated.
+
+The comparison beats follow the journey order but only cover screens the captain captured: splash, Arabic, glossary sheet, feelings sliders, retake hint, review, impact receipt, offline queue, reminders and the site timeline have no screenshot yet, so the narration does not mention them.
 
 | Time | Scene | On screen | Narration |
 |---|---|---|---|
@@ -8,22 +10,18 @@ Narration is Ripple's voice (Piper `en_GB-alba-medium`, the app's own read-aloud
 | 0:09 | `about-streams` | **City streams tell a bigger story** | Streams that run through our cities tell us about the health of the water, the wildlife, and the people around them. |
 | 0:18 | `about-one-health` | **One Health** | This is the idea of One Health. Ecosystem, animal and human health are linked. |
 | 0:26 | `about-citizens` | **Citizens can help** | OneAquaHealth researchers need eyes on hundreds of urban streams, and citizens can help. Their checks reach researchers and support early warning. |
-| 0:36 | `about-rebuilt` | **Rebuilt for the water's edge** | But the original app felt like a form built for scientists. So we rebuilt it around the person standing at the water's edge. |
-| 0:45 | `shot-01-launch` | **From a loading screen to a friendly welcome**. Before: old #1, #2, #3. Now: shot 01 | Before, a loading screen. Now, Ripple welcomes you. |
-| 0:54 | `shot-02-onboarding` | **Know why it matters before you start**. Before: old Nothing before. Now: shot 02 | Five short screens explain why your check matters, and Ripple can read them aloud in a natural voice. |
-| 1:05 | `shot-03-language` | **18 languages, right-to-left included**. Before: old #5. Now: shot 03 | The app speaks eighteen languages, including Arabic, right to left. |
-| 1:15 | `shot-04-sign-in` | **Errors people can understand**. Before: old #22, #21, #23. Now: shot 04 (drag-to-compare wipe) | Before, a raw error code. Now, a message anyone understands. Then pick a friendly avatar. |
-| 1:26 | `shot-05-map` | **Streams by name, on a water-first map**. Before: old #6, #7, #8. Now: shot 05 | Streams appear by name on a water-first map, each with its own health timeline. |
-| 1:36 | `shot-06-questions` | **One question at a time, with pictures**. Before: old #10, #11. Now: shot 06 (drag-to-compare wipe) | Questions come one at a time, with pictures, and it's fine to say: not sure. |
-| 1:47 | `shot-07-glossary` | **Tap a word to understand it**. Before: old #12. Now: shot 07 | Tap any underlined word for a plain explanation. |
-| 1:56 | `shot-08-feelings` | **Clear choices, honest answers**. Before: old #13, #14, #15. Now: shot 08 | Rate the stream's overall health, and how it makes you feel. |
-| 2:05 | `shot-09-camera` | **A camera that helps you get it right**. Before: old #9. Now: shot 09 | The camera checks your photo and suggests a retake if it's blurry or dark. |
-| 2:15 | `shot-10-review` | **See what's missing before you send**. Before: old #16. Now: shot 10 (drag-to-compare wipe) | Before sending, see what's complete and what would help most. |
-| 2:25 | `shot-11-celebration` | **Know what your check achieved**. Before: old No feedback after submit. Now: shot 11 | Then a clear thank-you shows what your observation adds. |
-| 2:34 | `shot-12-offline` | **Works without signal**. Before: old Nothing before. Now: shot 12 | No signal? Your check waits safely and sends itself later. |
-| 2:43 | `shot-13-history` | **Your contribution, made visible**. Before: old #20, #19, #17, #18. Now: shot 13 | Your streams, your rhythm, and evidence badges. No leaderboards, no pressure. |
-| 2:54 | `shot-14-reminders` | **Gentle reminders, never streak pressure**. Before: old Nothing before. Now: shot 14 | And gentle reminders when a stream hasn't been checked in a while. |
-| 3:02 | `closing` | **Same science. A much kinder way to take part.** | Same science. A much kinder way to take part. OneAquaHealth Citizen Science: eighteen languages, works offline, reads aloud. |
-| 3:15 | `end` | Logo, GitHub link, credits | Explore the code on GitHub. |
+| 0:37 | `about-rebuilt` | **Rebuilt for the water's edge** | But the original app felt like a form built for scientists. So we rebuilt it around the person standing at the water's edge. |
+| 0:46 | `shot-01-welcome` | **From a loading screen to a friendly welcome**. Before: old #1, #2, #3. Now: 01a | Before, a logo and a loading screen. Now, Ripple welcomes you, and shows that your stream is part of city health. |
+| 0:56 | `shot-02-onboarding` | **Know why it matters before you start**. Before: old "Nothing before" card. Now: 02a, 02b, 02c, 02d (zoom on 02c) | Five short screens explain why your check matters, with a safety reminder before you go. Tap Listen, and Ripple reads each one aloud in a natural voice. |
+| 1:11 | `shot-03-language` | **Your language, labelled honestly**. Before: old #5. Now: 03a (zoom on 03a) | Choose from eighteen languages. Each one says honestly when its translation still awaits human review. |
+| 1:22 | `shot-04-sign-in` | **Errors people can understand**. Before: old #22, #21, #23. Now: 04a, 04b (drag-to-compare wipe first) (zoom on 04a) | Before, a raw error code. Now, a message anyone understands. Then pick an avatar that represents you and protects your identity. |
+| 1:38 | `shot-05-map` | **Streams by name, on a water-first map**. Before: old #6, #7, #8. Now: 05a, 05b (zoom on 05a) | Streams appear on a water-first map. Tap a pin to see the stream's name, then choose a nearby stream to check. |
+| 1:51 | `shot-06-questions` | **One question at a time**. Before: old #10, #11, #12. Now: 06a, 06b (drag-to-compare wipe first) (zoom on 06a) | Questions come one at a time, each with a Listen button. And it's fine to say: I'm not sure. |
+| 2:07 | `shot-08-health` | **Clear choices, in plain words**. Before: old #13, #14. Now: 08a | Rate the stream's overall health. Each choice has an icon and a plain description. |
+| 2:17 | `shot-09-camera` | **Photos with guidance**. Before: old #9. Now: 09a (drag-to-compare wipe first) (zoom on 09a) | Photos are optional. Each view says what to capture. Take a photo, or choose one from the gallery. |
+| 2:31 | `shot-11-submitted` | **Know what your check achieved**. Before: old "No feedback after submit" card. Now: 11a (zoom on 11a) | After you submit, Ripple celebrates, and explains how researchers use your evidence. |
+| 2:42 | `shot-13-profile` | **Your contribution, made visible**. Before: old #20, #19, #17, #18. Now: 13a (zoom on 13a) | Your profile shows your weekly rhythm and evidence badges. No leaderboards, no pressure. |
+| 2:54 | `closing` | **Same science. A much kinder way to take part.** | Same science. A much kinder way to take part. OneAquaHealth Citizen Science: eighteen languages, read aloud, one friendly step at a time. |
+| 3:07 | `end` | Logo, GitHub link, credits | Explore the code on GitHub. |
 
-Total: 3:24.
+Total: 3:16.

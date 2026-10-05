@@ -9,8 +9,8 @@
   {
     "id": "about-streams",
     "kind": "about",
-    "visual": "streams",
     "targetSeconds": 9,
+    "visual": "streams",
     "title": "City streams tell a bigger story",
     "captionText": "Streams that run through our cities tell us about the health of the water, the wildlife, and the people around them.",
     "piperText": "Streams that run through our cities tell us about the health of the water, the wildlife, and the people around them."
@@ -18,8 +18,8 @@
   {
     "id": "about-one-health",
     "kind": "about",
-    "visual": "oneHealth",
     "targetSeconds": 8,
+    "visual": "oneHealth",
     "title": "One Health",
     "captionText": "This is the idea of One Health. Ecosystem, animal and human health are linked.",
     "piperText": "This is the idea of One Health. Ecosystem, animal and human health are linked."
@@ -27,8 +27,8 @@
   {
     "id": "about-citizens",
     "kind": "about",
-    "visual": "citizens",
     "targetSeconds": 10,
+    "visual": "citizens",
     "title": "Citizens can help",
     "captionText": "OneAquaHealth researchers need eyes on hundreds of urban streams, and citizens can help. Their checks reach researchers and support early warning.",
     "piperText": "One Aqua Health researchers need eyes on hundreds of urban streams, and citizens can help. Their checks reach researchers and support early warning."
@@ -36,17 +36,19 @@
   {
     "id": "about-rebuilt",
     "kind": "about",
-    "visual": "rebuilt",
     "targetSeconds": 9,
+    "visual": "rebuilt",
     "title": "Rebuilt for the water's edge",
     "captionText": "But the original app felt like a form built for scientists. So we rebuilt it around the person standing at the water's edge.",
     "piperText": "But the original app felt like a form built for scientists. So we rebuilt it around the person standing at the water's edge."
   },
   {
-    "id": "shot-01-launch",
+    "id": "shot-01-welcome",
     "kind": "compare",
-    "targetSeconds": 9,
-    "newShot": 1,
+    "targetSeconds": 10,
+    "now": [
+      "01a"
+    ],
     "oldShots": [
       1,
       2,
@@ -54,40 +56,62 @@
     ],
     "improvement": "From a loading screen to a friendly welcome",
     "beforeFact": "Logo, then \"Loading...\", then a blank spinner",
-    "captionText": "Before, a loading screen. Now, Ripple welcomes you.",
-    "piperText": "Before, a loading screen. Now, Ripple welcomes you."
+    "nowFact": "\"Your stream is part of city health\"",
+    "captionText": "Before, a logo and a loading screen. Now, Ripple welcomes you, and shows that your stream is part of city health.",
+    "piperText": "Before, a logo and a loading screen. Now, Ripple welcomes you, and shows that your stream is part of city health."
   },
   {
     "id": "shot-02-onboarding",
     "kind": "compare",
-    "targetSeconds": 11,
-    "newShot": 2,
+    "targetSeconds": 15,
+    "now": [
+      "02a",
+      "02b",
+      "02c",
+      "02d"
+    ],
     "oldShots": [],
     "oldEmpty": "Nothing before",
+    "zoom": {
+      "index": 2,
+      "x": 0.5,
+      "y": 0.47,
+      "scale": 1.35
+    },
     "improvement": "Know why it matters before you start",
-    "nowFact": "Read aloud with word highlighting",
-    "captionText": "Five short screens explain why your check matters, and Ripple can read them aloud in a natural voice.",
-    "piperText": "Five short screens explain why your check matters, and Ripple can read them aloud in a natural voice."
+    "nowFact": "A Listen button on every screen",
+    "captionText": "Five short screens explain why your check matters, with a safety reminder before you go. Tap Listen, and Ripple reads each one aloud in a natural voice.",
+    "piperText": "Five short screens explain why your check matters, with a safety reminder before you go. Tap Listen, and Ripple reads each one aloud in a natural voice."
   },
   {
     "id": "shot-03-language",
     "kind": "compare",
-    "targetSeconds": 10,
-    "newShot": 3,
+    "targetSeconds": 11,
+    "now": [
+      "03a"
+    ],
     "oldShots": [
       5
     ],
-    "improvement": "18 languages, right-to-left included",
+    "zoom": {
+      "index": 0,
+      "x": 0.6,
+      "y": 0.33,
+      "scale": 1.45
+    },
+    "improvement": "Your language, labelled honestly",
     "beforeFact": "One small \"English\" dropdown",
-    "nowFact": "Arabic, right to left",
-    "captionText": "The app speaks eighteen languages, including Arabic, right to left.",
-    "piperText": "The app speaks eighteen languages, including Arabic, right to left."
+    "captionText": "Choose from eighteen languages. Each one says honestly when its translation still awaits human review.",
+    "piperText": "Choose from eighteen languages. Each one says honestly when its translation still awaits human review."
   },
   {
     "id": "shot-04-sign-in",
     "kind": "compare",
-    "targetSeconds": 11,
-    "newShot": 4,
+    "targetSeconds": 16,
+    "now": [
+      "04a",
+      "04b"
+    ],
     "oldShots": [
       22,
       21,
@@ -95,158 +119,167 @@
     ],
     "wipe": {
       "old": 22,
-      "newIndex": 0
+      "now": 0
+    },
+    "zoom": {
+      "index": 0,
+      "x": 0.5,
+      "y": 0.54,
+      "scale": 1.5
     },
     "improvement": "Errors people can understand",
     "beforeFact": "\"API call error (401)\"",
-    "nowFact": "A plain sentence",
-    "captionText": "Before, a raw error code. Now, a message anyone understands. Then pick a friendly avatar.",
-    "piperText": "Before, a raw error code. Now, a message anyone understands. Then pick a friendly avatar."
+    "nowFact": "\"Try those details again\"",
+    "captionText": "Before, a raw error code. Now, a message anyone understands. Then pick an avatar that represents you and protects your identity.",
+    "piperText": "Before, a raw error code. Now, a message anyone understands. Then pick an avatar that represents you and protects your identity."
   },
   {
     "id": "shot-05-map",
     "kind": "compare",
-    "targetSeconds": 10,
-    "newShot": 5,
+    "targetSeconds": 13,
+    "now": [
+      "05a",
+      "05b"
+    ],
     "oldShots": [
       6,
       7,
       8
     ],
+    "zoom": {
+      "index": 0,
+      "x": 0.45,
+      "y": 0.835,
+      "scale": 1.6
+    },
     "improvement": "Streams by name, on a water-first map",
     "beforeFact": "\"UGSskmrPI / Astrikas (3832.16km)\"",
-    "captionText": "Streams appear by name on a water-first map, each with its own health timeline.",
-    "piperText": "Streams appear by name on a water-first map, each with its own health timeline."
+    "nowFact": "\"Market Quarter Channel\"",
+    "captionText": "Streams appear on a water-first map. Tap a pin to see the stream's name, then choose a nearby stream to check.",
+    "piperText": "Streams appear on a water-first map. Tap a pin to see the stream's name, then choose a nearby stream to check."
   },
   {
     "id": "shot-06-questions",
     "kind": "compare",
-    "targetSeconds": 11,
-    "newShot": 6,
+    "targetSeconds": 16,
+    "now": [
+      "06a",
+      "06b"
+    ],
     "oldShots": [
       10,
-      11
+      11,
+      12
     ],
     "wipe": {
       "old": 10,
-      "newIndex": 0
+      "now": 0
     },
-    "improvement": "One question at a time, with pictures",
-    "captionText": "Questions come one at a time, with pictures, and it's fine to say: not sure.",
-    "piperText": "Questions come one at a time, with pictures, and it's fine to say: not sure."
+    "zoom": {
+      "index": 0,
+      "x": 0.42,
+      "y": 0.62,
+      "scale": 1.8
+    },
+    "improvement": "One question at a time",
+    "beforeFact": "Several questions on one long page",
+    "nowFact": "\"9 of 20\", one question per screen",
+    "captionText": "Questions come one at a time, each with a Listen button. And it's fine to say: I'm not sure.",
+    "piperText": "Questions come one at a time, each with a Listen button. And it's fine to say: I'm not sure."
   },
   {
-    "id": "shot-07-glossary",
+    "id": "shot-08-health",
     "kind": "compare",
-    "targetSeconds": 9,
-    "newShot": 7,
-    "oldShots": [
-      12
+    "targetSeconds": 10,
+    "now": [
+      "08a"
     ],
-    "improvement": "Tap a word to understand it",
-    "captionText": "Tap any underlined word for a plain explanation.",
-    "piperText": "Tap any underlined word for a plain explanation."
-  },
-  {
-    "id": "shot-08-feelings",
-    "kind": "compare",
-    "targetSeconds": 9,
-    "newShot": 8,
     "oldShots": [
       13,
-      14,
-      15
+      14
     ],
-    "improvement": "Clear choices, honest answers",
-    "captionText": "Rate the stream's overall health, and how it makes you feel.",
-    "piperText": "Rate the stream's overall health, and how it makes you feel."
+    "improvement": "Clear choices, in plain words",
+    "beforeFact": "Three narrow columns of small text",
+    "captionText": "Rate the stream's overall health. Each choice has an icon and a plain description.",
+    "piperText": "Rate the stream's overall health. Each choice has an icon and a plain description."
   },
   {
     "id": "shot-09-camera",
     "kind": "compare",
-    "targetSeconds": 10,
-    "newShot": 9,
+    "targetSeconds": 14,
+    "now": [
+      "09a"
+    ],
     "oldShots": [
       9
     ],
-    "improvement": "A camera that helps you get it right",
-    "beforeFact": "5 \"Select File\" buttons on one page",
-    "captionText": "The camera checks your photo and suggests a retake if it's blurry or dark.",
-    "piperText": "The camera checks your photo and suggests a retake if it's blurry or dark."
-  },
-  {
-    "id": "shot-10-review",
-    "kind": "compare",
-    "targetSeconds": 10,
-    "newShot": 10,
-    "oldShots": [
-      16
-    ],
     "wipe": {
-      "old": 16,
-      "newIndex": 0
+      "old": 9,
+      "now": 0
     },
-    "improvement": "See what's missing before you send",
-    "beforeFact": "Step 9 of 9: \"Summary of the submission\"",
-    "captionText": "Before sending, see what's complete and what would help most.",
-    "piperText": "Before sending, see what's complete and what would help most."
+    "zoom": {
+      "index": 0,
+      "x": 0.5,
+      "y": 0.64,
+      "scale": 1.5
+    },
+    "improvement": "Photos with guidance",
+    "beforeFact": "5 \"Select File\" buttons on one page",
+    "nowFact": "Guidance for every view",
+    "captionText": "Photos are optional. Each view says what to capture. Take a photo, or choose one from the gallery.",
+    "piperText": "Photos are optional. Each view says what to capture. Take a photo, or choose one from the gallery."
   },
   {
-    "id": "shot-11-celebration",
-    "kind": "compare",
-    "targetSeconds": 9,
-    "newShot": 11,
-    "oldShots": [],
-    "oldEmpty": "No feedback after submit",
-    "improvement": "Know what your check achieved",
-    "captionText": "Then a clear thank-you shows what your observation adds.",
-    "piperText": "Then a clear thank-you shows what your observation adds."
-  },
-  {
-    "id": "shot-12-offline",
-    "kind": "compare",
-    "targetSeconds": 9,
-    "newShot": 12,
-    "oldShots": [],
-    "oldEmpty": "Nothing before",
-    "improvement": "Works without signal",
-    "captionText": "No signal? Your check waits safely and sends itself later.",
-    "piperText": "No signal? Your check waits safely and sends itself later."
-  },
-  {
-    "id": "shot-13-history",
+    "id": "shot-11-submitted",
     "kind": "compare",
     "targetSeconds": 11,
-    "newShot": 13,
+    "now": [
+      "11a"
+    ],
+    "oldShots": [],
+    "oldEmpty": "No feedback after submit",
+    "zoom": {
+      "index": 0,
+      "x": 0.5,
+      "y": 0.6,
+      "scale": 1.3
+    },
+    "improvement": "Know what your check achieved",
+    "captionText": "After you submit, Ripple celebrates, and explains how researchers use your evidence.",
+    "piperText": "After you submit, Ripple celebrates, and explains how researchers use your evidence."
+  },
+  {
+    "id": "shot-13-profile",
+    "kind": "compare",
+    "targetSeconds": 12,
+    "now": [
+      "13a"
+    ],
     "oldShots": [
       20,
       19,
       17,
       18
     ],
+    "zoom": {
+      "index": 0,
+      "x": 0.42,
+      "y": 0.53,
+      "scale": 1.5
+    },
     "improvement": "Your contribution, made visible",
     "beforeFact": "Raw longitude and latitude tables",
-    "captionText": "Your streams, your rhythm, and evidence badges. No leaderboards, no pressure.",
-    "piperText": "Your streams, your rhythm, and evidence badges. No leaderboards, no pressure."
-  },
-  {
-    "id": "shot-14-reminders",
-    "kind": "compare",
-    "targetSeconds": 8,
-    "newShot": 14,
-    "oldShots": [],
-    "oldEmpty": "Nothing before",
-    "improvement": "Gentle reminders, never streak pressure",
-    "captionText": "And gentle reminders when a stream hasn't been checked in a while.",
-    "piperText": "And gentle reminders when a stream hasn't been checked in a while."
+    "nowFact": "\"One grace week still available\"",
+    "captionText": "Your profile shows your weekly rhythm and evidence badges. No leaderboards, no pressure.",
+    "piperText": "Your profile shows your weekly rhythm and evidence badges. No leaderboards, no pressure."
   },
   {
     "id": "closing",
     "kind": "closing",
     "targetSeconds": 13,
     "title": "Same science. A much kinder way to take part.",
-    "captionText": "Same science. A much kinder way to take part. OneAquaHealth Citizen Science: eighteen languages, works offline, reads aloud.",
-    "piperText": "Same science. A much kinder way to take part. One Aqua Health Citizen Science: eighteen languages, works offline, reads aloud."
+    "captionText": "Same science. A much kinder way to take part. OneAquaHealth Citizen Science: eighteen languages, read aloud, one friendly step at a time.",
+    "piperText": "Same science. A much kinder way to take part. One Aqua Health Citizen Science: eighteen languages, read aloud, one friendly step at a time."
   },
   {
     "id": "end",

@@ -12,13 +12,13 @@ import {
   DeviceMobileIcon,
   DropIcon,
   FishIcon,
+  FootprintsIcon,
   GithubLogoIcon,
   PawPrintIcon,
   PlantIcon,
   SpeakerHighIcon,
   TranslateIcon,
   UsersThreeIcon,
-  WifiSlashIcon,
 } from '@phosphor-icons/react';
 import React, {useEffect, useState} from 'react';
 import {
@@ -84,13 +84,13 @@ type Scene = {
   piperText: string;
   title?: string;
   visual?: 'streams' | 'oneHealth' | 'citizens' | 'rebuilt';
-  newShot?: number;
+  now?: string[];
   oldShots?: number[];
   oldEmpty?: string;
   improvement?: string;
   beforeFact?: string;
   nowFact?: string;
-  wipe?: {old: number; newIndex: number};
+  wipe?: {old: number; now: number};
   zoom?: Zoom;
 };
 type Generated = {
@@ -105,7 +105,6 @@ type Generated = {
 
 const scenes = sceneSource as Scene[];
 const oldAsset = (shot: number): Asset => ({type: 'image', src: `generated/old/old-${String(shot).padStart(2, '0')}.png`, width: 720, height: 1604});
-const pad2 = (n: number) => String(n).padStart(2, '0');
 
 const useFonts = () => {
   const [handle] = useState(() => delayRender('Loading Baloo 2 and Noto Sans'));
@@ -374,11 +373,7 @@ const Compare: React.FC<{scene: Scene; generated: Generated}> = ({scene, generat
     <AbsoluteFill>
       {scene.wipe && (
         <AbsoluteFill style={{opacity: 1 - pairIn}}>
-          <Wipe
-            oldAsset={oldAsset(scene.wipe.old)}
-            newAsset={newAssets[scene.wipe.newIndex]}
-            shot={scene.newShot ?? 0}
-          />
+          <Wipe oldAsset={oldAsset(scene.wipe.old)} newAsset={newAssets[scene.wipe.now]} />
         </AbsoluteFill>
       )}
       <AbsoluteFill style={{opacity: pairIn}}>
@@ -392,10 +387,12 @@ const Compare: React.FC<{scene: Scene; generated: Generated}> = ({scene, generat
           </div>
           <div style={{position: 'absolute', left: RIGHT_X, top: PHONE_TOP}}>
             <Phone>
-              {newAssets.length > 0 ? <MediaCycle assets={newAssets} duration={cycleFrames} /> : <Placeholder shot={scene.newShot ?? 0} />}
+              <MediaCycle assets={newAssets} duration={cycleFrames} />
             </Phone>
           </div>
-          {scene.zoom && newAssets.length > 0 && <ZoomCallout zoom={scene.zoom} asset={newAssets[scene.zoom.index ?? 0]} />}
+          {scene.zoom && (
+            <ZoomCallout zoom={scene.zoom} asset={newAssets[scene.zoom.index ?? 0]} segment={Math.floor(cycleFrames / newAssets.length)} />
+          )}
         </Sequence>
         <div style={{position: 'absolute', left: 0, right: 0, top: PHONE_TOP + PHONE_H + 10, textAlign: 'center', opacity: improvementIn, fontFamily: display, fontWeight: 700, fontSize: 46, color: c.navy, lineHeight: 1.1}}>
           {scene.improvement}
@@ -472,16 +469,7 @@ const NothingBefore: React.FC<{text: string}> = ({text}) => (
   </div>
 );
 
-// Clearly labelled stand-in until the captain's screenshot for this shot arrives.
-const Placeholder: React.FC<{shot: number}> = ({shot}) => (
-  <div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 18, background: `repeating-linear-gradient(135deg, ${c.foam}, ${c.foam} 22px, ${c.waterMist} 22px, ${c.waterMist} 44px)`, color: c.deepWater, textAlign: 'center', padding: 30, boxSizing: 'border-box', border: `4px dashed ${c.water}`, borderRadius: 40}}>
-    <div style={{fontSize: 24, fontWeight: 700, letterSpacing: 2}}>PLACEHOLDER</div>
-    <div style={{fontFamily: display, fontWeight: 700, fontSize: 52, color: c.navy}}>Shot {pad2(shot)}</div>
-    <div style={{fontSize: 24, color: c.muted}}>New-app screenshot<br />{pad2(shot)}a.png goes here</div>
-  </div>
-);
-
-const Wipe: React.FC<{oldAsset: Asset; newAsset?: Asset; shot: number}> = ({oldAsset: before, newAsset, shot}) => {
+const Wipe: React.FC<{oldAsset: Asset; newAsset: Asset}> = ({oldAsset: before, newAsset}) => {
   const frame = useCurrentFrame();
   // Divider position as % from the left: Before on the left, Now on the right.
   const split = interpolate(frame, [14, 70, 120, 140], [88, 12, 50, 50], {...clamp, easing: Easing.inOut(Easing.cubic)});
@@ -496,7 +484,7 @@ const Wipe: React.FC<{oldAsset: Asset; newAsset?: Asset; shot: number}> = ({oldA
             <Media asset={before} />
           </div>
           <div style={{position: 'absolute', inset: 0, clipPath: `inset(0 0 0 ${split}%)`}}>
-            {newAsset ? <Media asset={newAsset} /> : <Placeholder shot={shot} />}
+            <Media asset={newAsset} />
           </div>
           <div style={{position: 'absolute', top: 0, bottom: 0, left: `${split}%`, width: 6, marginLeft: -3, backgroundColor: c.white, boxShadow: '0 0 0 2px rgba(18,48,71,.25)'}}>
             <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 64, height: 64, borderRadius: '50%', backgroundColor: c.deepWater, border: `4px solid ${c.white}`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.white, fontSize: 30, fontWeight: 700}}>
@@ -510,9 +498,11 @@ const Wipe: React.FC<{oldAsset: Asset; newAsset?: Asset; shot: number}> = ({oldA
 };
 
 // A gentle magnifier on one detail of the "Now" phone, while "Before" stays visible.
-const ZoomCallout: React.FC<{zoom: Zoom; asset: Asset}> = ({zoom, asset}) => {
+// It shows only while its still is on screen (MediaCycle segment `zoom.index`).
+const ZoomCallout: React.FC<{zoom: Zoom; asset: Asset; segment: number}> = ({zoom, asset, segment}) => {
   const frame = useCurrentFrame();
-  const appear = interpolate(frame, [70, 95], [0, 1], {...clamp, easing: ease});
+  const start = (zoom.index ?? 0) * segment;
+  const appear = interpolate(frame, [start + 45, start + 70, start + segment - 14, start + segment], [0, 1, 1, 0], {...clamp, easing: ease});
   if (appear <= 0) return null;
   const aspect = asset.width && asset.height ? asset.height / asset.width : 1604 / 720;
   // Image is drawn with contain + top alignment in the phone screen.
@@ -523,7 +513,7 @@ const ZoomCallout: React.FC<{zoom: Zoom; asset: Asset}> = ({zoom, asset}) => {
   const pointY = PHONE_TOP + PHONE_PAD + zoom.y * drawnH;
   const diameter = 380;
   const centerX = RIGHT_X + PHONE_W + 40 + diameter / 2;
-  const centerY = Math.min(Math.max(pointY, 360), 680);
+  const centerY = Math.min(Math.max(pointY, 580), 700); // below the "Now" note
   const zoomW = drawnW * zoom.scale;
   return (
     <AbsoluteFill style={{opacity: appear}}>
@@ -545,8 +535,8 @@ const ZoomCallout: React.FC<{zoom: Zoom; asset: Asset}> = ({zoom, asset}) => {
 const Closing: React.FC<{scene: Scene}> = ({scene}) => {
   const features: Array<[React.ReactNode, string, string]> = [
     [<TranslateIcon key="t" size={92} weight="fill" />, '18 languages', c.waterMist],
-    [<WifiSlashIcon key="w" size={92} weight="fill" />, 'Works offline', c.sageLight],
-    [<SpeakerHighIcon key="s" size={92} weight="fill" />, 'Reads aloud', c.peachLight],
+    [<SpeakerHighIcon key="s" size={92} weight="fill" />, 'Reads aloud', c.sageLight],
+    [<FootprintsIcon key="f" size={92} weight="fill" />, 'One step at a time', c.peachLight],
   ];
   return (
     <AbsoluteFill>
