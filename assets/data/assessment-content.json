@@ -15,7 +15,8 @@
     "nl",
     "no",
     "fr",
-    "it"
+    "it",
+    "es"
   ],
   "localeStatus": {
     "en": {
@@ -47,6 +48,12 @@
     "it": {
       "name": "Italian",
       "coverage": "complete"
+    },
+    "es": {
+      "name": "Español",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
     }
   },
   "workflow": [
@@ -3348,6 +3355,441 @@
         "created_label_2": "Data di creazione",
         "overall_label_2": "Valutazione complessiva",
         "actions_label_2": "Azioni"
+      }
+    },
+    "es": {
+      "citizens_menu": {
+        "instructions": "Instrucciones",
+        "instructions_title": "Instrucciones de ciencia ciudadana",
+        "new_observation": "Crear una observación",
+        "new_observation_title": "Nueva aportación de ciencia ciudadana",
+        "my_submissions": "Mis aportaciones",
+        "my_submissions_title": "Mis aportaciones"
+      },
+      "title": "Aplicación de ciencia ciudadana OneAquaHealth: instrucciones de instalación",
+      "viewInstructions": "Ver instrucciones",
+      "version": "Aplicación de ciencia ciudadana OneAquaHealth: versión 1.0",
+      "installation_modal": {
+        "title": "Instalación de la aplicación de ciencia ciudadana OAH",
+        "intro": "Antes de instalar la aplicación de ciencia ciudadana OAH, debes unirte a la <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">comunidad OneAquaHealth</a>.<br />Cuando te registres, sigue los pasos siguientes y usa el correo y la contraseña asignados para iniciar sesión.",
+        "step1_label": "Paso 1.",
+        "step1_desc": "Abre el navegador del teléfono y visita:",
+        "step2_label": "Paso 2. Busca el aviso de instalación:",
+        "step2_list_item1": "Si aparece una ventana que propone instalar la aplicación, sigue las instrucciones de la pantalla.",
+        "step2_list_item2": "Si no aparece ningún aviso, continúa con el paso siguiente.",
+        "step3_label": "Paso 3. Añade a la pantalla de inicio:",
+        "step3_ios": "<b>En iOS (a):</b> Toca el icono de compartir (cuadro con flecha) en la parte inferior y selecciona <span class=\"font-semibold\">«Añadir a pantalla de inicio»</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"Ejemplo de iOS\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>En Android (b):</b> Toca el icono de menú (tres puntos) y elige <span class=\"font-semibold\">«Añadir a pantalla de inicio»</span> o <span class=\"font-semibold\">«Instalar aplicación»</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Ejemplo de Android\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Paso 4.",
+        "step4_desc": "Confirma la instalación tocando <span class=\"font-semibold\">«Añadir»</span> o <span class=\"font-semibold\">«Instalar»</span>",
+        "step5_label": "Paso 5.",
+        "step5_desc": "Busca el icono de la aplicación recién instalada en la pantalla de inicio y tócalo para abrirla",
+        "close": "Cerrar"
+      },
+      "app_intro_title": "¿Para qué sirve esta aplicación?",
+      "app_intro_text": "Esta aplicación está dirigida a la ciudadanía y recopila datos sobre la salud de los arroyos urbanos",
+      "before_submit": "Antes de enviar",
+      "education": {
+        "title": "¿Qué es un arroyo urbano?",
+        "intro": "Los arroyos urbanos son aguas corrientes que conviven con el desarrollo de la ciudad y suelen formar parte de cuencas mayores. Por eso, las actividades humanas suelen alterar su canal (cubierta total o parcial y materiales artificiales en las orillas y el canal), contaminar el agua y modificar la vegetación natural de los márgenes, entre otros efectos.",
+        "healthy_streams": {
+          "title": "Ecosistemas fluviales sanos",
+          "content": "Los arroyos sanos deben estar rodeados de vegetación específica —vegetación ribereña— capaz de vivir con las raíces en suelos saturados o muy húmedos sin pudrirse. Los arroyos y su vegetación ribereña ofrecen hábitat a animales acuáticos y terrestres (como invertebrados, hongos, peces, anfibios, reptiles, mamíferos y aves) y a microorganismos. Estos seres también participan en procesos esenciales como la producción primaria y secundaria, el ciclo de nutrientes y la descomposición de materia orgánica."
+        },
+        "ecosystem_services": {
+          "title": "Servicios ecosistémicos",
+          "content": "Si se conservan bien, los arroyos aportan servicios importantes: mejor calidad del aire, regulación de temperatura y humedad y reducción de inundaciones. También ofrecen espacios naturales de ocio y encuentro, y aulas al aire libre para la educación ambiental."
+        },
+        "key_concepts": {
+          "title": "Conceptos esenciales para evaluar un arroyo",
+          "downstream_direction": "Las orillas y los márgenes izquierdo y derecho se definen mirando aguas abajo, hacia donde fluye el arroyo (figura 1)."
+        },
+        "figure1": {
+          "caption": "Figura 1. Orillas izquierda (I) y derecha (D) del arroyo. La flecha indica la dirección del flujo."
+        },
+        "cross_section": {
+          "description": "La anchura (figura 2) y la profundidad (figura 3) se miden en un transecto perpendicular al canal. Pueden variar a lo largo del tramo, pero deben medirse en un transecto representativo de las condiciones medias."
+        },
+        "figure2": {
+          "caption": "Figura 2. Sección del arroyo: A) parte alta de la orilla; B) orilla; C) canal húmedo principal; D) dirección del flujo (vista aguas abajo); E) anchura; F) profundidad."
+        },
+        "figure3": {
+          "caption": "Figura 3. Medición de profundidad con una regla o un metro."
+        },
+        "riparian_and_floodplain": {
+          "content": "La zona ribereña se encuentra en los márgenes y está cubierta por vegetación ribereña. Una vegetación sana incluye distintas plantas autóctonas de varias alturas, desde hierbas hasta arbustos y árboles, propias de la región y adaptadas a la proximidad del agua (figura 4)."
+        },
+        "figure4": {
+          "caption": "Figura 4. Zona ribereña bien conservada: A) capa baja de herbáceas, helechos, musgos y líquenes, esencial para el ciclo de nutrientes y la estabilidad del suelo; B) capa de arbustos leñosos menores que los árboles, normalmente de hasta 6 m; C) capa superior de árboles maduros que forman la cubierta forestal."
+        },
+        "figure_description": "Las llanuras de inundación son zonas que el agua cubre de forma natural durante periodos de lluvia intensa. Las inundaciones enriquecen estos suelos fértiles con sedimentos nutritivos (figura 5). Su forma y naturaleza pueden cambiar porque el canal principal se desplaza por sedimentación y erosión.",
+        "figure5": {
+          "caption": "Figura 5. A) Canal húmedo; B) llanura de inundación activa; C) llanura reguladora; D) llanura geológica (inundaciones menos frecuentes); E) terraza."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Principales diferencias entre arroyos forestales y urbanos",
+          "content": "El desarrollo urbano aumenta las superficies impermeables de orillas, márgenes y llanuras por carreteras, edificios y aceras de hormigón o asfalto (figura 6). El agua no se infiltra como en el suelo forestal o los campos. Con lluvias intensas esto provoca crecidas rápidas, daños y riesgos para las personas. También impide recargar acuíferos y continuar el ciclo del agua, lo que agrava la escasez en épocas secas, a menudo por presas o captaciones. Además, la escorrentía urbana y los desbordamientos de alcantarillado contaminan con frecuencia los arroyos."
+        },
+        "figure6": {
+          "caption": "Figura 6. Superficies permeables a la izquierda, parcialmente impermeables en el centro e impermeables a la derecha."
+        },
+        "oneaquahealth_project": {
+          "title": "El proyecto OneAquaHealth y la aplicación OAH",
+          "content": "OneAquaHealth busca mejorar el estado ecológico de los ecosistemas urbanos de agua dulce y la salud única en las ciudades, e identificar señales tempranas de degradación que puedan suponer un riesgo. Para gestionar mejor los arroyos urbanos creamos un sistema de vigilancia ambiental que incluye la aplicación OAH. La aplicación anima a la ciudadanía a observar los arroyos para aumentar el conocimiento y favorecer su restauración."
+        },
+        "onehealth": {
+          "title": "¿Qué es Una sola salud?",
+          "content": "Una sola salud promueve una salud sostenible para las personas, los organismos y el medio ambiente (figura 7). Las áreas naturales bien conservadas ofrecen aire y agua más limpios y lugares tranquilos que mejoran el bienestar físico y mental. Tener zonas azules y verdes cerca invita a salir, encontrarse, relajarse y disfrutar de distintas sensaciones. Los arroyos urbanos están casi en todas partes, aunque a menudo ocultos, y tienen un gran potencial. Restaurados con este enfoque, pueden convertirse en espacios de colaboración para comunidades más sanas y sostenibles."
+        },
+        "figure7": {
+          "caption": "Figura 7. Concepto de Una sola salud y relación entre salud humana, de los organismos y ambiental. Las áreas superpuestas muestran el enfoque integrado necesario frente a los retos de salud mundiales."
+        },
+        "what_you_can_do": {
+          "title": "¿Qué puedes hacer con nosotros?",
+          "content": "Si tienes cerca un arroyo urbano, quizá oculto entre las colinas y muy modificado con muros de hormigón, puedes ayudarnos a cuidarlo. Observa su canal, sus orillas y sus márgenes o zona ribereña, y envía información y fotos con esta aplicación. Por último, indícanos tu evaluación general en estas categorías:"
+        },
+        "quality": {
+          "good": "<strong>Buena calidad</strong> (los componentes del ecosistema están presentes y tienen buen aspecto: vegetación ribereña, canal natural, buena calidad del agua y biodiversidad)",
+          "moderate": "<strong>Calidad moderada</strong> (hay algunas alteraciones y biodiversidad, algo de vegetación en los márgenes y el agua tiene buen aspecto...)",
+          "poor": "<strong>Mala calidad</strong> (está muy modificado o artificializado, con gran pérdida de vegetación ribereña o solo especies invasoras, pérdida de hábitats y agua contaminada)"
+        },
+        "submission_hint": "Para colaborar, facilita la información solicitada pulsando <strong>«Siguiente»</strong> (consulta arriba estas indicaciones)"
+      },
+      "step": "Paso",
+      "next": "Siguiente",
+      "previous": "Anterior",
+      "submit": "Enviar",
+      "basic_information": "Información básica",
+      "additional_details": "Detalles adicionales",
+      "media_upload": "Carga de archivos",
+      "questions_1_3_": "Preguntas (1/3)",
+      "questions_2_3_": "Preguntas (2/3)",
+      "questions_3_3_": "Preguntas (3/3)",
+      "feedback_1_2": "Valoración (1/2)",
+      "feedback_2_2": "Valoración (2/2)",
+      "review_submit": "Revisar y enviar",
+      "select_from_my_sites": "Seleccionar de mis sitios",
+      "enter_longitude": "Introduce la longitud",
+      "enter_latitude": "Introduce la latitud",
+      "enter_site_name": "Introduce el nombre del sitio",
+      "longitude": "Longitud",
+      "latitude": "Latitud",
+      "site_name": "Nombre del sitio",
+      "site_selection": {
+        "title": "Selecciona los sitios de arroyos urbanos OneAquaHealth que evaluarás (se indica la distancia hasta el sitio)",
+        "description": "Añadir sitio nuevo"
+      },
+      "media": {
+        "title": "Selecciona tus imágenes",
+        "upstream_photo_label": "Foto aguas arriba",
+        "upstream_photo_description": "Foto aguas arriba",
+        "downstream_photo_label": "Foto aguas abajo",
+        "downstream_photo_description": "Foto aguas abajo",
+        "context_photo_label": "Foto del entorno",
+        "context_photo_description": "Foto del entorno (casas, carreteras...)",
+        "biodiversity_photo_label": "Foto de un elemento interesante de biodiversidad",
+        "biodiversity_photo_description": "Foto de un elemento interesante de biodiversidad (planta, animal, hongo u otro)",
+        "video_label": "Graba un vídeo corto (5 o 10 segundos)",
+        "video_description": "Graba un vídeo corto (5 o 10 segundos)",
+        "select_file_button": "Seleccionar archivo"
+      },
+      "questions_1_3": {
+        "title": "¿Qué ves desde donde estás (en unos 100 m)?",
+        "channel_form": {
+          "question": "Forma del canal",
+          "questiontext": "La forma del canal es...",
+          "labels": {
+            "Flat (Α)": "Plano (A)",
+            "Flat (A)": "Plano (A)",
+            "U Shape (Β)": "En U (B)",
+            "U Shape (B)": "En U (B)",
+            "V Shape (C)": "En V (C)",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "bottom_type": {
+          "question": "Tipo de fondo",
+          "questiontext": "El fondo del canal húmedo es…",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (hormigón o piedras con hormigón) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (hormigón o piedras con hormigón) (B)",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "bank_type": {
+          "question": "Tipo de orilla",
+          "questiontext": "Las orillas del canal son…",
+          "labels": {
+            "Natural (A)": "Naturales (A)",
+            "Natural (Α)": "Naturales (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificiales (hormigón o piedras con hormigón) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificiales (hormigón o piedras con hormigón) (B)",
+            "Layed stones with no concrete (C)": "Piedras colocadas sin hormigón (C)",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "habitats": {
+          "question": "Hábitats",
+          "questiontext": "Los hábitats presentes son…",
+          "questiontextshow": "¿Hay algún hábitat?",
+          "options": {
+            "Sand banks (A)": "Bancos de arena (A)",
+            "Sand banks (Α)": "Bancos de arena (A)",
+            "Sand islands (B)": "Islas de arena (B)",
+            "Sand islands (Β)": "Islas de arena (B)",
+            "Stone deposits (C)": "Depósitos de piedra (C)",
+            "Riffles, rapids, falls (D)": "Rápidos, rabiones o cascadas (D)",
+            "Aquatic vegetation (E)": "Vegetación acuática (E)"
+          },
+          "info": "Puedes seleccionar varios tipos de hábitat. Marca primero la casilla y luego todos los hábitats que reconozcas."
+        },
+        "natural_debris": {
+          "question": "Restos naturales",
+          "questiontext": "Hay…",
+          "questiontextshow": "¿Hay restos naturales?",
+          "labels": {
+            "Fallen trees (A)": "Árboles caídos (A)",
+            "Fallen trees (Α)": "Árboles caídos (A)",
+            "Fallen branches (B)": "Ramas caídas (B)",
+            "Fallen branches (Β)": "Ramas caídas (B)",
+            "Deposits of fallen leaves (C)": "Acumulaciones de hojas caídas (C)"
+          },
+          "info": "Puedes seleccionar varios restos naturales. Marca primero el círculo de las alternativas y luego todos los que reconozcas."
+        },
+        "water_flow": {
+          "question": "Flujo del agua",
+          "questiontext": "¿Cómo fluye el agua?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Rápido (con olas o velocidad alta) (A)",
+            "Fast (with waves or high velocity) (Α)": "Rápido (con olas o velocidad alta) (A)",
+            "Slow (B)": "Lento (B)",
+            "Slow (Β)": "Lento (B)",
+            "Stagnant/intermittent (C)": "Estancado o intermitente (C)",
+            "Dry (D)": "Seco (D)",
+            "I am not sure": "No estoy seguro"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aspecto del agua",
+          "questiontext": "¿Cómo está el agua?",
+          "labels": {
+            "Clear/transparent (A)": "Clara o transparente (A)",
+            "Clear/transparent (Α)": "Clara o transparente (A)",
+            "Muddy/turbid (B)": "Fangosa o turbia (B)",
+            "Muddy/turbid (Β)": "Fangosa o turbia (B)",
+            "Has foam (C)": "Tiene espuma (C)",
+            "Has colors/altered color (D)": "Tiene color o un color alterado (D)",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Captación de agua",
+          "questiontext": "¿Hay alguna captación, uso o extracción de agua evidente del arroyo?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "barriers": {
+          "question": "Barreras",
+          "questiontext": "¿Ves presas u otras barreras artificiales transversales? Consulta los ejemplos de las imágenes.",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "draining_pipes": {
+          "question": "Tuberías de desagüe",
+          "questiontext": "¿Hay tuberías que viertan agua contaminada al arroyo?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Vertido de aguas residuales",
+          "questiontext": "¿Hay alguna entrada de agua o vertido de aguas residuales?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "construction": {
+          "question": "Obras",
+          "questiontext": "¿Hay alguna obra en el arroyo?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "water_height": {
+          "question": "Altura del agua",
+          "questiontext": "¿Cuál es la altura del agua?",
+          "placeholder": "Introduce la altura del agua",
+          "info": "Da una estimación en metros (m) y usa un punto (.) como separador decimal (por ejemplo, 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "En los márgenes o la zona ribereña (a 5-10 m de la parte alta de la orilla)",
+        "impervious_left": {
+          "question": "Zonas impermeables (izquierda)",
+          "questiontext": "¿Más de un tercio del margen izquierdo está cubierto por zonas impermeables como carreteras, aceras o edificios?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "impervious_right": {
+          "question": "Zonas impermeables (derecha)",
+          "questiontext": "¿Más de un tercio del margen derecho está cubierto por zonas impermeables como carreteras, aceras o edificios?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetación (izquierda)",
+          "questiontext": "¿El margen izquierdo está cubierto de vegetación?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Tipo de vegetación (izquierda)",
+          "questiontext": "¿Qué vegetación domina, es decir, cubre más del 50 % o la mitad, en el margen izquierdo (los primeros 5 m desde la parte alta de la orilla)?",
+          "labels": {
+            "Herbs (A)": "Hierbas (A)",
+            "Herbs (Α)": "Hierbas (A)",
+            "Shrubs (B)": "Arbustos (B)",
+            "Shrubs (Β)": "Arbustos (B)",
+            "Trees (C)": "Árboles (C)",
+            "I am not sure": "No estoy seguro"
+          },
+          "info": "No olvides mirar la vegetación izquierda cuando estés orientado aguas abajo"
+        },
+        "vegetation_right": {
+          "question": "Vegetación (derecha)",
+          "questiontext": "¿El margen derecho está cubierto de vegetación?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Tipo de vegetación (derecha)",
+          "questiontext": "¿Qué vegetación domina, es decir, cubre más del 50 % o la mitad, en el margen derecho (los primeros 5 m desde la parte alta de la orilla)?",
+          "labels": {
+            "Herbs (A)": "Hierbas (A)",
+            "Herbs (Α)": "Hierbas (A)",
+            "Shrubs (B)": "Arbustos (B)",
+            "Shrubs (Β)": "Arbustos (B)",
+            "Trees (C)": "Árboles (C)",
+            "I am not sure": "No estoy seguro"
+          },
+          "info": "No olvides mirar la vegetación derecha cuando estés orientado aguas abajo"
+        },
+        "invasive_species": {
+          "question": "Especies invasoras",
+          "questiontext": "¿Ves alguna especie vegetal no autóctona o invasora?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          },
+          "placeholder": "¿Cuáles?"
+        },
+        "vegetation_cut": {
+          "question": "Cortes de vegetación",
+          "questiontext": "¿Se ha cortado recientemente, de forma parcial o total, la vegetación de una o ambas orillas del arroyo?",
+          "labels": {
+            "Yes": "Sí",
+            "No": "No",
+            "I am not sure": "No estoy seguro"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Haz una evaluación general de la salud del ecosistema del arroyo (elige una opción)",
+        "good_quality": "Buena calidad",
+        "good_quality_description": "Los componentes del ecosistema están presentes: vegetación ribereña, canal natural, agua de buena calidad y biodiversidad",
+        "moderate_quality": "Calidad moderada",
+        "moderate_quality_description": "Hay algunas alteraciones, pero conserva biodiversidad y vegetación en los márgenes, y el agua tiene buen aspecto...",
+        "poor_quality": "Mala calidad",
+        "poor_quality_description": "Muy modificado o artificial, con pérdida de vegetación ribereña y hábitats y agua contaminada"
+      },
+      "feelings": {
+        "question": "¿Qué sentimiento o sentimientos describen mejor tu experiencia?",
+        "info": "Las investigaciones indican que los arroyos pueden influir en las emociones humanas.",
+        "instructions": "Arrastra el dedo por el control para indicar la intensidad de lo que sientes. Una puntuación mayor significa un sentimiento más intenso.",
+        "Joy": "Alegría",
+        "Serenity": "Serenidad",
+        "Anger": "Enfado",
+        "Fear": "Miedo",
+        "NotApplicable": "No corresponde"
+      },
+      "summary": {
+        "title": "Resumen del envío",
+        "research_site_label": "Sitio de investigación",
+        "coordinates_label": "Coordenadas",
+        "photos_label": "Fotos",
+        "video_label": "Vídeo",
+        "channel_form_label": "Forma del canal",
+        "bottom_type_label": "Tipo de fondo",
+        "bank_type_label": "Tipo de orilla",
+        "habitats_label": "Hábitats",
+        "natural_debris_label": "Restos naturales",
+        "water_flow_label": "Flujo del agua",
+        "water_quality_label": "Calidad del agua",
+        "water_abstraction_label": "Captación de agua",
+        "water_extraction_label": "Extracción de agua",
+        "draining_pipes_label": "Tuberías de desagüe",
+        "barriers_label": "Barreras",
+        "construction_label": "Obras",
+        "impervious_areas_left_label": "Zonas impermeables (izquierda)",
+        "impervious_areas_right_label": "Zonas impermeables (derecha)",
+        "vegetation_left_label": "Vegetación (izquierda)",
+        "vegetation_right_label": "Vegetación (derecha)",
+        "vegetation_cuts_label": "Cortes de vegetación",
+        "invasive_species_label": "Especies invasoras",
+        "feelings_label": "Sentimientos",
+        "feelings": {
+          "joy": "Alegría",
+          "serenity": "Serenidad",
+          "anger": "Enfado",
+          "fear": "Miedo"
+        },
+        "water_height_label": "Altura del agua",
+        "overall_assessment_label": "Evaluación general"
+      },
+      "my_submissions_list": {
+        "title": "Envíos de sitios de investigación existentes",
+        "longitude_label": "Longitud",
+        "latitude_label": "Latitud",
+        "research_site_label": "Sitio de investigación",
+        "created_label": "Creado el",
+        "overall_label": "Evaluación general",
+        "actions_label": "Acciones",
+        "title2": "Envíos de sitios creados",
+        "longitude_label_2": "Longitud",
+        "latitude_label_2": "Latitud",
+        "research_site_label_2": "Sitio de investigación",
+        "created_label_2": "Creado el",
+        "overall_label_2": "Evaluación general",
+        "actions_label_2": "Acciones"
       }
     }
   }
