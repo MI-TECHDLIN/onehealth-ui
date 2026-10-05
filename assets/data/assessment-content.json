@@ -20,7 +20,8 @@
     "de",
     "pl",
     "ro",
-    "sv"
+    "sv",
+    "fi"
   ],
   "localeStatus": {
     "en": {
@@ -79,6 +80,12 @@
     },
     "sv": {
       "name": "Svenska",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "fi": {
+      "name": "Suomi",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -5558,6 +5565,441 @@
         "created_label_2": "Skapad",
         "overall_label_2": "Helhetsbedömning",
         "actions_label_2": "Åtgärder"
+      }
+    },
+    "fi": {
+      "citizens_menu": {
+        "instructions": "Ohjeet",
+        "instructions_title": "Kansalaistieteen ohjeet",
+        "new_observation": "Tee uusi havainto",
+        "new_observation_title": "Uusi kansalaistieteen havainto",
+        "my_submissions": "Omat lähetykset",
+        "my_submissions_title": "Omat lähetykset"
+      },
+      "title": "OneAquaHealth-kansalaistiedesovellus – asennusohjeet",
+      "viewInstructions": "Näytä ohjeet",
+      "version": "OneAquaHealth-kansalaistiedesovellus – versio 1.0",
+      "installation_modal": {
+        "title": "OAH-kansalaistiedesovelluksen asennus",
+        "intro": "Ennen OAH-sovelluksen asentamista sinun on liityttävä <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth-yhteisöön</a>.<br />Rekisteröidyttyäsi seuraa alla olevia ohjeita ja kirjaudu saamallasi sähköpostiosoitteella ja salasanalla.",
+        "step1_label": "Vaihe 1.",
+        "step1_desc": "Avaa puhelimen selain ja siirry osoitteeseen:",
+        "step2_label": "Vaihe 2. Etsi sovelluksen asennuskehote:",
+        "step2_list_item1": "Jos asennusta ehdottava ikkuna tulee näkyviin, seuraa näytön ohjeita.",
+        "step2_list_item2": "Jos kehotetta ei näy, jatka seuraavaan vaiheeseen.",
+        "step3_label": "Vaihe 3. Lisää aloitusnäyttöön:",
+        "step3_ios": "<b>iOS (a):</b> Napauta alareunan jakokuvaketta (ruutu ja nuoli) ja valitse <span class=\"font-semibold\">”Lisää Koti-valikkoon”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"iOS-esimerkki\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Android (b):</b> Napauta valikkokuvaketta (kolme pistettä) ja valitse <span class=\"font-semibold\">”Lisää aloitusnäyttöön”</span> tai <span class=\"font-semibold\">”Asenna sovellus”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android-esimerkki\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Vaihe 4.",
+        "step4_desc": "Vahvista asennus napauttamalla <span class=\"font-semibold\">”Lisää”</span> tai <span class=\"font-semibold\">”Asenna”</span>",
+        "step5_label": "Vaihe 5.",
+        "step5_desc": "Etsi uuden sovelluksen kuvake aloitusnäytöstä ja avaa sovellus napauttamalla",
+        "close": "Sulje"
+      },
+      "app_intro_title": "Mihin sovellusta käytetään?",
+      "app_intro_text": "Sovellus auttaa kansalaisia keräämään tietoa kaupunkipurojen terveydestä",
+      "before_submit": "Ennen lähettämistä",
+      "education": {
+        "title": "Mikä on kaupunkipuro?",
+        "intro": "Kaupunkipurot ovat virtaavia vesiä kaupunkiympäristössä ja usein osa suurempaa valuma-aluetta. Ihmistoiminta muuttaa niiden uomaa peittämällä sitä ja lisäämällä keinotekoisia materiaaleja, saastuttaa vettä ja muuttaa rantavyöhykkeen kasvillisuutta.",
+        "healthy_streams": {
+          "title": "Terveet puroekosysteemit",
+          "content": "Terveitä puroja ympäröi rantakasvillisuus, jonka juuret kestävät märkää maata. Purot ja niiden kasvillisuus tarjoavat elinympäristön vesi- ja maaeläimille, sienille ja pieneliöille. Nämä eliöt osallistuvat tuotantoon, ravinteiden kiertoon ja eloperäisen aineen hajotukseen."
+        },
+        "ecosystem_services": {
+          "title": "Ekosysteemipalvelut",
+          "content": "Hyvin säilyneet purot parantavat ilmanlaatua, säätelevät lämpötilaa ja kosteutta ja lieventävät tulvia. Ne tarjoavat myös luontoalueita virkistykseen, kohtaamisiin ja ympäristökasvatukseen."
+        },
+        "key_concepts": {
+          "title": "Puron arvioinnin keskeiset käsitteet",
+          "downstream_direction": "Vasen ja oikea ranta sekä rantavyöhykkeet määritetään katsottaessa alavirtaan, veden virtaussuuntaan (kuva 1)."
+        },
+        "figure1": {
+          "caption": "Kuva 1. Puron vasen (V) ja oikea (O) ranta. Nuoli osoittaa virtaussuunnan."
+        },
+        "cross_section": {
+          "description": "Leveys (kuva 2) ja syvyys (kuva 3) mitataan uomaan nähden poikittain. Ne voivat vaihdella, joten mittauspaikan tulee edustaa keskimääräisiä oloja."
+        },
+        "figure2": {
+          "caption": "Kuva 2. Puron poikkileikkaus: A) rantatörmän yläreuna; B) ranta; C) märkä pääuoma; D) virtaussuunta (näkymä alavirtaan); E) leveys; F) syvyys."
+        },
+        "figure3": {
+          "caption": "Kuva 3. Syvyyden mittaus viivaimella tai mitalla."
+        },
+        "riparian_and_floodplain": {
+          "content": "Rantavyöhyke sijaitsee puron reunalla ja sitä peittää rantakasvillisuus. Terve kasvillisuus sisältää eri korkuisia paikallisia kasveja yrteistä pensaisiin ja puihin, jotka ovat sopeutuneet veden läheisyyteen (kuva 4)."
+        },
+        "figure4": {
+          "caption": "Kuva 4. Hyvin säilynyt rantavyöhyke: A) alin kerros yrttejä, saniaisia, sammalia ja jäkäliä; B) puuvartisten pensaiden kerros noin 6 metriin asti; C) ylimpänä varttuneet puut, jotka muodostavat latvuskerroksen."
+        },
+        "figure_description": "Tulvatasanteet peittyvät luonnostaan veteen runsaiden sateiden aikana. Tulvat rikastavat maata ravinteikkaalla sedimentillä (kuva 5). Muoto voi muuttua, kun pääuoma siirtyy kasaantumisen ja eroosion seurauksena.",
+        "figure5": {
+          "caption": "Kuva 5. A) Märkä uoma; B) aktiivinen tulvatasanne; C) säätelevä tulvatasanne; D) geologinen tulvatasanne, jolla tulvat ovat harvempia; E) terassi."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Metsä- ja kaupunkipurojen tärkeimmät erot",
+          "content": "Kaupunkirakentaminen lisää läpäisemättömiä pintoja rannoilla ja tulvatasanteilla teiden, rakennusten sekä betoni- ja asfalttikäytävien vuoksi (kuva 6). Vesi ei imeydy kuten metsässä tai pellolla. Rankkasateet aiheuttavat äkkitulvia, vahinkoja ja vaaraa ihmisille. Pinnat vähentävät myös pohjaveden muodostumista ja pahentavat kuivuutta, jota padot ja vedenotto voivat voimistaa. Hulevesi ja viemärien ylivuodot saastuttavat puroja."
+        },
+        "figure6": {
+          "caption": "Kuva 6. Läpäisevät pinnat vasemmalla, osittain läpäisemättömät keskellä ja läpäisemättömät oikealla."
+        },
+        "oneaquahealth_project": {
+          "title": "OneAquaHealth-hanke ja OAH-sovellus",
+          "content": "OneAquaHealth pyrkii parantamaan kaupunkien makean veden ekosysteemien tilaa, tukemaan yhteistä terveyttä ja tunnistamaan varhaisia heikkenemisen merkkejä. Purojen parempaan hoitoon luotiin ympäristön seurantajärjestelmä ja OAH-sovellus. Sovellus ottaa kansalaiset mukaan seurantaan, lisää tietoa ja tukee ennallistamista."
+        },
+        "onehealth": {
+          "title": "Mitä yhteinen terveys tarkoittaa?",
+          "content": "Yhteinen terveys edistää ihmisten, eliöiden ja ympäristön kestävää terveyttä (kuva 7). Hyvin säilynyt kaupunkiluonto tarjoaa puhtaampaa ilmaa ja vettä sekä rauhallisia paikkoja hyvinvoinnille. Lähellä olevat vihreät ja siniset alueet kannustavat ulos, kohtaamaan muita ja rentoutumaan. Kaupunkipurot ovat usein piilossa mutta täynnä mahdollisuuksia. Yhteisen terveyden mukaisesti ennallistettuina ne voivat yhdistää yhteisöjä."
+        },
+        "figure7": {
+          "caption": "Kuva 7. Yhteisen terveyden käsite kuvaa ihmisten, eliöiden ja ympäristön terveyden yhteyttä. Päällekkäiset alueet osoittavat kokonaisvaltaisen lähestymistavan tarpeen."
+        },
+        "what_you_can_do": {
+          "title": "Miten voit auttaa?",
+          "content": "Jos lähelläsi on kaupunkipuro, vaikka piilossa ja betoniseinin muutettuna, voit auttaa pitämään siitä huolta. Tarkastele uomaa, rantaa ja rantavyöhykettä ja lähetä tiedot ja kuvat sovelluksella. Anna lopuksi kokonaisarvio jossakin seuraavista luokista:"
+        },
+        "quality": {
+          "good": "<strong>Hyvä laatu</strong> (ekosysteemin osat ovat paikalla ja hyvässä kunnossa: rantakasvillisuus, luonnollinen uoma, hyvä vedenlaatu ja luonnon monimuotoisuus)",
+          "moderate": "<strong>Kohtalainen laatu</strong> (joitakin muutoksia, mutta edelleen monimuotoisuutta ja kasvillisuutta rannoilla, vesi näyttää hyvältä ...)",
+          "poor": "<strong>Huono laatu</strong> (voimakkaasti muutettu tai keinotekoinen, rantakasvillisuutta ja elinympäristöjä menetetty, vain vieraslajeja tai saastunutta vettä)"
+        },
+        "submission_hint": "Osallistu antamalla pyydetyt tiedot ja valitsemalla <strong>”Seuraava”</strong> (katso ohjeet yllä)"
+      },
+      "step": "Vaihe",
+      "next": "Seuraava",
+      "previous": "Edellinen",
+      "submit": "Lähetä",
+      "basic_information": "Perustiedot",
+      "additional_details": "Lisätiedot",
+      "media_upload": "Median lataus",
+      "questions_1_3_": "Kysymykset (1/3)",
+      "questions_2_3_": "Kysymykset (2/3)",
+      "questions_3_3_": "Kysymykset (3/3)",
+      "feedback_1_2": "Palaute (1/2)",
+      "feedback_2_2": "Palaute (2/2)",
+      "review_submit": "Tarkista ja lähetä",
+      "select_from_my_sites": "Valitse omista kohteistani",
+      "enter_longitude": "Anna pituusaste",
+      "enter_latitude": "Anna leveysaste",
+      "enter_site_name": "Anna kohteen nimi",
+      "longitude": "Pituusaste",
+      "latitude": "Leveysaste",
+      "site_name": "Kohteen nimi",
+      "site_selection": {
+        "title": "Valitse arvioitava OneAquaHealth-kaupunkipuro (etäisyys näytetään)",
+        "description": "Lisää uusi kohde"
+      },
+      "media": {
+        "title": "Valitse kuvat",
+        "upstream_photo_label": "Kuva ylävirtaan",
+        "upstream_photo_description": "Kuva ylävirtaan",
+        "downstream_photo_label": "Kuva alavirtaan",
+        "downstream_photo_description": "Kuva alavirtaan",
+        "context_photo_label": "Kuva ympäristöstä",
+        "context_photo_description": "Kuva ympäristöstä (talot, tiet ...)",
+        "biodiversity_photo_label": "Kuva kiinnostavasta luonnon monimuotoisuuden kohteesta",
+        "biodiversity_photo_description": "Kuva kiinnostavasta luonnon monimuotoisuuden kohteesta (kasvi, eläin, sieni tai muu)",
+        "video_label": "Kuvaa lyhyt video (5 tai 10 sekuntia)",
+        "video_description": "Kuvaa lyhyt video (5 tai 10 sekuntia)",
+        "select_file_button": "Valitse tiedosto"
+      },
+      "questions_1_3": {
+        "title": "Mitä näet paikaltasi (noin 100 metrin alueella)?",
+        "channel_form": {
+          "question": "Uoman muoto",
+          "questiontext": "Uoman muoto on…",
+          "labels": {
+            "Flat (Α)": "Tasainen (A)",
+            "Flat (A)": "Tasainen (A)",
+            "U Shape (Β)": "U-muotoinen (B)",
+            "U Shape (B)": "U-muotoinen (B)",
+            "V Shape (C)": "V-muotoinen (C)",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "bottom_type": {
+          "question": "Pohjan tyyppi",
+          "questiontext": "Märän uoman pohja on…",
+          "labels": {
+            "Natural (A)": "Luonnollinen (A)",
+            "Natural (Α)": "Luonnollinen (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Keinotekoinen (betonia tai betonilla sidottuja kiviä) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Keinotekoinen (betonia tai betonilla sidottuja kiviä) (B)",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "bank_type": {
+          "question": "Rannan tyyppi",
+          "questiontext": "Uoman rannat ovat…",
+          "labels": {
+            "Natural (A)": "Luonnolliset (A)",
+            "Natural (Α)": "Luonnolliset (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Keinotekoiset (betonia tai betonilla sidottuja kiviä) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Keinotekoiset (betonia tai betonilla sidottuja kiviä) (B)",
+            "Layed stones with no concrete (C)": "Ladottuja kiviä ilman betonia (C)",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "habitats": {
+          "question": "Elinympäristöt",
+          "questiontext": "Paikalla olevat elinympäristöt ovat…",
+          "questiontextshow": "Onko paikalla elinympäristöjä?",
+          "options": {
+            "Sand banks (A)": "Hiekkasärkät (A)",
+            "Sand banks (Α)": "Hiekkasärkät (A)",
+            "Sand islands (B)": "Hiekkasaaret (B)",
+            "Sand islands (Β)": "Hiekkasaaret (B)",
+            "Stone deposits (C)": "Kivikerrostumat (C)",
+            "Riffles, rapids, falls (D)": "Koskipaikat, kuohut tai putoukset (D)",
+            "Aquatic vegetation (E)": "Vesikasvillisuus (E)"
+          },
+          "info": "Voit valita useita elinympäristöjä. Merkitse ensin ruutu ja sitten kaikki tunnistamasi tyypit."
+        },
+        "natural_debris": {
+          "question": "Luonnollinen aines",
+          "questiontext": "Paikalla on…",
+          "questiontextshow": "Onko paikalla luonnollista ainesta?",
+          "labels": {
+            "Fallen trees (A)": "Kaatuneita puita (A)",
+            "Fallen trees (Α)": "Kaatuneita puita (A)",
+            "Fallen branches (B)": "Pudonneita oksia (B)",
+            "Fallen branches (Β)": "Pudonneita oksia (B)",
+            "Deposits of fallen leaves (C)": "Pudonneiden lehtien kertymiä (C)"
+          },
+          "info": "Voit valita useita luonnollisen aineksen tyyppejä. Merkitse ensin ympyrä ja sitten kaikki tunnistamasi tyypit."
+        },
+        "water_flow": {
+          "question": "Veden virtaus",
+          "questiontext": "Miten vesi virtaa?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Nopeasti (aaltoja tai suuri nopeus) (A)",
+            "Fast (with waves or high velocity) (Α)": "Nopeasti (aaltoja tai suuri nopeus) (A)",
+            "Slow (B)": "Hitaasti (B)",
+            "Slow (Β)": "Hitaasti (B)",
+            "Stagnant/intermittent (C)": "Seisovaa tai ajoittaista (C)",
+            "Dry (D)": "Kuiva (D)",
+            "I am not sure": "En ole varma"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Veden ulkonäkö",
+          "questiontext": "Miltä vesi näyttää?",
+          "labels": {
+            "Clear/transparent (A)": "Kirkas tai läpinäkyvä (A)",
+            "Clear/transparent (Α)": "Kirkas tai läpinäkyvä (A)",
+            "Muddy/turbid (B)": "Mutainen tai samea (B)",
+            "Muddy/turbid (Β)": "Mutainen tai samea (B)",
+            "Has foam (C)": "Vaahtoava (C)",
+            "Has colors/altered color (D)": "Värillinen tai poikkeavan värinen (D)",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Vedenotto",
+          "questiontext": "Näkyykö purosta veden keräämistä, käyttöä tai poistamista?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "barriers": {
+          "question": "Esteet",
+          "questiontext": "Näetkö patoja tai muita keinotekoisia poikittaisia esteitä? Katso kuvien esimerkit.",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "draining_pipes": {
+          "question": "Purkuputket",
+          "questiontext": "Johtaako jokin putki saastunutta vettä puroon?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Jätevesipäästö",
+          "questiontext": "Tuleeko puroon vettä tai jätevettä jostain päästöstä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "construction": {
+          "question": "Rakennustyöt",
+          "questiontext": "Onko purossa tai sen luona rakennustöitä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "water_height": {
+          "question": "Veden korkeus",
+          "questiontext": "Mikä on veden korkeus?",
+          "placeholder": "Anna veden korkeus",
+          "info": "Arvioi metreinä (m) ja käytä pistettä (.) desimaalierottimena (esim. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "Rantavyöhykkeellä (5–10 m rantatörmän yläreunasta)",
+        "impervious_left": {
+          "question": "Läpäisemättömät alueet (vasen)",
+          "questiontext": "Peittävätkö tiet, jalkakäytävät, rakennukset tai muut läpäisemättömät pinnat yli kolmanneksen vasemmasta rantavyöhykkeestä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "impervious_right": {
+          "question": "Läpäisemättömät alueet (oikea)",
+          "questiontext": "Peittävätkö tiet, jalkakäytävät, rakennukset tai muut läpäisemättömät pinnat yli kolmanneksen oikeasta rantavyöhykkeestä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "vegetation_left": {
+          "question": "Kasvillisuus (vasen)",
+          "questiontext": "Peittääkö kasvillisuus vasenta rantavyöhykettä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Kasvillisuuden tyyppi (vasen)",
+          "questiontext": "Mikä kasvillisuus hallitsee eli peittää yli 50 % vasemmasta rantavyöhykkeestä (ensimmäiset 5 m rantatörmän yläreunasta)?",
+          "labels": {
+            "Herbs (A)": "Ruohovartiset kasvit (A)",
+            "Herbs (Α)": "Ruohovartiset kasvit (A)",
+            "Shrubs (B)": "Pensaat (B)",
+            "Shrubs (Β)": "Pensaat (B)",
+            "Trees (C)": "Puut (C)",
+            "I am not sure": "En ole varma"
+          },
+          "info": "Muista katsoa vasemman puolen kasvillisuutta, kun katsot alavirtaan"
+        },
+        "vegetation_right": {
+          "question": "Kasvillisuus (oikea)",
+          "questiontext": "Peittääkö kasvillisuus oikeaa rantavyöhykettä?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Kasvillisuuden tyyppi (oikea)",
+          "questiontext": "Mikä kasvillisuus hallitsee eli peittää yli 50 % oikeasta rantavyöhykkeestä (ensimmäiset 5 m rantatörmän yläreunasta)?",
+          "labels": {
+            "Herbs (A)": "Ruohovartiset kasvit (A)",
+            "Herbs (Α)": "Ruohovartiset kasvit (A)",
+            "Shrubs (B)": "Pensaat (B)",
+            "Shrubs (Β)": "Pensaat (B)",
+            "Trees (C)": "Puut (C)",
+            "I am not sure": "En ole varma"
+          },
+          "info": "Muista katsoa oikean puolen kasvillisuutta, kun katsot alavirtaan"
+        },
+        "invasive_species": {
+          "question": "Vieraslajit",
+          "questiontext": "Näetkö alueelle kuulumattomia tai vierasperäisiä kasvilajeja?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          },
+          "placeholder": "Mitä lajeja?"
+        },
+        "vegetation_cut": {
+          "question": "Kasvillisuuden leikkaus",
+          "questiontext": "Onko toisen tai kummankin rannan kasvillisuutta leikattu äskettäin osittain tai kokonaan?",
+          "labels": {
+            "Yes": "Kyllä",
+            "No": "Ei",
+            "I am not sure": "En ole varma"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Arvioi puroekosysteemin yleinen terveys (valitse yksi vaihtoehto)",
+        "good_quality": "Hyvä laatu",
+        "good_quality_description": "Ekosysteemin osat ovat paikalla: rantakasvillisuus, luonnollinen uoma, hyvä vedenlaatu ja luonnon monimuotoisuus",
+        "moderate_quality": "Kohtalainen laatu",
+        "moderate_quality_description": "Joitakin muutoksia, mutta edelleen monimuotoisuutta ja kasvillisuutta rannoilla; vesi näyttää hyvältä...",
+        "poor_quality": "Huono laatu",
+        "poor_quality_description": "Voimakkaasti muutettu tai keinotekoinen, rantakasvillisuutta ja elinympäristöjä menetetty, vesi saastunutta"
+      },
+      "feelings": {
+        "question": "Mitkä tunteet kuvaavat kokemustasi parhaiten?",
+        "info": "Tutkimusten mukaan purot voivat vaikuttaa ihmisten tunteisiin.",
+        "instructions": "Arvioi tunteen voimakkuus vetämällä liukusäädintä. Suurempi arvo tarkoittaa voimakkaampaa tunnetta.",
+        "Joy": "Ilo",
+        "Serenity": "Tyyneys",
+        "Anger": "Viha",
+        "Fear": "Pelko",
+        "NotApplicable": "Ei koske minua"
+      },
+      "summary": {
+        "title": "Lähetyksen yhteenveto",
+        "research_site_label": "Tutkimuskohde",
+        "coordinates_label": "Koordinaatit",
+        "photos_label": "Kuvat",
+        "video_label": "Video",
+        "channel_form_label": "Uoman muoto",
+        "bottom_type_label": "Pohjan tyyppi",
+        "bank_type_label": "Rannan tyyppi",
+        "habitats_label": "Elinympäristöt",
+        "natural_debris_label": "Luonnollinen aines",
+        "water_flow_label": "Veden virtaus",
+        "water_quality_label": "Vedenlaatu",
+        "water_abstraction_label": "Vedenotto",
+        "water_extraction_label": "Veden poistaminen",
+        "draining_pipes_label": "Purkuputket",
+        "barriers_label": "Esteet",
+        "construction_label": "Rakennustyöt",
+        "impervious_areas_left_label": "Läpäisemättömät alueet (vasen)",
+        "impervious_areas_right_label": "Läpäisemättömät alueet (oikea)",
+        "vegetation_left_label": "Kasvillisuus (vasen)",
+        "vegetation_right_label": "Kasvillisuus (oikea)",
+        "vegetation_cuts_label": "Kasvillisuuden leikkaus",
+        "invasive_species_label": "Vieraslajit",
+        "feelings_label": "Tunteet",
+        "feelings": {
+          "joy": "Ilo",
+          "serenity": "Tyyneys",
+          "anger": "Viha",
+          "fear": "Pelko"
+        },
+        "water_height_label": "Veden korkeus",
+        "overall_assessment_label": "Kokonaisarvio"
+      },
+      "my_submissions_list": {
+        "title": "Olemassa olevien tutkimuskohteiden lähetykset",
+        "longitude_label": "Pituusaste",
+        "latitude_label": "Leveysaste",
+        "research_site_label": "Tutkimuskohde",
+        "created_label": "Luotu",
+        "overall_label": "Kokonaisarvio",
+        "actions_label": "Toiminnot",
+        "title2": "Luotujen kohteiden lähetykset",
+        "longitude_label_2": "Pituusaste",
+        "latitude_label_2": "Leveysaste",
+        "research_site_label_2": "Tutkimuskohde",
+        "created_label_2": "Luotu",
+        "overall_label_2": "Kokonaisarvio",
+        "actions_label_2": "Toiminnot"
       }
     }
   }
