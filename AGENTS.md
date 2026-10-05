@@ -21,6 +21,9 @@ This file is the project's committed home for project-intrinsic agent knowledge:
 - Import `lib/core/widgets/component_kit.dart` for the reusable field UI
   primitives and evidence badges; their reduced-motion and semantic states are
   represented in the debug mascot gallery.
+- Platform launcher icons are generated from Ripple's painter geometry and the
+  token palette by `tool/branding/generate_brand_assets.py`; keep that source,
+  native adaptive/splash vectors, and `lib/core/mascot/aqua_mascot.dart` aligned.
 - Headings, titles and buttons use the bundled Baloo 2 face via
   `AppTypography.displayFontFamily`/`displayFamilyFor(locale)` (set on
   `app_theme.dart`'s `displaySmall`/`headlineMedium`/`titleLarge` and applied

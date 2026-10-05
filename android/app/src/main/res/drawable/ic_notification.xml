@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Status-bar icon for gentle reminder notifications: a plain droplet
-     silhouette. Android requires a single-color (white/alpha) icon here --
+     silhouette. Android requires a single-color (white/alpha) icon here;
      it tints this itself, so no brand color is encoded. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"

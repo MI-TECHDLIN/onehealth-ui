@@ -5,13 +5,14 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!-- Gentle reminders (round 5): shown immediately via flutter_local_notifications'
          `show()`, never scheduled/zoned, so no exact-alarm or boot-receiver
-         entries are needed -- see AGENTS.md. -->
+         entries are needed; see AGENTS.md. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
     <application
-        android:label="onehealth_ui"
+        android:label="OneAquaHealth"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,11 +1,11 @@
 {
-    "name": "onehealth_ui",
-    "short_name": "onehealth_ui",
+    "name": "OneAquaHealth",
+    "short_name": "OneAquaHealth",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#123047",
+    "theme_color": "#123047",
+    "description": "A field guide for clear, useful observations of urban streams.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
