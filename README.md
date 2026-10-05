@@ -2,6 +2,10 @@
 
 A Flutter field guide that helps citizens make clear, useful observations of urban streams and pass that evidence to OneAquaHealth researchers.
 
+**Watch the demo (3:33):** https://youtu.be/odeQ9dtsMA8
+
+[![OneAquaHealth Citizen Science demo video on YouTube](https://img.youtube.com/vi/odeQ9dtsMA8/hqdefault.jpg)](https://youtu.be/odeQ9dtsMA8)
+
 ## Try it
 
 APK download: https://github.com/MI-TECHDLIN/onehealth-ui/releases/latest —
@@ -137,6 +141,6 @@ The repository does not currently declare a separate licence for original projec
 - [Track alignment](submission/track-statement.md)
 - [Project description](submission/project-description.md)
 - [Devpost checklist](submission/checklist.md)
-- Demo video: link to be added to the submission checklist
+- [Demo video on YouTube](https://youtu.be/odeQ9dtsMA8)
 
 Contributions follow the `feature/*` → `staging` → `main` flow and Conventional Commits described in [`CONTRIBUTING.md`](CONTRIBUTING.md).

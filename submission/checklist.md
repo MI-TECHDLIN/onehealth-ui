@@ -18,12 +18,12 @@
 | Architecture | [README: Architecture](../README.md#architecture) | Ready |
 | Licences and credits | [README: Licences and credits](../README.md#licences-and-credits) | Ready |
 | Team | [README: Team](../README.md#team) | Ready |
-| Demo video | **Video link: _TO BE ADDED_** | Pending |
+| Demo video | [https://youtu.be/odeQ9dtsMA8](https://youtu.be/odeQ9dtsMA8) (source: [`submission/video/`](video/)) | Ready |
 
 ## Final publication checks
 
 - Confirm that all six expected screenshot files are present and that every README image renders on the public repository page.
-- Replace the demo video placeholder with the public video URL and verify playback without authentication.
+- Verify that the demo video (https://youtu.be/odeQ9dtsMA8) plays without signing in.
 - Confirm that the public repository URL points to the branch or merged commit containing this pack and the screenshots.
 - Recheck that no credentials, private review links, personal email addresses, access tokens, precise private coordinates, or private filesystem paths appear in the repository or captured media.
 - Confirm the Devpost text matches the final merged documentation and does not broaden claims beyond the limitations above.
