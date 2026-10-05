@@ -19,7 +19,12 @@ const outDir = path.join(videoRoot, 'out');
 const workDir = path.join(videoRoot, '.work');
 const scenes = JSON.parse(fs.readFileSync(path.join(videoRoot, 'src', 'scenes.json'), 'utf8'));
 const oldDir = process.env.OAH_OLD_DIR ?? '/workspaces/firstmate/projects/onehealth-ui/docs/current_ui_snippet';
-const newDir = process.env.OAH_NEW_DIR ?? '/workspaces/firstmate/projects/onehealth-ui/docs/video-new';
+// New-app material may land in either folder; the first one holding files wins.
+const hasFiles = (dir) => fs.existsSync(dir) && fs.readdirSync(dir).some((name) => /^\d/.test(name));
+const newDir = process.env.OAH_NEW_DIR ?? [
+  '/workspaces/firstmate/projects/onehealth-ui/docs/video-new',
+  '/workspaces/firstmate/data/oah-video/screens',
+].find(hasFiles) ?? '/workspaces/firstmate/projects/onehealth-ui/docs/video-new';
 const fps = 30;
 const narrationLeadFrames = 12;
 const sceneTailFrames = 24;

@@ -41,7 +41,8 @@ Screenshots are read from outside the repo and never committed:
   `/workspaces/firstmate/projects/onehealth-ui/docs/current_ui_snippet/`:
   24 screenshots, numbered 1-24 in filename sort order.
 - **New app:** `OAH_NEW_DIR`, default
-  `/workspaces/firstmate/projects/onehealth-ui/docs/video-new/`: files
+  `/workspaces/firstmate/projects/onehealth-ui/docs/video-new/`, or
+  `/workspaces/firstmate/data/oah-video/screens/` when only that one has files:
   named by shot number from the shot list (`01a.png`, `01b.png`, `04a.png`,
   ...; any name that starts with the two-digit shot number works). Several
   stills for one shot are shown in name order with a crossfade. Short clips
