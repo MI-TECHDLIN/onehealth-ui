@@ -17,7 +17,8 @@
     "fr",
     "it",
     "es",
-    "de"
+    "de",
+    "pl"
   ],
   "localeStatus": {
     "en": {
@@ -58,6 +59,12 @@
     },
     "de": {
       "name": "Deutsch",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "pl": {
+      "name": "Polski",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -4232,6 +4239,441 @@
         "created_label_2": "Erstellt am",
         "overall_label_2": "Gesamtbewertung",
         "actions_label_2": "Aktionen"
+      }
+    },
+    "pl": {
+      "citizens_menu": {
+        "instructions": "Instrukcje",
+        "instructions_title": "Instrukcje nauki obywatelskiej",
+        "new_observation": "Utwórz nową obserwację",
+        "new_observation_title": "Nowe zgłoszenie nauki obywatelskiej",
+        "my_submissions": "Moje zgłoszenia",
+        "my_submissions_title": "Moje zgłoszenia"
+      },
+      "title": "Aplikacja nauki obywatelskiej OneAquaHealth — instrukcja instalacji",
+      "viewInstructions": "Pokaż instrukcje",
+      "version": "Aplikacja nauki obywatelskiej OneAquaHealth — wersja 1.0",
+      "installation_modal": {
+        "title": "Instalacja aplikacji nauki obywatelskiej OAH",
+        "intro": "Przed zainstalowaniem aplikacji OAH musisz dołączyć do <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">społeczności OneAquaHealth</a>.<br />Po rejestracji wykonaj poniższe kroki i zaloguj się przypisanym adresem e-mail i hasłem.",
+        "step1_label": "Krok 1.",
+        "step1_desc": "Otwórz przeglądarkę telefonu i odwiedź:",
+        "step2_label": "Krok 2. Poszukaj komunikatu instalacji aplikacji:",
+        "step2_list_item1": "Jeśli pojawi się okno proponujące instalację, postępuj według instrukcji na ekranie.",
+        "step2_list_item2": "Jeśli komunikat się nie pojawi, przejdź do następnego kroku.",
+        "step3_label": "Krok 3. Dodaj do ekranu głównego:",
+        "step3_ios": "<b>W iOS (a):</b> Dotknij ikony udostępniania (kwadrat ze strzałką) u dołu ekranu, a następnie wybierz <span class=\"font-semibold\">„Dodaj do ekranu początkowego”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"Przykład iOS\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>W Androidzie (b):</b> Dotknij ikony menu (trzy kropki) i wybierz <span class=\"font-semibold\">„Dodaj do ekranu głównego”</span> lub <span class=\"font-semibold\">„Zainstaluj aplikację”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Przykład Androida\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Krok 4.",
+        "step4_desc": "Potwierdź instalację, dotykając <span class=\"font-semibold\">„Dodaj”</span> lub <span class=\"font-semibold\">„Zainstaluj”</span>",
+        "step5_label": "Krok 5.",
+        "step5_desc": "Znajdź ikonę nowej aplikacji na ekranie głównym i dotknij jej, aby ją uruchomić",
+        "close": "Zamknij"
+      },
+      "app_intro_title": "Do czego służy ta aplikacja?",
+      "app_intro_text": "Aplikacja pomaga mieszkańcom zbierać dane o zdrowiu miejskich strumieni",
+      "before_submit": "Przed wysłaniem",
+      "education": {
+        "title": "Czym jest miejski strumień?",
+        "intro": "Miejskie strumienie to płynące wody współistniejące z zabudową i często należące do większych zlewni. Działalność człowieka zmienia ich koryta, między innymi przez częściowe lub pełne przykrycie oraz sztuczne materiały w brzegach i korycie. Powoduje też zanieczyszczenie wody i zmiany naturalnej roślinności brzegowej.",
+        "healthy_streams": {
+          "title": "Zdrowe ekosystemy strumieni",
+          "content": "Zdrowe strumienie otacza roślinność przybrzeżna, której korzenie mogą żyć w mokrej glebie bez gnicia. Strumienie i ich roślinność zapewniają siedliska organizmom wodnym i lądowym, takim jak bezkręgowce, grzyby, ryby, płazy, gady, ssaki, ptaki i mikroorganizmy. Organizmy te uczestniczą w produkcji, obiegu składników odżywczych i rozkładzie materii organicznej."
+        },
+        "ecosystem_services": {
+          "title": "Usługi ekosystemowe",
+          "content": "Dobrze zachowane strumienie poprawiają jakość powietrza, regulują temperaturę i wilgotność oraz ograniczają powodzie. Zapewniają też miejsca wypoczynku, spotkań i edukacji przyrodniczej."
+        },
+        "key_concepts": {
+          "title": "Podstawowe pojęcia oceny strumienia",
+          "downstream_direction": "Lewy i prawy brzeg oraz strefy przybrzeżne określa się, patrząc z nurtem, w kierunku przepływu strumienia (rysunek 1)."
+        },
+        "figure1": {
+          "caption": "Rysunek 1. Lewy (L) i prawy (P) brzeg strumienia. Strzałka wskazuje kierunek przepływu."
+        },
+        "cross_section": {
+          "description": "Szerokość (rysunek 2) i głębokość (rysunek 3) mierzy się w przekroju prostopadłym do koryta. Mogą zmieniać się wzdłuż odcinka, dlatego pomiar powinien reprezentować przeciętne warunki."
+        },
+        "figure2": {
+          "caption": "Rysunek 2. Przekrój strumienia: A) górna krawędź brzegu; B) brzeg; C) główne mokre koryto; D) kierunek przepływu (widok z nurtem); E) szerokość; F) głębokość."
+        },
+        "figure3": {
+          "caption": "Rysunek 3. Pomiar głębokości linijką lub miarką."
+        },
+        "riparian_and_floodplain": {
+          "content": "Strefa przybrzeżna znajduje się na obrzeżach strumienia i porasta ją roślinność przybrzeżna. Zdrowa roślinność obejmuje rodzime rośliny o różnej wysokości — od ziół przez krzewy po drzewa — przystosowane do bliskości wody (rysunek 4)."
+        },
+        "figure4": {
+          "caption": "Rysunek 4. Dobrze zachowana strefa przybrzeżna: A) najniższa warstwa roślin zielnych, paproci, mchów i porostów, ważna dla obiegu składników i stabilności gleby; B) krzewy drzewiaste do około 6 m; C) dojrzałe drzewa tworzące koronę lasu."
+        },
+        "figure_description": "Równiny zalewowe są naturalnie zalewane podczas obfitych opadów. Powodzie wzbogacają żyzne gleby osadem bogatym w składniki odżywcze (rysunek 5). Ich kształt może się zmieniać, gdy główne koryto przesuwa się wskutek osadzania i erozji.",
+        "figure5": {
+          "caption": "Rysunek 5. A) Mokre koryto; B) aktywna równina zalewowa; C) regulacyjna równina zalewowa; D) geologiczna równina zalewowa z rzadszymi zalaniami; E) taras."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Główne różnice między strumieniami leśnymi i miejskimi",
+          "content": "Zabudowa zwiększa powierzchnie nieprzepuszczalne na brzegach, w strefach przybrzeżnych i na równinach zalewowych, tworząc drogi, budynki i chodniki z betonu lub asfaltu (rysunek 6). Woda nie wsiąka tam jak w lesie czy na polu. Podczas ulew powstają gwałtowne wezbrania, które grożą szkodami i ludziom. Powierzchnie te ograniczają też zasilanie wód podziemnych i obieg wody, nasilając suszę, zwłaszcza przy zaporach lub poborze wody. Spływ miejski i przelewy kanalizacji dodatkowo zanieczyszczają strumienie."
+        },
+        "figure6": {
+          "caption": "Rysunek 6. Powierzchnie przepuszczalne po lewej, częściowo nieprzepuszczalne pośrodku i nieprzepuszczalne po prawej."
+        },
+        "oneaquahealth_project": {
+          "title": "Projekt OneAquaHealth i aplikacja OAH",
+          "content": "OneAquaHealth wspiera stan ekologiczny miejskich ekosystemów słodkowodnych, aby wzmacniać Jedno Zdrowie w miastach i wykrywać wczesne oznaki degradacji. Dla lepszego zarządzania strumieniami powstał system nadzoru środowiskowego z aplikacją OAH. Aplikacja angażuje mieszkańców w obserwacje, zwiększając wiedzę i wspierając odtwarzanie ekosystemów."
+        },
+        "onehealth": {
+          "title": "Czym jest Jedno Zdrowie?",
+          "content": "Jedno Zdrowie wspiera trwałe zdrowie ludzi, organizmów i środowiska (rysunek 7). Dobrze zachowana przyroda w mieście zapewnia czystsze powietrze i wodę oraz spokojne miejsca poprawiające samopoczucie. Bliskie tereny zielone i wodne zachęcają do wyjścia, spotkań i odpoczynku. Miejskie strumienie często pozostają ukryte, ale mają duży potencjał. Odtworzone zgodnie z ideą Jednego Zdrowia mogą łączyć różne grupy i budować zdrowsze społeczności."
+        },
+        "figure7": {
+          "caption": "Rysunek 7. Koncepcja Jednego Zdrowia pokazująca powiązania zdrowia ludzi, organizmów i środowiska. Nakładające się obszary wskazują potrzebę zintegrowanego podejścia."
+        },
+        "what_you_can_do": {
+          "title": "Jak możesz nam pomóc?",
+          "content": "Jeśli w pobliżu znajduje się miejski strumień, nawet ukryty i mocno zmieniony betonowymi ścianami, możesz pomóc o niego zadbać. Obejrzyj koryto, brzegi i strefę przybrzeżną, a następnie prześlij informacje i zdjęcia w aplikacji. Na koniec oceń strumień w jednej z kategorii:"
+        },
+        "quality": {
+          "good": "<strong>Dobra jakość</strong> (obecne i zdrowe elementy ekosystemu: roślinność przybrzeżna, naturalne koryto, dobra jakość wody i różnorodność biologiczna)",
+          "moderate": "<strong>Umiarkowana jakość</strong> (pewne zmiany, nadal różnorodność biologiczna i roślinność przy brzegach, woda wygląda dobrze...)",
+          "poor": "<strong>Zła jakość</strong> (silnie zmieniony lub sztuczny, duża utrata roślinności przybrzeżnej albo tylko gatunki inwazyjne, utrata siedlisk, zanieczyszczona woda)"
+        },
+        "submission_hint": "Aby pomóc, podaj wymagane informacje, wybierając <strong>„Dalej”</strong> (zobacz wskazówki powyżej)"
+      },
+      "step": "Krok",
+      "next": "Dalej",
+      "previous": "Wstecz",
+      "submit": "Wyślij",
+      "basic_information": "Podstawowe informacje",
+      "additional_details": "Dodatkowe szczegóły",
+      "media_upload": "Przesyłanie multimediów",
+      "questions_1_3_": "Pytania (1/3)",
+      "questions_2_3_": "Pytania (2/3)",
+      "questions_3_3_": "Pytania (3/3)",
+      "feedback_1_2": "Opinia (1/2)",
+      "feedback_2_2": "Opinia (2/2)",
+      "review_submit": "Przejrzyj i wyślij",
+      "select_from_my_sites": "Wybierz z moich stanowisk",
+      "enter_longitude": "Wprowadź długość geograficzną",
+      "enter_latitude": "Wprowadź szerokość geograficzną",
+      "enter_site_name": "Wprowadź nazwę stanowiska",
+      "longitude": "Długość geograficzna",
+      "latitude": "Szerokość geograficzna",
+      "site_name": "Nazwa stanowiska",
+      "site_selection": {
+        "title": "Wybierz miejskie stanowisko OneAquaHealth do oceny (podano odległość od Ciebie)",
+        "description": "Dodaj nowe stanowisko"
+      },
+      "media": {
+        "title": "Wybierz obrazy",
+        "upstream_photo_label": "Zdjęcie pod prąd",
+        "upstream_photo_description": "Zdjęcie pod prąd",
+        "downstream_photo_label": "Zdjęcie z prądem",
+        "downstream_photo_description": "Zdjęcie z prądem",
+        "context_photo_label": "Zdjęcie otoczenia",
+        "context_photo_description": "Zdjęcie otoczenia (domy, drogi...)",
+        "biodiversity_photo_label": "Zdjęcie ciekawego elementu różnorodności biologicznej",
+        "biodiversity_photo_description": "Zdjęcie ciekawego elementu różnorodności biologicznej (roślina, zwierzę, grzyb lub inne)",
+        "video_label": "Nagraj krótki film (5 lub 10 sekund)",
+        "video_description": "Nagraj krótki film (5 lub 10 sekund)",
+        "select_file_button": "Wybierz plik"
+      },
+      "questions_1_3": {
+        "title": "Co widzisz z miejsca, w którym stoisz (w promieniu ok. 100 m)?",
+        "channel_form": {
+          "question": "Kształt koryta",
+          "questiontext": "Kształt koryta jest…",
+          "labels": {
+            "Flat (Α)": "Płaskie (A)",
+            "Flat (A)": "Płaskie (A)",
+            "U Shape (Β)": "W kształcie U (B)",
+            "U Shape (B)": "W kształcie U (B)",
+            "V Shape (C)": "W kształcie V (C)",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "bottom_type": {
+          "question": "Rodzaj dna",
+          "questiontext": "Dno mokrego koryta jest…",
+          "labels": {
+            "Natural (A)": "Naturalne (A)",
+            "Natural (Α)": "Naturalne (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Sztuczne (beton lub kamienie połączone betonem) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Sztuczne (beton lub kamienie połączone betonem) (B)",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "bank_type": {
+          "question": "Rodzaj brzegu",
+          "questiontext": "Brzegi koryta są…",
+          "labels": {
+            "Natural (A)": "Naturalne (A)",
+            "Natural (Α)": "Naturalne (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Sztuczne (beton lub kamienie połączone betonem) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Sztuczne (beton lub kamienie połączone betonem) (B)",
+            "Layed stones with no concrete (C)": "Ułożone kamienie bez betonu (C)",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "habitats": {
+          "question": "Siedliska",
+          "questiontext": "Występujące siedliska to…",
+          "questiontextshow": "Czy występują tu siedliska?",
+          "options": {
+            "Sand banks (A)": "Łachy piasku (A)",
+            "Sand banks (Α)": "Łachy piasku (A)",
+            "Sand islands (B)": "Wyspy piaskowe (B)",
+            "Sand islands (Β)": "Wyspy piaskowe (B)",
+            "Stone deposits (C)": "Osady kamieni (C)",
+            "Riffles, rapids, falls (D)": "Bystrza, progi lub wodospady (D)",
+            "Aquatic vegetation (E)": "Roślinność wodna (E)"
+          },
+          "info": "Możesz wybrać kilka rodzajów siedlisk. Najpierw zaznacz pole, a potem wszystkie rozpoznane siedliska."
+        },
+        "natural_debris": {
+          "question": "Naturalne szczątki",
+          "questiontext": "Występują…",
+          "questiontextshow": "Czy występują naturalne szczątki?",
+          "labels": {
+            "Fallen trees (A)": "Powalone drzewa (A)",
+            "Fallen trees (Α)": "Powalone drzewa (A)",
+            "Fallen branches (B)": "Opadłe gałęzie (B)",
+            "Fallen branches (Β)": "Opadłe gałęzie (B)",
+            "Deposits of fallen leaves (C)": "Nagromadzone opadłe liście (C)"
+          },
+          "info": "Możesz wybrać kilka rodzajów naturalnych szczątków. Najpierw zaznacz kółko, a następnie wszystkie rozpoznane rodzaje."
+        },
+        "water_flow": {
+          "question": "Przepływ wody",
+          "questiontext": "Jak płynie woda?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Szybko (fale lub duża prędkość) (A)",
+            "Fast (with waves or high velocity) (Α)": "Szybko (fale lub duża prędkość) (A)",
+            "Slow (B)": "Wolno (B)",
+            "Slow (Β)": "Wolno (B)",
+            "Stagnant/intermittent (C)": "Stojąca lub okresowa (C)",
+            "Dry (D)": "Sucho (D)",
+            "I am not sure": "Nie mam pewności"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Wygląd wody",
+          "questiontext": "Jak wygląda woda?",
+          "labels": {
+            "Clear/transparent (A)": "Czysta lub przezroczysta (A)",
+            "Clear/transparent (Α)": "Czysta lub przezroczysta (A)",
+            "Muddy/turbid (B)": "Błotnista lub mętna (B)",
+            "Muddy/turbid (Β)": "Błotnista lub mętna (B)",
+            "Has foam (C)": "Ma pianę (C)",
+            "Has colors/altered color (D)": "Ma zabarwienie lub zmieniony kolor (D)",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Pobór wody",
+          "questiontext": "Czy widać pobieranie, wykorzystywanie lub usuwanie wody ze strumienia?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "barriers": {
+          "question": "Bariery",
+          "questiontext": "Czy widzisz tamy lub inne sztuczne bariery poprzeczne? Zobacz przykłady na obrazach.",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "draining_pipes": {
+          "question": "Rury odpływowe",
+          "questiontext": "Czy rury odprowadzają zanieczyszczoną wodę do strumienia?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Zrzut ścieków",
+          "questiontext": "Czy do strumienia wpływa woda lub odprowadzane są ścieki?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "construction": {
+          "question": "Prace budowlane",
+          "questiontext": "Czy w strumieniu lub przy nim trwają prace?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "water_height": {
+          "question": "Wysokość wody",
+          "questiontext": "Jaka jest wysokość wody?",
+          "placeholder": "Wprowadź wysokość wody",
+          "info": "Podaj szacunek w metrach (m), używając kropki (.) jako separatora dziesiętnego (np. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "W strefach przybrzeżnych (5–10 m od górnej krawędzi brzegu)",
+        "impervious_left": {
+          "question": "Powierzchnie nieprzepuszczalne (lewa)",
+          "questiontext": "Czy ponad jedną trzecią lewej strefy przybrzeżnej pokrywają powierzchnie nieprzepuszczalne, takie jak drogi, chodniki lub budynki?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "impervious_right": {
+          "question": "Powierzchnie nieprzepuszczalne (prawa)",
+          "questiontext": "Czy ponad jedną trzecią prawej strefy przybrzeżnej pokrywają powierzchnie nieprzepuszczalne, takie jak drogi, chodniki lub budynki?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "vegetation_left": {
+          "question": "Roślinność (lewa)",
+          "questiontext": "Czy lewa strefa przybrzeżna jest pokryta roślinnością?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Rodzaj roślinności (lewa)",
+          "questiontext": "Jaka roślinność dominuje, czyli pokrywa ponad 50% lewej strefy przybrzeżnej (pierwsze 5 m od górnej krawędzi brzegu)?",
+          "labels": {
+            "Herbs (A)": "Rośliny zielne (A)",
+            "Herbs (Α)": "Rośliny zielne (A)",
+            "Shrubs (B)": "Krzewy (B)",
+            "Shrubs (Β)": "Krzewy (B)",
+            "Trees (C)": "Drzewa (C)",
+            "I am not sure": "Nie mam pewności"
+          },
+          "info": "Patrząc z nurtem, nie zapomnij obejrzeć roślinności po lewej"
+        },
+        "vegetation_right": {
+          "question": "Roślinność (prawa)",
+          "questiontext": "Czy prawa strefa przybrzeżna jest pokryta roślinnością?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Rodzaj roślinności (prawa)",
+          "questiontext": "Jaka roślinność dominuje, czyli pokrywa ponad 50% prawej strefy przybrzeżnej (pierwsze 5 m od górnej krawędzi brzegu)?",
+          "labels": {
+            "Herbs (A)": "Rośliny zielne (A)",
+            "Herbs (Α)": "Rośliny zielne (A)",
+            "Shrubs (B)": "Krzewy (B)",
+            "Shrubs (Β)": "Krzewy (B)",
+            "Trees (C)": "Drzewa (C)",
+            "I am not sure": "Nie mam pewności"
+          },
+          "info": "Patrząc z nurtem, nie zapomnij obejrzeć roślinności po prawej"
+        },
+        "invasive_species": {
+          "question": "Gatunki inwazyjne",
+          "questiontext": "Czy widzisz obce lub inwazyjne gatunki roślin?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          },
+          "placeholder": "Które?"
+        },
+        "vegetation_cut": {
+          "question": "Wycinanie roślinności",
+          "questiontext": "Czy na jednym lub obu brzegach niedawno częściowo albo całkowicie wycięto roślinność?",
+          "labels": {
+            "Yes": "Tak",
+            "No": "Nie",
+            "I am not sure": "Nie mam pewności"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Oceń ogólny stan ekosystemu strumienia (wybierz jedną możliwość)",
+        "good_quality": "Dobra jakość",
+        "good_quality_description": "Elementy ekosystemu są obecne: roślinność przybrzeżna, naturalne koryto, dobra jakość wody i różnorodność biologiczna",
+        "moderate_quality": "Umiarkowana jakość",
+        "moderate_quality_description": "Pewne zmiany, ale nadal różnorodność biologiczna i roślinność przy brzegach; woda wygląda dobrze...",
+        "poor_quality": "Zła jakość",
+        "poor_quality_description": "Silnie zmieniony lub sztuczny, utrata roślinności przybrzeżnej i siedlisk, zanieczyszczenie"
+      },
+      "feelings": {
+        "question": "Które uczucia najlepiej opisują Twoje doświadczenie?",
+        "info": "Badania wskazują, że strumienie mogą wpływać na emocje ludzi.",
+        "instructions": "Przesuń palcem po suwaku, aby ocenić natężenie odczucia. Wyższa ocena oznacza silniejsze odczucie.",
+        "Joy": "Radość",
+        "Serenity": "Spokój",
+        "Anger": "Złość",
+        "Fear": "Strach",
+        "NotApplicable": "Nie dotyczy"
+      },
+      "summary": {
+        "title": "Podsumowanie zgłoszenia",
+        "research_site_label": "Stanowisko badawcze",
+        "coordinates_label": "Współrzędne",
+        "photos_label": "Zdjęcia",
+        "video_label": "Film",
+        "channel_form_label": "Kształt koryta",
+        "bottom_type_label": "Rodzaj dna",
+        "bank_type_label": "Rodzaj brzegu",
+        "habitats_label": "Siedliska",
+        "natural_debris_label": "Naturalne szczątki",
+        "water_flow_label": "Przepływ wody",
+        "water_quality_label": "Jakość wody",
+        "water_abstraction_label": "Pobór wody",
+        "water_extraction_label": "Czerpanie wody",
+        "draining_pipes_label": "Rury odpływowe",
+        "barriers_label": "Bariery",
+        "construction_label": "Prace budowlane",
+        "impervious_areas_left_label": "Powierzchnie nieprzepuszczalne (lewa)",
+        "impervious_areas_right_label": "Powierzchnie nieprzepuszczalne (prawa)",
+        "vegetation_left_label": "Roślinność (lewa)",
+        "vegetation_right_label": "Roślinność (prawa)",
+        "vegetation_cuts_label": "Wycinanie roślinności",
+        "invasive_species_label": "Gatunki inwazyjne",
+        "feelings_label": "Uczucia",
+        "feelings": {
+          "joy": "Radość",
+          "serenity": "Spokój",
+          "anger": "Złość",
+          "fear": "Strach"
+        },
+        "water_height_label": "Wysokość wody",
+        "overall_assessment_label": "Ocena ogólna"
+      },
+      "my_submissions_list": {
+        "title": "Zgłoszenia dla istniejących stanowisk badawczych",
+        "longitude_label": "Długość geograficzna",
+        "latitude_label": "Szerokość geograficzna",
+        "research_site_label": "Stanowisko badawcze",
+        "created_label": "Utworzono",
+        "overall_label": "Ocena ogólna",
+        "actions_label": "Działania",
+        "title2": "Zgłoszenia dla utworzonych stanowisk",
+        "longitude_label_2": "Długość geograficzna",
+        "latitude_label_2": "Szerokość geograficzna",
+        "research_site_label_2": "Stanowisko badawcze",
+        "created_label_2": "Utworzono",
+        "overall_label_2": "Ocena ogólna",
+        "actions_label_2": "Działania"
       }
     }
   }
