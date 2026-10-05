@@ -25,7 +25,8 @@
     "hr",
     "bg",
     "tr",
-    "uk"
+    "uk",
+    "ar"
   ],
   "localeStatus": {
     "en": {
@@ -114,6 +115,12 @@
     },
     "uk": {
       "name": "Українська",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "ar": {
+      "name": "العربية",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -7768,6 +7775,441 @@
         "created_label_2": "Створено",
         "overall_label_2": "Загальна оцінка",
         "actions_label_2": "Дії"
+      }
+    },
+    "ar": {
+      "citizens_menu": {
+        "instructions": "التعليمات",
+        "instructions_title": "تعليمات علم المواطن",
+        "new_observation": "إنشاء ملاحظة جديدة",
+        "new_observation_title": "مشاركة جديدة في علم المواطن",
+        "my_submissions": "مشاركاتي",
+        "my_submissions_title": "مشاركاتي"
+      },
+      "title": "تطبيق OneAquaHealth لعلم المواطن — تعليمات التثبيت",
+      "viewInstructions": "عرض التعليمات",
+      "version": "تطبيق OneAquaHealth لعلم المواطن — الإصدار 1.0",
+      "installation_modal": {
+        "title": "تثبيت تطبيق OAH لعلم المواطن",
+        "intro": "قبل تثبيت تطبيق OAH، يجب الانضمام إلى <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">مجتمع OneAquaHealth</a>.<br />بعد التسجيل، اتبع الخطوات أدناه وسجّل الدخول بالبريد الإلكتروني وكلمة المرور المخصصين لك.",
+        "step1_label": "الخطوة 1.",
+        "step1_desc": "افتح متصفح الهاتف وانتقل إلى:",
+        "step2_label": "الخطوة 2. ابحث عن طلب تثبيت التطبيق:",
+        "step2_list_item1": "إذا ظهرت نافذة تقترح التثبيت، فاتبع التعليمات على الشاشة.",
+        "step2_list_item2": "إذا لم يظهر طلب، فانتقل إلى الخطوة التالية.",
+        "step3_label": "الخطوة 3. أضف إلى الشاشة الرئيسية:",
+        "step3_ios": "<b>لنظام iOS (أ):</b> اضغط رمز المشاركة (مربع بسهم) أسفل الشاشة، ثم اختر <span class=\"font-semibold\">«إضافة إلى الشاشة الرئيسية»</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"مثال iOS\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>لنظام Android (ب):</b> اضغط رمز القائمة (ثلاث نقاط) واختر <span class=\"font-semibold\">«إضافة إلى الشاشة الرئيسية»</span> أو <span class=\"font-semibold\">«تثبيت التطبيق»</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"مثال Android\" class=\"max-h-96\" /> </div>",
+        "step4_label": "الخطوة 4.",
+        "step4_desc": "أكد التثبيت بالضغط على <span class=\"font-semibold\">«إضافة»</span> أو <span class=\"font-semibold\">«تثبيت»</span>",
+        "step5_label": "الخطوة 5.",
+        "step5_desc": "ابحث عن رمز التطبيق الجديد على الشاشة الرئيسية واضغط عليه لفتحه",
+        "close": "إغلاق"
+      },
+      "app_intro_title": "ما الغرض من هذا التطبيق؟",
+      "app_intro_text": "يساعد التطبيق المواطنين على جمع بيانات عن صحة الجداول الحضرية",
+      "before_submit": "قبل الإرسال",
+      "education": {
+        "title": "ما الجدول الحضري؟",
+        "intro": "الجداول الحضرية مياه جارية تتعايش مع عمران المدن وغالبًا ما تكون جزءًا من أحواض أكبر. تغيّر الأنشطة البشرية مجاريها بالتغطية والمواد الاصطناعية، وتلوث المياه، وتبدل الغطاء النباتي الطبيعي على الضفاف.",
+        "healthy_streams": {
+          "title": "نظم الجداول السليمة",
+          "content": "تحيط بالجداول السليمة نباتات ضفاف تستطيع جذورها العيش في تربة رطبة. توفر الجداول ونباتاتها موائل للحيوانات المائية والبرية والفطريات والكائنات الدقيقة. وتشارك هذه الكائنات في الإنتاج ودورة المغذيات وتحلل المادة العضوية."
+        },
+        "ecosystem_services": {
+          "title": "خدمات النظام البيئي",
+          "content": "تحسن الجداول المحفوظة جودة الهواء وتنظم الحرارة والرطوبة وتخفف الفيضانات. كما توفر أماكن طبيعية للترفيه واللقاء والتعليم البيئي."
+        },
+        "key_concepts": {
+          "title": "مفاهيم أساسية لتقييم الجدول",
+          "downstream_direction": "تُحدد الضفتان والمنطقتان اليسرى واليمنى عند النظر نحو المصب، في اتجاه جريان الماء (الشكل 1)."
+        },
+        "figure1": {
+          "caption": "الشكل 1. الضفة اليسرى (ي) واليمنى (م). يوضح السهم اتجاه الجريان."
+        },
+        "cross_section": {
+          "description": "يُقاس العرض (الشكل 2) والعمق (الشكل 3) في مقطع عمودي على المجرى. قد يتغيران، لذلك يجب اختيار موقع يمثل الظروف المتوسطة."
+        },
+        "figure2": {
+          "caption": "الشكل 2. مقطع الجدول: أ) أعلى الضفة؛ ب) الضفة؛ ج) المجرى الرطب الرئيسي؛ د) اتجاه الجريان (منظر نحو المصب)؛ هـ) العرض؛ و) العمق."
+        },
+        "figure3": {
+          "caption": "الشكل 3. قياس العمق بمسطرة أو مقياس."
+        },
+        "riparian_and_floodplain": {
+          "content": "تقع المنطقة النهرية بمحاذاة الجدول وتغطيها نباتات الضفاف. يضم الغطاء السليم نباتات محلية مختلفة الارتفاع، من الأعشاب إلى الشجيرات والأشجار، متكيفة مع قرب الماء (الشكل 4)."
+        },
+        "figure4": {
+          "caption": "الشكل 4. منطقة نهرية محفوظة: أ) طبقة سفلية من الأعشاب والسرخس والحزازيات والأشنيات؛ ب) طبقة شجيرات خشبية حتى نحو 6 أمتار؛ ج) طبقة علوية من أشجار ناضجة تشكل المظلة."
+        },
+        "figure_description": "السهول الفيضية مناطق تغمرها المياه طبيعيًا عند الأمطار الغزيرة. تثري الفيضانات التربة برواسب غنية بالمغذيات (الشكل 5). وقد يتغير شكلها مع تحرك المجرى الرئيسي بسبب الترسيب والتعرية.",
+        "figure5": {
+          "caption": "الشكل 5. أ) المجرى الرطب؛ ب) السهل الفيضي النشط؛ ج) السهل الفيضي المنظم؛ د) السهل الجيولوجي الأقل تعرضًا للفيضانات؛ هـ) المصطبة."
+        },
+        "forest_vs_urban_streams": {
+          "title": "الفروق الرئيسية بين جداول الغابات والمدن",
+          "content": "يزيد العمران الأسطح غير المنفذة على الضفاف والسهول الفيضية بالطرق والمباني والخرسانة والأسفلت (الشكل 6). فلا تتسرب المياه كما في الغابة أو الحقل. تسبب الأمطار الغزيرة فيضانات مفاجئة وأضرارًا ومخاطر على الناس. وتحد هذه الأسطح من تغذية المياه الجوفية وتزيد ندرة المياه إلى جانب السدود والسحب. كما تلوث مياه الجريان وفيضان الصرف الجداول."
+        },
+        "figure6": {
+          "caption": "الشكل 6. أسطح منفذة يسارًا، ومنفذة جزئيًا في الوسط، وغير منفذة يمينًا."
+        },
+        "oneaquahealth_project": {
+          "title": "مشروع OneAquaHealth وتطبيق OAH",
+          "content": "يهدف OneAquaHealth إلى تحسين الحالة البيئية للنظم الحضرية للمياه العذبة، ودعم الصحة الواحدة، وكشف علامات التدهور المبكرة. طُور نظام مراقبة بيئية يتضمن تطبيق OAH لتحسين إدارة الجداول. يشرك التطبيق المواطنين في الرصد ويزيد المعرفة ويدعم الاستعادة."
+        },
+        "onehealth": {
+          "title": "ما الصحة الواحدة؟",
+          "content": "تعزز الصحة الواحدة صحة مستدامة للناس والكائنات والبيئة (الشكل 7). تمنح الطبيعة المحفوظة في المدن هواءً وماءً أنظف وأماكن هادئة تدعم العافية. وتشجع المساحات الخضراء والمائية القريبة على الخروج واللقاء والاسترخاء. غالبًا ما تكون الجداول الحضرية مخفية، لكنها تحمل إمكانات كبيرة. وعند استعادتها وفق هذا النهج يمكن أن تجمع المجتمعات."
+        },
+        "figure7": {
+          "caption": "الشكل 7. يوضح مفهوم الصحة الواحدة ترابط صحة الإنسان والكائنات والبيئة. تبين مناطق التداخل الحاجة إلى نهج متكامل."
+        },
+        "what_you_can_do": {
+          "title": "كيف يمكنك المساعدة؟",
+          "content": "إذا كان قربك جدول حضري، حتى لو كان مخفيًا وشديد التعديل بجدران خرسانية، فيمكنك مساعدتنا في العناية به. افحص المجرى والضفاف والمنطقة النهرية، وأرسل المعلومات والصور عبر التطبيق. ثم قدم تقييمًا عامًا ضمن إحدى الفئات:"
+        },
+        "quality": {
+          "good": "<strong>جودة جيدة</strong> (مكونات النظام موجودة وبحالة جيدة: نباتات الضفاف، مجرى طبيعي، مياه جيدة وتنوع حيوي)",
+          "moderate": "<strong>جودة متوسطة</strong> (بعض التعديلات، لكن لا يزال هناك تنوع حيوي ونباتات على الضفاف، والمياه تبدو جيدة...)",
+          "poor": "<strong>جودة سيئة</strong> (شديد التعديل أو اصطناعي، فقدان نباتات الضفاف والموائل، أو وجود أنواع دخيلة فقط ومياه ملوثة)"
+        },
+        "submission_hint": "للمساهمة، أدخل المعلومات المطلوبة واضغط <strong>«التالي»</strong> (راجع الإرشادات أعلاه)"
+      },
+      "step": "الخطوة",
+      "next": "التالي",
+      "previous": "السابق",
+      "submit": "إرسال",
+      "basic_information": "معلومات أساسية",
+      "additional_details": "تفاصيل إضافية",
+      "media_upload": "رفع الوسائط",
+      "questions_1_3_": "الأسئلة (1/3)",
+      "questions_2_3_": "الأسئلة (2/3)",
+      "questions_3_3_": "الأسئلة (3/3)",
+      "feedback_1_2": "التعليقات (1/2)",
+      "feedback_2_2": "التعليقات (2/2)",
+      "review_submit": "المراجعة والإرسال",
+      "select_from_my_sites": "اختيار من مواقعي",
+      "enter_longitude": "أدخل خط الطول",
+      "enter_latitude": "أدخل خط العرض",
+      "enter_site_name": "أدخل اسم الموقع",
+      "longitude": "خط الطول",
+      "latitude": "خط العرض",
+      "site_name": "اسم الموقع",
+      "site_selection": {
+        "title": "اختر مواقع الجداول الحضرية في OneAquaHealth لتقييمها (تظهر المسافة إلى الموقع)",
+        "description": "إضافة موقع جديد"
+      },
+      "media": {
+        "title": "اختر صورك",
+        "upstream_photo_label": "صورة باتجاه المنبع",
+        "upstream_photo_description": "صورة باتجاه المنبع",
+        "downstream_photo_label": "صورة باتجاه المصب",
+        "downstream_photo_description": "صورة باتجاه المصب",
+        "context_photo_label": "صورة للمحيط",
+        "context_photo_description": "صورة للمحيط (منازل، طرق...)",
+        "biodiversity_photo_label": "صورة لعنصر مثير للاهتمام من التنوع الحيوي",
+        "biodiversity_photo_description": "صورة لعنصر مثير للاهتمام من التنوع الحيوي (نبات، حيوان، فطر أو غيره)",
+        "video_label": "صوّر فيديو قصيرًا (5 أو 10 ثوانٍ)",
+        "video_description": "صوّر فيديو قصيرًا (5 أو 10 ثوانٍ)",
+        "select_file_button": "اختيار ملف"
+      },
+      "questions_1_3": {
+        "title": "ماذا ترى من مكان وقوفك (ضمن نحو 100 م)؟",
+        "channel_form": {
+          "question": "شكل المجرى",
+          "questiontext": "شكل المجرى هو…",
+          "labels": {
+            "Flat (Α)": "مسطح (أ)",
+            "Flat (A)": "مسطح (أ)",
+            "U Shape (Β)": "على شكل U (ب)",
+            "U Shape (B)": "على شكل U (ب)",
+            "V Shape (C)": "على شكل V (ج)",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "bottom_type": {
+          "question": "نوع القاع",
+          "questiontext": "قاع المجرى الرطب…",
+          "labels": {
+            "Natural (A)": "طبيعي (أ)",
+            "Natural (Α)": "طبيعي (أ)",
+            "Artificial (concrete or stones with concrete) (B)": "اصطناعي (خرسانة أو حجارة مع خرسانة) (ب)",
+            "Artificial (concrete or stones with concrete) (Β)": "اصطناعي (خرسانة أو حجارة مع خرسانة) (ب)",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "bank_type": {
+          "question": "نوع الضفة",
+          "questiontext": "ضفاف المجرى…",
+          "labels": {
+            "Natural (A)": "طبيعية (أ)",
+            "Natural (Α)": "طبيعية (أ)",
+            "Artificial (concrete or stones with concrete) (B)": "اصطناعية (خرسانة أو حجارة مع خرسانة) (ب)",
+            "Artificial (concrete or stones with concrete) (Β)": "اصطناعية (خرسانة أو حجارة مع خرسانة) (ب)",
+            "Layed stones with no concrete (C)": "حجارة مرصوفة من دون خرسانة (ج)",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "habitats": {
+          "question": "الموائل",
+          "questiontext": "الموائل الموجودة هي…",
+          "questiontextshow": "هل توجد موائل؟",
+          "options": {
+            "Sand banks (A)": "ضفاف رملية (أ)",
+            "Sand banks (Α)": "ضفاف رملية (أ)",
+            "Sand islands (B)": "جزر رملية (ب)",
+            "Sand islands (Β)": "جزر رملية (ب)",
+            "Stone deposits (C)": "ترسبات حجرية (ج)",
+            "Riffles, rapids, falls (D)": "مياه ضحلة سريعة أو جنادل أو شلالات (د)",
+            "Aquatic vegetation (E)": "نباتات مائية (هـ)"
+          },
+          "info": "يمكنك اختيار عدة أنواع من الموائل. حدد المربع أولًا ثم كل الأنواع التي تتعرف عليها."
+        },
+        "natural_debris": {
+          "question": "بقايا طبيعية",
+          "questiontext": "يوجد…",
+          "questiontextshow": "هل توجد بقايا طبيعية؟",
+          "labels": {
+            "Fallen trees (A)": "أشجار ساقطة (أ)",
+            "Fallen trees (Α)": "أشجار ساقطة (أ)",
+            "Fallen branches (B)": "أغصان ساقطة (ب)",
+            "Fallen branches (Β)": "أغصان ساقطة (ب)",
+            "Deposits of fallen leaves (C)": "تراكمات أوراق ساقطة (ج)"
+          },
+          "info": "يمكنك اختيار عدة أنواع من البقايا الطبيعية. حدد الدائرة أولًا ثم كل الأنواع التي تتعرف عليها."
+        },
+        "water_flow": {
+          "question": "تدفق الماء",
+          "questiontext": "كيف يتدفق الماء؟",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "سريع (مع أمواج أو سرعة عالية) (أ)",
+            "Fast (with waves or high velocity) (Α)": "سريع (مع أمواج أو سرعة عالية) (أ)",
+            "Slow (B)": "بطيء (ب)",
+            "Slow (Β)": "بطيء (ب)",
+            "Stagnant/intermittent (C)": "راكد أو متقطع (ج)",
+            "Dry (D)": "جاف (د)",
+            "I am not sure": "لست متأكدًا"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "مظهر الماء",
+          "questiontext": "كيف يبدو الماء؟",
+          "labels": {
+            "Clear/transparent (A)": "صافٍ أو شفاف (أ)",
+            "Clear/transparent (Α)": "صافٍ أو شفاف (أ)",
+            "Muddy/turbid (B)": "موحل أو عكر (ب)",
+            "Muddy/turbid (Β)": "موحل أو عكر (ب)",
+            "Has foam (C)": "به رغوة (ج)",
+            "Has colors/altered color (D)": "به لون أو تغير في اللون (د)",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "water_withdrawal": {
+          "question": "سحب الماء",
+          "questiontext": "هل يظهر جمع أو استخدام أو إزالة للماء من الجدول؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "barriers": {
+          "question": "الحواجز",
+          "questiontext": "هل ترى سدودًا أو حواجز اصطناعية عرضية؟ راجع الأمثلة في الصور.",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "draining_pipes": {
+          "question": "أنابيب التصريف",
+          "questiontext": "هل توجد أنابيب تصرف مياه ملوثة في الجدول؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "sewage_discharge": {
+          "question": "تصريف مياه الصرف",
+          "questiontext": "هل يوجد دخول أو تصريف لمياه الصرف؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "construction": {
+          "question": "أعمال بناء",
+          "questiontext": "هل توجد أعمال بناء في الجدول أو قربه؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "water_height": {
+          "question": "ارتفاع الماء",
+          "questiontext": "ما ارتفاع الماء؟",
+          "placeholder": "أدخل ارتفاع الماء",
+          "info": "قدّر بالمتر (م) واستخدم النقطة (.) للفاصلة العشرية (مثل 1.5 م)."
+        }
+      },
+      "questions_3_3": {
+        "title": "في المنطقة النهرية (5–10 م من أعلى الضفة)",
+        "impervious_left": {
+          "question": "مساحات غير منفذة (يسار)",
+          "questiontext": "هل تغطي الطرق أو الأرصفة أو المباني أو الأسطح غير المنفذة أكثر من ثلث المنطقة النهرية اليسرى؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "impervious_right": {
+          "question": "مساحات غير منفذة (يمين)",
+          "questiontext": "هل تغطي الطرق أو الأرصفة أو المباني أو الأسطح غير المنفذة أكثر من ثلث المنطقة النهرية اليمنى؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "vegetation_left": {
+          "question": "الغطاء النباتي (يسار)",
+          "questiontext": "هل المنطقة النهرية اليسرى مغطاة بالنباتات؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "نوع الغطاء النباتي (يسار)",
+          "questiontext": "ما الغطاء السائد، أي الذي يغطي أكثر من 50% من المنطقة النهرية اليسرى (أول 5 م من أعلى الضفة)؟",
+          "labels": {
+            "Herbs (A)": "أعشاب (أ)",
+            "Herbs (Α)": "أعشاب (أ)",
+            "Shrubs (B)": "شجيرات (ب)",
+            "Shrubs (Β)": "شجيرات (ب)",
+            "Trees (C)": "أشجار (ج)",
+            "I am not sure": "لست متأكدًا"
+          },
+          "info": "لا تنس النظر إلى النباتات يسارًا وأنت تواجه المصب"
+        },
+        "vegetation_right": {
+          "question": "الغطاء النباتي (يمين)",
+          "questiontext": "هل المنطقة النهرية اليمنى مغطاة بالنباتات؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "نوع الغطاء النباتي (يمين)",
+          "questiontext": "ما الغطاء السائد، أي الذي يغطي أكثر من 50% من المنطقة النهرية اليمنى (أول 5 م من أعلى الضفة)؟",
+          "labels": {
+            "Herbs (A)": "أعشاب (أ)",
+            "Herbs (Α)": "أعشاب (أ)",
+            "Shrubs (B)": "شجيرات (ب)",
+            "Shrubs (Β)": "شجيرات (ب)",
+            "Trees (C)": "أشجار (ج)",
+            "I am not sure": "لست متأكدًا"
+          },
+          "info": "لا تنس النظر إلى النباتات يمينًا وأنت تواجه المصب"
+        },
+        "invasive_species": {
+          "question": "الأنواع الدخيلة",
+          "questiontext": "هل ترى أنواع نباتات غير محلية أو دخيلة؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          },
+          "placeholder": "ما هي؟"
+        },
+        "vegetation_cut": {
+          "question": "قطع النباتات",
+          "questiontext": "هل قُطع مؤخرًا بعض أو كل الغطاء النباتي على إحدى الضفتين أو كلتيهما؟",
+          "labels": {
+            "Yes": "نعم",
+            "No": "لا",
+            "I am not sure": "لست متأكدًا"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "قدّم تقييمًا عامًا لصحة نظام الجدول (اختر خيارًا واحدًا)",
+        "good_quality": "جودة جيدة",
+        "good_quality_description": "مكونات النظام موجودة: نباتات الضفاف، مجرى طبيعي، مياه جيدة وتنوع حيوي",
+        "moderate_quality": "جودة متوسطة",
+        "moderate_quality_description": "بعض التعديلات، لكن ما زال هناك تنوع حيوي ونباتات على الضفاف؛ والماء يبدو جيدًا...",
+        "poor_quality": "جودة سيئة",
+        "poor_quality_description": "شديد التعديل أو اصطناعي، فقدان نباتات الضفاف والموائل، مياه ملوثة"
+      },
+      "feelings": {
+        "question": "ما المشاعر التي تصف تجربتك بأفضل شكل؟",
+        "info": "تشير الأبحاث إلى أن الجداول قد تؤثر في مشاعر الناس.",
+        "instructions": "اسحب شريط التمرير لتقييم شدة شعورك. التقييم الأعلى يعني شعورًا أشد.",
+        "Joy": "فرح",
+        "Serenity": "سكينة",
+        "Anger": "غضب",
+        "Fear": "خوف",
+        "NotApplicable": "لا ينطبق"
+      },
+      "summary": {
+        "title": "ملخص الإرسال",
+        "research_site_label": "موقع البحث",
+        "coordinates_label": "الإحداثيات",
+        "photos_label": "الصور",
+        "video_label": "الفيديو",
+        "channel_form_label": "شكل المجرى",
+        "bottom_type_label": "نوع القاع",
+        "bank_type_label": "نوع الضفة",
+        "habitats_label": "الموائل",
+        "natural_debris_label": "البقايا الطبيعية",
+        "water_flow_label": "تدفق الماء",
+        "water_quality_label": "جودة الماء",
+        "water_abstraction_label": "سحب الماء",
+        "water_extraction_label": "استخراج الماء",
+        "draining_pipes_label": "أنابيب التصريف",
+        "barriers_label": "الحواجز",
+        "construction_label": "أعمال البناء",
+        "impervious_areas_left_label": "مساحات غير منفذة (يسار)",
+        "impervious_areas_right_label": "مساحات غير منفذة (يمين)",
+        "vegetation_left_label": "الغطاء النباتي (يسار)",
+        "vegetation_right_label": "الغطاء النباتي (يمين)",
+        "vegetation_cuts_label": "قطع النباتات",
+        "invasive_species_label": "الأنواع الدخيلة",
+        "feelings_label": "المشاعر",
+        "feelings": {
+          "joy": "فرح",
+          "serenity": "سكينة",
+          "anger": "غضب",
+          "fear": "خوف"
+        },
+        "water_height_label": "ارتفاع الماء",
+        "overall_assessment_label": "التقييم العام"
+      },
+      "my_submissions_list": {
+        "title": "مشاركات مواقع البحث الحالية",
+        "longitude_label": "خط الطول",
+        "latitude_label": "خط العرض",
+        "research_site_label": "موقع البحث",
+        "created_label": "تاريخ الإنشاء",
+        "overall_label": "التقييم العام",
+        "actions_label": "الإجراءات",
+        "title2": "مشاركات المواقع المُنشأة",
+        "longitude_label_2": "خط الطول",
+        "latitude_label_2": "خط العرض",
+        "research_site_label_2": "موقع البحث",
+        "created_label_2": "تاريخ الإنشاء",
+        "overall_label_2": "التقييم العام",
+        "actions_label_2": "الإجراءات"
       }
     }
   }
