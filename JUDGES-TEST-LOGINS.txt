@@ -1,6 +1,7 @@
 OneAquaHealth Citizen Science
 
-APK download: APK_LINK_PLACEHOLDER
+APK download: https://github.com/MI-TECHDLIN/onehealth-ui/releases/latest
+Download the .apk file under Assets.
 
 Install the APK
 1. Enable installation from unknown sources for the browser or file manager.

@@ -4,7 +4,8 @@ A Flutter field guide that helps citizens make clear, useful observations of urb
 
 ## Try it
 
-APK download: APK_LINK_PLACEHOLDER
+APK download: https://github.com/MI-TECHDLIN/onehealth-ui/releases/latest —
+download the `.apk` file under **Assets**.
 
 The three fictional bundled accounts share password `Ripple2026!`:
 
