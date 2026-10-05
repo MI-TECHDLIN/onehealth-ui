@@ -361,6 +361,18 @@
   "settingsRemindersToggle": "Gentle reminders",
   "settingsRemindersToggleDescription": "Occasional nudges for a stream you haven't checked in a while — at most once a week.",
   "settingsCredits": "Credits",
+  "settingsDemoDataSection": "Demo data",
+  "settingsResetDemoTitle": "Reset demo",
+  "settingsResetDemoDescription": "Clear seeded drafts, history and badges, then load a fresh sample story.",
+  "settingsResetDemoConfirmTitle": "Reset demo data?",
+  "settingsResetDemoConfirmBody": "This clears every demo draft, check, badge and streak, then loads a fresh sample story. Live data is never touched.",
+  "settingsResetDemoConfirmAction": "Reset demo",
+  "settingsResetDemoDoneMessage": "Demo data reset.",
+  "settingsVersionLabel": "OneAquaHealth v{version}",
+  "@settingsVersionLabel": {
+    "description": "App version footer at the bottom of Settings.",
+    "placeholders": {"version": {"type": "String"}}
+  },
 
   "creditsTitle": "Credits",
   "creditsIntro": "OneAquaHealth is built with the help of these open-source projects and resources.",

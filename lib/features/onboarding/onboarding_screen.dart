@@ -5,13 +5,18 @@ import 'package:go_router/go_router.dart';
 
 import '../../app/app_router.dart';
 import '../../core/audio/read_aloud_service.dart';
+import '../../core/gamification/badge_acknowledgement_store.dart';
+import '../../core/gamification/demo_story_seed.dart';
 import '../../core/mascot/aqua_mascot.dart';
 import '../../core/mascot/ripple_controller.dart';
 import '../../core/mode/app_mode.dart';
 import '../../core/motion/motion_preferences.dart';
+import '../../core/settings/app_preferences.dart';
 import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
 import '../../core/widgets/component_kit.dart';
+import '../../data/repositories/assessment_repository.dart';
+import '../../data/repositories/repository_scope.dart';
 import '../../l10n/generated/app_localizations.dart';
 import 'onboarding_content.dart';
 
@@ -20,12 +25,16 @@ import 'onboarding_content.dart';
 /// locked copy/gesture arc and `scripts/narration/README.md` for how the
 /// read-aloud narration is produced.
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({super.key, this.isReplay = false});
+  const OnboardingScreen({super.key, this.isReplay = false, this.preferences});
 
   /// True when opened from Settings to review the story again. Both final
   /// actions then just return to Settings instead of re-routing a citizen
   /// who has already signed in or chosen Demo mode.
   final bool isReplay;
+
+  /// Overridable so tests can verify demo-story seeding without the real
+  /// on-device store; production uses the shared on-device store.
+  final AppPreferences? preferences;
 
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
@@ -105,8 +114,30 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     await settings.completeOnboarding();
     await settings.setMode(AppMode.demo);
     if (!mounted) return;
+    await _seedDemoStoryIfNeeded(context);
+    if (!mounted) return;
     context.go(
       settings.hasCompletedAvatarSetup ? AppRoutes.home : AppRoutes.avatar,
+    );
+  }
+
+  /// Seeds the judge-demo story the first time Demo mode is entered this way
+  /// (see `demo_story_seed.dart`). Degrades to a no-op if no [RepositoryScope]
+  /// is present -- several older tests predate this hook and don't provide
+  /// one, the same tolerance `HomeMapScreen._maybeShowReminder` already uses
+  /// for a missing [AppSettingsScope].
+  Future<void> _seedDemoStoryIfNeeded(BuildContext context) async {
+    final repositoryScope = context
+        .dependOnInheritedWidgetOfExactType<RepositoryScope>();
+    final assessments = repositoryScope?.repositories.assessments;
+    if (assessments is! DemoSeedableAssessmentRepository) return;
+    final preferences = widget.preferences ?? SharedPreferencesAppPreferences();
+    await DemoStorySeeder(preferences: preferences).seedIfNeeded(
+      assessments: assessments,
+      badges: BadgeAcknowledgementStore(
+        preferences: preferences,
+        mode: AppMode.demo,
+      ),
     );
   }
 

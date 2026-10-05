@@ -33,4 +33,8 @@ class BadgeAcknowledgementStore {
       current.map((value) => value.name).join(','),
     );
   }
+
+  /// Forgets every acknowledgement, so freshly (re)seeded badges show their
+  /// one-shot "new" reveal again.
+  Future<void> clear() => _preferences.remove(_key);
 }

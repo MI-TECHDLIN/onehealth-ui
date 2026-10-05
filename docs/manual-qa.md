@@ -292,3 +292,41 @@ notification-permission specifics; the rhythm, badge, and reminder
 decision logic are covered by `test/core/gamification/` and
 `test/core/notifications/`, and the screens by `test/features/streams/`,
 `test/features/profile/`, and `test/features/home/site_detail_screen_test.dart`.
+
+Round 6: judge demo (`lib/core/gamification/demo_story_seed.dart`, Settings >
+Demo data, and a hidden onboarding-restart shortcut):
+90. Clear app data and launch straight into "Look around first" - the app
+    lands on Home centered on the Guimarães pilot streams (no location
+    permission needed); open Streams - "Continue where you left off" shows
+    one draft on Market Quarter Channel, and "History" shows six checks on
+    Willow Bend Stream plus one each on Old Mill Brook and Meadow Gate
+    Creek.
+91. Open Willow Bend Stream's site detail - "Past checks" shows a populated
+    good/moderate/poor timeline spanning several months, not a single dot.
+92. Open Profile ("You") - First signal, Three streams, and Habitat eye show
+    "Unlocked" (or "NEW" if not yet tapped); Clear view and Biodiversity
+    observation still show their criterion text, locked; the weekly rhythm
+    card shows "This week: done" and a multi-week run.
+93. Complete one full check on any stream and reach the celebration screen -
+    the flow works exactly as in round 5; Streams and Profile reflect the
+    new check afterward.
+94. Open Settings - under "Demo data", tap "Reset demo", then cancel - the
+    confirmation dialog closes and Streams/Profile/badges are unchanged.
+95. Repeat and confirm instead - Streams, Profile, and the site-detail
+    timelines return to exactly the step-90 story (any checks or badge
+    acknowledgements made during this demo session are gone), a "Demo data
+    reset." confirmation appears, and Live data (if any was ever used on
+    this device) is untouched.
+96. Switch to Live mode - "Demo data" no longer appears in Settings.
+97. Long-press the small version line at the very bottom of Settings for
+    about two seconds (a subtle haptic fires) - onboarding restarts; "Get
+    started"/"Look around first" behave like the existing "Replay
+    onboarding" row above it (returns to Settings, touches no data). This
+    shortcut is intentionally not labeled in the UI -- see AGENTS.md; it
+    exists only for recording clean onboarding footage on demand.
+
+Items 90-93, 96, and 97's haptic/visual cues require on-device verification;
+seeding (idempotent, reseed-on-reset, Live-untouched) and the long-press
+hand-off are covered by `test/core/gamification/demo_story_seed_test.dart`,
+`test/features/onboarding/onboarding_screen_test.dart`, and
+`test/features/settings/settings_screen_test.dart`.

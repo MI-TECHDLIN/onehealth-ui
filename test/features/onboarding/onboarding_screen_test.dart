@@ -3,7 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onehealth_ui/app/app_router.dart';
 import 'package:onehealth_ui/core/mode/app_mode.dart';
+import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
+import 'package:onehealth_ui/data/repositories/repository_bundle.dart';
+import 'package:onehealth_ui/data/repositories/repository_scope.dart';
 import 'package:onehealth_ui/features/onboarding/onboarding_screen.dart';
 import 'package:onehealth_ui/l10n/generated/app_localizations.dart';
 
@@ -15,6 +18,22 @@ Widget _wrap(Widget child, AppSettingsController settings) =>
         builder: (context, _) => child,
       ),
     );
+
+Widget _wrapWithRepositories(
+  Widget child,
+  AppSettingsController settings,
+  RepositoryBundle repositories,
+) => AppSettingsScope(
+  controller: settings,
+  child: AnimatedBuilder(
+    animation: settings,
+    builder: (context, _) => RepositoryScope(
+      mode: settings.mode,
+      repositories: repositories,
+      child: child,
+    ),
+  ),
+);
 
 Widget _app(GoRouter router) => MaterialApp.router(
   routerConfig: router,
@@ -152,6 +171,78 @@ void main() {
     expect(settings.onboardingComplete, isTrue);
     expect(settings.mode, AppMode.demo);
     expect(find.text('Choose your avatar'), findsOneWidget);
+  });
+
+  testWidgets('Look around first seeds the judge-demo story exactly once', (
+    tester,
+  ) async {
+    final preferences = MemoryAppPreferences();
+    final repositories = RepositoryBundle.demo(preferences: preferences);
+
+    // Deliberately left at the default (no avatar chosen yet), same as
+    // "Look around first enters Demo mode at avatar setup" above, so this
+    // lands on the avatar screen rather than Home -- avoiding the real
+    // native MapLibre view that screen would otherwise stand up in a
+    // widget test (see AGENTS.md). Seeding happens before that hand-off
+    // either way.
+    final router = createAppRouter(initialLocation: AppRoutes.onboarding);
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      _wrapWithRepositories(_app(router), settings, repositories),
+    );
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Skip'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Look around first'));
+    await tester.pumpAndSettle();
+
+    final history = await repositories.assessments.history();
+    expect(history, isNotEmpty);
+    expect(history.map((record) => record.siteCode).toSet(), <String>{
+      'DEMO-RIVER-01',
+      'DEMO-BROOK-02',
+      'DEMO-CREEK-03',
+    });
+    expect(await repositories.assessments.drafts(), hasLength(1));
+  });
+
+  testWidgets('replaying onboarding never reseeds the demo story', (
+    tester,
+  ) async {
+    final preferences = MemoryAppPreferences();
+    final repositories = RepositoryBundle.demo(preferences: preferences);
+
+    final router = GoRouter(
+      initialLocation: '/settings-stub',
+      routes: <RouteBase>[
+        GoRoute(
+          path: '/settings-stub',
+          builder: (context, state) =>
+              const Scaffold(body: Center(child: Text('Settings stub'))),
+        ),
+        GoRoute(
+          path: AppRoutes.onboarding,
+          builder: (context, state) => const OnboardingScreen(isReplay: true),
+        ),
+      ],
+    );
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(
+      _wrapWithRepositories(_app(router), settings, repositories),
+    );
+    await tester.pumpAndSettle();
+
+    router.push(AppRoutes.onboarding);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Skip'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Look around first'));
+    await tester.pumpAndSettle();
+
+    expect(await repositories.assessments.history(), isEmpty);
   });
 
   testWidgets('replay mode returns to the previous screen instead of hand-off', (
