@@ -186,6 +186,31 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   first launch; `HomeMapScreen`'s reminder check also degrades to a no-op
   if it ever runs with no `AppSettingsScope` ancestor (some older widget
   tests predate this feature and don't provide one).
+- `RepositoryBundle.demo`/`.live` (`lib/data/repositories/repository_bundle.dart`)
+  construct the mode's own repositories only -- Live's
+  `LiveAssessmentRepository` + its `retryQueued`/connectivity-retry wiring
+  belongs solely in `.live`, never `.demo` (a round-5 merge once swapped
+  these between the two factories, referencing undefined locals and failing
+  to compile; if a future edit here won't compile with "undefined name
+  api/auth/assessments", this is almost certainly the same slip).
+- The round-6 judge-demo story (`lib/core/gamification/demo_story_seed.dart`,
+  `DemoStorySeeder`) seeds real `AssessmentRecord`s/one `AssessmentDraft`
+  into Demo's own local history store (via the `DemoSeedableAssessmentRepository`
+  interface `DemoAssessmentRepository` implements, the same `is`-check
+  pattern as `QueuedAssessmentRepository`) so
+  `computeUnlockedBadges`/`computeWeeklyRhythm` pick it up for real --
+  unlike `demo_stream_health_seed.dart`'s read-time-only timeline
+  decoration. It runs once, from `OnboardingScreen._handleLookAround`
+  (first "Look around first" only, never on replay), and unconditionally
+  from Settings > Demo data > Reset demo; both no-op gracefully if no
+  `RepositoryScope` ancestor exists (same tolerance as the reminder check
+  above) so older tests that predate this feature keep passing.
+- A ~2s long-press on the small app-version line at the bottom of Settings
+  restarts onboarding (identical to the "Replay onboarding" row above it)
+  with a subtle haptic, with no visible label anywhere -- it exists only so
+  a future agent/demo recorder can jump back to onboarding on demand. Keep
+  it out of user-facing copy and ARB strings if it ever moves; see
+  `docs/manual-qa.md` item 97.
 
 ## Maintaining this file
 

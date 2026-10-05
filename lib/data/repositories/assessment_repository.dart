@@ -78,7 +78,23 @@ abstract interface class QueuedAssessmentRepository {
   Future<void> discardQueued(String clientSubmissionId);
 }
 
-class DemoAssessmentRepository implements AssessmentRepository {
+/// Implemented only by [DemoAssessmentRepository], so the judge-demo story
+/// seeder (`lib/core/gamification/demo_story_seed.dart`) can write fabricated
+/// history/drafts with arbitrary past dates -- something the plain
+/// [AssessmentRepository.submit] contract (always "now") cannot express --
+/// without reaching into Live's real-network implementation. Callers detect
+/// this with an `is` check, the same pattern [QueuedAssessmentRepository]
+/// already uses.
+abstract interface class DemoSeedableAssessmentRepository {
+  Future<void> seedHistory(List<AssessmentRecord> records);
+  Future<void> seedDraft(AssessmentDraft draft);
+
+  /// Wipes drafts, history, and any queued submissions for Demo only.
+  Future<void> clearSeededData();
+}
+
+class DemoAssessmentRepository
+    implements AssessmentRepository, DemoSeedableAssessmentRepository {
   DemoAssessmentRepository({
     AppPreferences? preferences,
     AssessmentContentSource? contentSource,
@@ -129,6 +145,20 @@ class DemoAssessmentRepository implements AssessmentRepository {
     await _store.writeHistory(<AssessmentRecord>[...history, record]);
     await _store.removeDraft(draft.id);
     return record;
+  }
+
+  @override
+  Future<void> seedHistory(List<AssessmentRecord> records) =>
+      _store.writeHistory(records);
+
+  @override
+  Future<void> seedDraft(AssessmentDraft draft) => _store.saveDraft(draft);
+
+  @override
+  Future<void> clearSeededData() async {
+    await _store.writeHistory(const <AssessmentRecord>[]);
+    await _store.clearDrafts();
+    await _store.clearQueued();
   }
 }
 
@@ -406,6 +436,9 @@ class _LocalAssessmentStore {
     );
   }
 
+  Future<void> clearDrafts() =>
+      _preferences.writeString(_draftsKey, jsonEncode(const <Object?>[]));
+
   Future<void> removeDraft(String id) async {
     final values = await readDrafts();
     await _preferences.writeString(
@@ -448,6 +481,9 @@ class _LocalAssessmentStore {
       jsonEncode(updated.map((value) => value.toJson()).toList()),
     );
   }
+
+  Future<void> clearQueued() =>
+      _preferences.writeString(_queuedKey, jsonEncode(const <Object?>[]));
 
   Future<void> removeQueued(String id) async {
     final values = await readQueued();
