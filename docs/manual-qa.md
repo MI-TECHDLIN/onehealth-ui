@@ -39,10 +39,15 @@ Foundation shell, localization, and modes:
     shows Live; canceling the confirmation leaves the current mode unchanged.
 24. Restart after selecting Live and a different language - both choices are
     restored. Switching back to Demo must not expose Live drafts or history.
-25. Select Arabic - layout direction, reading order, and directional icons use
-    RTL; Noto Sans Arabic is used and untranslated strings fall back to English.
+25. Select Arabic - layout direction, reading order, progress, chevrons, and
+    screen-reader order use RTL; map/camera controls keep their physical
+    meaning; Noto Sans Arabic is used; interface and assessment copy are
+    Arabic rather than blank or English.
 26. Review all 18 languages at 200% text scale - no clipped navigation labels,
-    dialogs, settings rows, or bottom-sheet actions.
+    dialogs, settings rows, chips, badge criteria, or bottom-sheet actions.
+    Stress-check German, Finnish, Greek, and Polish on the smallest supported
+    phone. In Arabic, verify mixed site codes/numbers remain readable and
+    punctuation does not jump to the wrong visual edge.
 27. Turn on Android Remove animations - route changes use a short dissolve with
     no horizontal travel; normal mode uses the horizontal shared-axis motion.
 28. In a release build, the Ripple gallery route and Settings row are absent.
@@ -229,10 +234,14 @@ Round 4: stream-check question flow (`lib/features/check/`):
     blurred/dimmed screen; it never launches the system camera app.
 77. Turn on reduce motion and repeat next/back through a few questions -
     transitions become a short dissolve instead of the shared-axis slide.
-78. Switch to Arabic (or another RTL-capable locale) mid-flow - question
-    copy and chrome fall back to English per-string wherever the protocol
-    or ARB has no translation yet (see `assets/data/assessment-content.json`
-    `localeStatus`), never a blank or broken row.
+78. Switch to Arabic mid-flow - question copy and chrome switch to natural
+    Arabic, the glossary underlines Arabic terms and opens translated
+    explanations, and the question order and selected answers remain intact.
+    Repeat a short pass in Turkish and Croatian to confirm the device-voice
+    label is explicit; these three locales intentionally have no release-1
+    Piper track. Native speakers should review Arabic, Turkish, and Croatian
+    first, then the other machine-assisted protocol locales listed in
+    `assets/data/assessment-content.json` `localeStatus`.
 
 Items 65-78 require on-device verification; the shell's navigation,
 gating, resume/start-over, and conditional-visibility logic are covered by

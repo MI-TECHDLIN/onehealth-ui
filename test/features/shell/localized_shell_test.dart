@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
+import 'package:onehealth_ui/l10n/generated/app_localizations.dart';
 import 'package:onehealth_ui/main.dart';
 
 void main() {
-  testWidgets('Arabic locale uses RTL with per-string English fallback', (
+  testWidgets('Arabic locale uses RTL with its translated home title', (
     tester,
   ) async {
     final settings = AppSettingsController(
@@ -32,9 +33,13 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Explore streams'), findsWidgets);
+    final homeTitle = AppLocalizations.of(
+      tester.element(find.byType(Scaffold).first),
+    ).homeTitle;
+
+    expect(find.text(homeTitle), findsWidgets);
     expect(
-      Directionality.of(tester.element(find.text('Explore streams').first)),
+      Directionality.of(tester.element(find.text(homeTitle).first)),
       TextDirection.rtl,
     );
   });

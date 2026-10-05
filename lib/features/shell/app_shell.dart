@@ -240,6 +240,8 @@ class _CheckAction extends StatelessWidget {
           ),
           Text(
             label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: selected ? colors.primary : colors.onSurfaceVariant,
               fontWeight: FontWeight.w800,

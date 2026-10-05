@@ -118,9 +118,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   the active locale (English fallback already handled by
   `AssessmentContentSource.localized`); UI chrome (buttons, progress,
   coaching, glossary sheet, site picker) comes from ARB `assess*`/
-  `glossary*` keys instead -- these are two different locale universes
-  (the protocol ships el/pt/nl/no/fr/it; the app's ARB locale set is
-  separate and wider), so do not assume one covers the other.
+  `glossary*` keys instead. The protocol and ARB files now cover the same 18
+  locale codes, but the original en/el/pt/nl/no/fr/it protocol content remains
+  the official source while es/de/pl/ro/bg/tr/uk/ar/fi/sv/hr is
+  machine-assisted and pending review by native-speaking domain experts; keep
+  that distinction in `localeStatus` until review is recorded.
 - Read-aloud on assessment questions goes through
   `AssessmentNarrationController` (`lib/core/audio/`), which wraps the
   existing screen-agnostic `ReadAloudService` (Piper, English today --
@@ -133,12 +135,11 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   yet -- a deliberate round-4 scope cut, not a bug, left for whoever wires
   per-chip highlighting into `PictureChoiceCard`/`AquaFilterChip`.
 - The tap-to-explain glossary (`lib/core/glossary/`) matches terms against
-  whatever word the protocol's own English copy actually uses (e.g.
-  "substrate" underlines the word "bottom"), not the term's own name --
-  check `GlossaryTerms.all`'s `matchPattern`s before assuming a term will
-  highlight somewhere just because its id appears in a question's
-  `glossaryTermIds`. English-only matching for now; other locales show no
-  underline rather than a wrong one.
+  whatever word the protocol copy actually uses in each locale (e.g. the
+  substrate term matches that locale's word for "bottom"), not necessarily
+  the term's own title. Keep `GlossaryTerms.all`'s per-locale, inflection-aware
+  patterns aligned with assessment copy; Unicode letter boundaries are
+  required for Greek, Cyrillic, Arabic and words with diacritics.
 - `/check/assess` and `/check/review` are top-level routes (outside
   `AppShell`'s bottom-nav `ShellRoute`), reached via `context.push(...,
   extra: streamSiteOrDraft)`; the Check tab's own `/check` route shows

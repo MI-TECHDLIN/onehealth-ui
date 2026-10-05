@@ -91,6 +91,37 @@ void main() {
         english.questionById('channelForm')!.prompt,
       );
     });
+
+    test(
+      'loads complete translated questions for every added protocol locale',
+      () async {
+        final english = await _loadProtocol('en');
+        final englishPrompt = english.questionById('channelForm')!.prompt;
+        const addedLocales = <String>[
+          'es',
+          'de',
+          'pl',
+          'ro',
+          'bg',
+          'tr',
+          'uk',
+          'ar',
+          'fi',
+          'sv',
+          'hr',
+        ];
+
+        for (final locale in addedLocales) {
+          final protocol = await _loadProtocol(locale);
+          expect(protocol.allQuestions.length, english.allQuestions.length);
+          expect(
+            protocol.questionById('channelForm')!.prompt,
+            isNot(englishPrompt),
+            reason: '$locale should use its translated assessment content',
+          );
+        }
+      },
+    );
   });
 
   group('conditional visibility', () {

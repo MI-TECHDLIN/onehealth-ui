@@ -35,7 +35,7 @@
   "cancelAction": "Cancel",
   "switchAction": "Switch mode",
   "chooseLanguage": "Choose language",
-  "translationReviewPending": "English copy — translation review pending",
+  "translationReviewPending": "Machine-translated — human review pending",
   "debugMascotGallery": "Review Ripple moods",
   "authWelcomeBack": "Welcome back",
   "authSignInBody": "Sign in with your OneAquaHealth Community account.",
