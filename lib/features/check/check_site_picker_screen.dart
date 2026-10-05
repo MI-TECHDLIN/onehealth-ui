@@ -117,12 +117,10 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
   @override
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
-    return Scaffold(
-      appBar: AppBar(title: Text(strings.checkPickSiteTitle)),
-      body: SafeArea(
-        child: FutureBuilder<List<StreamSite>>(
-          future: _sitesFuture ?? Future<List<StreamSite>>.value(const <StreamSite>[]),
-          builder: (context, snapshot) {
+    return SafeArea(
+      child: FutureBuilder<List<StreamSite>>(
+        future: _sitesFuture ?? Future<List<StreamSite>>.value(const <StreamSite>[]),
+        builder: (context, snapshot) {
             final sites = snapshot.data ?? const <StreamSite>[];
             return ListView(
               padding: const EdgeInsets.all(AppSpacing.page),
@@ -266,8 +264,7 @@ class _CheckSitePickerScreenState extends State<CheckSitePickerScreen> {
                   ),
               ],
             );
-          },
-        ),
+        },
       ),
     );
   }

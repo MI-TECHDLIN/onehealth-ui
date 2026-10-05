@@ -31,12 +31,20 @@ Friendly error messages:
 Items 10-20 have not yet been verified live.
 
 Foundation shell, localization, and modes:
-21. Launch after clearing app data - the app starts in Demo mode and the yellow
-    Demo badge remains visible across all five main destinations.
+21. Launch after clearing app data - the app starts in Demo mode and no yellow
+    Demo badge appears in any of the five main destination headers. Open
+    Settings with the header settings action and confirm Data mode still shows
+    Demo there.
 22. Use Home, Streams, Check, Impact, and You - each route opens, the selected
     destination uses a filled icon, and Check stays raised at the center.
-23. Tap the mode badge, toggle Live, and confirm - the badge turns green and
-    shows Live; canceling the confirmation leaves the current mode unchanged.
+    Every destination has exactly one shell header; You and Check never stack
+    a second title bar beneath it.
+    Impact shows totals derived from saved checks (submitted checks, distinct
+    streams, and photos) plus tappable factual receipts; with no checks it
+    shows a friendly "No checks yet" state with a Check a stream action.
+23. Open Settings, toggle Data mode to Live, and confirm - the Settings badge
+    turns green and shows Live; canceling the confirmation leaves the current
+    mode unchanged.
 24. Restart after selecting Live and a different language - both choices are
     restored. Switching back to Demo must not expose Live drafts or history.
 25. Select Arabic - layout direction, reading order, progress, chevrons, and
@@ -90,12 +98,17 @@ Items 29-38 require on-device verification.
 Authentication, Live data, and avatars:
 39. Switch to Live while signed out - `/sign-in` opens and no Live site,
     reference, history, file, or submission request occurs before sign-in.
-40. Enter a wrong username/password - the inline concerned-Ripple banner says
-    the details did not match; it never says the session expired or shows a
-    status code/server response.
+    Sign in with a bundled judge username or email and its documented password;
+    the avatar setup opens and the same local profile remains signed in after a
+    restart, without a remote authentication request.
+40. Enter an unlisted username/email or a wrong password - the inline
+    concerned-Ripple banner says the details did not match; it never says the
+    session expired or shows a status code/server response.
 41. During a slow sign-in - controls are disabled, thinking Ripple appears, and
     “Signing you in…” is announced. Toggle password visibility before retrying.
-42. Complete a first successful sign-in - Choose your avatar appears once with
+42. Confirm Sign in and the first Choose your avatar view start directly on
+    their content with no empty dark app bar. Complete a first successful
+    sign-in - Choose your avatar appears once with
     a three-column grid of 12 centred, forward-facing, happy portraits; only the
     selected portrait is in colour and has a check. Confirm the set varies skin
     tone, hair, hijab, turban, facial hair, glasses, and clothing without any
@@ -150,8 +163,8 @@ Items 48-54 require on-device verification.
 
 Map home and site detail:
 55. Open Home - a water-first MapLibre map loads over the pilot area, with
-    Nearby/Needs data/Visited filter chips, a Demo/Live badge in the app bar,
-    and the OpenFreeMap attribution visible (top-right) at all times.
+    Nearby/Needs data/Visited filter chips, no Demo badge in the app bar, and
+    the OpenFreeMap attribution visible (top-right) at all times.
 56. Toggle the phone's light/dark mode while on Home - the map switches
     between the bundled light and dark "water-first" styles without a blank
     frame.
@@ -195,7 +208,8 @@ Round 4: stream-check question flow (`lib/features/check/`):
 66. Work through channel form, bottom type, and bank type - each renders a
     2-column grid of the original illustrated cards (never OneAquaHealth's
     own photos), plus an "I'm not sure" link beneath that shows a short
-    coaching line once tapped.
+    coaching line once tapped. Confirm Water Flow also renders all four text
+    choices rather than an empty gap.
 67. On Habitats and Natural Debris - the screen opens on a Yes/No gate
     ("Are there any habitats present?"); tapping Yes reveals the
     multi-select chip list, tapping No skips straight past with nothing
@@ -266,7 +280,10 @@ reminders (`lib/features/streams/`, `lib/features/profile/`,
     alone); in Demo mode, Willow Bend Stream/Old Mill Brook/Meadow Gate
     Creek show seeded past checks even with no real history yet; in Live
     mode only your own checks for that exact site appear.
-83. On Profile ("You"), confirm "Checks this season" and "Streams covered"
+83. On Profile ("You"), confirm a signed-in bundled account shows its display
+    name, username, email, region, member-since date, and language. In Demo,
+    confirm a friendly "Exploring as a guest" card offers Sign in instead of
+    blank fields. Confirm "Checks this season" and "Streams covered"
     match your own history, and the weekly rhythm card shows "This week:
     done"/"not yet" plus the current run of weeks - check in during two
     consecutive weeks, skip one week, then check in again: the run keeps

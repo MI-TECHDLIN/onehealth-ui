@@ -10,6 +10,7 @@
   "streamsTitle": "My streams",
   "checkTitle": "Check a stream",
   "impactTitle": "Your impact",
+  "impactChecksSubmitted": "Checks submitted",
   "profileTitle": "You",
   "settingsTitle": "Settings",
   "placeholderBody": "This area is ready for the next part of your field journey.",
@@ -19,7 +20,7 @@
   "modeLive": "Live",
   "modeIndicatorLabel": "{mode} data mode",
   "@modeIndicatorLabel": {
-    "description": "Accessible label for the persistent data-mode badge.",
+    "description": "Accessible label for the data-mode badge in Settings.",
     "placeholders": {"mode": {"type": "String"}}
   },
   "settingsDataMode": "Data mode",
@@ -332,6 +333,14 @@
 
   "profileStatsChecksThisSeason": "Checks this season",
   "profileStatsStreamsCovered": "Streams covered",
+  "profileDetailsTitle": "Profile details",
+  "profileMemberSince": "Member since {date}",
+  "@profileMemberSince": {
+    "description": "The date when the local account joined.",
+    "placeholders": {"date": {"type": "String"}}
+  },
+  "profileGuestTitle": "Exploring as a guest",
+  "profileGuestBody": "Sign in to see your local profile details here.",
   "profileRhythmTitle": "Weekly rhythm",
   "profileRhythmThisWeekDone": "This week: done",
   "profileRhythmThisWeekPending": "This week: not yet",

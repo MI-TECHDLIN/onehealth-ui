@@ -3,9 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../core/icons/water_icons.dart';
-import '../../core/settings/app_settings_controller.dart';
 import '../../core/theme/tokens.dart';
-import '../../core/widgets/mode_badge.dart';
 import '../../l10n/generated/app_localizations.dart';
 
 class AppShell extends StatelessWidget {
@@ -17,18 +15,15 @@ class AppShell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
-    final settings = AppSettingsScope.of(context);
-
     return Scaffold(
       appBar: AppBar(
         title: Text(_titleFor(strings, currentPath)),
         actions: <Widget>[
-          Padding(
-            padding: const EdgeInsetsDirectional.only(end: AppSpacing.sm),
-            child: ModeBadge(
-              mode: settings.mode,
-              onTap: () => context.push('/settings'),
-            ),
+          IconButton(
+            key: const Key('shellSettingsButton'),
+            tooltip: strings.settingsTitle,
+            onPressed: () => context.push('/settings'),
+            icon: const Icon(PhosphorIconsRegular.gear),
           ),
         ],
       ),

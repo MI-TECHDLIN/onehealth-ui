@@ -52,6 +52,7 @@ void main() {
     await tester.pumpWidget(_app(router, settings));
     await tester.pumpAndSettle();
 
+    expect(find.byType(AppBar), findsNothing);
     expect(find.byType(SvgPicture), findsNWidgets(AvatarCatalog.ids.length));
     expect(find.bySemanticsLabel('Avatar 1, selected'), findsOneWidget);
 
@@ -70,6 +71,26 @@ void main() {
       'avatar-02',
     );
     expect(find.text('Home stub'), findsOneWidget);
+  });
+
+  testWidgets('change-avatar view has an in-content back action, not an app bar', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(430, 900));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final settings = AppSettingsController.memory();
+    final router = _router(initialLocation: '${AppRoutes.avatar}?change=true');
+    addTearDown(settings.dispose);
+    addTearDown(router.dispose);
+
+    await tester.pumpWidget(_app(router, settings));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(AppBar), findsNothing);
+    expect(find.byType(BackButton), findsOneWidget);
+    await tester.tap(find.byType(BackButton));
+    await tester.pumpAndSettle();
+    expect(find.text('Profile stub'), findsOneWidget);
   });
 
   testWidgets('Do this later assigns and persists the fallback preset', (

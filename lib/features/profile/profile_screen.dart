@@ -3,12 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../app/app_router.dart';
 import '../../core/gamification/badge_acknowledgement_store.dart';
 import '../../core/gamification/badge_rules.dart';
 import '../../core/gamification/contribution_rhythm.dart';
+import '../../core/mode/app_mode.dart';
 import '../../core/profile/avatar_catalog.dart';
 import '../../core/settings/app_preferences.dart';
 import '../../core/settings/app_settings_controller.dart';
@@ -37,7 +39,9 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool _initialized = false;
+  bool _loaded = false;
   List<AssessmentRecord> _history = const <AssessmentRecord>[];
+  AuthUser? _user;
   Set<EvidenceBadgeId> _unlocked = const <EvidenceBadgeId>{};
   Set<EvidenceBadgeId> _acknowledged = const <EvidenceBadgeId>{};
   BadgeAcknowledgementStore? _badgeStore;
@@ -64,12 +68,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
     } catch (_) {
       history = const <AssessmentRecord>[];
     }
+    AuthUser? user;
+    if (repositoryScope.mode.isLive) {
+      try {
+        user = await repositoryScope.repositories.auth.currentUser();
+      } catch (_) {
+        user = null;
+      }
+    }
     final unlocked = computeUnlockedBadges(history);
     final acknowledged = await store.acknowledged();
     if (!mounted) return;
     setState(() {
       _badgeStore = store;
       _history = history;
+      _user = user;
+      _loaded = true;
       _unlocked = unlocked;
       _acknowledged = acknowledged;
     });
@@ -97,12 +111,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       now: _now,
     );
 
-    return Scaffold(
-      appBar: AppBar(title: Text(strings.profileTitle)),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(AppSpacing.page),
-          children: <Widget>[
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.all(AppSpacing.page),
+        children: <Widget>[
             Center(
               child: Container(
                 width: 132,
@@ -127,6 +139,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 icon: const Icon(PhosphorIconsRegular.userCircle),
                 label: Text(strings.authAvatarChangeAction),
               ),
+            ),
+            const SizedBox(height: AppSpacing.lg),
+            Text(
+              strings.profileDetailsTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: AppSpacing.sm),
+            _ProfileDetailsCard(
+              loaded: _loaded,
+              user: _user,
+              onSignIn: () async {
+                await settings.setMode(AppMode.live);
+                if (context.mounted) context.go(AppRoutes.signIn);
+              },
+              onSignOut: () async {
+                await auth.signOut();
+                if (context.mounted) context.go(AppRoutes.signIn);
+              },
             ),
             const SizedBox(height: AppSpacing.lg),
             Row(
@@ -156,37 +186,115 @@ class _ProfileScreenState extends State<ProfileScreen> {
               acknowledged: _acknowledged,
               onAcknowledge: _acknowledge,
             ),
-            const SizedBox(height: AppSpacing.lg),
-            FutureBuilder<AuthUser?>(
-              future: auth.currentUser(),
-              builder: (context, snapshot) => snapshot.data == null
-                  ? const SizedBox.shrink()
-                  : ListTile(
-                      leading: const Icon(PhosphorIconsRegular.shieldCheck),
-                      title: Text(snapshot.data!.displayName),
-                      subtitle: Text(
-                        <String>[
-                          strings.authSignedInAs(snapshot.data!.username),
-                          if (snapshot.data!.email != null)
-                            snapshot.data!.email!,
-                        ].join('\n'),
-                      ),
-                    ),
-            ),
-            const SizedBox(height: AppSpacing.md),
-            OutlinedButton.icon(
-              onPressed: () async {
-                await auth.signOut();
-                if (!context.mounted) return;
-                context.go(
-                  settings.mode.isLive ? AppRoutes.signIn : AppRoutes.home,
-                );
-              },
-              icon: const Icon(PhosphorIconsRegular.signOut),
-              label: Text(strings.authSignOutAction),
-            ),
-          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _ProfileDetailsCard extends StatelessWidget {
+  const _ProfileDetailsCard({
+    required this.loaded,
+    required this.user,
+    required this.onSignIn,
+    required this.onSignOut,
+  });
+
+  final bool loaded;
+  final AuthUser? user;
+  final VoidCallback onSignIn;
+  final VoidCallback onSignOut;
+
+  @override
+  Widget build(BuildContext context) {
+    final strings = AppLocalizations.of(context);
+    if (!loaded) {
+      return const Card(
+        child: Padding(
+          padding: EdgeInsets.all(AppSpacing.lg),
+          child: Center(child: CircularProgressIndicator()),
         ),
+      );
+    }
+    final currentUser = user;
+    if (currentUser == null) {
+      return Card(
+        key: const Key('profileGuestState'),
+        child: Padding(
+          padding: const EdgeInsets.all(AppSpacing.md),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                strings.profileGuestTitle,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              const SizedBox(height: AppSpacing.xs),
+              Text(strings.profileGuestBody),
+              const SizedBox(height: AppSpacing.sm),
+              TextButton.icon(
+                onPressed: onSignIn,
+                icon: const Icon(PhosphorIconsRegular.signIn),
+                label: Text(strings.authSignInAction),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+    final memberSince = currentUser.memberSince;
+    final formattedMemberSince = memberSince == null
+        ? null
+        : DateFormat.yMMMMd(
+            Localizations.localeOf(context).toString(),
+          ).format(memberSince.toLocal());
+    return Card(
+      key: const Key('profileDetails'),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: const Icon(PhosphorIconsRegular.userCircle),
+            title: Text(currentUser.displayName),
+            subtitle: Text('@${currentUser.username}'),
+          ),
+          if (currentUser.email != null)
+            ListTile(
+              leading: const Icon(PhosphorIconsRegular.envelope),
+              title: Text(currentUser.email!),
+            ),
+          if (currentUser.region != null)
+            ListTile(
+              leading: const Icon(PhosphorIconsRegular.mapPin),
+              title: Text(currentUser.region!),
+            ),
+          if (formattedMemberSince != null)
+            ListTile(
+              leading: const Icon(PhosphorIconsRegular.calendar),
+              title: Text(strings.profileMemberSince(formattedMemberSince)),
+            ),
+          if (currentUser.preferredLanguage != null)
+            ListTile(
+              leading: const Icon(PhosphorIconsRegular.translate),
+              title: Text(currentUser.preferredLanguage!),
+              subtitle: Text(strings.settingsLanguage),
+            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(
+              AppSpacing.md,
+              0,
+              AppSpacing.md,
+              AppSpacing.sm,
+            ),
+            child: Align(
+              alignment: AlignmentDirectional.centerStart,
+              child: TextButton.icon(
+                onPressed: onSignOut,
+                icon: const Icon(PhosphorIconsRegular.signOut),
+                label: Text(strings.authSignOutAction),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

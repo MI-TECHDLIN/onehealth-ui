@@ -43,9 +43,6 @@ class _AvatarPickerScreenState extends State<AvatarPickerScreen> {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: widget.returnToProfile,
-      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -59,6 +56,13 @@ class _AvatarPickerScreenState extends State<AvatarPickerScreen> {
                 ),
                 child: Column(
                   children: <Widget>[
+                    if (widget.returnToProfile)
+                      Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: BackButton(
+                          onPressed: () => context.go(AppRoutes.profile),
+                        ),
+                      ),
                     Text(
                       strings.authAvatarTitle,
                       textAlign: TextAlign.center,

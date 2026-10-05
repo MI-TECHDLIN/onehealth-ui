@@ -41,12 +41,14 @@ class _FakeAssessmentRepository implements AssessmentRepository {
 Future<MemoryAppPreferences> _pumpProfile(
   WidgetTester tester, {
   required List<AssessmentRecord> history,
+  AppMode mode = AppMode.demo,
+  AuthRepository? auth,
 }) async {
   final preferences = MemoryAppPreferences();
   final settings = AppSettingsController.memory();
   addTearDown(settings.dispose);
   final bundle = RepositoryBundle(
-    auth: DemoAuthRepository(),
+    auth: auth ?? DemoAuthRepository(),
     sites: DemoSiteRepository(),
     references: DemoReferenceRepository(),
     assessments: _FakeAssessmentRepository(history),
@@ -77,7 +79,7 @@ Future<MemoryAppPreferences> _pumpProfile(
     AppSettingsScope(
       controller: settings,
       child: RepositoryScope(
-        mode: AppMode.demo,
+        mode: mode,
         repositories: bundle,
         child: MaterialApp.router(
           routerConfig: router,
@@ -92,6 +94,43 @@ Future<MemoryAppPreferences> _pumpProfile(
 }
 
 void main() {
+  testWidgets('shows a guest profile state in Demo mode', (tester) async {
+    await _pumpProfile(tester, history: const <AssessmentRecord>[]);
+
+    expect(find.byKey(const Key('profileGuestState')), findsOneWidget);
+    expect(find.byType(AppBar), findsNothing);
+    expect(find.text('Exploring as a guest'), findsOneWidget);
+    expect(find.text('Sign in'), findsOneWidget);
+  });
+
+  testWidgets('shows every local account profile field when signed in', (
+    tester,
+  ) async {
+    await _pumpProfile(
+      tester,
+      mode: AppMode.live,
+      auth: _FixedAuthRepository(
+        AuthUser(
+          username: 'avery.current',
+          displayName: 'Avery Current',
+          email: 'avery.current@example.test',
+          region: 'Porto District',
+          memberSince: DateTime.utc(2025, 4, 12),
+          preferredLanguage: 'English',
+        ),
+      ),
+      history: const <AssessmentRecord>[],
+    );
+
+    expect(find.byKey(const Key('profileDetails')), findsOneWidget);
+    expect(find.text('Avery Current'), findsOneWidget);
+    expect(find.text('@avery.current'), findsOneWidget);
+    expect(find.text('avery.current@example.test'), findsOneWidget);
+    expect(find.text('Porto District'), findsOneWidget);
+    expect(find.text('Member since April 12, 2025'), findsOneWidget);
+    expect(find.text('English'), findsOneWidget);
+  });
+
   testWidgets('shows checks-this-season and streams-covered stats from history', (
     tester,
   ) async {
@@ -160,4 +199,22 @@ void main() {
       'firstSignal',
     );
   });
+}
+
+class _FixedAuthRepository implements AuthRepository {
+  _FixedAuthRepository(this.user);
+
+  AuthUser? user;
+
+  @override
+  Future<AuthUser?> currentUser() async => user;
+
+  @override
+  Future<AuthUser> signIn({
+    required String username,
+    required String password,
+  }) async => user!;
+
+  @override
+  Future<void> signOut() async => user = null;
 }

@@ -26,7 +26,14 @@ class AssessmentContentSource {
     if (locales is! Map) return <String, dynamic>{};
     final english = _stringMap(locales['en']);
     final requested = _stringMap(locales[languageCode]);
-    return _merge(english, requested);
+    final localized = _merge(english, requested);
+
+    // Option codes/names are locale-independent and intentionally live once
+    // at the asset root. The protocol parser needs them alongside localized
+    // labels; omitting this table leaves every option list empty, so both the
+    // illustrated grids and ordinary single-choice chips render no answers.
+    localized['referenceData'] = _stringMap(source['referenceData']);
+    return localized;
   }
 
   Map<String, dynamic> _merge(

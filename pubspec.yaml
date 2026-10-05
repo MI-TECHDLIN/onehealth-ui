@@ -88,6 +88,7 @@ flutter:
     - assets/animations/celebration-burst.json
     - assets/animations/badge-unlock.json
     - assets/data/assessment-content.json
+    - assets/data/local_accounts.json
     - assets/avatars/
     - assets/audio/onboarding/en/
     - assets/audio/assessment/en/

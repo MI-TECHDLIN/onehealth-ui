@@ -47,7 +47,6 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     final strings = AppLocalizations.of(context);
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

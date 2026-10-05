@@ -43,16 +43,20 @@ class RepositoryBundle {
   }) {
     final network = client ?? http.Client();
     final tokens = tokenStore ?? SecureTokenStore();
-    final auth = LiveAuthRepository(
+    final remoteAuth = LiveAuthRepository(
       client: network,
       tokenStore: tokens,
       baseUri: baseUri,
+    );
+    final auth = LocalAccountsAuthRepository(
+      preferences: preferences,
+      remoteRepository: remoteAuth,
     );
     final api = LiveApiClient(
       client: network,
       tokenStore: tokens,
       baseUri: baseUri ?? LiveApiClient.productionBaseUri,
-      onUnauthorized: auth.invalidateSession,
+      onUnauthorized: auth.signOut,
     );
     final content = AssessmentContentSource();
     final assessments = LiveAssessmentRepository(

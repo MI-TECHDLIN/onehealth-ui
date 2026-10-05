@@ -18,6 +18,7 @@ import '../features/check/photo_capture_screen.dart';
 import '../features/home/home_map_screen.dart';
 import '../features/home/site_detail_screen.dart';
 import '../features/home/stream_map_view.dart';
+import '../features/impact/impact_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/profile/avatar_picker_screen.dart';
 import '../features/profile/profile_screen.dart';
@@ -150,10 +151,13 @@ GoRouter createAppRouter({
             child: const CheckSitePickerScreen(),
           ),
         ),
-        _placeholderRoute(
+        GoRoute(
           path: AppRoutes.impact,
-          icon: PhosphorIconsRegular.chartLineUp,
-          title: (strings) => strings.impactTitle,
+          pageBuilder: (context, state) => _page(
+            context: context,
+            state: state,
+            child: const ImpactScreen(),
+          ),
         ),
         GoRoute(
           path: AppRoutes.profile,
@@ -239,22 +243,6 @@ GoRouter createAppRouter({
         ),
       ),
   ],
-);
-
-GoRoute _placeholderRoute({
-  required String path,
-  required IconData icon,
-  required String Function(AppLocalizations strings) title,
-}) => GoRoute(
-  path: path,
-  pageBuilder: (context, state) => _page(
-    context: context,
-    state: state,
-    child: PlaceholderScreen(
-      title: title(AppLocalizations.of(context)),
-      icon: icon,
-    ),
-  ),
 );
 
 CustomTransitionPage<void> _page({

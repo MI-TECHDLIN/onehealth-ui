@@ -39,6 +39,14 @@ void main() {
       expect(channelForm.options.first.label, 'Flat (A)');
     });
 
+    test('localized content retains root reference option data', () async {
+      final content = await AssessmentContentSource().localized('en');
+      final referenceData = content['referenceData'] as Map<String, dynamic>;
+
+      expect(referenceData['channelForms'], isNotEmpty);
+      expect(referenceData['waterFlows'], isNotEmpty);
+    });
+
     test('yes/no questions carry Yes/No/not-sure sentinel codes', () async {
       final protocol = await _loadProtocol();
       final hasDams = protocol.questionById('hasDams')!;
