@@ -23,7 +23,8 @@
     "sv",
     "fi",
     "hr",
-    "bg"
+    "bg",
+    "tr"
   ],
   "localeStatus": {
     "en": {
@@ -100,6 +101,12 @@
     },
     "bg": {
       "name": "Български",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "tr": {
+      "name": "Türkçe",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -6884,6 +6891,441 @@
         "created_label_2": "Създадено на",
         "overall_label_2": "Обща оценка",
         "actions_label_2": "Действия"
+      }
+    },
+    "tr": {
+      "citizens_menu": {
+        "instructions": "Talimatlar",
+        "instructions_title": "Vatandaş bilimi talimatları",
+        "new_observation": "Yeni gözlem oluştur",
+        "new_observation_title": "Yeni vatandaş bilimi gönderimi",
+        "my_submissions": "Gönderimlerim",
+        "my_submissions_title": "Gönderimlerim"
+      },
+      "title": "OneAquaHealth Vatandaş Bilimi Uygulaması — kurulum talimatları",
+      "viewInstructions": "Talimatları görüntüle",
+      "version": "OneAquaHealth Vatandaş Bilimi Uygulaması — sürüm 1.0",
+      "installation_modal": {
+        "title": "OAH Vatandaş Bilimi Uygulamasını kurma",
+        "intro": "OAH uygulamasını kurmadan önce <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth Topluluğuna</a> katılmalısın.<br />Kayıttan sonra aşağıdaki adımları izle ve sana verilen e-posta ve parolayla giriş yap.",
+        "step1_label": "1. adım.",
+        "step1_desc": "Telefonunun tarayıcısını aç ve şu adresi ziyaret et:",
+        "step2_label": "2. adım. Uygulama kurulum istemini bul:",
+        "step2_list_item1": "Kurulum öneren bir pencere görünürse ekrandaki talimatları izle.",
+        "step2_list_item2": "İstem görünmezse sonraki adıma geç.",
+        "step3_label": "3. adım. Ana ekrana ekle:",
+        "step3_ios": "<b>iOS için (a):</b> Alttaki paylaş simgesine (oklu kutu) dokun ve <span class=\"font-semibold\">“Ana Ekrana Ekle”</span> seçeneğini seç <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"iOS örneği\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Android için (b):</b> Menü simgesine (üç nokta) dokun ve <span class=\"font-semibold\">“Ana ekrana ekle”</span> veya <span class=\"font-semibold\">“Uygulamayı yükle”</span> seçeneğini seç <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android örneği\" class=\"max-h-96\" /> </div>",
+        "step4_label": "4. adım.",
+        "step4_desc": "<span class=\"font-semibold\">“Ekle”</span> veya <span class=\"font-semibold\">“Yükle”</span> seçeneğine dokunarak kurulumu onayla",
+        "step5_label": "5. adım.",
+        "step5_desc": "Ana ekranda yeni uygulama simgesini bul ve açmak için dokun",
+        "close": "Kapat"
+      },
+      "app_intro_title": "Bu uygulama ne işe yarar?",
+      "app_intro_text": "Bu uygulama vatandaşların şehir derelerinin sağlığı hakkında veri toplamasına yardımcı olur",
+      "before_submit": "Göndermeden önce",
+      "education": {
+        "title": "Şehir deresi nedir?",
+        "intro": "Şehir dereleri, kentleşmeyle iç içe olan ve çoğu zaman daha büyük havzaların parçası olan akan sulardır. İnsan etkinlikleri kanalı örtü ve yapay malzemelerle değiştirir, suyu kirletir ve kıyı bitki örtüsünü bozar.",
+        "healthy_streams": {
+          "title": "Sağlıklı dere ekosistemleri",
+          "content": "Sağlıklı dereler, kökleri ıslak toprakta yaşayabilen kıyı bitkileriyle çevrilidir. Dere ve bitki örtüsü sucul ve karasal hayvanlara, mantarlara ve mikroorganizmalara yaşam alanı sağlar. Bu canlılar üretim, besin döngüsü ve organik maddenin ayrışmasına katılır."
+        },
+        "ecosystem_services": {
+          "title": "Ekosistem hizmetleri",
+          "content": "İyi korunmuş dereler havayı iyileştirir, sıcaklık ve nemi düzenler ve taşkınları azaltır. Ayrıca dinlenme, buluşma ve çevre eğitimi için doğal alanlar sunar."
+        },
+        "key_concepts": {
+          "title": "Dere değerlendirmesi için temel kavramlar",
+          "downstream_direction": "Sol ve sağ kıyı ile kıyı şeritleri, akış aşağı yani suyun aktığı yöne bakarken belirlenir (şekil 1)."
+        },
+        "figure1": {
+          "caption": "Şekil 1. Derenin sol (S) ve sağ (Ğ) kıyıları. Ok akış yönünü gösterir."
+        },
+        "cross_section": {
+          "description": "Genişlik (şekil 2) ve derinlik (şekil 3), kanala dik bir kesitte ölçülür. Değerler değişebileceğinden ölçüm ortalama koşulları temsil eden bir yerde yapılmalıdır."
+        },
+        "figure2": {
+          "caption": "Şekil 2. Dere kesiti: A) kıyı üstü; B) kıyı; C) ana ıslak kanal; D) akış yönü (akış aşağı görünüm); E) genişlik; F) derinlik."
+        },
+        "figure3": {
+          "caption": "Şekil 3. Cetvel veya metreyle derinlik ölçümü."
+        },
+        "riparian_and_floodplain": {
+          "content": "Kıyı şeridi dere boyunca uzanır ve kıyı bitkileriyle kaplıdır. Sağlıklı örtü, otlardan çalı ve ağaçlara kadar farklı boylarda, suya yakın yaşamaya uyumlu yerli bitkiler içerir (şekil 4)."
+        },
+        "figure4": {
+          "caption": "Şekil 4. Korunmuş kıyı şeridi: A) otlar, eğreltiler, yosun ve likenlerden oluşan alt katman; B) yaklaşık 6 m’ye kadar odunsu çalılar; C) örtü oluşturan olgun ağaçlar."
+        },
+        "figure_description": "Taşkın ovaları yoğun yağışlarda doğal olarak suyla kaplanır. Taşkınlar toprağı besin açısından zengin tortuyla zenginleştirir (şekil 5). Ana kanal birikme ve aşınmayla yer değiştirdikçe ovaların biçimi değişebilir.",
+        "figure5": {
+          "caption": "Şekil 5. A) Islak kanal; B) etkin taşkın ovası; C) düzenleyici taşkın ovası; D) daha seyrek taşan jeolojik ova; E) teras."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Orman ve şehir dereleri arasındaki temel farklar",
+          "content": "Kentleşme, yol, bina, beton ve asfaltla kıyı ve taşkın ovalarındaki geçirimsiz yüzeyleri artırır (şekil 6). Su orman veya tarladaki gibi toprağa sızmaz. Şiddetli yağış ani taşkına, hasara ve insanlara yönelik riske yol açar. Yüzeyler yeraltı suyunun yenilenmesini de azaltır ve barajlar ile su çekiminin yanında kıtlığı artırır. Şehir akışı ve kanalizasyon taşmaları dereleri ayrıca kirletir."
+        },
+        "figure6": {
+          "caption": "Şekil 6. Solda geçirgen, ortada kısmen geçirimsiz ve sağda geçirimsiz yüzeyler."
+        },
+        "oneaquahealth_project": {
+          "title": "OneAquaHealth projesi ve OAH uygulaması",
+          "content": "OneAquaHealth şehir tatlı su ekosistemlerinin durumunu iyileştirmeyi, Tek Sağlığı desteklemeyi ve bozulmanın erken işaretlerini bulmayı amaçlar. Daha iyi yönetim için OAH uygulamasını içeren bir çevre gözetim sistemi geliştirildi. Uygulama vatandaşları izlemeye katar, bilgiyi artırır ve onarımı destekler."
+        },
+        "onehealth": {
+          "title": "Tek Sağlık nedir?",
+          "content": "Tek Sağlık insanlar, canlılar ve çevre için sürdürülebilir sağlığı destekler (şekil 7). Korunmuş şehir doğası temiz hava ve su ile esenliği destekleyen sakin yerler sunar. Eve yakın yeşil ve mavi alanlar dışarı çıkmayı, buluşmayı ve dinlenmeyi teşvik eder. Şehir dereleri sıkça gizlidir ama büyük potansiyel taşır. Tek Sağlık yaklaşımıyla onarıldıklarında toplulukları bir araya getirebilir."
+        },
+        "figure7": {
+          "caption": "Şekil 7. Tek Sağlık kavramı insan, canlı ve çevre sağlığı arasındaki bağlantıyı gösterir. Kesişen alanlar bütünleşik yaklaşım gereksinimini vurgular."
+        },
+        "what_you_can_do": {
+          "title": "Nasıl yardımcı olabilirsin?",
+          "content": "Yakınında, gizlenmiş ve beton duvarlarla çok değişmiş olsa bile bir şehir deresi varsa bakımına yardımcı olabilirsin. Kanalı, kıyıları ve kıyı şeridini incele, uygulamayla bilgi ve fotoğraf gönder. Son olarak şu sınıflardan biriyle genel değerlendirme yap:"
+        },
+        "quality": {
+          "good": "<strong>İyi kalite</strong> (ekosistem bileşenleri mevcut ve iyi durumda: kıyı bitkileri, doğal kanal, iyi su kalitesi ve biyolojik çeşitlilik)",
+          "moderate": "<strong>Orta kalite</strong> (bazı değişiklikler var, ancak hâlâ biyolojik çeşitlilik ve kıyı bitkileri bulunuyor, su iyi görünüyor...)",
+          "poor": "<strong>Kötü kalite</strong> (çok değiştirilmiş veya yapay, kıyı bitkileri ve yaşam alanları kaybedilmiş, yalnızca istilacı türler ya da kirli su var)"
+        },
+        "submission_hint": "Katkıda bulunmak için istenen bilgileri girip <strong>“İleri”</strong> seçeneğine dokun (yukarıdaki yönergeleri gör)"
+      },
+      "step": "Adım",
+      "next": "İleri",
+      "previous": "Geri",
+      "submit": "Gönder",
+      "basic_information": "Temel bilgiler",
+      "additional_details": "Ek ayrıntılar",
+      "media_upload": "Medya yükleme",
+      "questions_1_3_": "Sorular (1/3)",
+      "questions_2_3_": "Sorular (2/3)",
+      "questions_3_3_": "Sorular (3/3)",
+      "feedback_1_2": "Geri bildirim (1/2)",
+      "feedback_2_2": "Geri bildirim (2/2)",
+      "review_submit": "İncele ve gönder",
+      "select_from_my_sites": "Sahalarımdan seç",
+      "enter_longitude": "Boylamı gir",
+      "enter_latitude": "Enlemi gir",
+      "enter_site_name": "Saha adını gir",
+      "longitude": "Boylam",
+      "latitude": "Enlem",
+      "site_name": "Saha adı",
+      "site_selection": {
+        "title": "Değerlendirilecek OneAquaHealth şehir deresi sahasını seç (uzaklık gösterilir)",
+        "description": "Yeni saha ekle"
+      },
+      "media": {
+        "title": "Görselleri seç",
+        "upstream_photo_label": "Akış yukarı fotoğrafı",
+        "upstream_photo_description": "Akış yukarı fotoğrafı",
+        "downstream_photo_label": "Akış aşağı fotoğrafı",
+        "downstream_photo_description": "Akış aşağı fotoğrafı",
+        "context_photo_label": "Çevre fotoğrafı",
+        "context_photo_description": "Çevre fotoğrafı (evler, yollar...)",
+        "biodiversity_photo_label": "İlginç bir biyolojik çeşitlilik öğesinin fotoğrafı",
+        "biodiversity_photo_description": "İlginç bir biyolojik çeşitlilik öğesinin fotoğrafı (bitki, hayvan, mantar veya diğer)",
+        "video_label": "Kısa video çek (5 veya 10 saniye)",
+        "video_description": "Kısa video çek (5 veya 10 saniye)",
+        "select_file_button": "Dosya seç"
+      },
+      "questions_1_3": {
+        "title": "Durduğun yerden ne görüyorsun (yaklaşık 100 m içinde)?",
+        "channel_form": {
+          "question": "Kanal biçimi",
+          "questiontext": "Kanal biçimi…",
+          "labels": {
+            "Flat (Α)": "Düz (A)",
+            "Flat (A)": "Düz (A)",
+            "U Shape (Β)": "U biçimli (B)",
+            "U Shape (B)": "U biçimli (B)",
+            "V Shape (C)": "V biçimli (C)",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "bottom_type": {
+          "question": "Taban türü",
+          "questiontext": "Islak kanalın tabanı…",
+          "labels": {
+            "Natural (A)": "Doğal (A)",
+            "Natural (Α)": "Doğal (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Yapay (beton veya betonlu taşlar) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Yapay (beton veya betonlu taşlar) (B)",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "bank_type": {
+          "question": "Kıyı türü",
+          "questiontext": "Kanalın kıyıları…",
+          "labels": {
+            "Natural (A)": "Doğal (A)",
+            "Natural (Α)": "Doğal (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Yapay (beton veya betonlu taşlar) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Yapay (beton veya betonlu taşlar) (B)",
+            "Layed stones with no concrete (C)": "Betonsuz döşenmiş taşlar (C)",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "habitats": {
+          "question": "Yaşam alanları",
+          "questiontext": "Mevcut yaşam alanları…",
+          "questiontextshow": "Herhangi bir yaşam alanı var mı?",
+          "options": {
+            "Sand banks (A)": "Kum setleri (A)",
+            "Sand banks (Α)": "Kum setleri (A)",
+            "Sand islands (B)": "Kum adaları (B)",
+            "Sand islands (Β)": "Kum adaları (B)",
+            "Stone deposits (C)": "Taş birikintileri (C)",
+            "Riffles, rapids, falls (D)": "Sığ hızlı akışlar, çağlayanlar veya düşüler (D)",
+            "Aquatic vegetation (E)": "Su bitkileri (E)"
+          },
+          "info": "Birden çok yaşam alanı seçebilirsin. Önce kutuyu, ardından tanıdığın tüm türleri işaretle."
+        },
+        "natural_debris": {
+          "question": "Doğal kalıntılar",
+          "questiontext": "Şunlar var…",
+          "questiontextshow": "Herhangi bir doğal kalıntı var mı?",
+          "labels": {
+            "Fallen trees (A)": "Devrilmiş ağaçlar (A)",
+            "Fallen trees (Α)": "Devrilmiş ağaçlar (A)",
+            "Fallen branches (B)": "Düşmüş dallar (B)",
+            "Fallen branches (Β)": "Düşmüş dallar (B)",
+            "Deposits of fallen leaves (C)": "Düşmüş yaprak birikintileri (C)"
+          },
+          "info": "Birden çok doğal kalıntı türü seçebilirsin. Önce daireyi, ardından tanıdığın tüm türleri işaretle."
+        },
+        "water_flow": {
+          "question": "Su akışı",
+          "questiontext": "Su nasıl akıyor?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Hızlı (dalgalı veya yüksek hızlı) (A)",
+            "Fast (with waves or high velocity) (Α)": "Hızlı (dalgalı veya yüksek hızlı) (A)",
+            "Slow (B)": "Yavaş (B)",
+            "Slow (Β)": "Yavaş (B)",
+            "Stagnant/intermittent (C)": "Durgun veya aralıklı (C)",
+            "Dry (D)": "Kuru (D)",
+            "I am not sure": "Emin değilim"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Suyun görünümü",
+          "questiontext": "Su nasıl görünüyor?",
+          "labels": {
+            "Clear/transparent (A)": "Berrak veya saydam (A)",
+            "Clear/transparent (Α)": "Berrak veya saydam (A)",
+            "Muddy/turbid (B)": "Çamurlu veya bulanık (B)",
+            "Muddy/turbid (Β)": "Çamurlu veya bulanık (B)",
+            "Has foam (C)": "Köpüklü (C)",
+            "Has colors/altered color (D)": "Renkli veya rengi değişmiş (D)",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Su çekimi",
+          "questiontext": "Dereden belirgin biçimde su toplama, kullanma veya uzaklaştırma var mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "barriers": {
+          "question": "Engeller",
+          "questiontext": "Baraj veya başka yapay enine engeller görüyor musun? Görsel örneklere bak.",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "draining_pipes": {
+          "question": "Drenaj boruları",
+          "questiontext": "Kirli suyu dereye boşaltan borular var mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Atık su boşaltımı",
+          "questiontext": "Herhangi bir atık su girişi veya boşaltımı var mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "construction": {
+          "question": "İnşaat",
+          "questiontext": "Derede veya çevresinde inşaat ya da çalışma var mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "water_height": {
+          "question": "Su yüksekliği",
+          "questiontext": "Su yüksekliği nedir?",
+          "placeholder": "Su yüksekliğini gir",
+          "info": "Metre (m) olarak tahmin et ve ondalık işareti olarak nokta (.) kullan (ör. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "Kıyı şeridinde (kıyı üstünden 5–10 m)",
+        "impervious_left": {
+          "question": "Geçirimsiz alanlar (sol)",
+          "questiontext": "Sol kıyı şeridinin üçte birinden fazlası yol, kaldırım, bina veya başka geçirimsiz yüzeylerle kaplı mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "impervious_right": {
+          "question": "Geçirimsiz alanlar (sağ)",
+          "questiontext": "Sağ kıyı şeridinin üçte birinden fazlası yol, kaldırım, bina veya başka geçirimsiz yüzeylerle kaplı mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "vegetation_left": {
+          "question": "Bitki örtüsü (sol)",
+          "questiontext": "Sol kıyı şeridi bitki örtüsüyle kaplı mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Bitki örtüsü türü (sol)",
+          "questiontext": "Sol kıyı şeridinde (kıyı üstünden ilk 5 m) hangi bitki örtüsü %50’den fazla alan kaplıyor?",
+          "labels": {
+            "Herbs (A)": "Otlar (A)",
+            "Herbs (Α)": "Otlar (A)",
+            "Shrubs (B)": "Çalılar (B)",
+            "Shrubs (Β)": "Çalılar (B)",
+            "Trees (C)": "Ağaçlar (C)",
+            "I am not sure": "Emin değilim"
+          },
+          "info": "Akış aşağı bakarken soldaki bitki örtüsünü incelemeyi unutma"
+        },
+        "vegetation_right": {
+          "question": "Bitki örtüsü (sağ)",
+          "questiontext": "Sağ kıyı şeridi bitki örtüsüyle kaplı mı?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Bitki örtüsü türü (sağ)",
+          "questiontext": "Sağ kıyı şeridinde (kıyı üstünden ilk 5 m) hangi bitki örtüsü %50’den fazla alan kaplıyor?",
+          "labels": {
+            "Herbs (A)": "Otlar (A)",
+            "Herbs (Α)": "Otlar (A)",
+            "Shrubs (B)": "Çalılar (B)",
+            "Shrubs (Β)": "Çalılar (B)",
+            "Trees (C)": "Ağaçlar (C)",
+            "I am not sure": "Emin değilim"
+          },
+          "info": "Akış aşağı bakarken sağdaki bitki örtüsünü incelemeyi unutma"
+        },
+        "invasive_species": {
+          "question": "İstilacı türler",
+          "questiontext": "Yerli olmayan veya istilacı bitki türü görüyor musun?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          },
+          "placeholder": "Hangileri?"
+        },
+        "vegetation_cut": {
+          "question": "Bitki örtüsü kesimi",
+          "questiontext": "Bir veya iki kıyıdaki bitki örtüsü yakın zamanda kısmen ya da tamamen kesilmiş mi?",
+          "labels": {
+            "Yes": "Evet",
+            "No": "Hayır",
+            "I am not sure": "Emin değilim"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Dere ekosisteminin sağlığına genel bir değerlendirme yap (bir seçenek seç)",
+        "good_quality": "İyi kalite",
+        "good_quality_description": "Ekosistem bileşenleri mevcut: kıyı bitkileri, doğal kanal, iyi su ve biyolojik çeşitlilik",
+        "moderate_quality": "Orta kalite",
+        "moderate_quality_description": "Bazı değişiklikler var, ancak hâlâ biyolojik çeşitlilik ve kıyı bitkileri bulunuyor; su iyi görünüyor...",
+        "poor_quality": "Kötü kalite",
+        "poor_quality_description": "Çok değiştirilmiş veya yapay, kıyı bitkileri ve yaşam alanları kaybedilmiş, su kirli"
+      },
+      "feelings": {
+        "question": "Deneyimini en iyi hangi duygular anlatıyor?",
+        "info": "Araştırmalar derelerin insan duygularını etkileyebileceğini gösteriyor.",
+        "instructions": "Duygunun şiddetini değerlendirmek için kaydırıcıyı sürükle. Yüksek değer daha güçlü duygu demektir.",
+        "Joy": "Sevinç",
+        "Serenity": "Huzur",
+        "Anger": "Öfke",
+        "Fear": "Korku",
+        "NotApplicable": "Geçerli değil"
+      },
+      "summary": {
+        "title": "Gönderim özeti",
+        "research_site_label": "Araştırma sahası",
+        "coordinates_label": "Koordinatlar",
+        "photos_label": "Fotoğraflar",
+        "video_label": "Video",
+        "channel_form_label": "Kanal biçimi",
+        "bottom_type_label": "Taban türü",
+        "bank_type_label": "Kıyı türü",
+        "habitats_label": "Yaşam alanları",
+        "natural_debris_label": "Doğal kalıntılar",
+        "water_flow_label": "Su akışı",
+        "water_quality_label": "Su kalitesi",
+        "water_abstraction_label": "Su çekimi",
+        "water_extraction_label": "Su uzaklaştırma",
+        "draining_pipes_label": "Drenaj boruları",
+        "barriers_label": "Engeller",
+        "construction_label": "İnşaat",
+        "impervious_areas_left_label": "Geçirimsiz alanlar (sol)",
+        "impervious_areas_right_label": "Geçirimsiz alanlar (sağ)",
+        "vegetation_left_label": "Bitki örtüsü (sol)",
+        "vegetation_right_label": "Bitki örtüsü (sağ)",
+        "vegetation_cuts_label": "Bitki örtüsü kesimi",
+        "invasive_species_label": "İstilacı türler",
+        "feelings_label": "Duygular",
+        "feelings": {
+          "joy": "Sevinç",
+          "serenity": "Huzur",
+          "anger": "Öfke",
+          "fear": "Korku"
+        },
+        "water_height_label": "Su yüksekliği",
+        "overall_assessment_label": "Genel değerlendirme"
+      },
+      "my_submissions_list": {
+        "title": "Mevcut araştırma sahaları için gönderimler",
+        "longitude_label": "Boylam",
+        "latitude_label": "Enlem",
+        "research_site_label": "Araştırma sahası",
+        "created_label": "Oluşturulma tarihi",
+        "overall_label": "Genel değerlendirme",
+        "actions_label": "İşlemler",
+        "title2": "Oluşturulan sahalar için gönderimler",
+        "longitude_label_2": "Boylam",
+        "latitude_label_2": "Enlem",
+        "research_site_label_2": "Araştırma sahası",
+        "created_label_2": "Oluşturulma tarihi",
+        "overall_label_2": "Genel değerlendirme",
+        "actions_label_2": "İşlemler"
       }
     }
   }
