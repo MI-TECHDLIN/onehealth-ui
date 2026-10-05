@@ -86,23 +86,26 @@
   {
     "id": "shot-03-language",
     "kind": "compare",
-    "targetSeconds": 11,
+    "targetSeconds": 13,
     "now": [
-      "03a"
+      "03a",
+      "03b",
+      "03c"
     ],
     "oldShots": [
       5
     ],
     "zoom": {
-      "index": 0,
-      "x": 0.6,
-      "y": 0.33,
-      "scale": 1.45
+      "index": 1,
+      "x": 0.62,
+      "y": 0.42,
+      "scale": 1.4
     },
-    "improvement": "Your language, labelled honestly",
+    "improvement": "Your language, right to left included",
     "beforeFact": "One small \"English\" dropdown",
-    "captionText": "Choose from eighteen languages. Each one says honestly when its translation still awaits human review.",
-    "piperText": "Choose from eighteen languages. Each one says honestly when its translation still awaits human review."
+    "nowFact": "Arabic, right to left",
+    "captionText": "Choose from eighteen languages, each honestly labelled while it awaits human review. Arabic reads right to left.",
+    "piperText": "Choose from eighteen languages, each honestly labelled while it awaits human review. Arabic reads right to left."
   },
   {
     "id": "shot-04-sign-in",
@@ -124,7 +127,7 @@
     "zoom": {
       "index": 0,
       "x": 0.5,
-      "y": 0.54,
+      "y": 0.51,
       "scale": 1.5
     },
     "improvement": "Errors people can understand",
@@ -148,23 +151,25 @@
     ],
     "zoom": {
       "index": 0,
-      "x": 0.45,
-      "y": 0.835,
+      "x": 0.5,
+      "y": 0.14,
       "scale": 1.6
     },
     "improvement": "Streams by name, on a water-first map",
     "beforeFact": "\"UGSskmrPI / Astrikas (3832.16km)\"",
     "nowFact": "\"Market Quarter Channel\"",
-    "captionText": "Streams appear on a water-first map. Tap a pin to see the stream's name, then choose a nearby stream to check.",
-    "piperText": "Streams appear on a water-first map. Tap a pin to see the stream's name, then choose a nearby stream to check."
+    "captionText": "Streams appear on a water-first map, with a filter for the ones that need data. Then choose a nearby stream by name.",
+    "piperText": "Streams appear on a water-first map, with a filter for the ones that need data. Then choose a nearby stream by name."
   },
   {
     "id": "shot-06-questions",
     "kind": "compare",
-    "targetSeconds": 16,
+    "targetSeconds": 18,
     "now": [
       "06a",
-      "06b"
+      "06b",
+      "06c",
+      "06d"
     ],
     "oldShots": [
       10,
@@ -177,15 +182,15 @@
     },
     "zoom": {
       "index": 0,
-      "x": 0.42,
-      "y": 0.62,
-      "scale": 1.8
+      "x": 0.5,
+      "y": 0.42,
+      "scale": 1.35
     },
-    "improvement": "One question at a time",
+    "improvement": "One question at a time, with pictures",
     "beforeFact": "Several questions on one long page",
-    "nowFact": "\"9 of 20\", one question per screen",
-    "captionText": "Questions come one at a time, each with a Listen button. And it's fine to say: I'm not sure.",
-    "piperText": "Questions come one at a time, each with a Listen button. And it's fine to say: I'm not sure."
+    "nowFact": "\"1 of 20\", one question per screen",
+    "captionText": "Questions come one at a time, with picture answers and a Listen button. And it's fine to say: I'm not sure.",
+    "piperText": "Questions come one at a time, with picture answers and a Listen button. And it's fine to say: I'm not sure."
   },
   {
     "id": "shot-08-health",
@@ -232,28 +237,31 @@
   {
     "id": "shot-11-submitted",
     "kind": "compare",
-    "targetSeconds": 11,
+    "targetSeconds": 13,
     "now": [
-      "11a"
+      "11a",
+      "11b"
     ],
     "oldShots": [],
     "oldEmpty": "No feedback after submit",
     "zoom": {
-      "index": 0,
+      "index": 1,
       "x": 0.5,
-      "y": 0.6,
-      "scale": 1.3
+      "y": 0.19,
+      "scale": 1.5
     },
     "improvement": "Know what your check achieved",
-    "captionText": "After you submit, Ripple celebrates, and explains how researchers use your evidence.",
-    "piperText": "After you submit, Ripple celebrates, and explains how researchers use your evidence."
+    "nowFact": "Your impact: checks, streams and photos",
+    "captionText": "After you submit, Ripple celebrates and explains how researchers use your evidence. Your impact page counts every check.",
+    "piperText": "After you submit, Ripple celebrates and explains how researchers use your evidence. Your impact page counts every check."
   },
   {
     "id": "shot-13-profile",
     "kind": "compare",
-    "targetSeconds": 12,
+    "targetSeconds": 13,
     "now": [
-      "13a"
+      "13a",
+      "13b"
     ],
     "oldShots": [
       20,
@@ -262,16 +270,36 @@
       18
     ],
     "zoom": {
-      "index": 0,
-      "x": 0.42,
-      "y": 0.53,
+      "index": 1,
+      "x": 0.45,
+      "y": 0.73,
       "scale": 1.5
     },
     "improvement": "Your contribution, made visible",
     "beforeFact": "Raw longitude and latitude tables",
     "nowFact": "\"One grace week still available\"",
-    "captionText": "Your profile shows your weekly rhythm and evidence badges. No leaderboards, no pressure.",
-    "piperText": "Your profile shows your weekly rhythm and evidence badges. No leaderboards, no pressure."
+    "captionText": "Your profile shows your details, your weekly rhythm and evidence badges. No leaderboards, no pressure.",
+    "piperText": "Your profile shows your details, your weekly rhythm and evidence badges. No leaderboards, no pressure."
+  },
+  {
+    "id": "shot-14-settings",
+    "kind": "compare",
+    "targetSeconds": 10,
+    "now": [
+      "14a"
+    ],
+    "oldShots": [],
+    "oldEmpty": "Nothing before",
+    "zoom": {
+      "index": 0,
+      "x": 0.42,
+      "y": 0.47,
+      "scale": 1.3
+    },
+    "improvement": "Gentle reminders, never streak pressure",
+    "nowFact": "\"at most once a week\"",
+    "captionText": "In Settings, gentle reminders nudge you about a stream you haven't checked in a while, at most once a week.",
+    "piperText": "In Settings, gentle reminders nudge you about a stream you haven't checked in a while, at most once a week."
   },
   {
     "id": "closing",

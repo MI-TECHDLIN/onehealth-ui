@@ -3,10 +3,11 @@
 
 The captain's phone screenshots (Android, 720 px wide) are read from
 OAH_CAPTAIN_DIR (default /workspaces/firstmate/data/oah-video/) and written as
-plain RGB PNGs (the phone's eXIf chunk trips ffmpeg). Two edits only: a solid,
-irreversible bar over the account email in the sign-in screenshot, and removal
-of the phone's own "show taps" indicators (translucent grey dots, not app
-content). The six README stills are copied alongside. Run once when new screenshots arrive:
+plain RGB PNGs (the phone's eXIf chunk trips ffmpeg). Two edits only: solid,
+irreversible bars over any real account details (REDACTIONS), and removal of
+the phone's own "show taps" indicators (translucent grey dots, not app
+content). The six README stills are copied alongside. Run once when new
+screenshots arrive:
 
     python3 scripts/import_new_shots.py
 """
@@ -27,21 +28,29 @@ SHOTS = {
     '02c': 'Screenshot_20261005-113058.png',  # onboarding 4: safety reminder
     '02d': 'Screenshot_20261005-113101.png',  # onboarding 5: ready when you are
     '03a': 'Screenshot_20261005-113128.png',  # language picker
-    '04a': 'Screenshot_20261005-113209.png',  # sign-in friendly error (email covered)
-    '04b': 'Screenshot_20261005-113459.png',  # avatar picker
-    '05a': 'Screenshot_20261005-113439.png',  # map with pin preview
+    '03b': 'Screenshot_20261005-124208.png',  # profile in Arabic, right to left
+    '03c': 'Screenshot_20261005-124220.png',  # profile in Greek
+    '04a': 'Screenshot_20261005-123905.png',  # sign-in friendly error (fictional account)
+    '04b': 'Screenshot_20261005-123922.png',  # avatar picker
+    '05a': 'Screenshot_20261005-124121.png',  # home map
     '05b': 'IMG_20261005_113304.png',         # which stream?
-    '06a': 'Screenshot_20261005-113336.png',  # dams: Yes / No / I'm not sure
-    '06b': 'Screenshot_20261005-113340.png',  # water height
-    '08a': 'Screenshot_20261005-113344.png',  # overall health
-    '09a': 'Screenshot_20261005-113353.png',  # photograph the stream
+    '06a': 'Screenshot_20261005-124432.png',  # channel form, picture answers (dark)
+    '06b': 'Screenshot_20261005-124434.png',  # bottom of the channel, picture answers
+    '06c': 'Screenshot_20261005-124437.png',  # banks, picture answers
+    '06d': 'Screenshot_20261005-131125.png',  # impervious areas left/right: Yes / No / I'm not sure
+    '08a': 'Screenshot_20261005-124446.png',  # overall health (dark)
+    '09a': 'Screenshot_20261005-124515.png',  # photograph the stream (dark)
+    '09r': 'Screenshot_20261005-113353.png',  # photograph the stream (light, README still)
     '11a': 'Screenshot_20261005-113425.png',  # stream check submitted
-    '13a': 'IMG_20261005_113239.png',         # profile: rhythm and badges
+    '11b': 'Screenshot_20261005-124141.png',  # your impact
+    '13a': 'Screenshot_20261005-123949.png',  # profile details, signed in
+    '13b': 'Screenshot_20261005-124114.png',  # profile as guest: rhythm and badges
+    '14a': 'Screenshot_20261005-124117.png',  # settings: reminders, read-aloud, data mode
 }
 
-# Solid bars in source pixels: the "Username or email" value on the sign-in screen.
-REDACTIONS = {
-    '04a': [(120, 1014, 560, 1064)],
+# Solid bars in source pixels over any real account details.
+REDACTIONS: dict[str, list[tuple[int, int, int, int]]] = {
+    # None needed: the sign-in error (04a) uses a fictional account.
 }
 
 # Android "show taps" dots in source pixels: (x, y) is an approximate centre
@@ -53,16 +62,24 @@ TAP_DOTS = {
     '02c': [(296, 1095), (561, 1096), (284, 1325)],
     '02d': [(339, 1203), (600, 1161), (274, 1414, 0.9)],
     '03a': [(320, 1452), (538, 1472), (235, 1603, 0.9)],
-    '04a': [(292, 1163), (500, 1188), (215, 1397)],
-    '04b': [(354, 1154), (579, 1168), (225, 1404)],
-    '05a': [(467, 956), (217, 1067), (176, 1289)],
+    '03b': [(331, 1190), (251, 1432), (541, 1206)],
+    '03c': [(326, 996), (521, 998), (264, 1251)],
+    '04a': [(310, 1495), (617, 1209), (368, 1249, 1.0)],
+    '04b': [(446, 1162), (220, 1222), (209, 1469)],
+    '05a': [(499, 1108), (300, 1124), (281, 1379)],
     '05b': [(251, 1117), (514, 1102), (171, 1357)],
-    '06a': [(262, 1138), (484, 1165), (188, 1365)],
-    '06b': [(295, 1326), (530, 1251), (203, 1388)],
-    '08a': [(290, 1329), (535, 1433, 0.5), (166, 1478, 0.35)],
-    '09a': [(384, 973), (611, 1004), (272, 1218)],
+    '06a': [(463, 1093), (224, 1135), (171, 1436)],
+    '06b': [(273, 1007), (226, 1269)],
+    '06c': [(594, 1054), (389, 1092), (361, 1349)],
+    '06d': [(233, 1448, 1.03), (243, 1190, 1.03), (485, 1170, 1.03)],
+    '08a': [(292, 1475), (258, 1262), (480, 1102)],
+    '09a': [(635, 1170), (369, 1211), (338, 1448)],
+    '09r': [(384, 973), (611, 1004), (272, 1218)],
     '11a': [(295, 1060, 1.0), (490, 1081), (233, 1306)],
-    '13a': [(232, 1140), (472, 1089), (200, 1310)],
+    '11b': [(544, 1101), (304, 1099), (282, 1295)],
+    '13a': [(283, 1074), (480, 1084), (281, 1342)],
+    '13b': [(568, 1222), (350, 1234), (360, 1460)],
+    '14a': [(502, 1087), (311, 1122), (307, 1360)],
 }
 # The indicator itself, measured from these screenshots (a white-background and a
 # teal-button dot at full strength): RGB = overlay colour, A = its opacity.
@@ -126,6 +143,13 @@ def remove_tap_dot(a: np.ndarray, x0: int, y0: int, fade: float | None = None) -
     if fade is None:
         fade = min(np.arange(0.02, 1.0001, 0.01), key=lambda f: _leftover(*_unblend(a[region], alpha, premultiplied, f), radius))
     clean, opaque = _unblend(a[region], alpha, premultiplied, fade)
+    # The ring's soft edges amplify rounding too: treat the whole band as lost.
+    opaque |= (radius >= 12) & (radius <= 16) & (fade * alpha[..., 0] > 0.3)
+    # On a flat background, snap the disc to the surrounding level: rounding in
+    # the sprite, amplified by the fill's opacity, otherwise leaves a faint ghost.
+    inside, around = radius <= 12, (alpha[..., 0] < 0.002) & (radius <= R)
+    if around.sum() > 20 and clean[around].std(axis=0).max() < 3 and clean[inside].std(axis=0).max() < 4:
+        clean[inside] += np.median(clean[around], axis=0) - np.median(clean[inside], axis=0)
     if opaque.any():
         clean[opaque] = np.median(clean[~opaque], axis=0)
         for _ in range(80):
@@ -139,8 +163,8 @@ README_STILLS = {
     '01-onboarding-purpose.png': '01a',
     '02-home-map.png': '05a',
     '03-field-question.png': '06a',
-    '04-evidence-checks.png': '09a',
-    '05-review.png': '11a',  # no review screenshot exists; the submitted screen is the closest
+    '04-evidence-checks.png': '09r',
+    '05-review.png': '11b',  # no review screenshot exists; "Your impact" is the closest
     '06-profile-impact.png': '13a',
 }
 
