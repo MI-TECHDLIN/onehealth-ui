@@ -1,6 +1,6 @@
 # OneAquaHealth demo video
 
-The hackathon demo video (about 3:16, 1920x1080, 30 fps), made in code with
+The hackathon demo video (about 3:15, 1920x1080, 30 fps), made in code with
 [Remotion](https://www.remotion.dev). White background throughout, Ripple's
 Piper voice, burned-in captions, and "Before" (old app) vs "Now" (new app)
 phone frames side by side. The scene-by-scene script is in
