@@ -159,7 +159,7 @@ The repository does not currently declare a separate licence for original projec
 
 ## Team
 
-**MI-TECHDLIN** — product design and Flutter implementation for the IEEE OneAquaHealth Hackathon, App UI/UX path (Track 1: Citizen Science UX).
+**Ezechukwu Miracle** — product design and Flutter implementation for the IEEE OneAquaHealth Hackathon, App UI/UX path (Track 1: Citizen Science UX).
 
 ## Submission material
 
