@@ -281,6 +281,52 @@ void main() {
     },
   );
 
+  test('history falls back to cached receipts for the same signed-in user', () async {
+    final preferences = MemoryAppPreferences();
+    final online = LiveAssessmentRepository(
+      api: LiveApiClient(
+        client: MockClient((request) async {
+          if (request.url.path == '/api/citizens/submissions') {
+            return http.Response(
+              jsonEncode(<Object?>[
+                _record(id: 'mine', user: 'river-user'),
+                _record(id: 'other', user: 'someone-else'),
+              ]),
+              200,
+            );
+          }
+          if (request.url.path ==
+              '/api/citizens/user-generated-sites/my-submissions') {
+            return http.Response('[]', 200);
+          }
+          fail('Unexpected fake request: ${request.url}');
+        }),
+        tokenStore: MemoryTokenStore(
+          _jwt(<String, Object?>{
+            'username': 'river-user',
+            'exp': 2100000000,
+          }),
+        ),
+        baseUri: testBase,
+      ),
+      auth: const _StaticAuthRepository('river-user'),
+      preferences: preferences,
+    );
+    expect((await online.history()).map((record) => record.id), <String>['mine']);
+
+    final offline = LiveAssessmentRepository(
+      api: LiveApiClient(
+        client: MockClient((_) => fail('No request without a token')),
+        tokenStore: MemoryTokenStore(),
+        baseUri: testBase,
+      ),
+      auth: const _StaticAuthRepository('river-user'),
+      preferences: preferences,
+    );
+
+    expect((await offline.history()).map((record) => record.id), <String>['mine']);
+  });
+
   test('failed submissions queue with uploaded ids and retry without re-upload', () async {
     var submitAttempts = 0;
     var uploadAttempts = 0;

@@ -202,25 +202,38 @@ class LiveAssessmentRepository
     final user = await _auth.currentUser();
     if (user == null) throw const ApiFailure(statusCode: 401);
 
-    final establishedResponse = await _api.get('/api/citizens/submissions');
-    final records = _ownedEstablishedRecords(
-      establishedResponse.body,
-      user.username,
-    );
+    try {
+      final establishedResponse = await _api.get('/api/citizens/submissions');
+      final records = _ownedEstablishedRecords(
+        establishedResponse.body,
+        user.username,
+      );
 
-    final personalResponse = await _api.get(
-      '/api/citizens/user-generated-sites/my-submissions',
-    );
-    final personalJson = jsonDecode(personalResponse.body);
-    if (personalJson is List) {
-      for (final value in personalJson.whereType<Map>()) {
-        records.add(
-          AssessmentRecord.fromApiJson(Map<String, dynamic>.from(value)),
-        );
+      final personalResponse = await _api.get(
+        '/api/citizens/user-generated-sites/my-submissions',
+      );
+      final personalJson = jsonDecode(personalResponse.body);
+      if (personalJson is List) {
+        for (final value in personalJson.whereType<Map>()) {
+          records.add(
+            AssessmentRecord.fromApiJson(Map<String, dynamic>.from(value)),
+          );
+        }
       }
+      records.sort((left, right) => right.submittedAt.compareTo(left.submittedAt));
+      await _store.writeHistory(records);
+      return List<AssessmentRecord>.unmodifiable(records);
+    } on ApiFailure {
+      // Local judge accounts intentionally have no server token. Cached
+      // account-owned receipts keep Impact factual and give a friendly empty
+      // state before that account has any checks, without exposing another
+      // account's rows.
+      final cached = (await _store.readHistory())
+          .where((record) => record.username == user.username)
+          .toList()
+        ..sort((left, right) => right.submittedAt.compareTo(left.submittedAt));
+      return List<AssessmentRecord>.unmodifiable(cached);
     }
-    records.sort((left, right) => right.submittedAt.compareTo(left.submittedAt));
-    return List<AssessmentRecord>.unmodifiable(records);
   }
 
   @override

@@ -35,6 +35,9 @@ Foundation shell, localization, and modes:
     Demo badge remains visible across all five main destinations.
 22. Use Home, Streams, Check, Impact, and You - each route opens, the selected
     destination uses a filled icon, and Check stays raised at the center.
+    Impact shows totals derived from saved checks (submitted checks, distinct
+    streams, and photos) plus tappable factual receipts; with no checks it
+    shows a friendly "No checks yet" state with a Check a stream action.
 23. Tap the mode badge, toggle Live, and confirm - the badge turns green and
     shows Live; canceling the confirmation leaves the current mode unchanged.
 24. Restart after selecting Live and a different language - both choices are
