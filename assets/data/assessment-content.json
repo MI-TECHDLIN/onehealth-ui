@@ -16,7 +16,8 @@
     "no",
     "fr",
     "it",
-    "es"
+    "es",
+    "de"
   ],
   "localeStatus": {
     "en": {
@@ -51,6 +52,12 @@
     },
     "es": {
       "name": "Español",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "de": {
+      "name": "Deutsch",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -3790,6 +3797,441 @@
         "created_label_2": "Creado el",
         "overall_label_2": "Evaluación general",
         "actions_label_2": "Acciones"
+      }
+    },
+    "de": {
+      "citizens_menu": {
+        "instructions": "Anleitung",
+        "instructions_title": "Anleitung für Bürgerwissenschaft",
+        "new_observation": "Neue Beobachtung erstellen",
+        "new_observation_title": "Neuer bürgerwissenschaftlicher Beitrag",
+        "my_submissions": "Meine Beiträge",
+        "my_submissions_title": "Meine Beiträge"
+      },
+      "title": "OneAquaHealth-App für Bürgerwissenschaft – Installationsanleitung",
+      "viewInstructions": "Anleitung anzeigen",
+      "version": "OneAquaHealth-App für Bürgerwissenschaft – Version 1.0",
+      "installation_modal": {
+        "title": "Installation der OAH-App für Bürgerwissenschaft",
+        "intro": "Bevor du die OAH-App für Bürgerwissenschaft installierst, musst du der <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">OneAquaHealth Community</a> beitreten.<br />Folge nach der Registrierung den Schritten unten und melde dich mit der zugewiesenen E-Mail-Adresse und dem Passwort an.",
+        "step1_label": "Schritt 1.",
+        "step1_desc": "Öffne den Browser deines Smartphones und rufe folgende Seite auf:",
+        "step2_label": "Schritt 2. Suche nach dem Hinweis zur App-Installation:",
+        "step2_list_item1": "Wenn ein Fenster die Installation anbietet, folge den Anweisungen auf dem Bildschirm.",
+        "step2_list_item2": "Wenn kein Hinweis erscheint, fahre mit dem nächsten Schritt fort.",
+        "step3_label": "Schritt 3. Zum Startbildschirm hinzufügen:",
+        "step3_ios": "<b>Für iOS (a):</b> Tippe unten auf das Teilen-Symbol (Kästchen mit Pfeil) und wähle <span class=\"font-semibold\">„Zum Home-Bildschirm“</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"iOS-Beispiel\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Für Android (b):</b> Tippe auf das Menüsymbol (drei Punkte) und wähle <span class=\"font-semibold\">„Zum Startbildschirm hinzufügen“</span> oder <span class=\"font-semibold\">„App installieren“</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Android-Beispiel\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Schritt 4.",
+        "step4_desc": "Bestätige die Installation mit <span class=\"font-semibold\">„Hinzufügen“</span> oder <span class=\"font-semibold\">„Installieren“</span>",
+        "step5_label": "Schritt 5.",
+        "step5_desc": "Suche das neue App-Symbol auf dem Startbildschirm und tippe darauf, um die App zu öffnen",
+        "close": "Schließen"
+      },
+      "app_intro_title": "Wozu dient diese App?",
+      "app_intro_text": "Diese App richtet sich an Bürgerinnen und Bürger und sammelt Daten über den Zustand städtischer Bäche",
+      "before_submit": "Vor dem Absenden",
+      "education": {
+        "title": "Was ist ein Stadtbach?",
+        "intro": "Stadtbäche sind fließende Gewässer, die mit der Stadtentwicklung zusammen bestehen und oft zu größeren Einzugsgebieten gehören. Menschliche Aktivitäten verändern häufig ihr Gewässerbett, etwa durch vollständige oder teilweise Abdeckung und künstliche Materialien an Ufern und im Bett. Hinzu kommen Wasserverschmutzung und Veränderungen der natürlichen Ufervegetation.",
+        "healthy_streams": {
+          "title": "Gesunde Bachökosysteme",
+          "content": "Gesunde Bäche brauchen eine besondere Ufervegetation, deren Wurzeln in nassem oder wassergesättigtem Boden leben können, ohne zu faulen. Bäche und ihre Ufervegetation bieten Lebensräume für Wasser- und Landtiere wie Wirbellose, Pilze, Fische, Amphibien, Reptilien, Säugetiere und Vögel sowie für Mikroorganismen. Diese Organismen tragen zu wichtigen Prozessen bei, darunter Produktion, Nährstoffkreislauf und der Abbau organischer Stoffe."
+        },
+        "ecosystem_services": {
+          "title": "Ökosystemleistungen",
+          "content": "Gut erhaltene Bäche verbessern die Luftqualität, regulieren Temperatur und Feuchtigkeit und mindern Hochwasser. Sie schaffen außerdem naturnahe Freizeit- und Begegnungsräume sowie Lernorte für Umweltbildung."
+        },
+        "key_concepts": {
+          "title": "Grundbegriffe der Bachbewertung",
+          "downstream_direction": "Linkes und rechtes Ufer sowie die Uferzonen werden mit Blick flussabwärts, also in Fließrichtung, bestimmt (Abbildung 1)."
+        },
+        "figure1": {
+          "caption": "Abbildung 1. Linkes (L) und rechtes (R) Ufer. Der Pfeil zeigt die Fließrichtung."
+        },
+        "cross_section": {
+          "description": "Breite (Abbildung 2) und Tiefe (Abbildung 3) werden in einem Querschnitt senkrecht zum Gewässerbett gemessen. Sie können sich entlang eines Abschnitts ändern; gemessen werden sollte an einer Stelle, die den durchschnittlichen Zustand gut darstellt."
+        },
+        "figure2": {
+          "caption": "Abbildung 2. Bachquerschnitt: A) Oberkante des Ufers; B) Ufer; C) nasses Hauptbett; D) Fließrichtung (Blick flussabwärts); E) Breite; F) Tiefe."
+        },
+        "figure3": {
+          "caption": "Abbildung 3. Tiefenmessung mit Lineal oder Meterstab."
+        },
+        "riparian_and_floodplain": {
+          "content": "Die Uferzone liegt entlang des Bachs und ist mit Ufervegetation bedeckt. Eine gesunde Ufervegetation besteht aus verschiedenen heimischen Pflanzen unterschiedlicher Höhe, von Kräutern über Sträucher bis zu Bäumen, die an die Nähe zum Wasser angepasst sind (Abbildung 4)."
+        },
+        "figure4": {
+          "caption": "Abbildung 4. Gut erhaltene Uferzone: A) unterste Schicht aus Kräutern, Farnen, Moosen und Flechten, wichtig für Nährstoffkreislauf und Bodenstabilität; B) Strauchschicht aus Gehölzen bis etwa 6 m; C) obere Schicht aus alten Bäumen, die das Kronendach bilden."
+        },
+        "figure_description": "Auen sind natürliche Überschwemmungsflächen, die bei starken Niederschlägen von Wasser bedeckt werden. Überschwemmungen reichern die fruchtbaren Böden mit nährstoffreichem Sediment an (Abbildung 5). Form und Beschaffenheit der Aue können sich verändern, weil sich das Hauptbett durch Ablagerung und Erosion verlagert.",
+        "figure5": {
+          "caption": "Abbildung 5. A) Nasses Gewässerbett; B) aktive Aue; C) regulierende Aue; D) geologische Aue mit selteneren Überflutungen; E) Terrasse."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Wichtigste Unterschiede zwischen Wald- und Stadtbächen",
+          "content": "Stadtentwicklung vergrößert undurchlässige Flächen an Ufern, Uferzonen und Auen, etwa durch Straßen, Gebäude und Gehwege aus Beton oder Asphalt (Abbildung 6). Wasser kann dort nicht wie in Waldboden oder auf freien Feldern versickern. Bei starkem Regen entstehen Sturzfluten, die den Wasserstand schnell erhöhen und Schäden sowie Gefahren für Menschen verursachen. Undurchlässige Flächen verhindern auch die Grundwasserneubildung und stören den Wasserkreislauf. Das kann Trockenheit verstärken, oft zusätzlich durch Stauwerke oder Wasserentnahme. Stadtbäche werden außerdem häufig durch Straßenabfluss und Mischwasserüberläufe verschmutzt."
+        },
+        "figure6": {
+          "caption": "Abbildung 6. Durchlässige Flächen links, teilweise undurchlässige in der Mitte und undurchlässige rechts."
+        },
+        "oneaquahealth_project": {
+          "title": "Das OneAquaHealth-Projekt und die OAH-App",
+          "content": "OneAquaHealth möchte den ökologischen Zustand städtischer Süßwasserökosysteme verbessern, damit die gemeinsame Gesundheit in Städten stärken und frühe Warnzeichen für eine Gefährdung erkennen. Für eine bessere Bewirtschaftung der Stadtbäche wurde ein Umweltbeobachtungssystem mit der OAH-App entwickelt. Die App bindet Bürgerinnen und Bürger in die Beobachtung ein und fördert Wissen und Wiederherstellung."
+        },
+        "onehealth": {
+          "title": "Was ist One Health?",
+          "content": "One Health fördert nachhaltige Gesundheit für Menschen, andere Lebewesen und die Umwelt (Abbildung 7). Gut erhaltene Naturflächen in Städten bieten saubere Luft und sauberes Wasser sowie ruhige Orte für körperliches und seelisches Wohlbefinden. Blaue und grüne Räume in Wohnnähe laden dazu ein, nach draußen zu gehen, andere zu treffen, sich zu entspannen und Natur zu erleben. Stadtbäche sind fast überall, oft aber verborgen. Werden sie im Sinne von One Health wiederhergestellt, können sie Menschen zusammenbringen und gesündere, nachhaltigere Gemeinschaften schaffen."
+        },
+        "figure7": {
+          "caption": "Abbildung 7. Das One-Health-Konzept verbindet die Gesundheit von Menschen, Organismen und Umwelt. Die Überschneidungen zeigen den gemeinsamen Ansatz, der für globale Gesundheitsfragen nötig ist."
+        },
+        "what_you_can_do": {
+          "title": "Wie kannst du mitmachen?",
+          "content": "Wenn es in deiner Nähe einen Stadtbach gibt, vielleicht verborgen in einem Tal und stark verändert durch Betonwände, kannst du uns bei seiner Pflege helfen. Sieh dir Gewässerbett, Ufer und Uferzone an und sende über die App wichtige Angaben und Fotos. Gib abschließend eine Gesamtbewertung in einer dieser Kategorien ab:"
+        },
+        "quality": {
+          "good": "<strong>Gute Qualität</strong> (die Bestandteile des Ökosystems sind vorhanden und wirken gesund: Ufervegetation, natürliches Bett, gute Wasserqualität und Artenvielfalt)",
+          "moderate": "<strong>Mittlere Qualität</strong> (einige Veränderungen, noch Artenvielfalt und etwas Vegetation an den Ufern, das Wasser sieht gut aus ...)",
+          "poor": "<strong>Schlechte Qualität</strong> (stark verändert oder künstlich, großer Verlust von Ufervegetation oder nur invasive Arten, Verlust von Lebensräumen, verschmutztes Wasser)"
+        },
+        "submission_hint": "Gib zum Mitmachen die angeforderten Angaben ein und tippe auf <strong>„Weiter“</strong> (siehe Hinweise oben)"
+      },
+      "step": "Schritt",
+      "next": "Weiter",
+      "previous": "Zurück",
+      "submit": "Absenden",
+      "basic_information": "Grundangaben",
+      "additional_details": "Weitere Angaben",
+      "media_upload": "Medien hochladen",
+      "questions_1_3_": "Fragen (1/3)",
+      "questions_2_3_": "Fragen (2/3)",
+      "questions_3_3_": "Fragen (3/3)",
+      "feedback_1_2": "Rückmeldung (1/2)",
+      "feedback_2_2": "Rückmeldung (2/2)",
+      "review_submit": "Prüfen und absenden",
+      "select_from_my_sites": "Aus meinen Standorten wählen",
+      "enter_longitude": "Längengrad eingeben",
+      "enter_latitude": "Breitengrad eingeben",
+      "enter_site_name": "Standortnamen eingeben",
+      "longitude": "Längengrad",
+      "latitude": "Breitengrad",
+      "site_name": "Standortname",
+      "site_selection": {
+        "title": "Wähle die zu bewertenden OneAquaHealth-Stadtbäche aus (die Entfernung wird angezeigt)",
+        "description": "Neuen Standort hinzufügen"
+      },
+      "media": {
+        "title": "Wähle deine Bilder aus",
+        "upstream_photo_label": "Foto flussaufwärts",
+        "upstream_photo_description": "Foto flussaufwärts",
+        "downstream_photo_label": "Foto flussabwärts",
+        "downstream_photo_description": "Foto flussabwärts",
+        "context_photo_label": "Foto der Umgebung",
+        "context_photo_description": "Foto der Umgebung (Häuser, Straßen ...)",
+        "biodiversity_photo_label": "Foto eines interessanten Elements der Artenvielfalt",
+        "biodiversity_photo_description": "Foto eines interessanten Elements der Artenvielfalt (Pflanze, Tier, Pilz oder anderes)",
+        "video_label": "Kurzes Video aufnehmen (5 oder 10 Sekunden)",
+        "video_description": "Kurzes Video aufnehmen (5 oder 10 Sekunden)",
+        "select_file_button": "Datei auswählen"
+      },
+      "questions_1_3": {
+        "title": "Was siehst du von deinem Standort aus (in etwa 100 m)?",
+        "channel_form": {
+          "question": "Form des Gewässerbetts",
+          "questiontext": "Die Form des Gewässerbetts ist ...",
+          "labels": {
+            "Flat (Α)": "Flach (A)",
+            "Flat (A)": "Flach (A)",
+            "U Shape (Β)": "U-förmig (B)",
+            "U Shape (B)": "U-förmig (B)",
+            "V Shape (C)": "V-förmig (C)",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "bottom_type": {
+          "question": "Art der Gewässersohle",
+          "questiontext": "Die Sohle des nassen Gewässerbetts ist …",
+          "labels": {
+            "Natural (A)": "Natürlich (A)",
+            "Natural (Α)": "Natürlich (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Künstlich (Beton oder mit Beton verbundene Steine) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Künstlich (Beton oder mit Beton verbundene Steine) (B)",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "bank_type": {
+          "question": "Uferart",
+          "questiontext": "Die Ufer des Gewässerbetts sind …",
+          "labels": {
+            "Natural (A)": "Natürlich (A)",
+            "Natural (Α)": "Natürlich (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Künstlich (Beton oder mit Beton verbundene Steine) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Künstlich (Beton oder mit Beton verbundene Steine) (B)",
+            "Layed stones with no concrete (C)": "Verlegte Steine ohne Beton (C)",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "habitats": {
+          "question": "Lebensräume",
+          "questiontext": "Vorhandene Lebensräume sind …",
+          "questiontextshow": "Gibt es Lebensräume?",
+          "options": {
+            "Sand banks (A)": "Sandbänke (A)",
+            "Sand banks (Α)": "Sandbänke (A)",
+            "Sand islands (B)": "Sandinseln (B)",
+            "Sand islands (Β)": "Sandinseln (B)",
+            "Stone deposits (C)": "Steinablagerungen (C)",
+            "Riffles, rapids, falls (D)": "Rauschen, Stromschnellen oder Wasserfälle (D)",
+            "Aquatic vegetation (E)": "Wasserpflanzen (E)"
+          },
+          "info": "Du kannst mehrere Lebensraumtypen auswählen. Markiere zuerst das Kästchen und dann alle erkannten Lebensräume."
+        },
+        "natural_debris": {
+          "question": "Natürliches Treibgut",
+          "questiontext": "Es gibt …",
+          "questiontextshow": "Gibt es natürliches Treibgut?",
+          "labels": {
+            "Fallen trees (A)": "Umgestürzte Bäume (A)",
+            "Fallen trees (Α)": "Umgestürzte Bäume (A)",
+            "Fallen branches (B)": "Herabgefallene Äste (B)",
+            "Fallen branches (Β)": "Herabgefallene Äste (B)",
+            "Deposits of fallen leaves (C)": "Ablagerungen von Falllaub (C)"
+          },
+          "info": "Du kannst mehrere Arten natürlichen Treibguts auswählen. Markiere zuerst den Kreis und danach alles, was du erkennst."
+        },
+        "water_flow": {
+          "question": "Wasserströmung",
+          "questiontext": "Wie fließt das Wasser?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Schnell (mit Wellen oder hoher Geschwindigkeit) (A)",
+            "Fast (with waves or high velocity) (Α)": "Schnell (mit Wellen oder hoher Geschwindigkeit) (A)",
+            "Slow (B)": "Langsam (B)",
+            "Slow (Β)": "Langsam (B)",
+            "Stagnant/intermittent (C)": "Stehend oder zeitweise fließend (C)",
+            "Dry (D)": "Trocken (D)",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aussehen des Wassers",
+          "questiontext": "Wie sieht das Wasser aus?",
+          "labels": {
+            "Clear/transparent (A)": "Klar oder durchsichtig (A)",
+            "Clear/transparent (Α)": "Klar oder durchsichtig (A)",
+            "Muddy/turbid (B)": "Schlammig oder trüb (B)",
+            "Muddy/turbid (Β)": "Schlammig oder trüb (B)",
+            "Has foam (C)": "Mit Schaum (C)",
+            "Has colors/altered color (D)": "Verfärbt oder ungewöhnliche Farbe (D)",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Wasserentnahme",
+          "questiontext": "Gibt es eine erkennbare Sammlung, Nutzung oder Entnahme von Wasser aus dem Bach?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "barriers": {
+          "question": "Barrieren",
+          "questiontext": "Siehst du Stauwerke oder andere künstliche Querbarrieren? Siehe die Beispielbilder.",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "draining_pipes": {
+          "question": "Einleitungsrohre",
+          "questiontext": "Leiten Rohre verschmutztes Wasser in den Bach ein?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Abwassereinleitung",
+          "questiontext": "Gibt es einen Zufluss oder eine Einleitung von Abwasser?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "construction": {
+          "question": "Bauarbeiten",
+          "questiontext": "Gibt es Bauarbeiten am oder im Bach?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "water_height": {
+          "question": "Wasserhöhe",
+          "questiontext": "Wie hoch steht das Wasser?",
+          "placeholder": "Wasserhöhe eingeben",
+          "info": "Schätze die Höhe in Metern (m) und verwende einen Punkt (.) als Dezimalzeichen (z. B. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "In den Uferzonen (5–10 m von der Uferoberkante)",
+        "impervious_left": {
+          "question": "Undurchlässige Flächen (links)",
+          "questiontext": "Ist mehr als ein Drittel der linken Uferzone von undurchlässigen Flächen wie Straßen, Gehwegen oder Gebäuden bedeckt?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "impervious_right": {
+          "question": "Undurchlässige Flächen (rechts)",
+          "questiontext": "Ist mehr als ein Drittel der rechten Uferzone von undurchlässigen Flächen wie Straßen, Gehwegen oder Gebäuden bedeckt?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetation (links)",
+          "questiontext": "Ist die linke Uferzone mit Vegetation bedeckt?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vegetationsart (links)",
+          "questiontext": "Welche Vegetation dominiert, bedeckt also mehr als 50 % oder die Hälfte, in der linken Uferzone (erste 5 m ab der Uferoberkante)?",
+          "labels": {
+            "Herbs (A)": "Kräuter (A)",
+            "Herbs (Α)": "Kräuter (A)",
+            "Shrubs (B)": "Sträucher (B)",
+            "Shrubs (Β)": "Sträucher (B)",
+            "Trees (C)": "Bäume (C)",
+            "I am not sure": "Ich bin nicht sicher"
+          },
+          "info": "Denk daran, mit Blick flussabwärts die Vegetation links anzusehen"
+        },
+        "vegetation_right": {
+          "question": "Vegetation (rechts)",
+          "questiontext": "Ist die rechte Uferzone mit Vegetation bedeckt?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vegetationsart (rechts)",
+          "questiontext": "Welche Vegetation dominiert, bedeckt also mehr als 50 % oder die Hälfte, in der rechten Uferzone (erste 5 m ab der Uferoberkante)?",
+          "labels": {
+            "Herbs (A)": "Kräuter (A)",
+            "Herbs (Α)": "Kräuter (A)",
+            "Shrubs (B)": "Sträucher (B)",
+            "Shrubs (Β)": "Sträucher (B)",
+            "Trees (C)": "Bäume (C)",
+            "I am not sure": "Ich bin nicht sicher"
+          },
+          "info": "Denk daran, mit Blick flussabwärts die Vegetation rechts anzusehen"
+        },
+        "invasive_species": {
+          "question": "Invasive Arten",
+          "questiontext": "Siehst du gebietsfremde oder invasive Pflanzenarten?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          },
+          "placeholder": "Welche?"
+        },
+        "vegetation_cut": {
+          "question": "Vegetationsschnitt",
+          "questiontext": "Wurde die Vegetation an einem oder beiden Ufern kürzlich teilweise oder vollständig geschnitten?",
+          "labels": {
+            "Yes": "Ja",
+            "No": "Nein",
+            "I am not sure": "Ich bin nicht sicher"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Bewerte den Gesamtzustand des Bachökosystems (wähle eine Möglichkeit)",
+        "good_quality": "Gute Qualität",
+        "good_quality_description": "Die Bestandteile des Ökosystems sind vorhanden: Ufervegetation, natürliches Gewässerbett, gute Wasserqualität und Artenvielfalt",
+        "moderate_quality": "Mittlere Qualität",
+        "moderate_quality_description": "Einige Veränderungen, aber noch Artenvielfalt und Vegetation an den Ufern; das Wasser sieht gut aus ...",
+        "poor_quality": "Schlechte Qualität",
+        "poor_quality_description": "Stark verändert oder künstlich, Verlust von Ufervegetation und Lebensräumen, verschmutztes Wasser"
+      },
+      "feelings": {
+        "question": "Welche Gefühle beschreiben dein Erlebnis am besten?",
+        "info": "Forschungen zeigen, dass Bäche menschliche Gefühle beeinflussen können.",
+        "instructions": "Bewege den Regler mit dem Finger, um die Stärke deines Gefühls anzugeben. Eine höhere Bewertung bedeutet ein stärkeres Gefühl.",
+        "Joy": "Freude",
+        "Serenity": "Gelassenheit",
+        "Anger": "Ärger",
+        "Fear": "Angst",
+        "NotApplicable": "Nicht zutreffend"
+      },
+      "summary": {
+        "title": "Zusammenfassung der Einreichung",
+        "research_site_label": "Forschungsstandort",
+        "coordinates_label": "Koordinaten",
+        "photos_label": "Fotos",
+        "video_label": "Video",
+        "channel_form_label": "Form des Gewässerbetts",
+        "bottom_type_label": "Art der Gewässersohle",
+        "bank_type_label": "Uferart",
+        "habitats_label": "Lebensräume",
+        "natural_debris_label": "Natürliches Treibgut",
+        "water_flow_label": "Wasserströmung",
+        "water_quality_label": "Wasserqualität",
+        "water_abstraction_label": "Wasserentnahme",
+        "water_extraction_label": "Wassergewinnung",
+        "draining_pipes_label": "Einleitungsrohre",
+        "barriers_label": "Barrieren",
+        "construction_label": "Bauarbeiten",
+        "impervious_areas_left_label": "Undurchlässige Flächen (links)",
+        "impervious_areas_right_label": "Undurchlässige Flächen (rechts)",
+        "vegetation_left_label": "Vegetation (links)",
+        "vegetation_right_label": "Vegetation (rechts)",
+        "vegetation_cuts_label": "Vegetationsschnitt",
+        "invasive_species_label": "Invasive Arten",
+        "feelings_label": "Gefühle",
+        "feelings": {
+          "joy": "Freude",
+          "serenity": "Gelassenheit",
+          "anger": "Ärger",
+          "fear": "Angst"
+        },
+        "water_height_label": "Wasserhöhe",
+        "overall_assessment_label": "Gesamtbewertung"
+      },
+      "my_submissions_list": {
+        "title": "Einreichungen für bestehende Forschungsstandorte",
+        "longitude_label": "Längengrad",
+        "latitude_label": "Breitengrad",
+        "research_site_label": "Forschungsstandort",
+        "created_label": "Erstellt am",
+        "overall_label": "Gesamtbewertung",
+        "actions_label": "Aktionen",
+        "title2": "Einreichungen für neu erstellte Standorte",
+        "longitude_label_2": "Längengrad",
+        "latitude_label_2": "Breitengrad",
+        "research_site_label_2": "Forschungsstandort",
+        "created_label_2": "Erstellt am",
+        "overall_label_2": "Gesamtbewertung",
+        "actions_label_2": "Aktionen"
       }
     }
   }
