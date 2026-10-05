@@ -18,7 +18,8 @@
     "it",
     "es",
     "de",
-    "pl"
+    "pl",
+    "ro"
   ],
   "localeStatus": {
     "en": {
@@ -65,6 +66,12 @@
     },
     "pl": {
       "name": "Polski",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "ro": {
+      "name": "Română",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -4674,6 +4681,441 @@
         "created_label_2": "Utworzono",
         "overall_label_2": "Ocena ogólna",
         "actions_label_2": "Działania"
+      }
+    },
+    "ro": {
+      "citizens_menu": {
+        "instructions": "Instrucțiuni",
+        "instructions_title": "Instrucțiuni pentru știința cetățenească",
+        "new_observation": "Creează o observație",
+        "new_observation_title": "Trimitere nouă de știință cetățenească",
+        "my_submissions": "Trimite­rile mele",
+        "my_submissions_title": "Trimite­rile mele"
+      },
+      "title": "Aplicația OneAquaHealth pentru știința cetățenească — instrucțiuni de instalare",
+      "viewInstructions": "Vezi instrucțiunile",
+      "version": "Aplicația OneAquaHealth pentru știința cetățenească — versiunea 1.0",
+      "installation_modal": {
+        "title": "Instalarea aplicației OAH pentru știința cetățenească",
+        "intro": "Înainte de instalarea aplicației OAH, trebuie să te alături <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">comunității OneAquaHealth</a>.<br />După înregistrare, urmează pașii de mai jos și folosește adresa de e-mail și parola primite pentru autentificare.",
+        "step1_label": "Pasul 1.",
+        "step1_desc": "Deschide browserul telefonului și accesează:",
+        "step2_label": "Pasul 2. Caută mesajul de instalare a aplicației:",
+        "step2_list_item1": "Dacă apare o fereastră care propune instalarea, urmează instrucțiunile de pe ecran.",
+        "step2_list_item2": "Dacă nu apare niciun mesaj, continuă cu pasul următor.",
+        "step3_label": "Pasul 3. Adaugă pe ecranul principal:",
+        "step3_ios": "<b>Pentru iOS (a):</b> Atinge pictograma de partajare (casetă cu săgeată) din partea de jos, apoi selectează <span class=\"font-semibold\">„Adaugă pe ecranul principal”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"Exemplu iOS\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Pentru Android (b):</b> Atinge meniul (trei puncte) și alege <span class=\"font-semibold\">„Adaugă pe ecranul principal”</span> sau <span class=\"font-semibold\">„Instalează aplicația”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Exemplu Android\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Pasul 4.",
+        "step4_desc": "Confirmă instalarea atingând <span class=\"font-semibold\">„Adaugă”</span> sau <span class=\"font-semibold\">„Instalează”</span>",
+        "step5_label": "Pasul 5.",
+        "step5_desc": "Găsește pictograma noii aplicații pe ecranul principal și atinge-o pentru lansare",
+        "close": "Închide"
+      },
+      "app_intro_title": "La ce folosește această aplicație?",
+      "app_intro_text": "Aplicația îi ajută pe cetățeni să adune date despre sănătatea pâraielor urbane",
+      "before_submit": "Înainte de trimitere",
+      "education": {
+        "title": "Ce este un pârâu urban?",
+        "intro": "Pâraiele urbane sunt ape curgătoare care coexistă cu dezvoltarea orașelor și fac adesea parte din bazine mai mari. Activitățile umane le modifică albia prin acoperire totală sau parțială și materiale artificiale, poluează apa și schimbă vegetația naturală de pe maluri.",
+        "healthy_streams": {
+          "title": "Ecosisteme de pârâu sănătoase",
+          "content": "Pâraiele sănătoase au vegetație riverană ale cărei rădăcini pot trăi în sol ud fără să putrezească. Pâraiele și vegetația lor oferă habitat animalelor acvatice și terestre, ciupercilor și microorganismelor. Aceste organisme participă la producție, circuitul nutrienților și descompunerea materiei organice."
+        },
+        "ecosystem_services": {
+          "title": "Servicii ecosistemice",
+          "content": "Pâraiele bine păstrate îmbunătățesc aerul, reglează temperatura și umiditatea și reduc inundațiile. Oferă și spații naturale pentru recreere, întâlniri și educație ecologică."
+        },
+        "key_concepts": {
+          "title": "Concepte esențiale pentru evaluarea pârâului",
+          "downstream_direction": "Malurile și zonele din stânga și dreapta se definesc privind în aval, în direcția curgerii (figura 1)."
+        },
+        "figure1": {
+          "caption": "Figura 1. Malurile stâng (S) și drept (D). Săgeata arată direcția curgerii."
+        },
+        "cross_section": {
+          "description": "Lățimea (figura 2) și adâncimea (figura 3) se măsoară într-o secțiune perpendiculară pe albie. Ele pot varia, deci măsurarea trebuie făcută într-un loc reprezentativ pentru condițiile medii."
+        },
+        "figure2": {
+          "caption": "Figura 2. Secțiunea pârâului: A) partea superioară a malului; B) mal; C) albia umedă principală; D) direcția curgerii (vedere în aval); E) lățime; F) adâncime."
+        },
+        "figure3": {
+          "caption": "Figura 3. Măsurarea adâncimii cu o riglă sau ruletă."
+        },
+        "riparian_and_floodplain": {
+          "content": "Zona riverană se află pe margini și este acoperită de vegetație riverană. Vegetația sănătoasă include plante locale de diferite înălțimi, de la ierburi la arbuști și copaci, adaptate apropierii de apă (figura 4)."
+        },
+        "figure4": {
+          "caption": "Figura 4. Zonă riverană bine păstrată: A) strat jos de plante ierboase, ferigi, mușchi și licheni; B) strat de arbuști lemnoși de până la circa 6 m; C) strat superior de copaci maturi care formează coronamentul."
+        },
+        "figure_description": "Luncile sunt zone inundate natural în perioadele ploioase. Inundațiile îmbogățesc solul cu sedimente nutritive (figura 5). Forma lor se poate schimba când albia principală se deplasează prin depunere și eroziune.",
+        "figure5": {
+          "caption": "Figura 5. A) Albie umedă; B) luncă activă; C) luncă de reglare; D) luncă geologică, inundată mai rar; E) terasă."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Diferențe principale între pâraiele forestiere și urbane",
+          "content": "Dezvoltarea urbană mărește suprafețele impermeabile de pe maluri și lunci prin drumuri, clădiri și trotuare din beton sau asfalt (figura 6). Apa nu se infiltrează ca în pădure sau câmp, iar ploile puternice provoacă viituri rapide, pagube și riscuri pentru oameni. Suprafețele impermeabile reduc alimentarea apelor subterane și agravează lipsa apei, adesea împreună cu baraje și captări. Scurgerile urbane și revărsările canalizării poluează și ele pâraiele."
+        },
+        "figure6": {
+          "caption": "Figura 6. Suprafețe permeabile în stânga, parțial impermeabile în centru și impermeabile în dreapta."
+        },
+        "oneaquahealth_project": {
+          "title": "Proiectul OneAquaHealth și aplicația OAH",
+          "content": "OneAquaHealth urmărește să îmbunătățească starea ecologică a ecosistemelor urbane de apă dulce, să sprijine O singură sănătate și să identifice semne timpurii de degradare. Pentru gestionarea pâraielor a fost creat un sistem de supraveghere a mediului care include aplicația OAH. Aplicația implică cetățenii în monitorizare pentru a crește cunoștințele și a ajuta refacerea naturii."
+        },
+        "onehealth": {
+          "title": "Ce este O singură sănătate?",
+          "content": "O singură sănătate promovează sănătatea durabilă a oamenilor, organismelor și mediului (figura 7). Zonele naturale bine păstrate oferă aer și apă curate și locuri liniștite care susțin starea fizică și mintală. Spațiile verzi și albastre din apropiere ne încurajează să ieșim, să ne întâlnim și să ne relaxăm. Pâraiele urbane sunt adesea ascunse, dar au potențial. Refăcute cu această abordare, pot uni comunitățile pentru orașe mai sănătoase."
+        },
+        "figure7": {
+          "caption": "Figura 7. Conceptul O singură sănătate arată legătura dintre sănătatea oamenilor, organismelor și mediului. Zonele suprapuse arată nevoia unei abordări integrate."
+        },
+        "what_you_can_do": {
+          "title": "Cum ne poți ajuta?",
+          "content": "Dacă ai un pârâu urban în apropiere, chiar ascuns și foarte modificat cu pereți de beton, ne poți ajuta să îl îngrijim. Privește albia, malurile și zona riverană și trimite informații și fotografii prin aplicație. La final, oferă o evaluare generală într-una dintre categorii:"
+        },
+        "quality": {
+          "good": "<strong>Calitate bună</strong> (elementele ecosistemului sunt prezente și arată bine: vegetație riverană, albie naturală, apă de bună calitate și biodiversitate)",
+          "moderate": "<strong>Calitate moderată</strong> (unele modificări, dar încă există biodiversitate și vegetație pe maluri, iar apa arată bine...)",
+          "poor": "<strong>Calitate slabă</strong> (foarte modificat sau artificial, pierdere mare de vegetație riverană ori numai specii invazive, habitate pierdute și apă poluată)"
+        },
+        "submission_hint": "Pentru a contribui, oferă informațiile cerute apăsând <strong>„Înainte”</strong> (vezi indicațiile de mai sus)"
+      },
+      "step": "Pas",
+      "next": "Înainte",
+      "previous": "Înapoi",
+      "submit": "Trimite",
+      "basic_information": "Informații de bază",
+      "additional_details": "Detalii suplimentare",
+      "media_upload": "Încărcare media",
+      "questions_1_3_": "Întrebări (1/3)",
+      "questions_2_3_": "Întrebări (2/3)",
+      "questions_3_3_": "Întrebări (3/3)",
+      "feedback_1_2": "Feedback (1/2)",
+      "feedback_2_2": "Feedback (2/2)",
+      "review_submit": "Revizuiește și trimite",
+      "select_from_my_sites": "Alege dintre locurile mele",
+      "enter_longitude": "Introdu longitudinea",
+      "enter_latitude": "Introdu latitudinea",
+      "enter_site_name": "Introdu numele locului",
+      "longitude": "Longitudine",
+      "latitude": "Latitudine",
+      "site_name": "Numele locului",
+      "site_selection": {
+        "title": "Alege locurile de pârâu urban OneAquaHealth de evaluat (este indicată distanța până la loc)",
+        "description": "Adaugă un loc nou"
+      },
+      "media": {
+        "title": "Alege imaginile",
+        "upstream_photo_label": "Fotografie în amonte",
+        "upstream_photo_description": "Fotografie în amonte",
+        "downstream_photo_label": "Fotografie în aval",
+        "downstream_photo_description": "Fotografie în aval",
+        "context_photo_label": "Fotografie a împrejurimilor",
+        "context_photo_description": "Fotografie a împrejurimilor (case, drumuri...)",
+        "biodiversity_photo_label": "Fotografie cu un element interesant de biodiversitate",
+        "biodiversity_photo_description": "Fotografie cu un element interesant de biodiversitate (plantă, animal, ciupercă sau altceva)",
+        "video_label": "Realizează un videoclip scurt (5 sau 10 secunde)",
+        "video_description": "Realizează un videoclip scurt (5 sau 10 secunde)",
+        "select_file_button": "Alege fișier"
+      },
+      "questions_1_3": {
+        "title": "Ce vezi din locul în care stai (pe aproximativ 100 m)?",
+        "channel_form": {
+          "question": "Forma albiei",
+          "questiontext": "Forma albiei este…",
+          "labels": {
+            "Flat (Α)": "Plată (A)",
+            "Flat (A)": "Plată (A)",
+            "U Shape (Β)": "În formă de U (B)",
+            "U Shape (B)": "În formă de U (B)",
+            "V Shape (C)": "În formă de V (C)",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "bottom_type": {
+          "question": "Tipul fundului",
+          "questiontext": "Fundul albiei umede este…",
+          "labels": {
+            "Natural (A)": "Natural (A)",
+            "Natural (Α)": "Natural (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificial (beton sau pietre cu beton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificial (beton sau pietre cu beton) (B)",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "bank_type": {
+          "question": "Tipul malului",
+          "questiontext": "Malurile albiei sunt…",
+          "labels": {
+            "Natural (A)": "Naturale (A)",
+            "Natural (Α)": "Naturale (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Artificiale (beton sau pietre cu beton) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Artificiale (beton sau pietre cu beton) (B)",
+            "Layed stones with no concrete (C)": "Pietre așezate fără beton (C)",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "habitats": {
+          "question": "Habitate",
+          "questiontext": "Habitatele prezente sunt…",
+          "questiontextshow": "Există habitate?",
+          "options": {
+            "Sand banks (A)": "Bancuri de nisip (A)",
+            "Sand banks (Α)": "Bancuri de nisip (A)",
+            "Sand islands (B)": "Insule de nisip (B)",
+            "Sand islands (Β)": "Insule de nisip (B)",
+            "Stone deposits (C)": "Depuneri de piatră (C)",
+            "Riffles, rapids, falls (D)": "Praguri, repezișuri sau cascade (D)",
+            "Aquatic vegetation (E)": "Vegetație acvatică (E)"
+          },
+          "info": "Poți selecta mai multe tipuri de habitat. Bifează mai întâi caseta, apoi toate habitatele identificate."
+        },
+        "natural_debris": {
+          "question": "Resturi naturale",
+          "questiontext": "Există…",
+          "questiontextshow": "Există resturi naturale?",
+          "labels": {
+            "Fallen trees (A)": "Copaci căzuți (A)",
+            "Fallen trees (Α)": "Copaci căzuți (A)",
+            "Fallen branches (B)": "Crengi căzute (B)",
+            "Fallen branches (Β)": "Crengi căzute (B)",
+            "Deposits of fallen leaves (C)": "Depuneri de frunze căzute (C)"
+          },
+          "info": "Poți selecta mai multe tipuri de resturi naturale. Bifează mai întâi cercul, apoi toate tipurile identificate."
+        },
+        "water_flow": {
+          "question": "Debitul apei",
+          "questiontext": "Cum curge apa?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Repede (cu valuri sau viteză mare) (A)",
+            "Fast (with waves or high velocity) (Α)": "Repede (cu valuri sau viteză mare) (A)",
+            "Slow (B)": "Încet (B)",
+            "Slow (Β)": "Încet (B)",
+            "Stagnant/intermittent (C)": "Stătătoare sau intermitentă (C)",
+            "Dry (D)": "Secată (D)",
+            "I am not sure": "Nu sunt sigur"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Aspectul apei",
+          "questiontext": "Cum este apa?",
+          "labels": {
+            "Clear/transparent (A)": "Limpede sau transparentă (A)",
+            "Clear/transparent (Α)": "Limpede sau transparentă (A)",
+            "Muddy/turbid (B)": "Noroioasă sau tulbure (B)",
+            "Muddy/turbid (Β)": "Noroioasă sau tulbure (B)",
+            "Has foam (C)": "Are spumă (C)",
+            "Has colors/altered color (D)": "Are culoare neobișnuită (D)",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Captarea apei",
+          "questiontext": "Se observă colectarea, utilizarea sau îndepărtarea apei din pârâu?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "barriers": {
+          "question": "Bariere",
+          "questiontext": "Vezi baraje sau alte bariere artificiale transversale? Consultă exemplele din imagini.",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "draining_pipes": {
+          "question": "Conducte de evacuare",
+          "questiontext": "Există conducte care varsă apă poluată în pârâu?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Deversare de ape uzate",
+          "questiontext": "Există o intrare de apă sau o deversare de ape uzate?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "construction": {
+          "question": "Construcții",
+          "questiontext": "Există lucrări în pârâu sau lângă el?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "water_height": {
+          "question": "Înălțimea apei",
+          "questiontext": "Care este înălțimea apei?",
+          "placeholder": "Introdu înălțimea apei",
+          "info": "Estimează în metri (m) și folosește punctul (.) ca separator zecimal (de exemplu 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "În zonele riverane (la 5–10 m de partea superioară a malului)",
+        "impervious_left": {
+          "question": "Suprafețe impermeabile (stânga)",
+          "questiontext": "Mai mult de o treime din zona riverană stângă este acoperită de drumuri, trotuare, clădiri sau alte suprafețe impermeabile?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "impervious_right": {
+          "question": "Suprafețe impermeabile (dreapta)",
+          "questiontext": "Mai mult de o treime din zona riverană dreaptă este acoperită de drumuri, trotuare, clădiri sau alte suprafețe impermeabile?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetație (stânga)",
+          "questiontext": "Zona riverană stângă este acoperită de vegetație?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Tipul vegetației (stânga)",
+          "questiontext": "Ce vegetație domină, adică acoperă peste 50%, în zona riverană stângă (primii 5 m de la partea superioară a malului)?",
+          "labels": {
+            "Herbs (A)": "Ierburi (A)",
+            "Herbs (Α)": "Ierburi (A)",
+            "Shrubs (B)": "Arbuști (B)",
+            "Shrubs (Β)": "Arbuști (B)",
+            "Trees (C)": "Copaci (C)",
+            "I am not sure": "Nu sunt sigur"
+          },
+          "info": "Nu uita să privești vegetația din stânga când ești orientat în aval"
+        },
+        "vegetation_right": {
+          "question": "Vegetație (dreapta)",
+          "questiontext": "Zona riverană dreaptă este acoperită de vegetație?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Tipul vegetației (dreapta)",
+          "questiontext": "Ce vegetație domină, adică acoperă peste 50%, în zona riverană dreaptă (primii 5 m de la partea superioară a malului)?",
+          "labels": {
+            "Herbs (A)": "Ierburi (A)",
+            "Herbs (Α)": "Ierburi (A)",
+            "Shrubs (B)": "Arbuști (B)",
+            "Shrubs (Β)": "Arbuști (B)",
+            "Trees (C)": "Copaci (C)",
+            "I am not sure": "Nu sunt sigur"
+          },
+          "info": "Nu uita să privești vegetația din dreapta când ești orientat în aval"
+        },
+        "invasive_species": {
+          "question": "Specii invazive",
+          "questiontext": "Vezi specii de plante străine sau invazive?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          },
+          "placeholder": "Care?"
+        },
+        "vegetation_cut": {
+          "question": "Tăieri de vegetație",
+          "questiontext": "Vegetația de pe unul sau ambele maluri a fost tăiată recent, parțial sau total?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Nu",
+            "I am not sure": "Nu sunt sigur"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Oferă o evaluare generală a sănătății ecosistemului pârâului (alege o variantă)",
+        "good_quality": "Calitate bună",
+        "good_quality_description": "Elementele ecosistemului sunt prezente: vegetație riverană, albie naturală, apă de bună calitate și biodiversitate",
+        "moderate_quality": "Calitate moderată",
+        "moderate_quality_description": "Unele modificări, dar încă există biodiversitate și vegetație pe maluri, iar apa arată bine...",
+        "poor_quality": "Calitate slabă",
+        "poor_quality_description": "Foarte modificat sau artificial, pierderea vegetației riverane și a habitatelor, apă poluată"
+      },
+      "feelings": {
+        "question": "Ce sentimente descriu cel mai bine experiența ta?",
+        "info": "Cercetările arată că pâraiele pot influența emoțiile oamenilor.",
+        "instructions": "Glisează pe cursor pentru a evalua intensitatea trăirii. Un scor mai mare înseamnă un sentiment mai intens.",
+        "Joy": "Bucurie",
+        "Serenity": "Seninătate",
+        "Anger": "Furie",
+        "Fear": "Teamă",
+        "NotApplicable": "Nu se aplică"
+      },
+      "summary": {
+        "title": "Rezumatul trimiterii",
+        "research_site_label": "Loc de cercetare",
+        "coordinates_label": "Coordonate",
+        "photos_label": "Fotografii",
+        "video_label": "Videoclip",
+        "channel_form_label": "Forma albiei",
+        "bottom_type_label": "Tipul fundului",
+        "bank_type_label": "Tipul malului",
+        "habitats_label": "Habitate",
+        "natural_debris_label": "Resturi naturale",
+        "water_flow_label": "Debitul apei",
+        "water_quality_label": "Calitatea apei",
+        "water_abstraction_label": "Captarea apei",
+        "water_extraction_label": "Extragerea apei",
+        "draining_pipes_label": "Conducte de evacuare",
+        "barriers_label": "Bariere",
+        "construction_label": "Construcții",
+        "impervious_areas_left_label": "Suprafețe impermeabile (stânga)",
+        "impervious_areas_right_label": "Suprafețe impermeabile (dreapta)",
+        "vegetation_left_label": "Vegetație (stânga)",
+        "vegetation_right_label": "Vegetație (dreapta)",
+        "vegetation_cuts_label": "Tăieri de vegetație",
+        "invasive_species_label": "Specii invazive",
+        "feelings_label": "Sentimente",
+        "feelings": {
+          "joy": "Bucurie",
+          "serenity": "Seninătate",
+          "anger": "Furie",
+          "fear": "Teamă"
+        },
+        "water_height_label": "Înălțimea apei",
+        "overall_assessment_label": "Evaluare generală"
+      },
+      "my_submissions_list": {
+        "title": "Trimiteri pentru locuri de cercetare existente",
+        "longitude_label": "Longitudine",
+        "latitude_label": "Latitudine",
+        "research_site_label": "Loc de cercetare",
+        "created_label": "Creat la",
+        "overall_label": "Evaluare generală",
+        "actions_label": "Acțiuni",
+        "title2": "Trimiteri pentru locuri create",
+        "longitude_label_2": "Longitudine",
+        "latitude_label_2": "Latitudine",
+        "research_site_label_2": "Loc de cercetare",
+        "created_label_2": "Creat la",
+        "overall_label_2": "Evaluare generală",
+        "actions_label_2": "Acțiuni"
       }
     }
   }
