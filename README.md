@@ -2,6 +2,20 @@
 
 A Flutter field guide that helps citizens make clear, useful observations of urban streams and pass that evidence to OneAquaHealth researchers.
 
+## Try it
+
+APK download: APK_LINK_PLACEHOLDER
+
+The three fictional bundled accounts share password `Ripple2026!`:
+
+- `avery.current` or `avery.current@example.test`
+- `sam.brook` or `sam.brook@example.test`
+- `nuri.reed` or `nuri.reed@example.test`
+
+Demo mode needs no sign-in: choose **Look around first** during onboarding.
+Installation steps and the same test credentials are in
+[`JUDGES-TEST-LOGINS.txt`](JUDGES-TEST-LOGINS.txt).
+
 ## Before / Now
 
 The original citizen app exposed a long scientific form with raw research codes, limited guidance, English fallbacks inside partially translated flows, and registration before exploration. Network and server failures could also be difficult to interpret in the field.
