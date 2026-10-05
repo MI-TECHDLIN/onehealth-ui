@@ -20,7 +20,7 @@
   "modeLive": "Live",
   "modeIndicatorLabel": "{mode} data mode",
   "@modeIndicatorLabel": {
-    "description": "Accessible label for the persistent data-mode badge.",
+    "description": "Accessible label for the data-mode badge in Settings.",
     "placeholders": {"mode": {"type": "String"}}
   },
   "settingsDataMode": "Data mode",

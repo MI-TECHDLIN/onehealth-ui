@@ -5,6 +5,7 @@ import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
 import 'package:onehealth_ui/core/theme/app_theme.dart';
 import 'package:onehealth_ui/core/theme/tokens.dart';
+import 'package:onehealth_ui/core/widgets/mode_badge.dart';
 import 'package:onehealth_ui/debug/mascot_gallery_screen.dart';
 import 'package:onehealth_ui/main.dart';
 
@@ -104,7 +105,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Explore streams'), findsWidgets);
-    expect(find.text('DEMO'), findsOneWidget);
+    expect(find.text('DEMO'), findsNothing);
+    expect(find.byType(ModeBadge), findsNothing);
     expect(find.text('Check'), findsOneWidget);
 
     await tester.tap(find.text('Streams'));
@@ -115,9 +117,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(AppBar), findsOneWidget);
 
-    await tester.tap(find.text('DEMO'));
+    await tester.tap(find.byKey(const Key('shellSettingsButton')));
     await tester.pumpAndSettle();
     expect(find.text('Settings'), findsOneWidget);
+    expect(find.byType(ModeBadge), findsOneWidget);
 
     await tester.tap(find.text('Review Ripple moods'));
     await tester.pump();

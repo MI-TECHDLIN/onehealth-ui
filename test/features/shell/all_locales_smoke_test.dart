@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:onehealth_ui/core/localization/app_locale.dart';
 import 'package:onehealth_ui/core/settings/app_preferences.dart';
 import 'package:onehealth_ui/core/settings/app_settings_controller.dart';
-import 'package:onehealth_ui/core/widgets/mode_badge.dart';
 import 'package:onehealth_ui/main.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -59,7 +58,8 @@ void main() {
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull, reason: 'Profile/You');
 
-        await tester.tap(find.byType(ModeBadge));
+        expect(find.text('DEMO'), findsNothing);
+        await tester.tap(find.byKey(const Key('shellSettingsButton')));
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull, reason: 'Settings sheet');
       },
