@@ -19,7 +19,7 @@ The redesign does not change the scientific protocol or claim that one report tr
 ## Features
 
 - **Purpose before permissions:** five onboarding screens explain the problem, One Health, the field check, researcher use, and safe next steps before sign-in.
-- **Safe Demo and real Live modes:** Demo uses isolated local sites, history, drafts, and simulated submissions. Live requires a real OneAquaHealth account and uses the production API for sites, uploads, submissions, and account-scoped history. A persistent mode badge makes the distinction visible.
+- **Safe Demo and Live modes:** Demo uses isolated local sites, history, drafts, and simulated submissions. Live authentication temporarily uses bundled fictional judge accounts while the preserved remote sign-in path is disabled; Live sites and submissions still use the production API. Mode remains visible and switchable in Settings.
 - **Nine-step field protocol:** site selection; optional media; channel, bed, bank, habitat, debris, and flow observations; water and human alterations; left/right riparian observations; overall health; feelings; review and submit.
 - **Field evidence checks:** in-app camera and gallery capture, on-device compression, suggestions for dark, overexposed, blurry, or obstructed photos, four evidence roles, GPS accuracy/distance confirmation, and an 11-item completeness meter. Optional evidence remains optional.
 - **Offline-aware work:** the protocol is bundled, drafts persist locally, Demo works without a network, and failed Live submissions are queued with uploaded-file progress retained and retried after connectivity returns. Fresh Live site discovery and map tiles still require a network.
@@ -75,7 +75,16 @@ Camera, location, maps, notifications, and device text-to-speech are best review
 7. Review grouped answers and the completeness meter, submit in Demo, and read the evidence receipt.
 8. Open **You** to see the weekly rhythm and evidence badges. **Settings → Reset demo** restores the original walkthrough data without touching Live data.
 
-Live mode is separate. It redirects to sign-in, accepts only real OneAquaHealth accounts, and performs real uploads and submissions after confirmation.
+For the local sign-in walkthrough, choose **Get started** and use any one of
+these fictional accounts (all use password `Ripple2026!`):
+
+- `avery.current` or `avery.current@example.test`
+- `sam.brook` or `sam.brook@example.test`
+- `nuri.reed` or `nuri.reed@example.test`
+
+Live mode is separate. Its temporary bundled accounts work offline and retain
+their signed-in profile on the device. The remote sign-in implementation is
+preserved behind the local authentication switch for later reactivation.
 
 ## Architecture
 

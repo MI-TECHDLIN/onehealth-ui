@@ -1,8 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
+import '../../core/mode/app_mode.dart';
+import '../../core/settings/app_preferences.dart';
 import 'api_failure.dart';
 import 'jwt_session.dart';
 import 'live_api_client.dart';
@@ -40,6 +43,134 @@ class DemoAuthRepository implements AuthRepository {
   Future<void> signOut() async {
     _user = null;
   }
+}
+
+/// Temporary offline authentication against bundled fictional accounts.
+///
+/// [useRemoteAuthentication] is the single switch back to the preserved API
+/// sign-in path. Production currently leaves it false so judging does not
+/// depend on the remote community server.
+class LocalAccountsAuthRepository extends ChangeNotifier
+    implements AuthRepository {
+  LocalAccountsAuthRepository({
+    required AppPreferences preferences,
+    AssetBundle? assetBundle,
+    this.remoteRepository,
+    this.useRemoteAuthentication = false,
+  }) : _preferences = preferences,
+       _assetBundle = assetBundle ?? rootBundle;
+
+  static const String accountsAsset = 'assets/data/local_accounts.json';
+  static final String _signedInUsernameKey =
+      '${AppMode.live.storageNamespace}.auth.localUsername';
+
+  final AppPreferences _preferences;
+  final AssetBundle _assetBundle;
+  final AuthRepository? remoteRepository;
+  final bool useRemoteAuthentication;
+  List<_LocalAccount>? _accounts;
+
+  @override
+  Future<AuthUser?> currentUser() async {
+    if (useRemoteAuthentication) return remoteRepository?.currentUser();
+    final username = await _preferences.readString(_signedInUsernameKey);
+    if (username == null) return null;
+    final account = (await _loadAccounts()).where(
+      (candidate) => candidate.username == username,
+    );
+    if (account.isEmpty) {
+      await _preferences.remove(_signedInUsernameKey);
+      return null;
+    }
+    return account.first.toUser();
+  }
+
+  @override
+  Future<AuthUser> signIn({
+    required String username,
+    required String password,
+  }) async {
+    if (useRemoteAuthentication) {
+      final remote = remoteRepository;
+      if (remote == null) throw const ApiFailure(statusCode: 401);
+      final user = await remote.signIn(username: username, password: password);
+      notifyListeners();
+      return user;
+    }
+    final identifier = username.trim().toLowerCase();
+    final matches = (await _loadAccounts()).where(
+      (account) =>
+          (account.username.toLowerCase() == identifier ||
+              account.email.toLowerCase() == identifier) &&
+          account.password == password,
+    );
+    if (matches.isEmpty) throw const ApiFailure(statusCode: 401);
+    final account = matches.first;
+    await _preferences.writeString(_signedInUsernameKey, account.username);
+    notifyListeners();
+    return account.toUser();
+  }
+
+  @override
+  Future<void> signOut() async {
+    if (useRemoteAuthentication) {
+      await remoteRepository?.signOut();
+    } else {
+      await _preferences.remove(_signedInUsernameKey);
+    }
+    notifyListeners();
+  }
+
+  Future<List<_LocalAccount>> _loadAccounts() async {
+    final cached = _accounts;
+    if (cached != null) return cached;
+    final decoded = jsonDecode(await _assetBundle.loadString(accountsAsset));
+    final values = decoded is Map<String, dynamic> ? decoded['accounts'] : null;
+    if (values is! List) throw const FormatException('Invalid accounts asset.');
+    return _accounts = values
+        .whereType<Map>()
+        .map((value) => _LocalAccount.fromJson(Map<String, dynamic>.from(value)))
+        .toList(growable: false);
+  }
+}
+
+class _LocalAccount {
+  const _LocalAccount({
+    required this.displayName,
+    required this.username,
+    required this.email,
+    required this.password,
+    required this.region,
+    required this.memberSince,
+    required this.preferredLanguage,
+  });
+
+  factory _LocalAccount.fromJson(Map<String, dynamic> json) => _LocalAccount(
+    displayName: json['displayName'] as String,
+    username: json['username'] as String,
+    email: json['email'] as String,
+    password: json['password'] as String,
+    region: json['region'] as String,
+    memberSince: DateTime.parse(json['memberSince'] as String).toUtc(),
+    preferredLanguage: json['preferredLanguage'] as String,
+  );
+
+  final String displayName;
+  final String username;
+  final String email;
+  final String password;
+  final String region;
+  final DateTime memberSince;
+  final String preferredLanguage;
+
+  AuthUser toUser() => AuthUser(
+    username: username,
+    displayName: displayName,
+    email: email,
+    region: region,
+    memberSince: memberSince,
+    preferredLanguage: preferredLanguage,
+  );
 }
 
 class LiveAuthRepository extends ChangeNotifier implements AuthRepository {

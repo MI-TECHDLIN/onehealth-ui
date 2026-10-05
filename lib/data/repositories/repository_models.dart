@@ -6,12 +6,18 @@ class AuthUser {
     required this.username,
     required this.displayName,
     this.email,
+    this.region,
+    this.memberSince,
+    this.preferredLanguage,
     this.scopes = const <String>[],
   });
 
   final String username;
   final String displayName;
   final String? email;
+  final String? region;
+  final DateTime? memberSince;
+  final String? preferredLanguage;
   final List<String> scopes;
 }
 

@@ -93,9 +93,12 @@ Items 29-38 require on-device verification.
 Authentication, Live data, and avatars:
 39. Switch to Live while signed out - `/sign-in` opens and no Live site,
     reference, history, file, or submission request occurs before sign-in.
-40. Enter a wrong username/password - the inline concerned-Ripple banner says
-    the details did not match; it never says the session expired or shows a
-    status code/server response.
+    Sign in with a bundled judge username or email and its documented password;
+    the avatar setup opens and the same local profile remains signed in after a
+    restart, without a remote authentication request.
+40. Enter an unlisted username/email or a wrong password - the inline
+    concerned-Ripple banner says the details did not match; it never says the
+    session expired or shows a status code/server response.
 41. During a slow sign-in - controls are disabled, thinking Ripple appears, and
     “Signing you in…” is announced. Toggle password visibility before retrying.
 42. Complete a first successful sign-in - Choose your avatar appears once with

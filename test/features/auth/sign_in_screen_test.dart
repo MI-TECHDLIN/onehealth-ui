@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:onehealth_ui/core/mascot/aqua_mascot.dart';
 import 'package:onehealth_ui/core/settings/app_preferences.dart';
@@ -97,6 +100,64 @@ void main() {
     expect(find.textContaining('session timed out'), findsNothing);
     expect(find.textContaining('401'), findsNothing);
   });
+
+  testWidgets('a bundled local account signs in by email and persists', (
+    tester,
+  ) async {
+    final preferences = MemoryAppPreferences();
+    final auth = LocalAccountsAuthRepository(
+      preferences: preferences,
+      assetBundle: _StringAssetBundle(_localAccountsJson),
+    );
+    addTearDown(auth.dispose);
+    var completed = false;
+    await _pumpSignIn(tester, auth, onSignedIn: () => completed = true);
+
+    await tester.enterText(
+      find.byKey(const Key('authUsernameField')),
+      'avery.current@example.test',
+    );
+    await tester.enterText(
+      find.byKey(const Key('authPasswordField')),
+      'Ripple2026!',
+    );
+    await tester.tap(find.byKey(const Key('authSubmitButton')));
+    await tester.pumpAndSettle();
+
+    expect(completed, isTrue);
+    final user = await auth.currentUser();
+    expect(user?.displayName, 'Avery Current');
+    expect(user?.region, 'Porto District');
+  });
+}
+
+const String _localAccountsJson = '''
+{
+  "accounts": [
+    {
+      "displayName": "Avery Current",
+      "username": "avery.current",
+      "email": "avery.current@example.test",
+      "password": "Ripple2026!",
+      "region": "Porto District",
+      "memberSince": "2025-04-12",
+      "preferredLanguage": "English"
+    }
+  ]
+}
+''';
+
+class _StringAssetBundle extends CachingAssetBundle {
+  _StringAssetBundle(this.value);
+
+  final String value;
+
+  @override
+  Future<ByteData> load(String key) async {
+    expect(key, LocalAccountsAuthRepository.accountsAsset);
+    final bytes = Uint8List.fromList(utf8.encode(value));
+    return ByteData.view(bytes.buffer);
+  }
 }
 
 Future<void> _pumpSignIn(
