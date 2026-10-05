@@ -1,6 +1,6 @@
 # OneAquaHealth demo video
 
-The hackathon demo video (about 3:15, 1920x1080, 30 fps), made in code with
+The hackathon demo video (about 3:33, 1920x1080, 30 fps), made in code with
 [Remotion](https://www.remotion.dev). White background throughout, Ripple's
 Piper voice, burned-in captions, and "Before" (old app) vs "Now" (new app)
 phone frames side by side. The scene-by-scene script is in
@@ -51,14 +51,14 @@ The shot-to-file mapping lives in one place, `SHOTS` in
 
 1. Point `SHOTS` at the new files (`OAH_CAPTAIN_DIR` sets the source folder,
    default `/workspaces/firstmate/data/oah-video/`).
-2. Update `REDACTIONS` (the sign-in email box) and `TAP_DOTS` for the new
-   images, or empty `TAP_DOTS` if "show taps" was off.
+2. Update `REDACTIONS` (any real account details) and `TAP_DOTS` for the
+   new images, or empty `TAP_DOTS` if "show taps" was off.
 3. `python3 scripts/import_new_shots.py` (needs Pillow and NumPy), then
    `npm run render`. Adjust `now`, `zoom` and the narration in
    `src/scenes.json` if a scene gains or loses a screen.
 
-The import makes only two edits: the email bar on `04a`, and removal of
-Android's "show taps" dots (the phone's touch indicator, not app content).
+The import makes only two edits: bars over any real account details (none
+in the current set), and removal of Android's "show taps" dots (the phone's touch indicator, not app content).
 A dot is removed by inverting its alpha blend with the indicator sprite
 measured from these screenshots (`scripts/tap-dot-sprite.png`); its thin,
 nearly opaque ring is filled in from the pixels around it. It also writes the
@@ -68,23 +68,30 @@ six README stills (`screens/01-onboarding-purpose.png` ...).
 |---|---|---|
 | Welcome | 01a first onboarding screen (no splash shot) | 1, 2, 3 |
 | Onboarding | 02a-02d onboarding 2-5, with Listen and the safety reminder | none |
-| Language | 03a language picker | 5 |
-| Sign-in | 04a friendly error (wipe and zoom), 04b avatar picker | 22, 21, 23 |
-| Map | 05a map with pin preview, 05b "Which stream?" | 6, 7, 8 |
-| Questions | 06a Yes / No / I'm not sure (wipe), 06b water height | 10, 11, 12 |
-| Overall health | 08a overall assessment | 13, 14 |
-| Photos | 09a "Photograph the stream" (wipe) | 9 |
-| Submitted | 11a "Stream check submitted" | none |
-| Profile | 13a weekly rhythm and evidence badges | 20, 19, 17, 18 |
+| Language | 03a language picker, 03b profile in Arabic (right to left, zoom), 03c profile in Greek | 5 |
+| Sign-in | 04a friendly error, fictional account (wipe and zoom), 04b avatar picker | 22, 21, 23 |
+| Map | 05a home map (zoom on the filters), 05b "Which stream?" | 6, 7, 8 |
+| Questions (dark theme) | 06a-06c picture answers (wipe on 06a), 06d Yes / No / I'm not sure | 10, 11, 12 |
+| Overall health (dark) | 08a overall assessment | 13, 14 |
+| Photos (dark) | 09a "Photograph the stream" (wipe) | 9 |
+| Submitted | 11a "Stream check submitted", 11b "Your impact" (zoom) | none |
+| Profile | 13a profile details, 13b weekly rhythm and badges (zoom) | 20, 19, 17, 18 |
+| Settings | 14a gentle reminders, read-aloud, data mode | none |
+
+The questions, overall-health and photo screens are only available with
+picture answers in the dark theme, so those three beats run together in dark
+to avoid jumping between themes. `09r` (the light photo screen) is imported
+only for the README still.
 
 ### Redactions
 
 Only login details are hidden, with solid bars burned into the pixels (not a
 reversible blur): the account email on old #17 and #18 and the password field
-on old #23 (`REDACTIONS` in `scripts/prepare-assets.mjs`), and the account
-email in the new sign-in screenshot `04a` (`REDACTIONS` in
-`scripts/import_new_shots.py`, burned into the committed copy). Nothing else
-is blurred or covered.
+on old #23 (`REDACTIONS` in `scripts/prepare-assets.mjs`). The new sign-in
+screenshot uses a fictional account, so `REDACTIONS` in
+`scripts/import_new_shots.py` is empty; add a box there (it is burned into the
+committed copy) if a future screenshot shows real account details. Nothing
+else is blurred or covered.
 
 ### Zoom callouts
 
