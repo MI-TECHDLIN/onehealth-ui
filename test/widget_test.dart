@@ -111,6 +111,10 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('My streams'), findsWidgets);
 
+    await tester.tap(find.text('Check'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AppBar), findsOneWidget);
+
     await tester.tap(find.text('DEMO'));
     await tester.pumpAndSettle();
     expect(find.text('Settings'), findsOneWidget);

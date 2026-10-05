@@ -98,6 +98,7 @@ void main() {
     await _pumpProfile(tester, history: const <AssessmentRecord>[]);
 
     expect(find.byKey(const Key('profileGuestState')), findsOneWidget);
+    expect(find.byType(AppBar), findsNothing);
     expect(find.text('Exploring as a guest'), findsOneWidget);
     expect(find.text('Sign in'), findsOneWidget);
   });

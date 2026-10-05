@@ -35,6 +35,8 @@ Foundation shell, localization, and modes:
     Demo badge remains visible across all five main destinations.
 22. Use Home, Streams, Check, Impact, and You - each route opens, the selected
     destination uses a filled icon, and Check stays raised at the center.
+    Every destination has exactly one shell header; You and Check never stack
+    a second title bar beneath it.
     Impact shows totals derived from saved checks (submitted checks, distinct
     streams, and photos) plus tappable factual receipts; with no checks it
     shows a friendly "No checks yet" state with a Check a stream action.
@@ -101,7 +103,9 @@ Authentication, Live data, and avatars:
     session expired or shows a status code/server response.
 41. During a slow sign-in - controls are disabled, thinking Ripple appears, and
     “Signing you in…” is announced. Toggle password visibility before retrying.
-42. Complete a first successful sign-in - Choose your avatar appears once with
+42. Confirm Sign in and the first Choose your avatar view start directly on
+    their content with no empty dark app bar. Complete a first successful
+    sign-in - Choose your avatar appears once with
     a three-column grid of 12 centred, forward-facing, happy portraits; only the
     selected portrait is in colour and has a check. Confirm the set varies skin
     tone, hair, hijab, turban, facial hair, glasses, and clothing without any

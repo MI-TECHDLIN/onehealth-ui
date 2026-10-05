@@ -111,12 +111,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
       now: _now,
     );
 
-    return Scaffold(
-      appBar: AppBar(title: Text(strings.profileTitle)),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(AppSpacing.page),
-          children: <Widget>[
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.all(AppSpacing.page),
+        children: <Widget>[
             Center(
               child: Container(
                 width: 132,
@@ -188,8 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               acknowledged: _acknowledged,
               onAcknowledge: _acknowledge,
             ),
-          ],
-        ),
+        ],
       ),
     );
   }

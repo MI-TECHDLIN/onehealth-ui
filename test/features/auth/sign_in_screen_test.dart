@@ -20,6 +20,8 @@ void main() {
     final auth = _ControlledAuthRepository();
     await _pumpSignIn(tester, auth);
 
+    expect(find.byType(AppBar), findsNothing);
+
     TextField passwordField() => tester.widget<TextField>(
       find.descendant(
         of: find.byKey(const Key('authPasswordField')),
