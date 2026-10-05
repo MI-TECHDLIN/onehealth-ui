@@ -21,7 +21,8 @@
     "pl",
     "ro",
     "sv",
-    "fi"
+    "fi",
+    "hr"
   ],
   "localeStatus": {
     "en": {
@@ -86,6 +87,12 @@
     },
     "fi": {
       "name": "Suomi",
+      "coverage": "machine-assisted",
+      "fallbackLocale": "en",
+      "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
+    },
+    "hr": {
+      "name": "Hrvatski",
       "coverage": "machine-assisted",
       "fallbackLocale": "en",
       "note": "Complete machine-assisted translation pending review by a native-speaking domain expert."
@@ -6000,6 +6007,441 @@
         "created_label_2": "Luotu",
         "overall_label_2": "Kokonaisarvio",
         "actions_label_2": "Toiminnot"
+      }
+    },
+    "hr": {
+      "citizens_menu": {
+        "instructions": "Upute",
+        "instructions_title": "Upute za građansku znanost",
+        "new_observation": "Izradi novo opažanje",
+        "new_observation_title": "Novi doprinos građanskoj znanosti",
+        "my_submissions": "Moji doprinosi",
+        "my_submissions_title": "Moji doprinosi"
+      },
+      "title": "OneAquaHealth aplikacija za građansku znanost – upute za instalaciju",
+      "viewInstructions": "Prikaži upute",
+      "version": "OneAquaHealth aplikacija za građansku znanost – verzija 1.0",
+      "installation_modal": {
+        "title": "Instalacija OAH aplikacije za građansku znanost",
+        "intro": "Prije instalacije OAH aplikacije moraš se pridružiti <a href=\"https://www.oneaquahealth.eu/community/\" class=\"underline font-bold\" target=\"_blank\" rel=\"noopener noreferrer\">zajednici OneAquaHealth</a>.<br />Nakon registracije slijedi korake ispod i prijavi se dodijeljenom e-poštom i lozinkom.",
+        "step1_label": "Korak 1.",
+        "step1_desc": "Otvori preglednik na telefonu i posjeti:",
+        "step2_label": "Korak 2. Potraži poruku za instalaciju aplikacije:",
+        "step2_list_item1": "Ako se pojavi prozor s prijedlogom instalacije, slijedi upute na zaslonu.",
+        "step2_list_item2": "Ako nema poruke, prijeđi na sljedeći korak.",
+        "step3_label": "Korak 3. Dodaj na početni zaslon:",
+        "step3_ios": "<b>Za iOS (a):</b> Dodirni ikonu dijeljenja (okvir sa strelicom) pri dnu i odaberi <span class=\"font-semibold\">„Dodaj na početni zaslon”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture2.jpg\" alt=\"Primjer za iOS\" class=\"max-h-96\" /></div>",
+        "step3_android": "<b>Za Android (b):</b> Dodirni izbornik (tri točke) i odaberi <span class=\"font-semibold\">„Dodaj na početni zaslon”</span> ili <span class=\"font-semibold\">„Instaliraj aplikaciju”</span> <div class=\"flex items-center justify-center gap-6\"><img src=\"/citizen/instructions/Picture3.jpg\" alt=\"Primjer za Android\" class=\"max-h-96\" /> </div>",
+        "step4_label": "Korak 4.",
+        "step4_desc": "Potvrdi instalaciju dodirom na <span class=\"font-semibold\">„Dodaj”</span> ili <span class=\"font-semibold\">„Instaliraj”</span>",
+        "step5_label": "Korak 5.",
+        "step5_desc": "Pronađi ikonu nove aplikacije na početnom zaslonu i dodirni je za pokretanje",
+        "close": "Zatvori"
+      },
+      "app_intro_title": "Čemu služi ova aplikacija?",
+      "app_intro_text": "Aplikacija pomaže građanima prikupljati podatke o zdravlju gradskih potoka",
+      "before_submit": "Prije slanja",
+      "education": {
+        "title": "Što je gradski potok?",
+        "intro": "Gradski potoci su tekuće vode koje postoje uz gradski razvoj i često pripadaju većim slivovima. Ljudske aktivnosti mijenjaju njihova korita prekrivanjem i umjetnim materijalima, onečišćuju vodu i mijenjaju prirodnu vegetaciju obala.",
+        "healthy_streams": {
+          "title": "Zdravi ekosustavi potoka",
+          "content": "Zdrave potoke okružuje priobalna vegetacija čije korijenje može živjeti u vlažnom tlu. Potoci i vegetacija pružaju stanište vodenim i kopnenim životinjama, gljivama i mikroorganizmima. Ti organizmi sudjeluju u proizvodnji, kruženju hranjivih tvari i razgradnji organske tvari."
+        },
+        "ecosystem_services": {
+          "title": "Usluge ekosustava",
+          "content": "Dobro očuvani potoci poboljšavaju zrak, reguliraju temperaturu i vlagu i ublažavaju poplave. Pružaju i prirodna mjesta za odmor, druženje i obrazovanje o okolišu."
+        },
+        "key_concepts": {
+          "title": "Ključni pojmovi za procjenu potoka",
+          "downstream_direction": "Lijeva i desna obala i priobalni pojasevi određuju se gledajući nizvodno, u smjeru toka (slika 1)."
+        },
+        "figure1": {
+          "caption": "Slika 1. Lijeva (L) i desna (D) obala. Strelica pokazuje smjer toka."
+        },
+        "cross_section": {
+          "description": "Širina (slika 2) i dubina (slika 3) mjere se u presjeku okomitom na korito. Mogu varirati, pa mjesto mjerenja treba predstavljati prosječne uvjete."
+        },
+        "figure2": {
+          "caption": "Slika 2. Presjek potoka: A) vrh obale; B) obala; C) glavno mokro korito; D) smjer toka (pogled nizvodno); E) širina; F) dubina."
+        },
+        "figure3": {
+          "caption": "Slika 3. Mjerenje dubine ravnalom ili metrom."
+        },
+        "riparian_and_floodplain": {
+          "content": "Priobalni pojas nalazi se uz potok i prekriven je priobalnom vegetacijom. Zdrava vegetacija uključuje domaće biljke različitih visina, od trava do grmlja i drveća, prilagođene blizini vode (slika 4)."
+        },
+        "figure4": {
+          "caption": "Slika 4. Očuvan priobalni pojas: A) niski sloj trava, paprati, mahovina i lišajeva; B) sloj drvenastog grmlja do oko 6 m; C) gornji sloj zrelog drveća koje tvori krošnje."
+        },
+        "figure_description": "Poplavne ravnice prirodno se prekrivaju vodom za obilnih oborina. Poplave obogaćuju tlo hranjivim sedimentom (slika 5). Njihov oblik može se mijenjati pomicanjem glavnog korita zbog taloženja i erozije.",
+        "figure5": {
+          "caption": "Slika 5. A) Mokro korito; B) aktivna poplavna ravnica; C) regulacijska ravnica; D) geološka ravnica s rjeđim poplavama; E) terasa."
+        },
+        "forest_vs_urban_streams": {
+          "title": "Glavne razlike između šumskih i gradskih potoka",
+          "content": "Gradski razvoj povećava nepropusne površine na obalama i poplavnim ravnicama cestama, zgradama te betonom i asfaltom (slika 6). Voda ne prodire kao u šumi ili polju. Jaka kiša izaziva nagle poplave, štete i opasnost za ljude. Takve površine smanjuju obnavljanje podzemnih voda i pogoršavaju nestašicu, uz brane i zahvaćanje vode. Gradsko otjecanje i kanalizacijski preljevi dodatno onečišćuju potoke."
+        },
+        "figure6": {
+          "caption": "Slika 6. Propusne površine lijevo, djelomično nepropusne u sredini i nepropusne desno."
+        },
+        "oneaquahealth_project": {
+          "title": "Projekt OneAquaHealth i OAH aplikacija",
+          "content": "OneAquaHealth želi poboljšati ekološko stanje gradskih slatkovodnih ekosustava, podržati Jedno zdravlje i prepoznati rane znakove propadanja. Za bolje upravljanje razvijen je sustav praćenja okoliša s OAH aplikacijom. Aplikacija uključuje građane u praćenje, povećava znanje i podržava obnovu."
+        },
+        "onehealth": {
+          "title": "Što je Jedno zdravlje?",
+          "content": "Jedno zdravlje promiče održivo zdravlje ljudi, organizama i okoliša (slika 7). Očuvana priroda u gradovima daje čišći zrak i vodu te mirna mjesta za dobrobit. Zelene i plave površine blizu doma potiču izlazak, druženje i odmor. Gradski potoci često su skriveni, ali imaju velik potencijal. Obnovljeni prema načelu Jednog zdravlja mogu povezati zajednice."
+        },
+        "figure7": {
+          "caption": "Slika 7. Koncept Jednog zdravlja pokazuje povezanost zdravlja ljudi, organizama i okoliša. Preklapanja pokazuju potrebu za cjelovitim pristupom."
+        },
+        "what_you_can_do": {
+          "title": "Kako možeš pomoći?",
+          "content": "Ako imaš gradski potok u blizini, čak i skriven i jako izmijenjen betonskim zidovima, možeš pomoći brinuti se o njemu. Pogledaj korito, obale i priobalni pojas te pošalji podatke i fotografije aplikacijom. Na kraju odaberi ukupnu ocjenu:"
+        },
+        "quality": {
+          "good": "<strong>Dobra kvaliteta</strong> (dijelovi ekosustava prisutni su i dobro izgledaju: priobalna vegetacija, prirodno korito, dobra voda i bioraznolikost)",
+          "moderate": "<strong>Umjerena kvaliteta</strong> (neke promjene, ali još ima bioraznolikosti i vegetacije uz obale, a voda dobro izgleda...)",
+          "poor": "<strong>Loša kvaliteta</strong> (jako izmijenjen ili umjetan, velik gubitak vegetacije ili samo invazivne vrste, gubitak staništa i onečišćena voda)"
+        },
+        "submission_hint": "Za doprinos unesi tražene podatke i odaberi <strong>„Dalje”</strong> (vidi smjernice iznad)"
+      },
+      "step": "Korak",
+      "next": "Dalje",
+      "previous": "Natrag",
+      "submit": "Pošalji",
+      "basic_information": "Osnovni podaci",
+      "additional_details": "Dodatni podaci",
+      "media_upload": "Prijenos medija",
+      "questions_1_3_": "Pitanja (1/3)",
+      "questions_2_3_": "Pitanja (2/3)",
+      "questions_3_3_": "Pitanja (3/3)",
+      "feedback_1_2": "Povratna informacija (1/2)",
+      "feedback_2_2": "Povratna informacija (2/2)",
+      "review_submit": "Pregledaj i pošalji",
+      "select_from_my_sites": "Odaberi iz mojih lokacija",
+      "enter_longitude": "Unesi zemljopisnu dužinu",
+      "enter_latitude": "Unesi zemljopisnu širinu",
+      "enter_site_name": "Unesi naziv lokacije",
+      "longitude": "Zemljopisna dužina",
+      "latitude": "Zemljopisna širina",
+      "site_name": "Naziv lokacije",
+      "site_selection": {
+        "title": "Odaberi gradske potoke OneAquaHealth za procjenu (prikazana je udaljenost)",
+        "description": "Dodaj novu lokaciju"
+      },
+      "media": {
+        "title": "Odaberi slike",
+        "upstream_photo_label": "Fotografija uzvodno",
+        "upstream_photo_description": "Fotografija uzvodno",
+        "downstream_photo_label": "Fotografija nizvodno",
+        "downstream_photo_description": "Fotografija nizvodno",
+        "context_photo_label": "Fotografija okoline",
+        "context_photo_description": "Fotografija okoline (kuće, ceste...)",
+        "biodiversity_photo_label": "Fotografija zanimljivog elementa bioraznolikosti",
+        "biodiversity_photo_description": "Fotografija zanimljivog elementa bioraznolikosti (biljka, životinja, gljiva ili drugo)",
+        "video_label": "Snimi kratak video (5 ili 10 sekundi)",
+        "video_description": "Snimi kratak video (5 ili 10 sekundi)",
+        "select_file_button": "Odaberi datoteku"
+      },
+      "questions_1_3": {
+        "title": "Što vidiš s mjesta na kojem stojiš (u otprilike 100 m)?",
+        "channel_form": {
+          "question": "Oblik korita",
+          "questiontext": "Oblik korita je…",
+          "labels": {
+            "Flat (Α)": "Ravan (A)",
+            "Flat (A)": "Ravan (A)",
+            "U Shape (Β)": "U-oblik (B)",
+            "U Shape (B)": "U-oblik (B)",
+            "V Shape (C)": "V-oblik (C)",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "bottom_type": {
+          "question": "Vrsta dna",
+          "questiontext": "Dno mokrog korita je…",
+          "labels": {
+            "Natural (A)": "Prirodno (A)",
+            "Natural (Α)": "Prirodno (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Umjetno (beton ili kamenje s betonom) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Umjetno (beton ili kamenje s betonom) (B)",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "bank_type": {
+          "question": "Vrsta obale",
+          "questiontext": "Obale korita su…",
+          "labels": {
+            "Natural (A)": "Prirodne (A)",
+            "Natural (Α)": "Prirodne (A)",
+            "Artificial (concrete or stones with concrete) (B)": "Umjetne (beton ili kamenje s betonom) (B)",
+            "Artificial (concrete or stones with concrete) (Β)": "Umjetne (beton ili kamenje s betonom) (B)",
+            "Layed stones with no concrete (C)": "Posloženo kamenje bez betona (C)",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "habitats": {
+          "question": "Staništa",
+          "questiontext": "Prisutna staništa su…",
+          "questiontextshow": "Ima li staništa?",
+          "options": {
+            "Sand banks (A)": "Pješčani sprudovi (A)",
+            "Sand banks (Α)": "Pješčani sprudovi (A)",
+            "Sand islands (B)": "Pješčani otoci (B)",
+            "Sand islands (Β)": "Pješčani otoci (B)",
+            "Stone deposits (C)": "Naslage kamenja (C)",
+            "Riffles, rapids, falls (D)": "Brzaci, slapovi ili padovi (D)",
+            "Aquatic vegetation (E)": "Vodena vegetacija (E)"
+          },
+          "info": "Možeš odabrati više vrsta staništa. Prvo označi kućicu, zatim sva prepoznata staništa."
+        },
+        "natural_debris": {
+          "question": "Prirodni ostaci",
+          "questiontext": "Postoje…",
+          "questiontextshow": "Ima li prirodnih ostataka?",
+          "labels": {
+            "Fallen trees (A)": "Pala stabla (A)",
+            "Fallen trees (Α)": "Pala stabla (A)",
+            "Fallen branches (B)": "Pale grane (B)",
+            "Fallen branches (Β)": "Pale grane (B)",
+            "Deposits of fallen leaves (C)": "Naslage otpalog lišća (C)"
+          },
+          "info": "Možeš odabrati više vrsta prirodnih ostataka. Prvo označi kružić, zatim sve što prepoznaš."
+        },
+        "water_flow": {
+          "question": "Tok vode",
+          "questiontext": "Kako voda teče?",
+          "labels": {
+            "Fast (with waves or high velocity) (A)": "Brzo (s valovima ili velikom brzinom) (A)",
+            "Fast (with waves or high velocity) (Α)": "Brzo (s valovima ili velikom brzinom) (A)",
+            "Slow (B)": "Sporo (B)",
+            "Slow (Β)": "Sporo (B)",
+            "Stagnant/intermittent (C)": "Stajaće ili povremeno (C)",
+            "Dry (D)": "Suho (D)",
+            "I am not sure": "Nisam siguran"
+          }
+        }
+      },
+      "questions_2_3": {
+        "water_aspect_labels": {
+          "question": "Izgled vode",
+          "questiontext": "Kako voda izgleda?",
+          "labels": {
+            "Clear/transparent (A)": "Bistra ili prozirna (A)",
+            "Clear/transparent (Α)": "Bistra ili prozirna (A)",
+            "Muddy/turbid (B)": "Blatna ili mutna (B)",
+            "Muddy/turbid (Β)": "Blatna ili mutna (B)",
+            "Has foam (C)": "Ima pjenu (C)",
+            "Has colors/altered color (D)": "Ima boju ili promijenjenu boju (D)",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "water_withdrawal": {
+          "question": "Zahvaćanje vode",
+          "questiontext": "Vidi li se prikupljanje, korištenje ili uklanjanje vode iz potoka?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "barriers": {
+          "question": "Prepreke",
+          "questiontext": "Vidiš li brane ili druge umjetne poprečne prepreke? Pogledaj primjere na slikama.",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "draining_pipes": {
+          "question": "Odvodne cijevi",
+          "questiontext": "Postoje li cijevi koje ispuštaju onečišćenu vodu u potok?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "sewage_discharge": {
+          "question": "Ispuštanje otpadnih voda",
+          "questiontext": "Postoji li dotok ili ispuštanje otpadnih voda?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "construction": {
+          "question": "Građevinski radovi",
+          "questiontext": "Postoje li radovi u potoku ili uz njega?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "water_height": {
+          "question": "Visina vode",
+          "questiontext": "Kolika je visina vode?",
+          "placeholder": "Unesi visinu vode",
+          "info": "Procijeni u metrima (m) i upotrijebi točku (.) kao decimalni znak (npr. 1.5 m)."
+        }
+      },
+      "questions_3_3": {
+        "title": "U priobalnom pojasu (5–10 m od vrha obale)",
+        "impervious_left": {
+          "question": "Nepropusne površine (lijevo)",
+          "questiontext": "Pokrivaju li ceste, pločnici, zgrade ili druge nepropusne površine više od trećine lijevog priobalnog pojasa?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "impervious_right": {
+          "question": "Nepropusne površine (desno)",
+          "questiontext": "Pokrivaju li ceste, pločnici, zgrade ili druge nepropusne površine više od trećine desnog priobalnog pojasa?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "vegetation_left": {
+          "question": "Vegetacija (lijevo)",
+          "questiontext": "Je li lijevi priobalni pojas prekriven vegetacijom?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "vegetation_type_left": {
+          "question": "Vrsta vegetacije (lijevo)",
+          "questiontext": "Koja vegetacija prevladava, odnosno pokriva više od 50% lijevog priobalnog pojasa (prvih 5 m od vrha obale)?",
+          "labels": {
+            "Herbs (A)": "Trave (A)",
+            "Herbs (Α)": "Trave (A)",
+            "Shrubs (B)": "Grmlje (B)",
+            "Shrubs (Β)": "Grmlje (B)",
+            "Trees (C)": "Drveće (C)",
+            "I am not sure": "Nisam siguran"
+          },
+          "info": "Ne zaboravi pogledati vegetaciju lijevo dok gledaš nizvodno"
+        },
+        "vegetation_right": {
+          "question": "Vegetacija (desno)",
+          "questiontext": "Je li desni priobalni pojas prekriven vegetacijom?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        },
+        "vegetation_type_right": {
+          "question": "Vrsta vegetacije (desno)",
+          "questiontext": "Koja vegetacija prevladava, odnosno pokriva više od 50% desnog priobalnog pojasa (prvih 5 m od vrha obale)?",
+          "labels": {
+            "Herbs (A)": "Trave (A)",
+            "Herbs (Α)": "Trave (A)",
+            "Shrubs (B)": "Grmlje (B)",
+            "Shrubs (Β)": "Grmlje (B)",
+            "Trees (C)": "Drveće (C)",
+            "I am not sure": "Nisam siguran"
+          },
+          "info": "Ne zaboravi pogledati vegetaciju desno dok gledaš nizvodno"
+        },
+        "invasive_species": {
+          "question": "Invazivne vrste",
+          "questiontext": "Vidiš li strane ili invazivne biljne vrste?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          },
+          "placeholder": "Koje?"
+        },
+        "vegetation_cut": {
+          "question": "Sječa vegetacije",
+          "questiontext": "Je li vegetacija na jednoj ili obje obale nedavno djelomično ili potpuno posječena?",
+          "labels": {
+            "Yes": "Da",
+            "No": "Ne",
+            "I am not sure": "Nisam siguran"
+          }
+        }
+      },
+      "stream_health": {
+        "question": "Daj ukupnu procjenu zdravlja ekosustava potoka (odaberi jednu mogućnost)",
+        "good_quality": "Dobra kvaliteta",
+        "good_quality_description": "Dijelovi ekosustava su prisutni: priobalna vegetacija, prirodno korito, dobra voda i bioraznolikost",
+        "moderate_quality": "Umjerena kvaliteta",
+        "moderate_quality_description": "Neke promjene, ali još ima bioraznolikosti i vegetacije uz obale; voda dobro izgleda...",
+        "poor_quality": "Loša kvaliteta",
+        "poor_quality_description": "Jako izmijenjen ili umjetan, gubitak priobalne vegetacije i staništa, onečišćena voda"
+      },
+      "feelings": {
+        "question": "Koji osjećaji najbolje opisuju tvoje iskustvo?",
+        "info": "Istraživanja pokazuju da potoci mogu utjecati na ljudske osjećaje.",
+        "instructions": "Povuci klizač za jačinu osjećaja. Viša ocjena znači snažniji osjećaj.",
+        "Joy": "Radost",
+        "Serenity": "Spokoj",
+        "Anger": "Ljutnja",
+        "Fear": "Strah",
+        "NotApplicable": "Nije primjenjivo"
+      },
+      "summary": {
+        "title": "Sažetak prijave",
+        "research_site_label": "Istraživačka lokacija",
+        "coordinates_label": "Koordinate",
+        "photos_label": "Fotografije",
+        "video_label": "Video",
+        "channel_form_label": "Oblik korita",
+        "bottom_type_label": "Vrsta dna",
+        "bank_type_label": "Vrsta obale",
+        "habitats_label": "Staništa",
+        "natural_debris_label": "Prirodni ostaci",
+        "water_flow_label": "Tok vode",
+        "water_quality_label": "Kvaliteta vode",
+        "water_abstraction_label": "Zahvaćanje vode",
+        "water_extraction_label": "Uklanjanje vode",
+        "draining_pipes_label": "Odvodne cijevi",
+        "barriers_label": "Prepreke",
+        "construction_label": "Građevinski radovi",
+        "impervious_areas_left_label": "Nepropusne površine (lijevo)",
+        "impervious_areas_right_label": "Nepropusne površine (desno)",
+        "vegetation_left_label": "Vegetacija (lijevo)",
+        "vegetation_right_label": "Vegetacija (desno)",
+        "vegetation_cuts_label": "Sječa vegetacije",
+        "invasive_species_label": "Invazivne vrste",
+        "feelings_label": "Osjećaji",
+        "feelings": {
+          "joy": "Radost",
+          "serenity": "Spokoj",
+          "anger": "Ljutnja",
+          "fear": "Strah"
+        },
+        "water_height_label": "Visina vode",
+        "overall_assessment_label": "Ukupna procjena"
+      },
+      "my_submissions_list": {
+        "title": "Prijave za postojeće istraživačke lokacije",
+        "longitude_label": "Zemljopisna dužina",
+        "latitude_label": "Zemljopisna širina",
+        "research_site_label": "Istraživačka lokacija",
+        "created_label": "Izrađeno",
+        "overall_label": "Ukupna procjena",
+        "actions_label": "Radnje",
+        "title2": "Prijave za izrađene lokacije",
+        "longitude_label_2": "Zemljopisna dužina",
+        "latitude_label_2": "Zemljopisna širina",
+        "research_site_label_2": "Istraživačka lokacija",
+        "created_label_2": "Izrađeno",
+        "overall_label_2": "Ukupna procjena",
+        "actions_label_2": "Radnje"
       }
     }
   }
