@@ -123,6 +123,10 @@ This file is the project's committed home for project-intrinsic agent knowledge:
   the official source while es/de/pl/ro/bg/tr/uk/ar/fi/sv/hr is
   machine-assisted and pending review by native-speaking domain experts; keep
   that distinction in `localeStatus` until review is recorded.
+- `assessment-content.json` keeps locale-independent option codes/names in its
+  root `referenceData`, outside `contentByLocale`; `AssessmentContentSource`
+  must carry that table into localized content or every choice list silently
+  parses empty (including illustrated cards whose SVG assets are otherwise valid).
 - Read-aloud on assessment questions goes through
   `AssessmentNarrationController` (`lib/core/audio/`), which wraps the
   existing screen-agnostic `ReadAloudService` (Piper, English today --

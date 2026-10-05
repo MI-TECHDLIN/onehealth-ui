@@ -208,7 +208,8 @@ Round 4: stream-check question flow (`lib/features/check/`):
 66. Work through channel form, bottom type, and bank type - each renders a
     2-column grid of the original illustrated cards (never OneAquaHealth's
     own photos), plus an "I'm not sure" link beneath that shows a short
-    coaching line once tapped.
+    coaching line once tapped. Confirm Water Flow also renders all four text
+    choices rather than an empty gap.
 67. On Habitats and Natural Debris - the screen opens on a Yes/No gate
     ("Are there any habitats present?"); tapping Yes reveals the
     multi-select chip list, tapping No skips straight past with nothing

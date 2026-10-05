@@ -82,6 +82,28 @@ Future<void> _tapNext(WidgetTester tester) async {
 }
 
 void main() {
+  testWidgets('renders illustrated cards and water-flow answer chips', (
+    tester,
+  ) async {
+    await _pumpShell(tester);
+
+    expect(find.byType(PictureChoiceCard), findsNWidgets(3));
+    expect(find.text('Flat (A)'), findsOneWidget);
+    expect(find.text('U Shape (B)'), findsOneWidget);
+    expect(find.text('V Shape (C)'), findsOneWidget);
+
+    for (var i = 0; i < 5; i++) {
+      await _tapNext(tester);
+    }
+
+    expect(find.text('How is the water flowing'), findsOneWidget);
+    expect(find.text('Fast (with waves or high velocity) (A)'), findsOneWidget);
+    expect(find.text('Slow (B)'), findsOneWidget);
+    expect(find.text('Stagnant/intermittent (C)'), findsOneWidget);
+    expect(find.text('Dry (D)'), findsOneWidget);
+    expect(find.byType(AquaFilterChip), findsNWidgets(4));
+  });
+
   testWidgets('starts on the first question and Next/Back navigate between pages', (
     tester,
   ) async {
