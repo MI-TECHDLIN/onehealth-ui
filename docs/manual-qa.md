@@ -272,7 +272,10 @@ reminders (`lib/features/streams/`, `lib/features/profile/`,
     alone); in Demo mode, Willow Bend Stream/Old Mill Brook/Meadow Gate
     Creek show seeded past checks even with no real history yet; in Live
     mode only your own checks for that exact site appear.
-83. On Profile ("You"), confirm "Checks this season" and "Streams covered"
+83. On Profile ("You"), confirm a signed-in bundled account shows its display
+    name, username, email, region, member-since date, and language. In Demo,
+    confirm a friendly "Exploring as a guest" card offers Sign in instead of
+    blank fields. Confirm "Checks this season" and "Streams covered"
     match your own history, and the weekly rhythm card shows "This week:
     done"/"not yet" plus the current run of weeks - check in during two
     consecutive weeks, skip one week, then check in again: the run keeps

@@ -333,6 +333,14 @@
 
   "profileStatsChecksThisSeason": "Checks this season",
   "profileStatsStreamsCovered": "Streams covered",
+  "profileDetailsTitle": "Profile details",
+  "profileMemberSince": "Member since {date}",
+  "@profileMemberSince": {
+    "description": "The date when the local account joined.",
+    "placeholders": {"date": {"type": "String"}}
+  },
+  "profileGuestTitle": "Exploring as a guest",
+  "profileGuestBody": "Sign in to see your local profile details here.",
   "profileRhythmTitle": "Weekly rhythm",
   "profileRhythmThisWeekDone": "This week: done",
   "profileRhythmThisWeekPending": "This week: not yet",
