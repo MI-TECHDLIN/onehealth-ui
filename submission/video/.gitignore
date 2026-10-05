@@ -1,0 +1,6 @@
+node_modules/
+audio/
+out/
+public/generated/
+src/generated.ts
+.work/
