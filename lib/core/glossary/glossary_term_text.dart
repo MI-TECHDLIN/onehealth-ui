@@ -32,9 +32,10 @@ class GlossaryTermText extends StatelessWidget {
     }
 
     final baseStyle = style ?? DefaultTextStyle.of(context).style;
+    final locale = Localizations.localeOf(context);
     final matches = <(int, int, GlossaryTerm)>[];
     for (final term in terms) {
-      for (final match in term.matchPattern.allMatches(text)) {
+      for (final match in term.matchPatternFor(locale).allMatches(text)) {
         matches.add((match.start, match.end, term));
       }
     }
