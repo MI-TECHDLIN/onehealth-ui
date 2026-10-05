@@ -64,6 +64,31 @@ The submission screenshots are produced with the demo video and live under `subm
 
 Expected files are `01-onboarding-purpose.png`, `02-home-map.png`, `03-field-question.png`, `04-evidence-checks.png`, `05-review.png`, and `06-profile-impact.png`. No placeholder or fabricated screenshots are stored in this branch.
 
+### More screenshots
+
+Real captures from the app on an Android phone (the only edit is removing the phone's touch-indicator dots).
+
+<table>
+  <tr>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/sign-in-friendly-error.png" width="220" alt="Sign-in: a plain-language error"><br><sub>Sign-in: a plain-language error</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/avatar-picker.png" width="220" alt="Avatar picker"><br><sub>Avatar picker</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/arabic-right-to-left.png" width="220" alt="Arabic, right to left"><br><sub>Arabic, right to left</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/greek-profile.png" width="220" alt="Greek"><br><sub>Greek</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/settings-data-mode-reminders.png" width="220" alt="Settings: Demo/Live, read-aloud, gentle reminders"><br><sub>Settings: Demo/Live, read-aloud, gentle reminders</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/weekly-rhythm-badges.png" width="220" alt="Weekly rhythm and evidence badges"><br><sub>Weekly rhythm and evidence badges</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/question-channel-bottom.png" width="220" alt="Picture answers: channel bottom"><br><sub>Picture answers: channel bottom</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/question-banks.png" width="220" alt="Picture answers: banks"><br><sub>Picture answers: banks</sub></td>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/question-impervious-areas.png" width="220" alt="Impervious areas: Yes / No / I’m not sure"><br><sub>Impervious areas: Yes / No / I’m not sure</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/overall-health-dark.png" width="220" alt="Overall health (dark theme)"><br><sub>Overall health (dark theme)</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/photograph-stream-dark.png" width="220" alt="Photograph the stream (dark theme)"><br><sub>Photograph the stream (dark theme)</sub></td>
+    <td align="center" valign="top"><img src="submission/video/screens/gallery/your-impact-dark.png" width="220" alt="Your impact (dark theme)"><br><sub>Your impact (dark theme)</sub></td>
+  </tr>
+</table>
+
 ## Build and run
 
 The project targets Flutter 3.41.7 stable with Dart 3.11.5.

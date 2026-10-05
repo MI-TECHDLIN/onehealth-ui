@@ -46,6 +46,7 @@ SHOTS = {
     '13a': 'Screenshot_20261005-123949.png',  # profile details, signed in
     '13b': 'Screenshot_20261005-124114.png',  # profile as guest: rhythm and badges
     '14a': 'Screenshot_20261005-124117.png',  # settings: reminders, read-aloud, data mode
+    '11d': 'Screenshot_20261005-124423.png',  # your impact, dark theme (gallery only)
 }
 
 # Solid bars in source pixels over any real account details.
@@ -69,7 +70,7 @@ TAP_DOTS = {
     '05a': [(499, 1108), (300, 1124), (281, 1379)],
     '05b': [(251, 1117), (514, 1102), (171, 1357)],
     '06a': [(463, 1093), (224, 1135), (171, 1436)],
-    '06b': [(273, 1007), (226, 1269)],
+    '06b': [(273, 1007), (226, 1269), (503, 964, 1.03)],
     '06c': [(594, 1054), (389, 1092), (361, 1349)],
     '06d': [(233, 1448, 1.03), (243, 1190, 1.03), (485, 1170, 1.03)],
     '08a': [(292, 1475), (258, 1262), (480, 1102)],
@@ -80,6 +81,7 @@ TAP_DOTS = {
     '13a': [(283, 1074), (480, 1084), (281, 1342)],
     '13b': [(568, 1222), (350, 1234), (360, 1460)],
     '14a': [(502, 1087), (311, 1122), (307, 1360)],
+    '11d': [(304, 1354), (516, 1353), (235, 1418)],
 }
 # The indicator itself, measured from these screenshots (a white-background and a
 # teal-button dot at full strength): RGB = overlay colour, A = its opacity.
@@ -169,6 +171,24 @@ README_STILLS = {
 }
 
 
+# README "More screenshots" gallery: compact copies under screens/gallery/.
+GALLERY = {
+    'sign-in-friendly-error.png': '04a',
+    'avatar-picker.png': '04b',
+    'arabic-right-to-left.png': '03b',
+    'greek-profile.png': '03c',
+    'settings-data-mode-reminders.png': '14a',
+    'weekly-rhythm-badges.png': '13b',
+    'question-channel-bottom.png': '06b',
+    'question-banks.png': '06c',
+    'question-impervious-areas.png': '06d',
+    'overall-health-dark.png': '08a',
+    'photograph-stream-dark.png': '09a',
+    'your-impact-dark.png': '11d',
+}
+GALLERY_WIDTH = 480
+
+
 def main() -> None:
     (SCREENS / 'new').mkdir(parents=True, exist_ok=True)
     for shot, name in SHOTS.items():
@@ -184,6 +204,12 @@ def main() -> None:
     for still, shot in README_STILLS.items():
         Image.open(SCREENS / 'new' / f'{shot}.png').save(SCREENS / still, optimize=True)
         print(f'{still} <- {shot}.png')
+    (SCREENS / 'gallery').mkdir(exist_ok=True)
+    for still, shot in GALLERY.items():
+        image = Image.open(SCREENS / 'new' / f'{shot}.png')
+        image = image.resize((GALLERY_WIDTH, round(image.height * GALLERY_WIDTH / image.width)), Image.LANCZOS)
+        image.quantize(256, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).save(SCREENS / 'gallery' / still, optimize=True)
+        print(f'gallery/{still} <- {shot}.png')
 
 
 if __name__ == '__main__':

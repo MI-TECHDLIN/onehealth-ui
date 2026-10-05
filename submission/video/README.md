@@ -62,7 +62,7 @@ in the current set), and removal of Android's "show taps" dots (the phone's touc
 A dot is removed by inverting its alpha blend with the indicator sprite
 measured from these screenshots (`scripts/tap-dot-sprite.png`); its thin,
 nearly opaque ring is filled in from the pixels around it. It also writes the
-six README stills (`screens/01-onboarding-purpose.png` ...).
+six README stills (`screens/01-onboarding-purpose.png` ...) and the smaller copies for the README gallery (`screens/gallery/`, set by `GALLERY`).
 
 | Scene | Now (`screens/new/`) | Before (old #) |
 |---|---|---|
